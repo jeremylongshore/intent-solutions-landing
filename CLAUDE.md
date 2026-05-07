@@ -83,20 +83,20 @@ Pages are static Astro files; interactive sections use React islands with `clien
 
 ```
 User submits form → POST /api/forms/contact (or /api/forms/partner)
-  → Caddy reverse_proxy on tonsofskills VPS to 127.0.0.1:8090
+  → Caddy reverse_proxy on the VPS to 127.0.0.1:8090
   → forms-api.service (Node, /srv/forms-api/server.mjs)
-  → Honeypot check + zod validation + per-IP rate limit
-  → SQLite insert (/srv/forms-api/forms.db) [B3 follow-up]
-  → Slack webhook (operation-hired channel)
-  → Resend email: thank-you + lead notification [B3 follow-up]
+  → Honeypot check + lightweight enum validation + per-IP rate limit (3/hr on lead forms)
+  → Slack webhook (#operation-hired) with all submitted fields formatted as a block
   → Return JSON response
 ```
+
+**Slack-only by design.** No Resend email auto-reply, no SQLite persistence — Slack is the source of truth for lead notifications. The submitter sees a thank-you message in the form UI; Jeremy gets the structured Slack ping.
 
 **Caddy block** (in `/etc/caddy/Caddyfile`):
 - `handle /api/forms/* { reverse_proxy 127.0.0.1:8090 }` (must come BEFORE the static `handle { ... }` block — see runbook tonsofskills-forms-api.md for the directive-ordering gotcha)
 - Frontend was migrated from `/api/contact`+`/api/partner` to `/api/forms/contact`+`/api/forms/partner` on 2026-05-07.
 
-The legacy Cloud Functions (`submitContact`, `submitPartnerInquiry`) in `astro-site/functions/` remain in the tree as reference for the canonical zod schemas and Resend email templates, but are no longer deployed.
+The legacy Cloud Functions (`submitContact`, `submitPartnerInquiry`) in `astro-site/functions/` remain in the tree as reference for the canonical zod schemas, but are no longer deployed.
 
 ### Cloud Functions
 
