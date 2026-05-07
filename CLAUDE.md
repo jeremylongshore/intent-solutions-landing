@@ -21,8 +21,9 @@ After upgrading `bd`: run `bd info --whats-new` and `bd hooks install` if warned
 Intent Solutions landing page — **Discovery-first engagement model**. Three core offerings: **Learn with Jeremy**, **Consulting**, and **Building (Claude Code Systems)**. No public pricing — potential clients book a discovery call.
 
 - **Active Project**: `astro-site/` (Astro 5.14 + React 19 + Tailwind 4)
-- **GCP Project**: `intent-landing-page`
-- **Deployed at**: https://intentsolutions.io (Firebase Hosting)
+- **Hosting**: Contabo VPS `intentsolutions` (167.86.106.29) via Caddy `file_server` at `/srv/intentsolutions/dist`. Deploy: push to `main` triggers `.github/workflows/deploy-vps.yml` (Tailscale OIDC + force-command SSH `/usr/local/sbin/deploy-intentsolutions`). Migration off Firebase landed 2026-05-07.
+- **GCP Project (legacy)**: `intent-landing-page` — billing disabled; Firebase Hosting + Functions retired. `firebase-deploy.yml` renamed to `.disabled`.
+- **Deployed at**: https://intentsolutions.io
 - **Plugin Marketplace**: https://claudecodeplugins.io (270+ plugins)
 - **Booking Link**: https://calendar.app.google/Wqbt8EJuEh5xvvV58
 - **Proof Points**: 1,550+ GitHub stars, 270+ plugins, 1,537 agent skills, only external Google Agent Starter Pack contributor, 20+ years ops
@@ -78,21 +79,24 @@ Pages are static Astro files; interactive sections use React islands with `clien
 - **React Islands**: `src/components/*.tsx` — Interactive sections with Framer Motion + GSAP
 - **Styles**: `src/styles/global.css` — Tailwind 4 + charcoal slate theme
 
-### Form Submission Flow (Firebase)
+### Form Submission Flow (VPS forms-api)
 
 ```
-User submits form → POST /api/contact (or /api/partner)
-  → Firebase Hosting rewrites to Cloud Function
-  → Rate limit check (IP-based, Firestore-backed, 3 req/hr)
-  → Zod validation + honeypot check
-  → Save to Firestore `contactSubmissions`
-  → Send emails via Resend API (thank-you + lead notification)
+User submits form → POST /api/forms/contact (or /api/forms/partner)
+  → Caddy reverse_proxy on tonsofskills VPS to 127.0.0.1:8090
+  → forms-api.service (Node, /srv/forms-api/server.mjs)
+  → Honeypot check + zod validation + per-IP rate limit
+  → SQLite insert (/srv/forms-api/forms.db) [B3 follow-up]
+  → Slack webhook (operation-hired channel)
+  → Resend email: thank-you + lead notification [B3 follow-up]
   → Return JSON response
 ```
 
-**Firebase Hosting Rewrites** (in `firebase.json`):
-- `/api/contact` → `submitContact` function
-- `/api/partner` → `submitPartnerInquiry` function
+**Caddy block** (in `/etc/caddy/Caddyfile`):
+- `handle /api/forms/* { reverse_proxy 127.0.0.1:8090 }` (must come BEFORE the static `handle { ... }` block — see runbook tonsofskills-forms-api.md for the directive-ordering gotcha)
+- Frontend was migrated from `/api/contact`+`/api/partner` to `/api/forms/contact`+`/api/forms/partner` on 2026-05-07.
+
+The legacy Cloud Functions (`submitContact`, `submitPartnerInquiry`) in `astro-site/functions/` remain in the tree as reference for the canonical zod schemas and Resend email templates, but are no longer deployed.
 
 ### Cloud Functions
 
