@@ -705,7 +705,7 @@ import Footer from '../components/Footer';
     submitBtn.textContent = 'sending...';
 
     try {
-      const response = await fetch('/api/partner', {
+      const response = await fetch('/api/forms/partner', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),

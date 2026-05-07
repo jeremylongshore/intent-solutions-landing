@@ -1,0 +1,75 @@
+name: Deploy intentsolutions.io to VPS
+
+# Push to main → CI → Tailscale OIDC → SSH to intentsolutions VPS →
+# /usr/local/sbin/deploy-intentsolutions force-command does
+# git fetch + npm ci + astro build + atomic rsync to /srv/intentsolutions/dist.
+#
+# Replaces firebase-deploy.yml (disabled). See VPS-as-the-home Priority 7
+# Stage C and intentsolutions-vps-runbook/docs/onboard-new-repo-deploy.md.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'astro-site/**'
+      - '.github/workflows/deploy-vps.yml'
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  id-token: write   # required for Tailscale OIDC
+
+concurrency:
+  group: deploy-vps-${{ github.repository }}
+  cancel-in-progress: false
+
+jobs:
+  test:
+    name: pre-deploy gate
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: astro-site
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Astro site
+        run: npm run build
+
+      - name: Verify build artifacts
+        run: |
+          test -f dist/index.html
+          test -f dist/healthz
+          # Compressed-HTML guardrail (iOS Safari fails on > 5000-char lines)
+          MAX_LINE=$(wc -L dist/index.html | awk '{print $1}')
+          if [ "$MAX_LINE" -gt 5000 ]; then
+            echo "ERROR: HTML line too long ($MAX_LINE chars)."
+            exit 1
+          fi
+          echo "build artifacts present (max line: $MAX_LINE chars)"
+
+  deploy:
+    needs: test
+    uses: jeremylongshore/.github/.github/workflows/vps-deploy.yml@709a07fbebb1d51806e171204e63f5332abcb0da
+    with:
+      variant: static
+      srv-path: /srv/intentsolutions
+      health-check-url: https://intentsolutions.io/healthz
+      vps-tailnet-ip: 100.88.144.55
+      vps-public-ip: 167.86.106.29
+      vps-host: intentsolutions
+      vps-user: intentsolutions
+      smoke-validation: '.ok == true'
+    secrets:
+      TS_OIDC_CLIENT_ID: ${{ secrets.TS_OIDC_CLIENT_ID }}
+      TS_AUDIENCE: ${{ secrets.TS_AUDIENCE }}
+      VPS_DEPLOY_KEY: ${{ secrets.VPS_DEPLOY_KEY }}
+      VPS_HOST_KEY: ${{ secrets.VPS_HOST_KEY }}
