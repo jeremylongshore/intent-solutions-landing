@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SiteNav from '../components/SiteNav.astro';
+import Footer from '../components/Footer';
+---
+
+<Layout
+  title="Page Not Found (404) | Intent Solutions"
+  description="The page you were looking for doesn't exist or has moved."
+  noindex={true}
+>
+  <SiteNav />
+
+  <main class="min-h-[60vh] bg-zinc-950 flex items-center justify-center px-6">
+    <div class="max-w-xl w-full text-center py-24">
+      <p class="text-sm font-semibold tracking-[0.28em] uppercase text-zinc-500 mb-4">
+        Error 404
+      </p>
+      <h1 class="text-hero font-bold text-zinc-50 mb-4">Page not found</h1>
+      <p class="text-zinc-400 mb-10">
+        The page you're looking for doesn't exist or has moved. Let's get you back on track.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-3">
+        <a href="/" class="btn-primary btn-sm">Back to Home</a>
+        <a href="/field-notes/" class="btn-secondary btn-sm">Field Notes</a>
+        <a href="/contact/" class="btn-secondary btn-sm">Contact</a>
+      </div>
+    </div>
+  </main>
+
+  <Footer client:load />
+</Layout>

@@ -184,7 +184,7 @@ export default function MvpShowcase({ isOpen, onClose }: MvpShowcaseProps) {
                 {/* CTAs */}
                 <div className="flex flex-wrap gap-4">
                   <a
-                    href="/agents"
+                    href="/agents/"
                     className="btn-primary text-sm"
                     onClick={onClose}
                   >

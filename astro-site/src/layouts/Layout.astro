@@ -7,6 +7,7 @@ interface Props {
   description?: string;
   ogImage?: string;
   canonical?: string;
+  noindex?: boolean;
 }
 
 const {
@@ -14,10 +15,36 @@ const {
   description = 'Model-agnostic AI agents, private AI infrastructure, and workflow automation. Vertex-first security, discovery-led engagements, no vendor lock-in.',
   ogImage = `${Astro.site}og-image.svg`,
   canonical,
+  noindex = false,
 } = Astro.props;
 
 // Use explicit canonical if provided (syndicated content), otherwise generate from current URL
 const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site).toString();
+
+// Site-level structured data (emitted once on every page). Organization +
+// WebSite establish the brand entity and enable sitelinks search box / brand
+// knowledge panel. Claims kept accurate — no LocalBusiness/address.
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://intentsolutions.io';
+const siteJsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Intent Solutions',
+    url: `${siteUrl}/`,
+    logo: `${siteUrl}/favicon.svg`,
+    sameAs: [
+      'https://github.com/jeremylongshore',
+      'https://linkedin.com/in/jeremylongshore',
+      'https://claudecodeplugins.io',
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Intent Solutions',
+    url: `${siteUrl}/`,
+  },
+];
 ---
 
 <!doctype html>
@@ -38,6 +65,8 @@ const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site).toStri
       title={title}
       description={description}
       canonical={canonicalURL}
+      noindex={noindex}
+      nofollow={noindex}
       openGraph={{
         basic: {
           title: title,
@@ -57,6 +86,9 @@ const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site).toStri
         image: ogImage,
       }}
     />
+
+    <!-- Site-level structured data (Organization + WebSite) -->
+    <script type="application/ld+json" set:html={JSON.stringify(siteJsonLd)} />
 
     <!-- Firebase SDK + Analytics -->
     <script type="module">
