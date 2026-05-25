@@ -42,7 +42,7 @@ const jsonLd = {
 
         <div class="space-y-6">
           {posts.map((post) => (
-            <a href={`/field-notes/${post.id.replace(/\.md$/, '')}`} class="card-slate block group">
+            <a href={`/field-notes/${post.id.replace(/\.md$/, '')}/`} class="card-slate block group">
               <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-2">
                 <h2 class="text-lg font-semibold text-zinc-100 group-hover:text-zinc-50 transition-smooth">
                   {post.data.title}

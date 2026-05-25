@@ -44,6 +44,13 @@ jobs:
       - name: Build Astro site
         run: npm run build
 
+      - name: Indexability regression guard
+        # Asserts sitemap/canonical/title/robots/404 invariants from
+        # 000-docs search-console-indexing-audit. Fails the deploy if a change
+        # reintroduces soft-404s, off-domain canonicals in the sitemap, or
+        # duplicate titles. See scripts/audit-indexability.mjs.
+        run: npm run audit:indexability
+
       - name: Verify build artifacts
         run: |
           test -f dist/index.html

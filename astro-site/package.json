@@ -7,6 +7,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "audit:indexability": "node scripts/audit-indexability.mjs",
     "test": "playwright test",
     "test:ui": "playwright test --ui",
     "test:headed": "playwright test --headed",
@@ -22,6 +23,7 @@
   "dependencies": {
     "@astrojs/react": "^4.4.0",
     "@astrojs/rss": "^4.0.17",
+    "@astrojs/sitemap": "^3.7.2",
     "@formspree/react": "^3.0.0",
     "@hookform/resolvers": "^5.2.2",
     "@phosphor-icons/react": "^2.1.10",

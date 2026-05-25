@@ -2,26 +2,26 @@ const CYAN     = 'rgb(34 211 238)';
 const CYAN_DIM = 'rgba(34,211,238,0.55)';
 
 const navLinks = [
-  { label: 'Learn', href: '/learn' },
-  { label: 'Colab', href: '/colab' },
-  { label: 'Agents', href: '/agents' },
-  { label: 'Private AI', href: '/private-ai' },
-  { label: 'Automation', href: '/automation' },
-  { label: 'Cloud & Data', href: '/cloud' },
-  { label: 'Resellers', href: '/resellers' },
+  { label: 'Learn', href: '/learn/' },
+  { label: 'Colab', href: '/colab/' },
+  { label: 'Agents', href: '/agents/' },
+  { label: 'Private AI', href: '/private-ai/' },
+  { label: 'Automation', href: '/automation/' },
+  { label: 'Cloud & Data', href: '/cloud/' },
+  { label: 'Resellers', href: '/resellers/' },
 ];
 
 const resourceLinks = [
-  { label: 'Field Notes', href: '/field-notes' },
+  { label: 'Field Notes', href: '/field-notes/' },
   { label: 'Claude Code Plugins', href: 'https://claudecodeplugins.io', external: true },
   { label: 'GitHub', href: 'https://github.com/jeremylongshore', external: true },
   { label: 'Cowork Accelerator', href: 'https://whop.com/claude-code-cowork-accelerator/', external: true },
 ];
 
 const legalLinks = [
-  { label: 'Terms of Service', href: '/terms' },
-  { label: 'Privacy Policy', href: '/privacy' },
-  { label: 'Acceptable Use', href: '/acceptable-use' },
+  { label: 'Terms of Service', href: '/terms/' },
+  { label: 'Privacy Policy', href: '/privacy/' },
+  { label: 'Acceptable Use', href: '/acceptable-use/' },
 ];
 
 function FooterLink({

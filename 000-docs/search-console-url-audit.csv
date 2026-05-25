@@ -1,0 +1,24 @@
+url,status_code,final_url,is_redirect,canonical_url,canonical_is_self,in_sitemap,issue_detected,recommended_fix
+https://intentsolutions.io/,200,https://intentsolutions.io/,no,https://intentsolutions.io/,yes,yes,none,none
+https://intentsolutions.io/contact,308,https://intentsolutions.io/contact/,yes,https://intentsolutions.io/contact/,yes,no(slash form in sitemap),Page with redirect (no-slash legacy URL indexed),Internal links now point to slash form; old no-slash 308s by design
+https://intentsolutions.io/contact/,200,https://intentsolutions.io/contact/,no,https://intentsolutions.io/contact/,yes,yes,zero H1 on page,Added semantic H1 in contact.astro hero
+https://intentsolutions.io/learn,308,https://intentsolutions.io/learn/,yes,https://intentsolutions.io/learn/,yes,no(slash form in sitemap),Page with redirect,Internal links fixed to slash form
+https://intentsolutions.io/learn/,200,https://intentsolutions.io/learn/,no,https://intentsolutions.io/learn/,yes,yes,none,none
+https://intentsolutions.io/agents,308,https://intentsolutions.io/agents/,yes,https://intentsolutions.io/agents/,yes,no(slash form in sitemap),Page with redirect,Internal links fixed to slash form
+https://intentsolutions.io/automation,308,https://intentsolutions.io/automation/,yes,https://intentsolutions.io/automation/,yes,no(slash form in sitemap),Page with redirect,Internal links fixed to slash form
+https://intentsolutions.io/cloud,308,https://intentsolutions.io/cloud/,yes,https://intentsolutions.io/cloud/,yes,no(slash form in sitemap),Page with redirect,Internal links fixed to slash form
+https://intentsolutions.io/private-ai,308,https://intentsolutions.io/private-ai/,yes,https://intentsolutions.io/private-ai/,yes,no(slash form in sitemap),Page with redirect,Internal links fixed to slash form
+https://intentsolutions.io/colab,308,https://intentsolutions.io/colab/,yes,https://intentsolutions.io/colab/,yes,no(slash form in sitemap),Page with redirect,Internal links fixed to slash form
+https://intentsolutions.io/projects,308,https://intentsolutions.io/projects/,yes,https://intentsolutions.io/projects/,yes,no(slash form in sitemap),Page with redirect,Internal links fixed to slash form
+https://intentsolutions.io/about,308,https://intentsolutions.io/about/,yes,https://intentsolutions.io/about/,yes,no(slash form in sitemap),Page with redirect,Internal links fixed to slash form
+https://intentsolutions.io/field-notes,308,https://intentsolutions.io/field-notes/,yes,https://intentsolutions.io/field-notes/,yes,no(slash form in sitemap),Page with redirect,Internal links fixed to slash form
+https://intentsolutions.io/field-notes/,200,https://intentsolutions.io/field-notes/,no,https://intentsolutions.io/field-notes/,yes,yes,none,none
+https://intentsolutions.io/infrastructure/,200,https://intentsolutions.io/infrastructure/,no,https://intentsolutions.io/infrastructure/,yes,yes,Duplicate title with /private-ai/,Gave distinct title "Cloud Infrastructure in Your Own Account"
+https://intentsolutions.io/private-ai/,200,https://intentsolutions.io/private-ai/,no,https://intentsolutions.io/private-ai/,yes,yes,Duplicate title (was shared with /infrastructure/),Retained "Private AI Infrastructure"; /infrastructure/ retitled
+https://intentsolutions.io/survey,200(soft),https://intentsolutions.io/,no(soft-404 homepage),n/a,n/a,no,Lost Firebase 301; soft-404 to homepage,Restored Caddy 301 /survey -> /
+https://intentsolutions.io/learn/pricing,200(soft),https://intentsolutions.io/,no(soft-404 homepage),n/a,n/a,no,Lost Firebase 301; soft-404 to homepage,Restored Caddy 301 /learn/pricing -> /learn/
+https://intentsolutions.io/this-does-not-exist-xyz,200(soft),https://intentsolutions.io/,no(soft-404 homepage),homepage canonical,no,no,Soft-404: unmatched paths return homepage at 200,Caddy handle_errors -> real 404.html with 404 status
+https://www.intentsolutions.io/,200,https://www.intentsolutions.io/,no,https://intentsolutions.io/,no,no,www not 301-consolidated to non-www,Caddy 301 www -> non-www
+https://intentsolutions.io/sitemap-index.xml,200(soft),homepage HTML,no,n/a,n/a,n/a,No sitemap existed (served homepage HTML),Generated via @astrojs/sitemap
+https://intentsolutions.io/robots.txt,200(soft),homepage HTML,no,n/a,n/a,n/a,No robots.txt existed (served homepage HTML),Added public/robots.txt referencing sitemap
+https://intentsolutions.io/field-notes/honest-perf-benchmarks-paid-api-compiler/,200,same,no,https://startaitools.com/posts/honest-perf-benchmarks-paid-api-compiler/,no(off-domain by design),no(excluded),Alternate page with proper canonical tag (intentional cross-post),Excluded from sitemap; remains intentional alternate
