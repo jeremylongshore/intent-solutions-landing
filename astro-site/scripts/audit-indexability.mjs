@@ -13,6 +13,7 @@
 
 import { readFileSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 
 const SITE_HOST = 'intentsolutions.io';
 const distDir = fileURLToPath(new URL('../dist/', import.meta.url));
@@ -22,7 +23,7 @@ const errors = [];
 const fail = (msg) => errors.push(msg);
 
 // ── Locate sitemap ──────────────────────────────────────────────────────────
-const sitemapPath = `${distDir}sitemap-0.xml`;
+const sitemapPath = join(distDir, 'sitemap-0.xml');
 if (!existsSync(sitemapPath)) {
   console.error(`FATAL: ${sitemapPath} not found — did the build run with @astrojs/sitemap?`);
   process.exit(1);
@@ -35,7 +36,7 @@ if (urls.length === 0) fail('sitemap-0.xml contains zero <loc> entries');
 function urlToFile(url) {
   const { pathname } = new URL(url);
   const clean = pathname.replace(/^\/+/, '').replace(/\/+$/, '');
-  return clean === '' ? `${distDir}index.html` : `${distDir}${clean}/index.html`;
+  return clean === '' ? join(distDir, 'index.html') : join(distDir, clean, 'index.html');
 }
 
 function extractCanonical(html) {
@@ -104,7 +105,7 @@ for (const url of urls) {
 }
 
 // ── Artifact existence ───────────────────────────────────────────────────────
-const robotsPath = `${distDir}robots.txt`;
+const robotsPath = join(distDir, 'robots.txt');
 if (!existsSync(robotsPath)) {
   fail('dist/robots.txt missing');
 } else {
@@ -113,7 +114,7 @@ if (!existsSync(robotsPath)) {
     fail('dist/robots.txt does not reference a sitemap');
   }
 }
-if (!existsSync(`${distDir}404.html`)) fail('dist/404.html missing');
+if (!existsSync(join(distDir, '404.html'))) fail('dist/404.html missing');
 
 // ── Report ───────────────────────────────────────────────────────────────────
 if (errors.length > 0) {

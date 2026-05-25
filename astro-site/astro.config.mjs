@@ -1,7 +1,6 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import { readdirSync, readFileSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
 
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
@@ -19,18 +18,24 @@ const SITE_HOST = 'intentsolutions.io';
 // `filter`. Self-canonical (or canonical-less, defaults to on-domain) posts and
 // the /field-notes/ index stay in the sitemap.
 function offDomainFieldNoteUrls() {
-  const dir = fileURLToPath(new URL('./src/content/field-notes', import.meta.url));
+  // URL object keeps path construction cross-platform; readdir/readFile accept it.
+  const dir = new URL('./src/content/field-notes/', import.meta.url);
   /** @type {Set<string>} */
   const excluded = new Set();
   let files;
   try {
-    files = readdirSync(dir).filter((f) => f.endsWith('.md'));
+    files = readdirSync(dir).filter((f) => f.endsWith('.md') || f.endsWith('.mdx'));
   } catch {
     return excluded;
   }
   for (const file of files) {
-    const slug = file.replace(/\.md$/, '');
-    const raw = readFileSync(`${dir}/${file}`, 'utf8');
+    const slug = file.replace(/\.mdx?$/, '');
+    let raw;
+    try {
+      raw = readFileSync(new URL(file, dir), 'utf8');
+    } catch {
+      continue;
+    }
     const fm = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/);
     if (!fm) continue;
     const canonMatch = fm[1].match(/^canonical:\s*["']?([^"'\n]+)["']?\s*$/m);
