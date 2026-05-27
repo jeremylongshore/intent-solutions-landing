@@ -287,7 +287,7 @@ export default function ClaudeCodeTiers() {
             className="font-medium transition-colors duration-300 hover:text-cyan-300"
             style={{ color: CYAN }}
           >
-            270+ open-source plugins
+            430+ open-source plugins
           </a>
         </motion.p>
 

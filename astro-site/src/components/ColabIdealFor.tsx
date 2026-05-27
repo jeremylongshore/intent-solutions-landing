@@ -46,7 +46,7 @@ const humanApprovalPolicy = [
 
 const whatIBring = [
   {
-    title: '270+ Claude Code plugins',
+    title: '430+ Claude Code plugins',
     description: 'The largest public plugin collection at claudecodeplugins.io',
   },
   {

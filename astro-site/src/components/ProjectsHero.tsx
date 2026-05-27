@@ -3,7 +3,7 @@ import { useInView } from 'react-intersection-observer';
 
 const stats = [
   { value: '17', label: 'Active Projects' },
-  { value: '258+', label: 'Claude Code Plugins' },
+  { value: '430+', label: 'Claude Code Plugins' },
   { value: '8', label: 'Vertex AI Agents' },
 ];
 

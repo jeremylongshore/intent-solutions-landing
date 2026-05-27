@@ -27,13 +27,13 @@ const STARS = [
 ];
 
 const STATS = [
-  { value: '1,550+', label: 'GitHub Stars'  },
-  { value: '270+',   label: 'Plugins Built' },
-  { value: '1,537',  label: 'Agent Skills'  },
+  { value: '2,200+', label: 'GitHub Stars'  },
+  { value: '430+',   label: 'Plugins Built' },
+  { value: '2,750+',  label: 'Agent Skills'  },
 ];
 
 const FOCUS = [
-  '270+ plugins · 1,550+ GitHub stars · 1,537 agent skills',
+  '430+ plugins · 2,200+ GitHub stars · 2,750+ agent skills',
   'team configuration and workflow optimization',
   'only external contributor to Google Agent Starter Pack',
 ];
@@ -283,7 +283,7 @@ export default function Hero() {
                 <span className="transition-colors duration-300 group-hover:text-cyan-300" style={{ color: CYAN }}>
                   explore
                 </span>
-                <span>270+ plugins</span>
+                <span>430+ plugins</span>
                 <span className="transition-transform duration-300 group-hover:translate-x-0.5">→</span>
               </a>
             </motion.div>
