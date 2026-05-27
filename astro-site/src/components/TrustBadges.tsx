@@ -5,16 +5,16 @@ import AnimatedCounter from './AnimatedCounter';
 const CYAN = 'rgb(34 211 238)';
 
 const stats = [
-  { value: 1550, suffix: '+', label: 'GitHub Stars',   decimals: 0 },
-  { value: 270,  suffix: '+', label: 'Plugins Built',  decimals: 0 },
-  { value: 1537, suffix: '',  label: 'Agent Skills',   decimals: 0 },
+  { value: 2200, suffix: '+', label: 'GitHub Stars',   decimals: 0 },
+  { value: 430,  suffix: '+', label: 'Plugins Built',  decimals: 0 },
+  { value: 2750, suffix: '+', label: 'Agent Skills',   decimals: 0 },
   { value: 20,   suffix: '+', label: 'Years in Ops',   decimals: 0 },
 ];
 
 const badges = [
   { title: 'Google Cloud',    description: 'Agent Starter Pack contributor' },
   { title: 'Model Agnostic',  description: 'No vendor lock-in' },
-  { title: 'Open Source',     description: '1,550+ GitHub stars' },
+  { title: 'Open Source',     description: '2,200+ GitHub stars' },
   { title: 'Discovery-First', description: 'No surprise pricing' },
 ];
 

@@ -11,8 +11,8 @@ export default function Products() {
     {
       name: 'Claude Code Plugins Hub',
       description:
-        '270+ plugins with 1,537 agent skills, CCPI package manager, and interactive tutorials—1,550+ GitHub stars, 186 forks, community-driven.',
-      badge: 'Python • Open Source • 1,550★',
+        '430+ plugins with 2,750+ agent skills, CCPI package manager, and interactive tutorials—2,200+ GitHub stars, 300+ forks, community-driven.',
+      badge: 'Python • Open Source • 2,200★',
       link: 'https://github.com/jeremylongshore/claude-code-plugins-plus-skills',
     },
     {
