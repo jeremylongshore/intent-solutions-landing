@@ -101,6 +101,37 @@ They render on intentsolutions.io but canonicalize to startaitools.com. This is
 from the sitemap and will **remain** as alternates in GSC. Do not request indexing for
 them here.
 
+## 4a. "Blocked by robots.txt" on subdomains — also intentional (2026-06-09)
+
+GSC's *Blocked by robots.txt* category started appearing 2026-06-09. Verified
+diagnosis:
+
+| Host | `/robots.txt` content | Verdict |
+|---|---|---|
+| `intentsolutions.io` | `User-agent: *` + `Allow: /` + sitemap ref | fully permissive — does not block anything |
+| `analytics.intentsolutions.io` (Umami) | `User-agent: *` + `Allow: /q/` + **`Disallow: /`** | **intentional** — Umami dashboard must not be indexed |
+| `projects.intentsolutions.io` (Plane) | returns `text/html` SPA at `/robots.txt` | Google treats as "no robots.txt → allow all" (not flagged) |
+| `crm.intentsolutions.io` (Twenty) | returns `text/html` SPA at `/robots.txt` | same as Plane |
+| `partners.intentsolutions.io` | empty (basicauth-gated) | not flagged |
+
+**Source of discovery**: Certificate Transparency / DNS, not internal links —
+verified no `analytics.intentsolutions.io` reference in any `src/` file or live HTML.
+
+**Why this surfaces in GSC**: the property is a *domain* property (covers all
+subdomains). Google's crawler discovers subdomains via CT logs, tries
+`analytics.intentsolutions.io/`, sees Umami's `Disallow: /`, reports it as
+"Blocked by robots.txt." This is **expected behavior, not a bug**.
+
+**Do not "fix"** by removing Umami's `Disallow: /` — that would expose the
+analytics dashboard to indexing, which is the opposite of what we want.
+
+**Recommended GSC action**: accept the report as intentional. There's no
+"Validate Fix" because nothing is broken. The flagged entries will eventually
+drop off as Google deprioritizes them. If the noise is intolerable, switch the
+GSC property from *Domain* to *URL prefix* (`https://intentsolutions.io/`),
+which excludes subdomains. Or verify each subdomain separately and explicitly
+mark it as expected.
+
 ## 5. Manual Search Console follow-up (Jeremy, after deploy)
 
 1. Resubmit `sitemap-index.xml`.
