@@ -719,9 +719,9 @@ import Footer from '../components/Footer';
           </div>
         `;
 
-        // Track in Firebase Analytics
-        if ((window as any).gtag) {
-          (window as any).gtag('event', 'form_submit', {
+        // Track in Umami (self-hosted at analytics.intentsolutions.io)
+        if ((window as any).umami) {
+          (window as any).umami.track('form_submit', {
             form_name: 'partner-inquiry',
             interest: data.interest,
           });
