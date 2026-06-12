@@ -7,7 +7,7 @@ import { useState } from 'react';
 
 declare global {
   interface Window {
-    gtag?: (command: string, eventName: string, params?: Record<string, unknown>) => void;
+    umami?: { track: (eventName: string, props?: Record<string, unknown>) => void };
   }
 }
 
@@ -161,7 +161,7 @@ export default function Contact() {
         throw new Error(errorData.error || `Form submission failed with status ${response.status}`);
       }
 
-      window.gtag?.('event', 'form_submit', {
+      window.umami?.track('form_submit', {
         form_name: 'enhanced_contact',
         interest:  data.interest,
         budget:    data.budget,

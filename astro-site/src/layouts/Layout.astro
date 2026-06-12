@@ -90,42 +90,16 @@ const siteJsonLd = [
     <!-- Site-level structured data (Organization + WebSite) -->
     <script type="application/ld+json" set:html={JSON.stringify(siteJsonLd)} />
 
-    <!-- Firebase SDK + Analytics -->
-    <script type="module">
-      import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
-      import { getAnalytics, logEvent } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-analytics.js';
-
-      const firebaseConfig = {
-        apiKey: "AIzaSyCH8-EGKwCy8_bKNtAWVu_hRerd5FxiEXI",
-        authDomain: "intent-landing-page.firebaseapp.com",
-        projectId: "intent-landing-page",
-        storageBucket: "intent-landing-page.firebasestorage.app",
-        messagingSenderId: "1026912966122",
-        appId: "1:1026912966122:web:7038f374734aba87680e93"
-      };
-
-      try {
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-
-        // Make gtag-style function available for form tracking
-        window.firebaseAnalytics = analytics;
-        window.gtag = function(command, eventName, params) {
-          if (command === 'event') {
-            logEvent(analytics, eventName, params);
-          }
-        };
-
-        // Log page view
-        logEvent(analytics, 'page_view', {
-          page_title: document.title,
-          page_location: window.location.href,
-          page_path: window.location.pathname,
-        });
-      } catch (e) {
-        console.warn('Firebase Analytics not available:', e);
-      }
-    </script>
+    <!-- Umami analytics — self-hosted at analytics.intentsolutions.io (Intent
+         Solutions VPS). Replaces the Firebase Analytics block on 2026-06-10 to
+         remove the last GCP dependency from the marketing site. Umami auto-
+         tracks page views; emit custom events with window.umami.track(name, props). -->
+    <script
+      defer
+      src="https://analytics.intentsolutions.io/script.js"
+      data-website-id="474bce85-f97d-409c-aba5-1e1ff36ee571"
+      data-domains="intentsolutions.io"
+    ></script>
   </head>
   <body>
     <slot />
