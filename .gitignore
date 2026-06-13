@@ -51,3 +51,9 @@ Thumbs.db
 # Dolt database files (added by bd init)
 .dolt/
 *.db
+
+# Local agent / tooling state — never committed
+.claude/
+.beads/.beads-credential-key
+.beads/export-state.json
+.beads/push-state.json
