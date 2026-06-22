@@ -98,7 +98,6 @@ The legacy `astro-site/functions/` Cloud Functions directory was removed on 2026
 ### Testing Infrastructure
 
 - Playwright config at `astro-site/playwright.config.ts`. `tests/` contains `fixtures/`, `helpers.cjs`, `PRE-LAUNCH-CHECKLIST.md`, `TESTING-QUICK-START.md`, and artifact dirs — no `*.spec.*` files yet (spec scaffolding still needed).
-- Legacy `playwright-netlify.config.cjs` exists alongside the primary `playwright.config.ts` — the `test:api` script targets the netlify config.
 - Test server auto-starts on port 8080 (`bun run dev --port 8080`).
 - Projects: Desktop Chrome/Firefox/Safari, iPhone 12/12 Pro, Pixel 5, iPad Pro.
 - Failure artifacts: `tests/screenshots/`, `tests/videos/`, `tests/reports/`.

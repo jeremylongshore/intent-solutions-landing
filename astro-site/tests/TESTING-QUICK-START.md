@@ -66,9 +66,6 @@ npm run test:ui
 ```bash
 # Run only form submission tests
 npm test tests/form-submission.spec.js
-
-# Run only Netlify API tests (requires credentials)
-npm run test:api
 ```
 
 ### Run on Specific Browsers

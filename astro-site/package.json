@@ -17,8 +17,7 @@
     "test:firefox": "playwright test --project=firefox",
     "test:webkit": "playwright test --project=webkit",
     "test:mobile": "playwright test --project='Mobile Chrome' --project='Mobile Safari'",
-    "test:all": "npm run test && npm run test:mobile",
-    "test:api": "playwright test tests/netlify-api.spec.js"
+    "test:all": "npm run test && npm run test:mobile"
   },
   "dependencies": {
     "@astrojs/react": "^4.4.0",
