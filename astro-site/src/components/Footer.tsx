@@ -119,7 +119,7 @@ export default function Footer() {
                   color: 'rgb(228 228 231)',
                 }}
               >
-                intent solutions io
+                Intent <span style={{ color: '#FF7A1A' }}>Solutions</span>
               </span>
             </div>
 
