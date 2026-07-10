@@ -291,6 +291,58 @@
   }
 }
 
+/* ── Testimonials: 3-up grid on desktop, swipe carousel on mobile ── */
+.tst-track {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.tst-dots { display: none; }
+
+@media (max-width: 768px) {
+  .tst-track {
+    display: flex;
+    grid-template-columns: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    margin: 0 -2rem;          /* bleed to screen edges */
+    padding: 0.25rem 2rem 0.5rem;
+  }
+
+  .tst-track::-webkit-scrollbar { display: none; }
+
+  .tst-card {
+    flex: 0 0 85%;
+    scroll-snap-align: center;
+  }
+
+  .tst-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .tst-dot {
+    width: 7px;
+    height: 7px;
+    padding: 0;
+    border: none;
+    border-radius: 999px;
+    background: rgba(249, 115, 22, 0.3);
+    cursor: pointer;
+    transition: background 0.25s ease, width 0.25s ease;
+  }
+
+  .tst-dot.is-active {
+    width: 22px;
+    background: #F97316;
+  }
+}
+
 /* Footer responsive columns */
 @media (max-width: 900px) {
   .footer-top {

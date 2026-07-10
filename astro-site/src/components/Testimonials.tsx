@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
@@ -146,6 +146,32 @@ export default function Testimonials() {
 
   const selectedStudy = caseStudies.find((cs) => cs.id === selectedCaseStudy);
 
+  /* Mobile carousel: track which testimonial is centered, for the dots */
+  const trackRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const handleTrackScroll = () => {
+    const el = trackRef.current;
+    if (!el) return;
+    const center = el.scrollLeft + el.clientWidth / 2;
+    let closest = 0;
+    let min = Infinity;
+    Array.from(el.children).forEach((child, i) => {
+      const node = child as HTMLElement;
+      const c = node.offsetLeft + node.offsetWidth / 2;
+      const d = Math.abs(c - center);
+      if (d < min) { min = d; closest = i; }
+    });
+    setActiveIndex(closest);
+  };
+
+  const scrollToCard = (i: number) => {
+    const el = trackRef.current;
+    if (!el) return;
+    const child = el.children[i] as HTMLElement | undefined;
+    if (child) el.scrollTo({ left: child.offsetLeft - (el.clientWidth - child.offsetWidth) / 2, behavior: 'smooth' });
+  };
+
   return (
     <section
       ref={ref}
@@ -237,11 +263,12 @@ export default function Testimonials() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -16 }}
               transition={{ duration: 0.35 }}
-              style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.25rem' }}
             >
+              <div className="tst-track" ref={trackRef} onScroll={handleTrackScroll}>
               {testimonials.map((t, i) => (
                 <motion.div
                   key={t.id}
+                  className="tst-card"
                   initial={{ opacity: 0, y: 20 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.1 * i }}
@@ -288,6 +315,22 @@ export default function Testimonials() {
                   </div>
                 </motion.div>
               ))}
+              </div>{/* /tst-track */}
+
+              {/* Carousel dots — mobile only (hidden on desktop via CSS) */}
+              <div className="tst-dots" role="tablist" aria-label="Testimonials">
+                {testimonials.map((t, i) => (
+                  <button
+                    key={t.id}
+                    type="button"
+                    role="tab"
+                    aria-selected={i === activeIndex}
+                    aria-label={`Show testimonial ${i + 1}`}
+                    className={i === activeIndex ? 'tst-dot is-active' : 'tst-dot'}
+                    onClick={() => scrollToCard(i)}
+                  />
+                ))}
+              </div>
             </motion.div>
           ) : (
             <motion.div
