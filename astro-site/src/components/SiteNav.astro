@@ -1,102 +1,319 @@
 ---
-const links = [
-  { href: '/#tiers', label: 'claude code', featured: true },
-  { href: '/projects/', label: 'projects' },
-  { href: '/about/', label: 'about' },
-  { href: '/agents/', label: 'ai agents' },
-  { href: '/automation/', label: 'automation' },
-  { href: '/cloud/', label: 'cloud' },
-  { href: '/field-notes/', label: 'field notes' },
-];
+type Item = { href: string; label: string; desc?: string; external?: boolean };
+type Menu = { label: string; items: Item[] };
 
-const ctaLinks = [
-  { href: '/learn/', label: 'Learn', style: 'secondary' },
-  { href: '/colab/', label: 'Colab', style: 'secondary' },
-  { href: 'https://calendar.app.google/Wqbt8EJuEh5xvvV58', label: 'Book a Call', style: 'primary', external: true },
+const menus: Menu[] = [
+  {
+    label: 'Solutions',
+    items: [
+      { href: '/#solutions', label: 'Claude Code Systems', desc: 'Custom setups, plugins & team training' },
+      { href: '/agents',     label: 'AI Agents',           desc: 'Intent Agent Models for any workflow' },
+      { href: '/private-ai', label: 'Private AI',          desc: 'ChatGPT-class AI on your own cloud' },
+      { href: '/automation', label: 'Automation',          desc: 'n8n workflows that erase manual work' },
+      { href: '/cloud',      label: 'Cloud & Data',        desc: 'Google Cloud-native architectures' },
+    ],
+  },
+  {
+    label: 'Resources',
+    items: [
+      { href: '/field-notes',                 label: 'Field Notes',        desc: 'Notes from the build' },
+      { href: '/projects',                    label: 'Projects',           desc: 'Shipped work & case studies' },
+      { href: 'https://claudecodeplugins.io', label: 'Plugin Marketplace', desc: '270+ Claude Code plugins', external: true },
+    ],
+  },
+  {
+    label: 'Work With Us',
+    items: [
+      { href: '/learn',     label: 'Learn',     desc: 'Executive onramps & team enablement' },
+      { href: '/colab',     label: 'Colab',     desc: 'Implementation partner in your repo' },
+      { href: '/resellers', label: 'Resellers', desc: 'Distribution partner program' },
+      { href: '/#contact',  label: 'Contact',   desc: 'Start a conversation' },
+    ],
+  },
 ];
 ---
 
 <nav class="sticky top-0 z-50 backdrop-blur-md bg-zinc-950/70 border-b border-zinc-800/60">
   <div class="container mx-auto px-6 sm:px-8">
     <div class="flex items-center justify-between h-16">
-      <a href="/" class="home-link">
-        intent solutions io
+      <a href="/" class="home-link" aria-label="Intent Solutions home" style="gap: 0.6rem;">
+        <!-- Brand mark — actual logo render -->
+        <img
+          src="/images/logo-mark.png"
+          alt=""
+          width="28"
+          height="28"
+          aria-hidden="true"
+          style="flex-shrink: 0; display: block;"
+        />
+        <span class="font-display font-bold tracking-tight text-zinc-50" style="font-size: 1.02rem; line-height: 1;">
+          Intent<span style="color: #FF7A1A;">&nbsp;Solutions</span>
+        </span>
       </a>
 
-      {/* Desktop Navigation */}
-      <div class="hidden lg:flex items-center gap-6">
+      <!-- Desktop navigation -->
+      <div class="hidden lg:flex items-center gap-1">
         {
-          links.map(({ href, label, featured }) => (
-            <a
-              href={href}
-              class:list={[
-                'text-sm transition-smooth',
-                featured ? 'text-zinc-50 font-medium' : 'text-zinc-400 hover:text-zinc-100'
-              ]}
-            >
-              {label}
-            </a>
+          menus.map((menu) => (
+            <div class="nav-group relative">
+              <button
+                type="button"
+                class="nav-trigger flex items-center gap-1.5 px-3 py-2 text-sm text-zinc-300 hover:text-zinc-50 transition-smooth rounded-md"
+                aria-expanded="false"
+                aria-haspopup="true"
+              >
+                {menu.label}
+                <svg class="nav-chevron" width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+                  <path d="M1.5 3.5 L5 7 L8.5 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+
+              <div class="nav-panel" role="menu">
+                <div class="nav-panel-inner">
+                  {menu.items.map(({ href, label, desc, external }) => (
+                    <a
+                      href={href}
+                      target={external ? '_blank' : undefined}
+                      rel={external ? 'noopener noreferrer' : undefined}
+                      class="nav-item"
+                      role="menuitem"
+                    >
+                      <span class="nav-item-label">
+                        {label}
+                        {external && <span class="nav-ext" aria-hidden="true">↗</span>}
+                      </span>
+                      {desc && <span class="nav-item-desc">{desc}</span>}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
           ))
         }
-        <div class="flex items-center gap-3 ml-4 pl-4 border-l border-zinc-700">
-          {
-            ctaLinks.map(({ href, label, style, external }) => (
-              <a
-                href={href}
-                target={external ? '_blank' : undefined}
-                rel={external ? 'noopener' : undefined}
-                class:list={[
-                  'text-sm btn-sm',
-                  style === 'primary' ? 'btn-primary' : 'btn-secondary'
-                ]}
-              >
-                {label}
-              </a>
-            ))
-          }
-        </div>
-      </div>
 
-      {/* Tablet Navigation */}
-      <div class="hidden md:flex lg:hidden items-center gap-3">
-        <a href="/learn/" class="btn-secondary btn-sm text-sm">Learn</a>
-        <a href="/colab/" class="btn-secondary btn-sm text-sm">Colab</a>
+        <a href="/about" class="px-3 py-2 text-sm text-zinc-300 hover:text-zinc-50 transition-smooth">About</a>
+
         <a
           href="https://calendar.app.google/Wqbt8EJuEh5xvvV58"
           target="_blank"
           rel="noopener"
-          class="btn-primary btn-sm text-sm"
+          class="btn-primary btn-sm text-sm ml-4"
         >
           Book a Call
         </a>
       </div>
 
-      {/* Mobile Navigation */}
-      <div class="md:hidden flex items-center gap-2">
+      <!-- Mobile / tablet: CTA + hamburger -->
+      <div class="lg:hidden flex items-center gap-2">
         <a
           href="https://calendar.app.google/Wqbt8EJuEh5xvvV58"
           target="_blank"
           rel="noopener"
-          class="btn-primary btn-sm text-sm"
+          class="btn-primary btn-sm text-sm whitespace-nowrap"
         >
-          Book
+          Book a Call
         </a>
+        <button
+          type="button"
+          id="nav-burger"
+          class="flex flex-col items-center justify-center w-11 h-11 gap-[5px] rounded-md text-zinc-300"
+          aria-expanded="false"
+          aria-controls="nav-mobile"
+          aria-label="Open menu"
+        >
+          <span class="burger-bar"></span>
+          <span class="burger-bar"></span>
+          <span class="burger-bar"></span>
+        </button>
       </div>
     </div>
   </div>
 
-  {/* Mobile menu links - collapsible on small screens */}
-  <div class="md:hidden border-t border-zinc-800/60 bg-zinc-950/90">
-    <div class="container mx-auto px-6 py-2 flex items-center justify-center gap-4 text-sm">
-      <a href="/projects/" class="text-zinc-400 hover:text-zinc-100 transition-smooth">Projects</a>
-      <span class="text-zinc-700">|</span>
-      <a href="/learn/" class="text-zinc-400 hover:text-zinc-100 transition-smooth">Learn</a>
-      <span class="text-zinc-700">|</span>
-      <a href="/colab/" class="text-zinc-400 hover:text-zinc-100 transition-smooth">Colab</a>
-      <span class="text-zinc-700">|</span>
-      <a href="/field-notes/" class="text-zinc-400 hover:text-zinc-100 transition-smooth">Field Notes</a>
-      <span class="text-zinc-700">|</span>
-      <a href="/#contact" class="text-zinc-400 hover:text-zinc-100 transition-smooth">Contact</a>
+  <!-- Mobile menu -->
+  <div id="nav-mobile" class="lg:hidden hidden border-t border-zinc-800/60 bg-zinc-950/95 backdrop-blur-md">
+    <div class="container mx-auto px-6 py-5 flex flex-col gap-5">
+      {
+        menus.map((menu) => (
+          <div>
+            <p class="font-display text-[0.62rem] font-bold uppercase tracking-[0.26em] mb-2" style="color: #FF7A1A;">
+              {menu.label}
+            </p>
+            <div class="flex flex-col">
+              {menu.items.map(({ href, label, external }) => (
+                <a
+                  href={href}
+                  target={external ? '_blank' : undefined}
+                  rel={external ? 'noopener noreferrer' : undefined}
+                  class="py-2 text-sm text-zinc-300 hover:text-zinc-50 transition-smooth"
+                >
+                  {label}{external && ' ↗'}
+                </a>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+      <a href="/about" class="py-1 text-sm font-medium text-zinc-200">About</a>
     </div>
   </div>
 </nav>
+
+<style>
+  /* ── Dropdown panel ── */
+  .nav-panel {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(6px);
+    padding-top: 10px; /* hover bridge */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
+    z-index: 60;
+  }
+
+  .nav-group:hover .nav-panel,
+  .nav-group:focus-within .nav-panel,
+  .nav-group.open .nav-panel {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .nav-panel-inner {
+    min-width: 270px;
+    background: rgba(9, 9, 11, 0.96);
+    border: 1px solid rgba(63, 63, 70, 0.6);
+    border-radius: 0.75rem;
+    padding: 0.5rem;
+    box-shadow:
+      0 20px 50px rgba(0, 0, 0, 0.55),
+      0 0 0 1px rgba(249, 115, 22, 0.06);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .nav-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    padding: 0.55rem 0.7rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition: background 0.15s ease;
+  }
+
+  .nav-item:hover {
+    background: rgba(249, 115, 22, 0.08);
+  }
+
+  .nav-item-label {
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: rgb(228 228 231);
+    transition: color 0.15s ease;
+  }
+
+  .nav-item:hover .nav-item-label {
+    color: #FF8A2A;
+  }
+
+  .nav-item-desc {
+    font-size: 0.72rem;
+    color: rgb(113 113 122);
+  }
+
+  .nav-ext {
+    font-size: 0.7rem;
+    color: rgb(113 113 122);
+    margin-left: 0.3rem;
+  }
+
+  /* Chevron flips when open */
+  .nav-chevron {
+    transition: transform 0.18s ease;
+  }
+
+  .nav-group:hover .nav-chevron,
+  .nav-group:focus-within .nav-chevron,
+  .nav-group.open .nav-chevron {
+    transform: rotate(180deg);
+  }
+
+  /* ── Hamburger ── */
+  .burger-bar {
+    display: block;
+    width: 18px;
+    height: 1.6px;
+    background: currentColor;
+    border-radius: 2px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  #nav-burger[aria-expanded='true'] .burger-bar:nth-child(1) {
+    transform: translateY(6.6px) rotate(45deg);
+  }
+
+  #nav-burger[aria-expanded='true'] .burger-bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  #nav-burger[aria-expanded='true'] .burger-bar:nth-child(3) {
+    transform: translateY(-6.6px) rotate(-45deg);
+  }
+</style>
+
+<script>
+  function setupNav() {
+    /* Mobile hamburger */
+    const burger = document.getElementById('nav-burger');
+    const mobile = document.getElementById('nav-mobile');
+    if (burger && mobile && !burger.dataset.bound) {
+      burger.dataset.bound = '1';
+      burger.addEventListener('click', () => {
+        const open = burger.getAttribute('aria-expanded') === 'true';
+        burger.setAttribute('aria-expanded', String(!open));
+        burger.setAttribute('aria-label', open ? 'Open menu' : 'Close menu');
+        mobile.classList.toggle('hidden', open);
+      });
+    }
+
+    /* Dropdown click-toggle (touch devices without hover) */
+    document.querySelectorAll<HTMLElement>('.nav-group').forEach((group) => {
+      const trigger = group.querySelector<HTMLButtonElement>('.nav-trigger');
+      if (!trigger || trigger.dataset.bound) return;
+      trigger.dataset.bound = '1';
+      trigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = group.classList.contains('open');
+        document.querySelectorAll('.nav-group.open').forEach((g) => {
+          g.classList.remove('open');
+          g.querySelector('.nav-trigger')?.setAttribute('aria-expanded', 'false');
+        });
+        group.classList.toggle('open', !isOpen);
+        trigger.setAttribute('aria-expanded', String(!isOpen));
+      });
+    });
+
+    /* Close dropdowns on outside click / Escape */
+    if (!document.documentElement.dataset.navBound) {
+      document.documentElement.dataset.navBound = '1';
+      document.addEventListener('click', () => {
+        document.querySelectorAll('.nav-group.open').forEach((g) => {
+          g.classList.remove('open');
+          g.querySelector('.nav-trigger')?.setAttribute('aria-expanded', 'false');
+        });
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key !== 'Escape') return;
+        document.querySelectorAll('.nav-group.open').forEach((g) => {
+          g.classList.remove('open');
+          g.querySelector('.nav-trigger')?.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', setupNav);
+  document.addEventListener('astro:page-load', setupNav);
+</script>

@@ -3,206 +3,206 @@ import Layout from '../layouts/Layout.astro';
 import SiteNav from '../components/SiteNav.astro';
 import Hero from '../components/Hero';
 import TrustBar from '../components/home/TrustBar.astro';
-import ClaudeCodeTiers from '../components/ClaudeCodeTiers';
-import ProjectShowcase from '../components/home/ProjectShowcase.astro';
 import Testimonials from '../components/Testimonials';
-import FAQSection from '../components/home/FAQSection.astro';
-import Contact from '../components/Contact';
+import ContactCta from '../components/home/ContactCta.astro';
 import Footer from '../components/Footer';
+
+const solutions = [
+  {
+    href: '/#solutions',
+    title: 'Claude Code Systems',
+    desc: 'Custom setups, curated plugin packs, slash commands, and team training — Claude Code tuned to your stack from day one.',
+    cta: 'Book a discovery call',
+    ctaHref: 'https://calendar.app.google/Wqbt8EJuEh5xvvV58',
+    featured: true,
+  },
+  {
+    href: '/agents',
+    title: 'AI Agents',
+    desc: 'Custom Intent Agent Models for any workflow.',
+  },
+  {
+    href: '/private-ai',
+    title: 'Private AI',
+    desc: 'ChatGPT-class experience on your own cloud.',
+  },
+  {
+    href: '/automation',
+    title: 'Automation',
+    desc: 'n8n workflows that erase manual work.',
+  },
+  {
+    href: '/cloud',
+    title: 'Cloud & Data',
+    desc: 'Google Cloud-native architectures.',
+  },
+];
+
+const engagements = [
+  { href: '/learn', label: 'Learn',              desc: 'Executive onramps & team enablement' },
+  { href: '/colab', label: 'Colab',              desc: 'Implementation partner in your repo', featured: true },
+  { href: 'https://whop.com/claude-code-cowork-accelerator/', label: 'Cowork Accelerator', desc: 'Cohort-based building, live sessions', external: true },
+];
+
+/* photo omitted → initials placeholder shown until a headshot is added */
+const team = [
+  {
+    photo: '/team/jeremy-longshore.jpeg',
+    name: 'Jeremy Longshore',
+    role: 'Founder & CEO',
+  },
+  {
+    photo: '/team/opeyemi-ariyo.jpeg',
+    name: 'Opeyemi Ariyo',
+    role: 'Co-Founder & Chief Technical Officer',
+  },
+  {
+    photo: '/team/pablo-perez.jpeg',
+    name: 'Pablo Perez',
+    role: 'Co-Founder & Project Manager',
+  },
+  {
+    photo: '/team/max-sheahan.jpeg',
+    name: 'Max Sheahan',
+    role: 'Lead Instructor',
+  },
+  {
+    photo: '/team/tim-neunzig.png',
+    name: 'Tim Neunzig',
+    role: 'Head of German Operations',
+  },
+  {
+    name: 'Tolulope Ariyo',
+    role: 'Software & Design Engineer',
+  },
+];
+
+const initials = (name: string) =>
+  name.split(' ').map((w) => w[0]).slice(0, 2).join('');
 ---
 
-<Layout title="Claude Code Systems - Build + Train | intent solutions io">
+<Layout
+  title="Intent Solutions | Intelligent Solutions, Intentional Impact"
+  description="We build AI-powered solutions that learn, adapt, and drive real business outcomes — Claude Code systems, AI agents, private AI, and workflow automation."
+>
   <SiteNav />
 
   <Hero client:load />
   <TrustBar />
-  <ClaudeCodeTiers client:visible />
 
-  <!-- Three Ways to Work Together -->
-  <section class="modes-section" aria-labelledby="modes-title">
-    <div class="modes-container">
+  <!-- ═══════════ What We Do ═══════════ -->
+  <section id="solutions" class="wwd-section" aria-labelledby="wwd-title">
+    <!-- Cosmic galaxy backdrop (dimmed) -->
+    <div class="wwd-cosmic" aria-hidden="true"></div>
+    <div class="wwd-cosmic-scrim" aria-hidden="true"></div>
+    <div class="wwd-container">
 
-      <!-- Eyebrow -->
-      <div class="modes-eyebrow" aria-hidden="true">
+      <div class="sec-eyebrow" aria-hidden="true">
         <span class="eyebrow-rule"></span>
-        <span class="eyebrow-label">Engagement Modes</span>
+        <span class="eyebrow-label">What We Do</span>
         <span class="eyebrow-rule"></span>
       </div>
 
-      <h2 id="modes-title" class="modes-title">three ways to work together</h2>
-      <p class="modes-subtitle">Learn Claude Code, build with an expert, or accelerate with a cohort.</p>
+      <h2 id="wwd-title" class="sec-title">
+        AI systems, <span class="hl">built to ship</span>
+      </h2>
+      <p class="sec-subtitle">Five practices, one team — from Claude Code enablement to production cloud systems.</p>
 
-      <div class="modes-grid">
-
-        <a href="/learn/" class="mode-card" data-mode-index="0">
-          <div class="mode-top-accent"></div>
-          <p class="mode-id">M-01</p>
-          <span class="mode-badge">For decision-makers</span>
-          <h3 class="mode-name">Learn with Jeremy</h3>
-          <p class="mode-desc">
-            Executive onramps, leadership workshops, and team enablement. Understand what Claude Code is, how it fits your org, and how to roll it out safely.
-          </p>
-          <span class="mode-cta">
-            Explore Learn
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-              <path d="M2.5 7h9M7.5 3l4 4-4 4" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-        </a>
-
-        <a href="/colab/" class="mode-card mode-card--featured" data-mode-index="1">
-          <div class="mode-top-accent mode-top-accent--featured"></div>
-          <div class="mode-recommended">
-            <span class="mode-diamond">◆</span>
-            <span>Recommended Track</span>
-          </div>
-          <p class="mode-id mode-id--featured">M-02</p>
-          <span class="mode-badge">For teams ready to ship</span>
-          <h3 class="mode-name">Colab with Jeremy</h3>
-          <p class="mode-desc">
-            Implementation partner in your repo. Delivery sprints, monthly cadence, or advisory. Real PRs, reviewed and deployed.
-          </p>
-          <span class="mode-cta mode-cta--featured">
-            Explore Colab
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-              <path d="M2.5 7h9M7.5 3l4 4-4 4" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-        </a>
-
-        <a href="https://whop.com/claude-code-cowork-accelerator/" target="_blank" rel="noopener" aria-label="Join the Cowork Accelerator (opens in new tab)" class="mode-card" data-mode-index="2">
-          <div class="mode-top-accent"></div>
-          <p class="mode-id">M-03</p>
-          <span class="mode-badge">For builders who want speed</span>
-          <h3 class="mode-name">Cowork Accelerator</h3>
-          <p class="mode-desc">
-            Cohort-based Claude Code + Cowork program. Hands-on exercises, live sessions, and a community of builders shipping real projects together.
-          </p>
-          <span class="mode-cta">
-            Join the Accelerator
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-              <path d="M2.5 7h9M7.5 3l4 4-4 4" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-        </a>
-
+      <div class="wwd-grid">
+        {solutions.map((s, i) => (
+          <a
+            href={s.featured ? s.ctaHref : s.href}
+            target={s.featured ? '_blank' : undefined}
+            rel={s.featured ? 'noopener' : undefined}
+            class:list={['wwd-card', { 'wwd-card--featured': s.featured }]}
+            data-reveal={i}
+          >
+            {s.featured && (
+              <span class="wwd-flag">
+                <span class="wwd-diamond">◆</span> Core Practice
+              </span>
+            )}
+            <span class="wwd-icon">
+              <img src="/images/logo-mark.png" alt="" width={s.featured ? 30 : 20} height={s.featured ? 30 : 20} aria-hidden="true" />
+            </span>
+            <h3 class="wwd-name">{s.title}</h3>
+            <p class="wwd-desc">{s.desc}</p>
+            <span class="wwd-cta">
+              {s.featured ? s.cta : 'Learn more'}
+              <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path d="M2.5 7h9M7.5 3l4 4-4 4" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </a>
+        ))}
       </div>
+
+      <!-- Ways to work with us -->
+      <div class="eng-strip" data-reveal="5">
+        <p class="eng-label">Ways to work with us</p>
+        <div class="eng-row">
+          {engagements.map(({ href, label, desc, featured, external }) => (
+            <a
+              href={href}
+              target={external ? '_blank' : undefined}
+              rel={external ? 'noopener' : undefined}
+              class:list={['eng-card', { 'eng-card--featured': featured }]}
+            >
+              <span class="eng-name">{label}{external && ' ↗'}</span>
+              <span class="eng-desc">{desc}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- Also Available -->
-  <section class="services-section" aria-labelledby="services-title">
-    <div class="services-container">
-
-      <div class="services-header">
-        <h2 id="services-title" class="services-title">also available</h2>
-        <p class="services-subtitle">Beyond Claude Code—additional AI and automation services.</p>
-      </div>
-
-      <div class="services-grid">
-
-        <a href="/agents/" class="service-card" data-svc-index="0">
-          <div class="svc-icon-wrap">
-            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-              <circle cx="11" cy="11" r="3.5" stroke="currentColor" stroke-width="1.5"/>
-              <path d="M11 2v3M11 17v3M2 11h3M17 11h3M4.93 4.93l2.12 2.12M14.95 14.95l2.12 2.12M4.93 17.07l2.12-2.12M14.95 7.05l2.12-2.12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <h3 class="svc-name">AI Agents</h3>
-          <p class="svc-desc">Custom Intent Agent Models for any workflow.</p>
-          <span class="svc-link">Learn more →</span>
-        </a>
-
-        <a href="/private-ai/" class="service-card" data-svc-index="1">
-          <div class="svc-icon-wrap">
-            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-              <rect x="3" y="11" width="16" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
-              <path d="M7 11V7a4 4 0 0 1 8 0v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-              <circle cx="11" cy="15.5" r="1.5" fill="currentColor"/>
-            </svg>
-          </div>
-          <h3 class="svc-name">Private AI</h3>
-          <p class="svc-desc">ChatGPT-style experience on your own cloud.</p>
-          <span class="svc-link">Learn more →</span>
-        </a>
-
-        <a href="/automation/" class="service-card" data-svc-index="2">
-          <div class="svc-icon-wrap">
-            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-              <path d="M4 6h14M4 11h8M4 16h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-              <circle cx="17" cy="15" r="3.5" stroke="currentColor" stroke-width="1.5"/>
-              <path d="M17 13.5v1.5l1 1" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <h3 class="svc-name">Automation</h3>
-          <p class="svc-desc">Custom workflows that eliminate manual work.</p>
-          <span class="svc-link">Learn more →</span>
-        </a>
-
-        <a href="/cloud/" class="service-card" data-svc-index="3">
-          <div class="svc-icon-wrap">
-            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-              <path d="M17.5 14.5a4 4 0 0 0-3.5-6.5A5.5 5.5 0 0 0 4.5 12a3 3 0 0 0 .5 6h12a3 3 0 0 0 .5-3.5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <h3 class="svc-name">Cloud & Data</h3>
-          <p class="svc-desc">Google Cloud-native architectures.</p>
-          <span class="svc-link">Learn more →</span>
-        </a>
-
-      </div>
-    </div>
-  </section>
-
-  <ProjectShowcase />
   <Testimonials client:visible />
-  <Contact client:visible />
-  <FAQSection />
+
+  <!-- ═══════════ Team ═══════════ -->
+  <section id="team" class="team-section" aria-labelledby="team-title">
+    <div class="team-container">
+      <div class="sec-eyebrow" aria-hidden="true">
+        <span class="eyebrow-rule"></span>
+        <span class="eyebrow-label">The Team</span>
+        <span class="eyebrow-rule"></span>
+      </div>
+
+      <h2 id="team-title" class="sec-title">
+        the people behind <span class="hl">Intent Solutions</span>
+      </h2>
+      <p class="sec-subtitle">Engineers who build, train, and ship.</p>
+
+      <div class="team-rows">
+        {[team.slice(0, 3), team.slice(3)].map((row) => (
+          <div class="team-row">
+            {row.map((m, i) => (
+              <div class="team-card" data-reveal={i}>
+                <span class="team-photo-ring">
+                  {m.photo ? (
+                    <img class="team-photo" src={m.photo} alt={`${m.name}, ${m.role}`} width="112" height="112" loading="lazy" />
+                  ) : (
+                    <span class="team-photo team-initials" aria-hidden="true">{initials(m.name)}</span>
+                  )}
+                </span>
+                <p class="team-name">{m.name}</p>
+                <p class="team-role">{m.role}</p>
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <ContactCta />
   <Footer />
 </Layout>
 
 <style>
-  /* ─── Shared constants via CSS custom properties ─── */
-  :root {
-    --cyan: rgb(34 211 238);
-    --cyan-dim: rgba(34, 211, 238, 0.18);
-    --cyan-glow: 0 0 8px rgba(34, 211, 238, 0.55);
-  }
-
-  /* ════════════════════════════════════════════════
-     SECTION 1 — Three Ways to Work Together
-     ════════════════════════════════════════════════ */
-
-  .modes-section {
-    padding: 7rem 0;
-    background: rgb(9 9 11); /* zinc-950 */
-    border-top: 1px solid rgba(39, 39, 42, 0.5);
-    border-bottom: 1px solid rgba(39, 39, 42, 0.5);
-    position: relative;
-    overflow: hidden;
-  }
-
-  /* Ambient glow behind center card */
-  .modes-section::before {
-    content: '';
-    position: absolute;
-    width: 500px;
-    height: 500px;
-    left: 50%;
-    top: 55%;
-    transform: translate(-50%, -50%);
-    background: radial-gradient(circle, rgba(34,211,238,0.04) 0%, transparent 68%);
-    pointer-events: none;
-  }
-
-  .modes-container {
-    max-width: 72rem;
-    margin: 0 auto;
-    padding: 0 2rem;
-  }
-
-  /* Eyebrow */
-  .modes-eyebrow {
+  /* ─── Shared section furniture ─── */
+  .sec-eyebrow {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -214,11 +214,11 @@ import Footer from '../components/Footer';
     display: block;
     height: 1px;
     width: 3.5rem;
-    background: linear-gradient(to right, transparent, rgba(34,211,238,0.2));
+    background: linear-gradient(to right, transparent, rgba(249,115,22,0.2));
   }
 
   .eyebrow-rule:last-child {
-    background: linear-gradient(to left, transparent, rgba(34,211,238,0.2));
+    background: linear-gradient(to left, transparent, rgba(249,115,22,0.2));
   }
 
   .eyebrow-label {
@@ -227,361 +227,360 @@ import Footer from '../components/Footer';
     font-weight: 700;
     letter-spacing: 0.28em;
     text-transform: uppercase;
-    color: var(--cyan);
+    color: rgb(251 146 60);
   }
 
-  .modes-title {
+  .sec-title {
     font-family: 'Syne', system-ui, sans-serif;
     font-size: clamp(2rem, 4vw, 2.8rem);
     font-weight: 700;
     color: rgb(250 250 250);
     text-align: center;
     letter-spacing: -0.02em;
-    line-height: 1.1;
+    line-height: 1.2;
     margin-bottom: 1rem;
   }
 
-  .modes-subtitle {
+  /* Marker highlight — the signature device */
+  .hl {
+    background: linear-gradient(120deg, #FF8A2A, #F26205);
+    color: rgb(9 9 11);
+    padding: 0.02em 0.22em 0.06em;
+    border-radius: 8px;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+
+  .sec-subtitle {
     text-align: center;
     font-size: 0.95rem;
-    color: rgb(161 161 170); /* zinc-400 */
-    margin-bottom: 3.5rem;
+    color: rgb(161 161 170);
+    margin-bottom: 3.25rem;
   }
 
-  .modes-grid {
+  /* Scroll reveal */
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  [data-reveal].is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ═══════════ What We Do ═══════════ */
+  .wwd-section {
+    padding: 6.5rem 0;
+    background: rgb(9 9 11);
+    border-top: 1px solid rgba(39, 39, 42, 0.5);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Galaxy image */
+  .wwd-cosmic {
+    position: absolute;
+    inset: 0;
+    background: url('/images/cosmic-bg-dark.jpg') center / cover no-repeat;
+    opacity: 0.72;
+    pointer-events: none;
+  }
+
+  /* Scrim — feathers only the top/bottom edges into the page and adds the
+     ember wash; kept light so the galaxy reads bright. Cards carry their
+     own dark backdrop, so text stays readable over the brighter image. */
+  .wwd-cosmic-scrim {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to bottom, rgb(9 9 11) 0%, rgba(9,9,11,0) 16%, rgba(9,9,11,0) 84%, rgb(9 9 11) 100%),
+      radial-gradient(ellipse at 50% 30%, rgba(9,9,11,0.35) 0%, transparent 55%),
+      radial-gradient(circle at 82% 8%, rgba(249,115,22,0.06), transparent 55%);
+    pointer-events: none;
+  }
+
+  .wwd-container {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+  }
+
+  .wwd-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.25rem;
+    gap: 1.1rem;
   }
 
-  /* Mode card base */
-  .mode-card {
-    position: relative;
+  .wwd-card {
     display: flex;
     flex-direction: column;
-    padding: 1.75rem;
+    padding: 1.5rem;
     border-radius: 0.875rem;
     background: rgba(24, 24, 27, 0.65);
     border: 1px solid rgba(39, 39, 42, 0.75);
     backdrop-filter: blur(8px);
     text-decoration: none;
-    transition:
-      border-color 0.28s ease,
-      background 0.28s ease,
-      transform 0.22s ease;
-    overflow: hidden;
-
-    /* scroll-reveal initial state */
-    opacity: 0;
-    transform: translateY(24px);
+    transition: border-color 0.28s ease, background 0.28s ease, transform 0.22s ease;
   }
 
-  .mode-card.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .mode-card:hover {
-    border-color: rgba(34, 211, 238, 0.25);
+  .wwd-card:hover {
+    border-color: rgba(249, 115, 22, 0.3);
     background: rgba(24, 24, 27, 0.9);
     transform: translateY(-3px);
   }
 
-  /* Featured mode card */
-  .mode-card--featured {
+  .wwd-card--featured {
+    grid-column: span 2;
     background: rgba(18, 18, 20, 0.95);
-    border-color: rgba(34, 211, 238, 0.28);
-    box-shadow: 0 0 0 1px rgba(34,211,238,0.04), 0 24px 64px rgba(0,0,0,0.5);
+    border-color: rgba(249, 115, 22, 0.28);
+    box-shadow: 0 0 0 1px rgba(249,115,22,0.04), 0 24px 64px rgba(0,0,0,0.5);
   }
 
-  .mode-card--featured:hover {
-    border-color: rgba(34, 211, 238, 0.45);
-    transform: translateY(-4px);
+  .wwd-card--featured:hover {
+    border-color: rgba(249, 115, 22, 0.45);
   }
 
-  /* Top accent line */
-  .mode-top-accent {
-    position: absolute;
-    top: 0;
-    left: 20%;
-    right: 20%;
-    height: 1px;
-    background: linear-gradient(to right, transparent, rgba(34,211,238,0.12), transparent);
-    transition: background 0.28s ease;
-  }
-
-  .mode-card:hover .mode-top-accent {
-    background: linear-gradient(to right, transparent, rgba(34,211,238,0.3), transparent);
-  }
-
-  .mode-top-accent--featured {
-    background: linear-gradient(to right, transparent, var(--cyan), transparent);
-    box-shadow: 0 0 8px var(--cyan);
-    left: 12%;
-    right: 12%;
-  }
-
-  /* Recommended badge */
-  .mode-recommended {
+  .wwd-flag {
     display: flex;
     align-items: center;
     gap: 0.4rem;
-    margin-bottom: 1.25rem;
     font-family: 'Syne', system-ui, sans-serif;
     font-size: 0.58rem;
     font-weight: 700;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--cyan);
-  }
-
-  .mode-diamond {
-    font-size: 0.4rem;
-    line-height: 1;
-  }
-
-  /* Mode ID */
-  .mode-id {
-    font-family: 'Syne', system-ui, sans-serif;
-    font-size: 0.55rem;
-    font-weight: 700;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: rgba(113, 113, 122, 0.6);
-    margin: 0 0 0.75rem;
-  }
-
-  .mode-id--featured {
-    color: rgba(34, 211, 238, 0.45);
-  }
-
-  /* Mode badge */
-  .mode-badge {
-    display: inline-block;
-    font-size: 0.6rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: rgb(113 113 122);
-    background: rgba(39, 39, 42, 0.5);
-    border: 1px solid rgba(63, 63, 70, 0.5);
-    border-radius: 3px;
-    padding: 0.2rem 0.55rem;
+    color: rgb(251 146 60);
     margin-bottom: 1rem;
-    align-self: flex-start;
   }
 
-  /* Mode name */
-  .mode-name {
-    font-family: 'Syne', system-ui, sans-serif;
-    font-size: 1.35rem;
-    font-weight: 700;
-    color: rgb(250 250 250);
-    margin: 0 0 0.75rem;
-    line-height: 1.2;
-    transition: color 0.2s ease;
-  }
+  .wwd-diamond { font-size: 0.4rem; line-height: 1; }
 
-  /* Mode desc */
-  .mode-desc {
-    font-size: 0.875rem;
-    color: rgb(161 161 170);
-    line-height: 1.65;
-    flex: 1;
-    margin: 0 0 1.5rem;
-  }
-
-  /* Mode CTA */
-  .mode-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.375rem;
-    font-size: 0.8125rem;
-    font-weight: 600;
-    color: rgb(113 113 122);
-    transition: color 0.2s ease;
-    margin-top: auto;
-  }
-
-  .mode-card:hover .mode-cta {
-    color: rgb(212 212 216);
-  }
-
-  .mode-cta--featured {
-    color: var(--cyan);
-  }
-
-  .mode-card--featured:hover .mode-cta--featured {
-    color: rgb(103 232 249); /* cyan-300 */
-  }
-
-  /* ════════════════════════════════════════════════
-     SECTION 2 — Also Available
-     ════════════════════════════════════════════════ */
-
-  .services-section {
-    padding: 6rem 0;
-    background: rgb(18 18 20); /* between zinc-900 and zinc-950 */
-  }
-
-  .services-container {
-    max-width: 72rem;
-    margin: 0 auto;
-    padding: 0 2rem;
-  }
-
-  .services-header {
-    text-align: center;
-    margin-bottom: 3rem;
-  }
-
-  .services-title {
-    font-family: 'Syne', system-ui, sans-serif;
-    font-size: clamp(1.75rem, 3.5vw, 2.4rem);
-    font-weight: 700;
-    color: rgb(250 250 250);
-    letter-spacing: -0.02em;
-    line-height: 1.15;
-    margin-bottom: 0.75rem;
-  }
-
-  .services-subtitle {
-    font-size: 0.95rem;
-    color: rgb(113 113 122); /* zinc-500 */
-  }
-
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-  }
-
-  /* Service card */
-  .service-card {
-    display: flex;
-    flex-direction: column;
-    padding: 1.5rem;
-    border-radius: 0.75rem;
-    background: rgba(24, 24, 27, 0.55);
-    border: 1px solid rgba(39, 39, 42, 0.7);
-    backdrop-filter: blur(6px);
-    text-decoration: none;
-    transition:
-      border-color 0.25s ease,
-      background 0.25s ease,
-      transform 0.2s ease;
-
-    /* scroll-reveal */
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  .service-card.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .service-card:hover {
-    border-color: rgba(34, 211, 238, 0.2);
-    background: rgba(24, 24, 27, 0.85);
-    transform: translateY(-2px);
-  }
-
-  /* Service icon */
-  .svc-icon-wrap {
+  .wwd-icon {
     width: 2.5rem;
     height: 2.5rem;
-    border-radius: 0.5rem;
-    background: rgba(34, 211, 238, 0.06);
-    border: 1px solid rgba(34, 211, 238, 0.12);
+    border-radius: 0.55rem;
+    background: rgba(249, 115, 22, 0.07);
+    border: 1px solid rgba(249, 115, 22, 0.16);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: rgba(34, 211, 238, 0.55);
     margin-bottom: 1rem;
-    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
   }
 
-  .service-card:hover .svc-icon-wrap {
-    background: rgba(34, 211, 238, 0.1);
-    border-color: rgba(34, 211, 238, 0.25);
-    color: var(--cyan);
-  }
-
-  .svc-name {
+  .wwd-name {
     font-family: 'Syne', system-ui, sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    color: rgb(228 228 231);
-    margin: 0 0 0.5rem;
-    transition: color 0.2s ease;
-  }
-
-  .service-card:hover .svc-name {
+    font-size: 1.05rem;
+    font-weight: 700;
     color: rgb(250 250 250);
+    margin: 0 0 0.5rem;
   }
 
-  .svc-desc {
-    font-size: 0.825rem;
-    color: rgb(113 113 122);
-    line-height: 1.55;
+  .wwd-card--featured .wwd-name { font-size: 1.3rem; }
+
+  .wwd-desc {
+    font-size: 0.85rem;
+    color: rgb(161 161 170);
+    line-height: 1.6;
     flex: 1;
     margin: 0 0 1.25rem;
-    transition: color 0.2s ease;
   }
 
-  .service-card:hover .svc-desc {
-    color: rgb(161 161 170);
-  }
-
-  .svc-link {
-    font-size: 0.775rem;
+  .wwd-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 0.8rem;
     font-weight: 600;
-    color: rgb(82 82 91);
-    margin-top: auto;
+    color: rgb(113 113 122);
     transition: color 0.2s ease;
+    margin-top: auto;
   }
 
-  .service-card:hover .svc-link {
-    color: var(--cyan);
+  .wwd-card:hover .wwd-cta { color: rgb(251 146 60); }
+  .wwd-card--featured .wwd-cta { color: rgb(251 146 60); }
+  .wwd-card--featured:hover .wwd-cta { color: rgb(253 186 116); }
+
+  /* ── Engagement strip ── */
+  .eng-strip {
+    margin-top: 2.75rem;
+    padding-top: 2.25rem;
+    border-top: 1px solid rgba(39, 39, 42, 0.5);
+  }
+
+  .eng-label {
+    text-align: center;
+    font-family: 'Syne', system-ui, sans-serif;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: rgb(113 113 122);
+    margin: 0 0 1.25rem;
+  }
+
+  .eng-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.875rem;
+  }
+
+  .eng-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 0.95rem 1.2rem;
+    border-radius: 0.65rem;
+    background: rgba(24, 24, 27, 0.55);
+    border: 1px solid rgba(39, 39, 42, 0.7);
+    text-decoration: none;
+    transition: border-color 0.25s ease, transform 0.2s ease;
+  }
+
+  .eng-card:hover {
+    border-color: rgba(249, 115, 22, 0.3);
+    transform: translateY(-2px);
+  }
+
+  .eng-card--featured {
+    border-color: rgba(249, 115, 22, 0.28);
+  }
+
+  .eng-name {
+    font-family: 'Syne', system-ui, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: rgb(228 228 231);
+  }
+
+  .eng-card--featured .eng-name { color: rgb(251 146 60); }
+
+  .eng-desc {
+    font-size: 0.75rem;
+    color: rgb(113 113 122);
+  }
+
+  /* ═══════════ Team ═══════════ */
+  .team-section {
+    padding: 6.5rem 0;
+    background: rgb(9 9 11);
+    border-top: 1px solid rgba(39, 39, 42, 0.5);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .team-container {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+  }
+
+  .team-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .team-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.25rem;
+  }
+
+  .team-card {
+    flex: 1 1 14rem;
+    text-align: center;
+    padding: 2rem 1.1rem 1.75rem;
+    border-radius: 0.875rem;
+    background: rgba(24, 24, 27, 0.65);
+    border: 1px solid rgba(39, 39, 42, 0.75);
+    transition: border-color 0.28s ease, transform 0.22s ease;
+  }
+
+  .team-card:hover {
+    border-color: rgba(249, 115, 22, 0.3);
+    transform: translateY(-4px);
+  }
+
+  /* Photo — ember ring, monochrome that warms to full colour on hover */
+  .team-photo-ring {
+    display: inline-block;
+    padding: 3px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(249,115,22,0.6), rgba(249,115,22,0.15));
+    margin-bottom: 1.15rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  }
+
+  .team-photo {
+    display: block;
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgb(9 9 11);
+    filter: grayscale(1) contrast(1.02);
+    transition: filter 0.35s ease;
+  }
+
+  .team-card:hover .team-photo {
+    filter: grayscale(0);
+  }
+
+  /* Initials placeholder — same footprint as a photo */
+  .team-initials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1f1a17, #141010);
+    font-family: 'Syne', system-ui, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: rgb(251 146 60);
+    letter-spacing: 0.03em;
+    filter: none;
+  }
+
+  .team-name {
+    font-family: 'Syne', system-ui, sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: rgb(250 250 250);
+    margin: 0 0 0.3rem;
+  }
+
+  .team-role {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: rgb(251 146 60);
+    margin: 0;
+    line-height: 1.4;
   }
 
   /* ─── Responsive ─── */
   @media (max-width: 1024px) {
-    .services-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
+    .wwd-grid { grid-template-columns: repeat(2, 1fr); }
+    .wwd-card--featured { grid-column: span 2; }
   }
 
-  @media (max-width: 768px) {
-    .modes-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .modes-section {
-      padding: 5rem 0;
-    }
-
-    .services-section {
-      padding: 4.5rem 0;
-    }
+  @media (max-width: 680px) {
+    .team-card { flex: 1 1 14rem; }
   }
 
   @media (max-width: 640px) {
-    .services-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .modes-container,
-    .services-container {
-      padding: 0 1.25rem;
-    }
+    .wwd-section { padding: 5rem 0; }
+    .team-section { padding: 5rem 0; }
+    .wwd-grid, .eng-row { grid-template-columns: 1fr; }
+    .wwd-card--featured { grid-column: span 1; }
+    .wwd-container, .team-container { padding: 0 1.25rem; }
   }
 
-  /* Reduced motion */
   @media (prefers-reduced-motion: reduce) {
-    .mode-card,
-    .service-card {
+    [data-reveal] {
       opacity: 1;
       transform: none;
       transition: none;
@@ -591,25 +590,20 @@ import Footer from '../components/Footer';
 
 <script>
   function setupReveal() {
-    const modeCards = document.querySelectorAll<HTMLElement>('.mode-card');
-    const serviceCards = document.querySelectorAll<HTMLElement>('.service-card');
-
+    const els = document.querySelectorAll<HTMLElement>('[data-reveal]');
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const el = entry.target as HTMLElement;
-            const index = parseInt(el.dataset.modeIndex ?? el.dataset.svcIndex ?? '0', 10);
-            setTimeout(() => el.classList.add('is-visible'), index * 100);
-            observer.unobserve(el);
-          }
+          if (!entry.isIntersecting) return;
+          const el = entry.target as HTMLElement;
+          const index = parseInt(el.dataset.reveal ?? '0', 10);
+          setTimeout(() => el.classList.add('is-visible'), (index % 6) * 90);
+          observer.unobserve(el);
         });
       },
       { threshold: 0.08, rootMargin: '0px 0px -30px 0px' }
     );
-
-    modeCards.forEach((card) => observer.observe(card));
-    serviceCards.forEach((card) => observer.observe(card));
+    els.forEach((el) => observer.observe(el));
   }
 
   document.addEventListener('DOMContentLoaded', setupReveal);
