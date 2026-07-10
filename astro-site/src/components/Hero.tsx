@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion';
 
 /* ── Constants ─────────────────────────────────────── */
-const CYAN       = 'rgb(34 211 238)';
-const CYAN_GLOW  = '0 0 8px rgba(34,211,238,0.6)';
+const ORANGE      = 'rgb(251 146 60)';                 /* orange-400 — accent text */
+const EMBER       = 'rgb(249 115 22)';                 /* orange-500 — glows/solids */
+const EMBER_GLOW  = '0 0 8px rgba(249,115,22,0.6)';
 
 /* ── Predefined star positions (avoids SSR/hydration mismatch) ── */
 const STARS = [
@@ -26,16 +27,11 @@ const STARS = [
   { x: 52.0, y: 22.3, s: 0.7, d: 1.9, c: false },
 ];
 
-const STATS = [
-  { value: '2,200+', label: 'GitHub Stars'  },
-  { value: '430+',   label: 'Plugins Built' },
-  { value: '2,750+',  label: 'Agent Skills'  },
-];
-
-const FOCUS = [
-  '430+ plugins · 2,200+ GitHub stars · 2,750+ agent skills',
-  'team configuration and workflow optimization',
-  'only external contributor to Google Agent Starter Pack',
+/* Poster service columns */
+const SERVICES = [
+  { title: 'AI Development',        desc: 'Smart solutions designed to learn and evolve.' },
+  { title: 'Systems Architecture',  desc: 'Scalable, secure architecture built for the future.' },
+  { title: 'Production Engineering',desc: 'Reliable engineering that delivers and scales with you.' },
 ];
 
 /* ── Sub-components ─────────────────────────────────── */
@@ -51,8 +47,8 @@ function StarField() {
             top:    `${star.y}%`,
             width:  `${star.s}px`,
             height: `${star.s}px`,
-            background: star.c ? CYAN : 'rgba(255,255,255,0.7)',
-            boxShadow: star.c ? CYAN_GLOW : 'none',
+            background: star.c ? EMBER : 'rgba(255,255,255,0.7)',
+            boxShadow: star.c ? EMBER_GLOW : 'none',
             animation: `twinkle ${2.2 + star.d}s ${star.d}s ease-in-out infinite`,
           }}
         />
@@ -61,49 +57,87 @@ function StarField() {
   );
 }
 
-/* Corner bracket — targeting reticle for stat cards */
-function Corner({ pos }: { pos: 'tl' | 'tr' | 'bl' | 'br' }) {
-  const rotations = { tl: 0, tr: 90, br: 180, bl: 270 };
-  const placement: Record<string, React.CSSProperties> = {
-    tl: { top: 7, left: 7 },
-    tr: { top: 7, right: 7 },
-    bl: { bottom: 7, left: 7 },
-    br: { bottom: 7, right: 7 },
-  };
+/* ── The Intent mark — the actual 3D render, extracted from the
+   brand poster (transparent PNG, glow and bevel intact). ── */
+function IntentMark({ size = 280 }: { size?: number }) {
   return (
-    <span className="absolute" style={placement[pos]}>
-      <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style={{ transform: `rotate(${rotations[pos]}deg)` }}>
-        <path d="M0 10 L0 0 L10 0" stroke="rgba(34,211,238,0.55)" strokeWidth="1.5" />
-      </svg>
-    </span>
+    <img
+      src="/images/logo-mark.png"
+      alt=""
+      width={size}
+      height={size}
+      aria-hidden="true"
+      style={{
+        display: 'block',
+        filter: 'drop-shadow(0 0 26px rgba(255,106,0,0.35)) drop-shadow(0 0 90px rgba(255,106,0,0.18))',
+      }}
+    />
   );
 }
 
-function StatCard({ stat, delay }: { stat: typeof STATS[0]; delay: number }) {
+/* ── Right-hand scene: mark levitating over the wide rim-lit podium.
+   Light source bleeds in from the upper right, like the original render. ── */
+function LogoScene() {
   return (
-    <motion.div
-      className="stat-card relative rounded-xl px-6 py-5 text-right min-w-[155px]"
-      initial={{ opacity: 0, x: 28, y: 8 }}
-      animate={{ opacity: 1, x: 0, y: 0 }}
-      transition={{ duration: 0.75, delay, ease: [0.22, 1, 0.36, 1] }}
+    <div
+      className="relative hidden lg:flex flex-col items-center justify-center flex-shrink-0"
+      style={{ width: 580, minHeight: 560 }}
+      aria-hidden="true"
     >
-      {/* Targeting-reticle corners */}
-      <Corner pos="tl" /><Corner pos="tr" />
-      <Corner pos="bl" /><Corner pos="br" />
-
-      {/* Top glow rule */}
+      {/* Directional light — warm wash from the upper right */}
       <span
-        className="absolute top-0 left-[20%] right-[20%] h-px rounded-full"
-        style={{ background: 'linear-gradient(to right, transparent, rgba(34,211,238,0.5), transparent)' }}
+        className="absolute"
+        style={{
+          width: 520, height: 520,
+          top: '-10%', right: '-14%',
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(255,140,40,0.2) 0%, rgba(255,120,26,0.07) 45%, transparent 70%)',
+          animation: 'hero-glow-pulse 6s ease-in-out infinite',
+        }}
       />
+      {/* Levitating mark — floats and slowly swivels like a product on display */}
+      <motion.div
+        className="relative z-10"
+        style={{ perspective: 900 }}
+        initial={{ opacity: 0, y: 34, scale: 0.92 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 1.05, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <div style={{ animation: 'hero-float 6.5s ease-in-out infinite' }}>
+          <div style={{ animation: 'hero-turntable 9s ease-in-out infinite', transformStyle: 'preserve-3d' }}>
+            <IntentMark size={280} />
+          </div>
+        </div>
+      </motion.div>
 
-      <p className="font-display text-[2rem] font-bold leading-none mb-1.5" style={{ color: CYAN }}>
-        {stat.value}
-      </p>
-      <p className="text-[0.6rem] text-zinc-500 uppercase tracking-[0.2em] font-medium">
-        {stat.label}
-      </p>
-    </motion.div>
+      {/* Podium — the actual render, wide, with clear air below the mark */}
+      <motion.div
+        className="relative flex flex-col items-center"
+        style={{ marginTop: '1.6rem' }}
+        initial={{ opacity: 0, y: 18 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.9, delay: 0.75, ease: [0.22, 1, 0.36, 1] }}
+      >
+        {/* Cast shadow on the disc — breathes with the float */}
+        <span
+          className="absolute rounded-full"
+          style={{
+            width: 210, height: 30, top: 26,
+            background: 'radial-gradient(ellipse, rgba(0,0,0,0.6) 0%, transparent 70%)',
+            filter: 'blur(6px)',
+            animation: 'hero-shadow 6.5s ease-in-out infinite',
+          }}
+        />
+        <img
+          src="/images/logo-podium.png"
+          alt=""
+          width={560}
+          height={191}
+          aria-hidden="true"
+          style={{ display: 'block' }}
+        />
+      </motion.div>
+    </div>
   );
 }
 
@@ -112,29 +146,28 @@ export default function Hero() {
   return (
     <section className="min-h-screen flex items-center relative overflow-hidden bg-zinc-950">
 
-      {/* Video */}
-      <video
-        autoPlay muted loop playsInline
-        className="absolute inset-0 w-full h-full object-cover"
-        aria-hidden="true"
-      >
-        <source src="/astronaut.mp4" type="video/mp4" />
-      </video>
-
-      {/* Overlays — left-only protection, nothing obscuring right */}
-      <div className="absolute inset-0 hero-overlay-left" />
+      {/* Atmosphere */}
       <div className="absolute inset-0 hero-overlay-bottom pointer-events-none" />
       <div className="absolute inset-0 hero-scanlines pointer-events-none" />
+      {/* Film grain */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")`,
+          opacity: 0.03,
+        }}
+      />
 
-      {/* Cyan ambient glow — top right corner, very gentle */}
+      {/* Ember ambient glow — upper right, behind the mark */}
       <div
         aria-hidden="true"
         className="absolute pointer-events-none"
         style={{
-          width: 600, height: 600,
-          top: '-12%', right: '-8%',
+          width: 700, height: 700,
+          top: '-14%', right: '-10%',
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(34,211,238,0.06) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(249,115,22,0.07) 0%, transparent 70%)',
         }}
       />
 
@@ -146,7 +179,7 @@ export default function Hero() {
         <div className="flex items-center justify-between gap-10">
 
           {/* ── Left: primary content ── */}
-          <div className="max-w-[580px] w-full">
+          <div className="max-w-[600px] w-full">
 
             {/* System status badge */}
             <motion.div
@@ -157,46 +190,57 @@ export default function Hero() {
             >
               <span
                 className="hidden sm:block h-px w-8 flex-shrink-0"
-                style={{ background: `linear-gradient(to right, transparent, ${CYAN})` }}
+                style={{ background: `linear-gradient(to right, transparent, ${EMBER})` }}
               />
               {/* Pulsing live indicator */}
               <span className="relative flex h-2 w-2 flex-shrink-0">
                 <span
                   className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-50"
-                  style={{ background: CYAN }}
+                  style={{ background: EMBER }}
                 />
-                <span className="relative inline-flex h-2 w-2 rounded-full" style={{ background: CYAN }} />
+                <span className="relative inline-flex h-2 w-2 rounded-full" style={{ background: EMBER }} />
               </span>
               <span
                 className="font-display text-[0.62rem] font-semibold tracking-[0.32em] uppercase px-3 py-1 rounded-full border"
                 style={{
-                  color: CYAN,
-                  borderColor: 'rgba(34,211,238,0.2)',
-                  background: 'rgba(34,211,238,0.04)',
+                  color: ORANGE,
+                  borderColor: 'rgba(249,115,22,0.25)',
+                  background: 'rgba(249,115,22,0.05)',
                 }}
               >
-                build + train
+                building intelligence · delivering impact
               </span>
             </motion.div>
 
-            {/* Headline */}
+            {/* Headline — one flowing line, marker-highlight device */}
             <motion.h1
-              className="font-display font-bold leading-[0.9] tracking-[-0.03em] mb-5"
-              style={{
-                fontSize: 'clamp(3rem, 6.5vw, 6rem)',
-                textShadow: '0 0 80px rgba(34,211,238,0.12), 0 0 160px rgba(34,211,238,0.06)',
-              }}
+              className="font-display font-bold tracking-[-0.03em] mb-6 text-zinc-50"
+              style={{ fontSize: 'clamp(1.9rem, 3.2vw, 2.9rem)', lineHeight: 1.25 }}
               initial={{ opacity: 0, y: 22 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.85, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             >
-              <span className="block text-zinc-50">Claude Code</span>
-              <span className="block font-light text-zinc-400" style={{ fontSize: '85%' }}>
-                Systems
-              </span>
+              <span className="sm:whitespace-nowrap">Intelligent Solutions.</span>{' '}
+              <motion.span
+                className="sm:whitespace-nowrap"
+                style={{
+                  background: 'linear-gradient(120deg, #FF8A2A, #F26205)',
+                  color: 'rgb(9 9 11)',
+                  padding: '0.02em 0.18em 0.06em',
+                  borderRadius: '10px',
+                  boxShadow: '0 12px 60px rgba(249,115,22,0.4), 0 4px 18px rgba(249,115,22,0.25)',
+                  boxDecorationBreak: 'clone',
+                  WebkitBoxDecorationBreak: 'clone',
+                }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
+              >
+                Intentional Impact.
+              </motion.span>
             </motion.h1>
 
-            {/* Animated cyan rule */}
+            {/* Poster underline rule */}
             <motion.div
               className="mb-6"
               initial={{ scaleX: 0, opacity: 0 }}
@@ -205,59 +249,53 @@ export default function Hero() {
               style={{ transformOrigin: 'left center' }}
             >
               <span
-                className="block h-px w-28"
-                style={{ background: `linear-gradient(to right, ${CYAN}, transparent)` }}
+                className="block h-[3px] w-32 rounded-full"
+                style={{ background: `linear-gradient(to right, ${EMBER}, transparent)` }}
               />
             </motion.div>
 
-            {/* Byline */}
+            {/* Description — poster copy */}
             <motion.p
-              className="text-sm text-zinc-500 mb-5 tracking-wide"
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.65, delay: 0.44 }}
-            >
-              <a
-                href="https://jeremylongshore.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-semibold transition-colors duration-300 hover:text-cyan-300"
-                style={{ color: CYAN }}
-              >
-                jeremy_longshore
-              </a>
-              <span className="mx-2 text-zinc-700">·</span>
-              claude code specialist
-            </motion.p>
-
-            {/* Description */}
-            <motion.p
-              className="text-[0.95rem] text-zinc-400 leading-relaxed mb-8 max-w-md"
+              className="text-[0.98rem] text-zinc-400 leading-relaxed mb-9 max-w-md"
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.65, delay: 0.52 }}
             >
-              Custom Claude Code setups for teams of any size—from solo developers to enterprise.
-              I build your system and train your team to use it.
+              We build AI-powered solutions that learn, adapt, and drive real business outcomes.
             </motion.p>
 
-            {/* Proof points */}
-            <motion.ul
-              className="mb-10 space-y-2.5"
+            {/* Poster service columns */}
+            <motion.div
+              className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-10"
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.65, delay: 0.60 }}
+              transition={{ duration: 0.65, delay: 0.6 }}
             >
-              {FOCUS.map((line) => (
-                <li key={line} className="flex items-start gap-3 text-sm leading-relaxed text-zinc-400">
+              {SERVICES.map((svc, i) => (
+                <div
+                  key={svc.title}
+                  className="relative pl-4 sm:pl-0 sm:pt-4"
+                >
+                  {/* Divider — left on mobile, top on desktop */}
                   <span
-                    className="mt-[5px] h-[5px] w-[5px] rounded-full flex-shrink-0"
-                    style={{ background: CYAN, boxShadow: CYAN_GLOW }}
+                    className="absolute left-0 top-0 bottom-0 w-px sm:bottom-auto sm:right-[30%] sm:h-px sm:w-auto"
+                    style={{ background: `linear-gradient(to right, rgba(249,115,22,${0.45 - i * 0.1}), transparent)` }}
                   />
-                  {line}
-                </li>
+                  <span
+                    className="mb-2.5 hidden sm:flex h-8 w-8 items-center justify-center rounded-full"
+                    style={{ background: 'rgba(249,115,22,0.08)', border: '1px solid rgba(249,115,22,0.2)' }}
+                  >
+                    <IntentMark size={16} />
+                  </span>
+                  <p className="font-display text-[0.78rem] font-semibold text-zinc-200 mb-1">
+                    {svc.title}
+                  </p>
+                  <p className="text-[0.72rem] leading-relaxed text-zinc-500">
+                    {svc.desc}
+                  </p>
+                </div>
               ))}
-            </motion.ul>
+            </motion.div>
 
             {/* CTAs */}
             <motion.div
@@ -280,21 +318,17 @@ export default function Hero() {
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-1.5 text-sm text-zinc-500 hover:text-zinc-300 transition-colors duration-300"
               >
-                <span className="transition-colors duration-300 group-hover:text-cyan-300" style={{ color: CYAN }}>
+                <span className="transition-colors duration-300 group-hover:text-orange-300" style={{ color: ORANGE }}>
                   explore
                 </span>
-                <span>430+ plugins</span>
+                <span>270+ plugins</span>
                 <span className="transition-transform duration-300 group-hover:translate-x-0.5">→</span>
               </a>
             </motion.div>
           </div>
 
-          {/* ── Right: HUD stat cards (desktop only) ── */}
-          <div className="hidden lg:flex flex-col gap-4 flex-shrink-0">
-            {STATS.map((stat, i) => (
-              <StatCard key={stat.label} stat={stat} delay={0.78 + i * 0.13} />
-            ))}
-          </div>
+          {/* ── Right: the poster scene (desktop only) ── */}
+          <LogoScene />
 
         </div>
       </div>

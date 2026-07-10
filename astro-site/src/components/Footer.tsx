@@ -1,27 +1,46 @@
-const CYAN     = 'rgb(34 211 238)';
-const CYAN_DIM = 'rgba(34,211,238,0.55)';
+const ORANGE     = 'rgb(251 146 60)';
+const ORANGE_DIM = 'rgba(249,115,22,0.55)';
 
 const navLinks = [
-  { label: 'Learn', href: '/learn/' },
-  { label: 'Colab', href: '/colab/' },
-  { label: 'Agents', href: '/agents/' },
-  { label: 'Private AI', href: '/private-ai/' },
-  { label: 'Automation', href: '/automation/' },
-  { label: 'Cloud & Data', href: '/cloud/' },
-  { label: 'Resellers', href: '/resellers/' },
+  { label: 'Learn', href: '/learn' },
+  { label: 'Colab', href: '/colab' },
+  { label: 'Agents', href: '/agents' },
+  { label: 'Private AI', href: '/private-ai' },
+  { label: 'Automation', href: '/automation' },
+  { label: 'Cloud & Data', href: '/cloud' },
+  { label: 'Resellers', href: '/resellers' },
 ];
 
 const resourceLinks = [
-  { label: 'Field Notes', href: '/field-notes/' },
+  { label: 'Field Notes', href: '/field-notes' },
   { label: 'Claude Code Plugins', href: 'https://claudecodeplugins.io', external: true },
   { label: 'GitHub', href: 'https://github.com/jeremylongshore', external: true },
   { label: 'Cowork Accelerator', href: 'https://whop.com/claude-code-cowork-accelerator/', external: true },
 ];
 
 const legalLinks = [
-  { label: 'Terms of Service', href: '/terms/' },
-  { label: 'Privacy Policy', href: '/privacy/' },
-  { label: 'Acceptable Use', href: '/acceptable-use/' },
+  { label: 'Terms of Service', href: '/terms' },
+  { label: 'Privacy Policy', href: '/privacy' },
+  { label: 'Acceptable Use', href: '/acceptable-use' },
+];
+
+const faqs = [
+  {
+    q: 'What exactly is a Claude Code setup?',
+    a: 'We configure Claude Code for your specific tech stack, team size, and workflows — custom CLAUDE.md files, curated plugin packs, slash commands, MCP connections, and hooks, tuned so your team gets value from day one.',
+  },
+  {
+    q: 'Do I need to know how to code?',
+    a: "Not at all. The Learn track is built for decision-makers and team leads — we show you what Claude Code can do and how it fits your org, no coding required.",
+  },
+  {
+    q: "What's included in the discovery call?",
+    a: "A 30-minute conversation where we learn about your team, workflows, and goals. You'll get honest recommendations — or an honest 'not a fit.' No pressure, no pitch deck.",
+  },
+  {
+    q: 'What happens after the initial setup?',
+    a: 'Every engagement includes a support window. We stay available for questions, plugin tweaks, and workflow adjustments — enterprise clients get ongoing retainers with quarterly workshops.',
+  },
 ];
 
 function FooterLink({
@@ -67,10 +86,11 @@ export default function Footer() {
 
         {/* ── Top row: brand + nav columns ── */}
         <div
+          className="footer-top"
           style={{
             display: 'grid',
-            gridTemplateColumns: '1.5fr 1fr 1fr',
-            gap: '3rem',
+            gridTemplateColumns: '1.4fr 0.8fr 0.9fr 1.4fr',
+            gap: '2.5rem',
             marginBottom: '3.5rem',
           }}
         >
@@ -85,8 +105,8 @@ export default function Footer() {
                   width: '0.5rem',
                   height: '0.5rem',
                   borderRadius: '50%',
-                  background: CYAN,
-                  boxShadow: `0 0 8px ${CYAN_DIM}`,
+                  background: ORANGE,
+                  boxShadow: `0 0 8px ${ORANGE_DIM}`,
                   flexShrink: 0,
                 }}
               />
@@ -99,7 +119,7 @@ export default function Footer() {
                   color: 'rgb(228 228 231)',
                 }}
               >
-                intent solutions io
+                Intent <span style={{ color: '#FF7A1A' }}>Solutions</span>
               </span>
             </div>
 
@@ -123,44 +143,11 @@ export default function Footer() {
                 letterSpacing: '0.18em',
                 textTransform: 'uppercase',
                 color: 'rgb(63 63 70)',
-                marginBottom: '1rem',
+                margin: 0,
               }}
             >
               gulf shores, alabama
             </p>
-
-            {/* Contact CTA */}
-            <a
-              href="https://calendar.app.google/Wqbt8EJuEh5xvvV58"
-              target="_blank"
-              rel="noopener"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.4rem',
-                padding: '0.55rem 1.1rem',
-                background: 'rgba(34,211,238,0.06)',
-                border: '1px solid rgba(34,211,238,0.2)',
-                borderRadius: '0.375rem',
-                color: CYAN,
-                fontSize: '0.78rem',
-                fontFamily: "'Syne', system-ui, sans-serif",
-                fontWeight: 700,
-                letterSpacing: '0.06em',
-                textDecoration: 'none',
-                transition: 'background 0.25s ease, border-color 0.25s ease',
-              }}
-              onMouseEnter={e => {
-                (e.currentTarget as HTMLElement).style.background = 'rgba(34,211,238,0.1)';
-                (e.currentTarget as HTMLElement).style.borderColor = 'rgba(34,211,238,0.35)';
-              }}
-              onMouseLeave={e => {
-                (e.currentTarget as HTMLElement).style.background = 'rgba(34,211,238,0.06)';
-                (e.currentTarget as HTMLElement).style.borderColor = 'rgba(34,211,238,0.2)';
-              }}
-            >
-              Book a Call →
-            </a>
           </div>
 
           {/* Services column */}
@@ -209,6 +196,36 @@ export default function Footer() {
               <FooterLink href="mailto:jeremy@intentsolutions.io">
                 jeremy@intentsolutions.io
               </FooterLink>
+            </div>
+          </div>
+
+          {/* FAQ column */}
+          <div>
+            <p
+              style={{
+                fontFamily: "'Syne', system-ui, sans-serif",
+                fontSize: '0.6rem',
+                fontWeight: 700,
+                letterSpacing: '0.22em',
+                textTransform: 'uppercase',
+                color: 'rgb(82 82 91)',
+                marginBottom: '1.25rem',
+              }}
+            >
+              FAQ
+            </p>
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              {faqs.map((faq) => (
+                <details key={faq.q} className="footer-faq">
+                  <summary>
+                    <span>{faq.q}</span>
+                    <svg className="faq-chevron" width="11" height="11" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+                      <path d="M1.5 3.5 L5 7 L8.5 3.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </summary>
+                  <p>{faq.a}</p>
+                </details>
+              ))}
             </div>
           </div>
 

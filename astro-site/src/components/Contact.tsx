@@ -7,12 +7,22 @@ import { useState } from 'react';
 
 declare global {
   interface Window {
-    umami?: { track: (eventName: string, props?: Record<string, unknown>) => void };
+    gtag?: (command: string, eventName: string, params?: Record<string, unknown>) => void;
   }
 }
 
-const CYAN      = 'rgb(34 211 238)';
-const CYAN_GLOW = '0 0 6px rgba(34,211,238,0.5)';
+const ORANGE      = 'rgb(251 146 60)';
+const ORANGE_GLOW = '0 0 6px rgba(249,115,22,0.5)';
+
+/* Marker-highlight for the heading keyword */
+const HIGHLIGHT: React.CSSProperties = {
+  background: 'linear-gradient(120deg, #FF8A2A, #F26205)',
+  color: 'rgb(9 9 11)',
+  padding: '0.02em 0.22em 0.06em',
+  borderRadius: '8px',
+  boxDecorationBreak: 'clone',
+  WebkitBoxDecorationBreak: 'clone',
+};
 
 const contactSchema = z.object({
   name: z.string().min(1, 'name is required'),
@@ -61,7 +71,7 @@ const timelineOptions = [
 ] as const;
 
 const steps = [
-  { number: '01', title: 'You reach out',  description: 'Tell me about your project and goals' },
+  { number: '01', title: 'You reach out',  description: 'Tell us about your project and goals' },
   { number: '02', title: 'We connect',     description: 'Quick call to understand your needs' },
   { number: '03', title: 'We ship',        description: 'Build, train, and deploy together' },
 ];
@@ -107,7 +117,7 @@ function Field({
         }}
       >
         {label}
-        {required && <span style={{ color: CYAN, marginLeft: '0.2rem' }}>*</span>}
+        {required && <span style={{ color: ORANGE, marginLeft: '0.2rem' }}>*</span>}
         {optional && <span style={{ color: 'rgb(82 82 91)', marginLeft: '0.3rem', fontWeight: 400, textTransform: 'none', letterSpacing: 0 }}>(optional)</span>}
       </label>
       {children}
@@ -139,7 +149,7 @@ export default function Contact() {
     try {
       setSubmitError(null);
 
-      const response = await fetch('/api/forms/contact', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -161,7 +171,7 @@ export default function Contact() {
         throw new Error(errorData.error || `Form submission failed with status ${response.status}`);
       }
 
-      window.umami?.track('form_submit', {
+      window.gtag?.('event', 'form_submit', {
         form_name: 'enhanced_contact',
         interest:  data.interest,
         budget:    data.budget,
@@ -183,11 +193,50 @@ export default function Contact() {
       style={{
         padding: '7rem 0',
         background: 'rgb(9 9 11)',
-        borderTop: '1px solid rgba(39,39,42,0.5)',
         position: 'relative',
         overflow: 'hidden',
       }}
     >
+      {/* Astronaut video backdrop */}
+      <video
+        autoPlay muted loop playsInline
+        aria-hidden="true"
+        style={{
+          position: 'absolute',
+          inset: 0,
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          pointerEvents: 'none',
+        }}
+      >
+        <source src="/astronaut.mp4" type="video/mp4" />
+      </video>
+
+      {/* Light overlay — the Mars footage stays visible, like the old hero */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'rgba(9, 9, 11, 0.38)',
+          pointerEvents: 'none',
+        }}
+      />
+
+      {/* Bottom blend into the next section + ember grade */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: 'absolute',
+          inset: 0,
+          background:
+            'linear-gradient(to bottom, rgba(9,9,11,0.2) 0%, rgba(9,9,11,0) 25%, rgba(9,9,11,0) 78%, rgb(9 9 11) 100%), ' +
+            'radial-gradient(circle at 82% 10%, rgba(249,115,22,0.08), transparent 55%)',
+          pointerEvents: 'none',
+        }}
+      />
+
       {/* Ambient glow */}
       <div
         aria-hidden="true"
@@ -196,7 +245,7 @@ export default function Contact() {
           width: 600, height: 600,
           top: '-10%', right: '-15%',
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(34,211,238,0.03) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(249,115,22,0.03) 0%, transparent 70%)',
           pointerEvents: 'none',
         }}
       />
@@ -212,7 +261,7 @@ export default function Contact() {
         >
           {/* Eyebrow */}
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem', marginBottom: '1.2rem' }}>
-            <span style={{ display: 'block', height: 1, width: '3.5rem', background: 'linear-gradient(to right, transparent, rgba(34,211,238,0.2))' }} />
+            <span style={{ display: 'block', height: 1, width: '3.5rem', background: 'linear-gradient(to right, transparent, rgba(249,115,22,0.2))' }} />
             <span
               style={{
                 fontFamily: "'Syne', system-ui, sans-serif",
@@ -220,12 +269,12 @@ export default function Contact() {
                 fontWeight: 700,
                 letterSpacing: '0.28em',
                 textTransform: 'uppercase' as const,
-                color: CYAN,
+                color: ORANGE,
               }}
             >
               Start a Conversation
             </span>
-            <span style={{ display: 'block', height: 1, width: '3.5rem', background: 'linear-gradient(to left, transparent, rgba(34,211,238,0.2))' }} />
+            <span style={{ display: 'block', height: 1, width: '3.5rem', background: 'linear-gradient(to left, transparent, rgba(249,115,22,0.2))' }} />
           </div>
 
           <h2
@@ -235,16 +284,31 @@ export default function Contact() {
               fontWeight: 700,
               color: 'rgb(250 250 250)',
               letterSpacing: '-0.02em',
-              lineHeight: 1.1,
-              marginBottom: '0.75rem',
+              lineHeight: 1.18,
+              marginBottom: '0.85rem',
+              textShadow: '0 2px 30px rgba(0,0,0,0.6)',
             }}
           >
-            Let's Build Something That Ships to Production
+            Let's Build Something That{' '}
+            <span style={HIGHLIGHT}>Ships to Production</span>
           </h2>
-          <p style={{ fontSize: '0.95rem', color: 'rgb(113 113 122)' }}>
+          <p style={{ fontSize: '0.95rem', color: 'rgb(228 228 231)', textShadow: '0 1px 14px rgba(0,0,0,0.6)' }}>
             Tired of AI demos that never make it past the POC phase?
           </p>
         </motion.div>
+
+        {/* ── Glass panel: steps + form + direct contact ── */}
+        <div
+          style={{
+            background: 'rgba(9, 9, 11, 0.72)',
+            backdropFilter: 'blur(18px)',
+            WebkitBackdropFilter: 'blur(18px)',
+            border: '1px solid rgba(255,255,255,0.08)',
+            borderRadius: '1.25rem',
+            padding: '2.5rem 2.25rem',
+            boxShadow: '0 30px 80px rgba(0,0,0,0.45)',
+          }}
+        >
 
         {/* ── 3-step process ── */}
         <motion.div
@@ -270,7 +334,7 @@ export default function Contact() {
                   width: '2rem',
                   height: '2rem',
                   borderRadius: '50%',
-                  border: `1px solid rgba(34,211,238,0.3)`,
+                  border: `1px solid rgba(249,115,22,0.3)`,
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -278,8 +342,8 @@ export default function Contact() {
                   fontFamily: "'Syne', system-ui, sans-serif",
                   fontSize: '0.65rem',
                   fontWeight: 700,
-                  color: CYAN,
-                  boxShadow: CYAN_GLOW,
+                  color: ORANGE,
+                  boxShadow: ORANGE_GLOW,
                 }}
               >
                 {step.number}
@@ -315,7 +379,7 @@ export default function Contact() {
                 id="name"
                 style={inputStyle}
                 placeholder="Your name"
-                onFocus={e => (e.target.style.borderColor = 'rgba(34,211,238,0.35)')}
+                onFocus={e => (e.target.style.borderColor = 'rgba(249,115,22,0.35)')}
                 onBlur={e => (e.target.style.borderColor = 'rgba(39,39,42,0.8)')}
               />
             </Field>
@@ -326,7 +390,7 @@ export default function Contact() {
                 id="email"
                 style={inputStyle}
                 placeholder="you@example.com"
-                onFocus={e => (e.target.style.borderColor = 'rgba(34,211,238,0.35)')}
+                onFocus={e => (e.target.style.borderColor = 'rgba(249,115,22,0.35)')}
                 onBlur={e => (e.target.style.borderColor = 'rgba(39,39,42,0.8)')}
               />
             </Field>
@@ -341,7 +405,7 @@ export default function Contact() {
                 id="company"
                 style={inputStyle}
                 placeholder="Your company"
-                onFocus={e => (e.target.style.borderColor = 'rgba(34,211,238,0.35)')}
+                onFocus={e => (e.target.style.borderColor = 'rgba(249,115,22,0.35)')}
                 onBlur={e => (e.target.style.borderColor = 'rgba(39,39,42,0.8)')}
               />
             </Field>
@@ -352,7 +416,7 @@ export default function Contact() {
                 id="phone"
                 style={inputStyle}
                 placeholder="+1 555 123 4567"
-                onFocus={e => (e.target.style.borderColor = 'rgba(34,211,238,0.35)')}
+                onFocus={e => (e.target.style.borderColor = 'rgba(249,115,22,0.35)')}
                 onBlur={e => (e.target.style.borderColor = 'rgba(39,39,42,0.8)')}
               />
             </Field>
@@ -364,7 +428,7 @@ export default function Contact() {
               {...register('interest')}
               id="interest"
               style={{ ...inputStyle, cursor: 'pointer' }}
-              onFocus={e => (e.target.style.borderColor = 'rgba(34,211,238,0.35)')}
+              onFocus={e => (e.target.style.borderColor = 'rgba(249,115,22,0.35)')}
               onBlur={e => (e.target.style.borderColor = 'rgba(39,39,42,0.8)')}
             >
               <option value="">Select an option...</option>
@@ -387,7 +451,7 @@ export default function Contact() {
                   {...register('projectType')}
                   id="projectType"
                   style={{ ...inputStyle, cursor: 'pointer' }}
-                  onFocus={e => (e.target.style.borderColor = 'rgba(34,211,238,0.35)')}
+                  onFocus={e => (e.target.style.borderColor = 'rgba(249,115,22,0.35)')}
                   onBlur={e => (e.target.style.borderColor = 'rgba(39,39,42,0.8)')}
                 >
                   <option value="">Select project type...</option>
@@ -406,7 +470,7 @@ export default function Contact() {
                 {...register('budget')}
                 id="budget"
                 style={{ ...inputStyle, cursor: 'pointer' }}
-                onFocus={e => (e.target.style.borderColor = 'rgba(34,211,238,0.35)')}
+                onFocus={e => (e.target.style.borderColor = 'rgba(249,115,22,0.35)')}
                 onBlur={e => (e.target.style.borderColor = 'rgba(39,39,42,0.8)')}
               >
                 <option value="">Select budget...</option>
@@ -420,7 +484,7 @@ export default function Contact() {
                 {...register('timeline')}
                 id="timeline"
                 style={{ ...inputStyle, cursor: 'pointer' }}
-                onFocus={e => (e.target.style.borderColor = 'rgba(34,211,238,0.35)')}
+                onFocus={e => (e.target.style.borderColor = 'rgba(249,115,22,0.35)')}
                 onBlur={e => (e.target.style.borderColor = 'rgba(39,39,42,0.8)')}
               >
                 <option value="">Select timeline...</option>
@@ -438,8 +502,8 @@ export default function Contact() {
               id="message"
               rows={4}
               style={{ ...inputStyle, resize: 'none', fontFamily: 'inherit' }}
-              placeholder="Tell me about your project, goals, and any specific challenges..."
-              onFocus={e => (e.target.style.borderColor = 'rgba(34,211,238,0.35)')}
+              placeholder="Tell us about your project, goals, and any specific challenges..."
+              onFocus={e => (e.target.style.borderColor = 'rgba(249,115,22,0.35)')}
               onBlur={e => (e.target.style.borderColor = 'rgba(39,39,42,0.8)')}
             />
           </Field>
@@ -452,8 +516,8 @@ export default function Contact() {
             <p style={{ fontSize: '0.85rem', color: 'rgb(248 113 113)', textAlign: 'center' }}>{submitError}</p>
           )}
           {submitted && !submitError && (
-            <p style={{ fontSize: '0.85rem', color: CYAN, textAlign: 'center' }}>
-              Thanks for reaching out! I'll be in touch within 24 hours.
+            <p style={{ fontSize: '0.85rem', color: ORANGE, textAlign: 'center' }}>
+              Thanks for reaching out! We'll be in touch within 24 hours.
             </p>
           )}
 
@@ -510,7 +574,7 @@ export default function Contact() {
                 transition: 'border-color 0.25s ease, color 0.25s ease',
               }}
               onMouseEnter={e => {
-                (e.currentTarget as HTMLElement).style.borderColor = 'rgba(34,211,238,0.3)';
+                (e.currentTarget as HTMLElement).style.borderColor = 'rgba(249,115,22,0.3)';
                 (e.currentTarget as HTMLElement).style.color = 'rgb(250 250 250)';
               }}
               onMouseLeave={e => {
@@ -528,7 +592,7 @@ export default function Contact() {
                 textDecoration: 'none',
                 transition: 'color 0.2s ease',
               }}
-              onMouseEnter={e => ((e.currentTarget as HTMLElement).style.color = CYAN)}
+              onMouseEnter={e => ((e.currentTarget as HTMLElement).style.color = ORANGE)}
               onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = 'rgb(113 113 122)')}
             >
               jeremy@intentsolutions.io
@@ -536,6 +600,8 @@ export default function Contact() {
           </div>
           <p style={{ fontSize: '0.775rem', color: 'rgb(63 63 70)' }}>gulf shores, alabama</p>
         </motion.div>
+
+        </div>{/* /glass panel */}
 
       </div>
     </section>

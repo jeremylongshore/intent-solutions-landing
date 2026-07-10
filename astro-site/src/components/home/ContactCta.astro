@@ -1,0 +1,187 @@
+---
+/* Slim closing CTA — the full contact form lives at /contact */
+---
+
+<section id="contact" class="cta-section" aria-labelledby="cta-title">
+  <!-- Mars footage backdrop -->
+  <video autoplay muted loop playsinline aria-hidden="true" class="cta-video">
+    <source src="/astronaut.mp4" type="video/mp4" />
+  </video>
+  <div aria-hidden="true" class="cta-overlay"></div>
+  <div aria-hidden="true" class="cta-blend"></div>
+
+  <div class="cta-container">
+    <div class="sec-eyebrow" aria-hidden="true">
+      <span class="eyebrow-rule"></span>
+      <span class="eyebrow-label">Start a Conversation</span>
+      <span class="eyebrow-rule"></span>
+    </div>
+
+    <h2 id="cta-title" class="cta-title">
+      Let's Build Something That <span class="hl">Ships to Production</span>
+    </h2>
+    <p class="cta-subtitle">Tired of AI demos that never make it past the POC phase?</p>
+
+    <div class="cta-actions">
+      <a
+        href="https://calendar.app.google/Wqbt8EJuEh5xvvV58"
+        target="_blank"
+        rel="noopener"
+        class="btn-primary font-display tracking-wide"
+      >
+        Book a Discovery Call
+      </a>
+      <a href="/contact" class="cta-secondary">
+        Contact us
+        <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <path d="M2.5 7h9M7.5 3l4 4-4 4" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+
+    <p class="cta-trust">No commitment required · We respond within 24 hours</p>
+  </div>
+</section>
+
+<style>
+  .cta-section {
+    position: relative;
+    padding: 8rem 0;
+    background: rgb(9 9 11);
+    overflow: hidden;
+    border-top: 1px solid rgba(39, 39, 42, 0.5);
+  }
+
+  .cta-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+  }
+
+  .cta-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(9, 9, 11, 0.45);
+    pointer-events: none;
+  }
+
+  .cta-blend {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to bottom, rgb(9 9 11) 0%, rgba(9, 9, 11, 0) 22%, rgba(9, 9, 11, 0) 78%, rgb(9 9 11) 100%),
+      radial-gradient(circle at 80% 12%, rgba(249, 115, 22, 0.07), transparent 55%);
+    pointer-events: none;
+  }
+
+  .cta-container {
+    position: relative;
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+    text-align: center;
+    z-index: 1;
+  }
+
+  .sec-eyebrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .eyebrow-rule {
+    display: block;
+    height: 1px;
+    width: 3.5rem;
+    background: linear-gradient(to right, transparent, rgba(249, 115, 22, 0.35));
+  }
+
+  .eyebrow-rule:last-child {
+    background: linear-gradient(to left, transparent, rgba(249, 115, 22, 0.35));
+  }
+
+  .eyebrow-label {
+    font-family: 'Syne', system-ui, sans-serif;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: rgb(251 146 60);
+  }
+
+  .cta-title {
+    font-family: 'Syne', system-ui, sans-serif;
+    font-size: clamp(1.9rem, 3.8vw, 2.7rem);
+    font-weight: 700;
+    color: rgb(250 250 250);
+    letter-spacing: -0.02em;
+    line-height: 1.22;
+    margin-bottom: 0.9rem;
+    text-shadow: 0 2px 30px rgba(0, 0, 0, 0.6);
+  }
+
+  .hl {
+    background: linear-gradient(120deg, #FF8A2A, #F26205);
+    color: rgb(9 9 11);
+    padding: 0.02em 0.22em 0.06em;
+    border-radius: 8px;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    text-shadow: none;
+  }
+
+  .cta-subtitle {
+    font-size: 0.95rem;
+    color: rgb(228 228 231);
+    text-shadow: 0 1px 14px rgba(0, 0, 0, 0.6);
+    margin-bottom: 2.25rem;
+  }
+
+  .cta-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(9, 9, 11, 0.5);
+    backdrop-filter: blur(8px);
+    color: rgb(244 244 245);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: border-color 0.25s ease, background 0.25s ease;
+  }
+
+  .cta-secondary:hover {
+    border-color: rgba(249, 115, 22, 0.5);
+    background: rgba(9, 9, 11, 0.7);
+  }
+
+  .cta-trust {
+    font-size: 0.78rem;
+    color: rgb(212 212 216);
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.6);
+    margin: 0;
+  }
+
+  @media (max-width: 640px) {
+    .cta-section {
+      padding: 6rem 0;
+    }
+  }
+</style>
