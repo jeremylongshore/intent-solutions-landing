@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 
 /* ── Constants ─────────────────────────────────────── */
 const ORANGE      = 'rgb(251 146 60)';                 /* orange-400 — accent text */
@@ -34,6 +35,43 @@ const SERVICES = [
   { title: 'Production Engineering',desc: 'Reliable engineering that delivers and scales with you.' },
 ];
 
+/* Proof stats — count up when the hero mounts */
+const STATS = [
+  { value: 1550, suffix: '+', label: 'GitHub Stars' },
+  { value: 270,  suffix: '+', label: 'Plugins Built' },
+  { value: 1537, suffix: '',  label: 'Agent Skills' },
+];
+
+/* ── Count-up hook ─────────────────────────────────── */
+function useCountUp(target: number, start: boolean, duration = 1600) {
+  const [val, setVal] = useState(0);
+  useEffect(() => {
+    if (!start) return;
+    let raf = 0;
+    let t0 = 0;
+    const tick = (t: number) => {
+      if (!t0) t0 = t;
+      const p = Math.min(1, (t - t0) / duration);
+      const eased = 1 - Math.pow(1 - p, 3); // easeOutCubic
+      setVal(Math.round(target * eased));
+      if (p < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [start, target, duration]);
+  return val;
+}
+
+function Stat({ value, suffix, label, start }: { value: number; suffix: string; label: string; start: boolean }) {
+  const n = useCountUp(value, start);
+  return (
+    <div className="hero-stat">
+      <span className="hero-stat-num">{n.toLocaleString('en-US')}{suffix}</span>
+      <span className="hero-stat-label">{label}</span>
+    </div>
+  );
+}
+
 /* ── Sub-components ─────────────────────────────────── */
 function StarField() {
   return (
@@ -59,13 +97,14 @@ function StarField() {
 
 /* ── The Intent mark — the actual 3D render, extracted from the
    brand poster (transparent PNG, glow and bevel intact). ── */
-function IntentMark({ size = 280 }: { size?: number }) {
+function IntentMark({ size, className }: { size?: number; className?: string }) {
   return (
     <img
       src="/images/logo-mark.png"
       alt=""
       width={size}
       height={size}
+      className={className}
       aria-hidden="true"
       style={{
         display: 'block',
@@ -75,76 +114,95 @@ function IntentMark({ size = 280 }: { size?: number }) {
   );
 }
 
-/* ── Right-hand scene: mark levitating over the wide rim-lit podium.
-   Light source bleeds in from the upper right, like the original render. ── */
-function LogoScene() {
+/* ── The mark levitating over the wide rim-lit podium.
+   The whole scene tilts with the cursor (parallax) on desktop. ── */
+function LogoScene({ rotateX, rotateY }: { rotateX: any; rotateY: any }) {
   return (
-    <div
-      className="relative hidden lg:flex flex-col items-center justify-center flex-shrink-0"
-      style={{ width: 580, minHeight: 560 }}
+    <motion.div
+      className="hero-scene relative flex flex-col items-center justify-center flex-shrink-0"
+      style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
       aria-hidden="true"
     >
       {/* Directional light — warm wash from the upper right */}
       <span
         className="absolute"
         style={{
-          width: 520, height: 520,
+          width: '90%', height: '90%',
           top: '-10%', right: '-14%',
           borderRadius: '50%',
           background: 'radial-gradient(circle, rgba(255,140,40,0.2) 0%, rgba(255,120,26,0.07) 45%, transparent 70%)',
           animation: 'hero-glow-pulse 6s ease-in-out infinite',
         }}
       />
-      {/* Levitating mark — floats and slowly swivels like a product on display */}
+      {/* Levitating mark — floats + slowly swivels; sits above the podium in 3D */}
       <motion.div
         className="relative z-10"
-        style={{ perspective: 900 }}
+        style={{ translateZ: 40 }}
         initial={{ opacity: 0, y: 34, scale: 0.92 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 1.05, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
       >
         <div style={{ animation: 'hero-float 6.5s ease-in-out infinite' }}>
           <div style={{ animation: 'hero-turntable 9s ease-in-out infinite', transformStyle: 'preserve-3d' }}>
-            <IntentMark size={280} />
+            <IntentMark className="hero-mark" />
           </div>
         </div>
       </motion.div>
 
       {/* Podium — the actual render, wide, with clear air below the mark */}
       <motion.div
-        className="relative flex flex-col items-center"
-        style={{ marginTop: '1.6rem' }}
+        className="relative flex flex-col items-center hero-podium-wrap"
         initial={{ opacity: 0, y: 18 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.9, delay: 0.75, ease: [0.22, 1, 0.36, 1] }}
       >
         {/* Cast shadow on the disc — breathes with the float */}
         <span
-          className="absolute rounded-full"
+          className="absolute rounded-full hero-cast-shadow"
           style={{
-            width: 210, height: 30, top: 26,
             background: 'radial-gradient(ellipse, rgba(0,0,0,0.6) 0%, transparent 70%)',
             filter: 'blur(6px)',
             animation: 'hero-shadow 6.5s ease-in-out infinite',
           }}
         />
-        <img
-          src="/images/logo-podium.png"
-          alt=""
-          width={560}
-          height={191}
-          aria-hidden="true"
-          style={{ display: 'block' }}
-        />
+        <img src="/images/logo-podium.png" alt="" aria-hidden="true" className="hero-podium" style={{ display: 'block' }} />
       </motion.div>
-    </div>
+    </motion.div>
   );
 }
 
 /* ── Main component ─────────────────────────────────── */
 export default function Hero() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [statsStart, setStatsStart] = useState(false);
+
+  /* Kick off the count-up shortly after the entrance animation */
+  useEffect(() => {
+    const t = setTimeout(() => setStatsStart(true), 700);
+    return () => clearTimeout(t);
+  }, []);
+
+  /* Cursor parallax (desktop; touch devices never fire mousemove) */
+  const mx = useMotionValue(0);
+  const my = useMotionValue(0);
+  const rotateY = useSpring(useTransform(mx, [-0.5, 0.5], [-13, 13]), { stiffness: 55, damping: 14 });
+  const rotateX = useSpring(useTransform(my, [-0.5, 0.5], [9, -9]), { stiffness: 55, damping: 14 });
+
+  const handleMouse = (e: React.MouseEvent) => {
+    const r = sectionRef.current?.getBoundingClientRect();
+    if (!r) return;
+    mx.set((e.clientX - r.left) / r.width - 0.5);
+    my.set((e.clientY - r.top) / r.height - 0.5);
+  };
+  const resetMouse = () => { mx.set(0); my.set(0); };
+
   return (
-    <section className="min-h-screen flex items-center relative overflow-hidden bg-zinc-950">
+    <section
+      ref={sectionRef}
+      onMouseMove={handleMouse}
+      onMouseLeave={resetMouse}
+      className="min-h-screen flex items-center relative overflow-hidden bg-zinc-950"
+    >
 
       {/* Atmosphere */}
       <div className="absolute inset-0 hero-overlay-bottom pointer-events-none" />
@@ -175,15 +233,15 @@ export default function Hero() {
       <StarField />
 
       {/* Content */}
-      <div className="container mx-auto px-8 py-28 relative z-10">
-        <div className="flex items-center justify-between gap-10">
+      <div className="container mx-auto px-8 py-20 lg:py-24 relative z-10" style={{ perspective: 1200 }}>
+        <div className="flex flex-col-reverse lg:flex-row items-center lg:justify-between gap-8 lg:gap-10">
 
-          {/* ── Left: primary content ── */}
+          {/* ── Primary content ── */}
           <div className="max-w-[600px] w-full">
 
             {/* System status badge */}
             <motion.div
-              className="inline-flex items-center gap-3 mb-9"
+              className="inline-flex items-center gap-3 mb-8"
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.65, delay: 0.1 }}
@@ -192,37 +250,28 @@ export default function Hero() {
                 className="hidden sm:block h-px w-8 flex-shrink-0"
                 style={{ background: `linear-gradient(to right, transparent, ${EMBER})` }}
               />
-              {/* Pulsing live indicator */}
               <span className="relative flex h-2 w-2 flex-shrink-0">
-                <span
-                  className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-50"
-                  style={{ background: EMBER }}
-                />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-50" style={{ background: EMBER }} />
                 <span className="relative inline-flex h-2 w-2 rounded-full" style={{ background: EMBER }} />
               </span>
               <span
                 className="font-display text-[0.62rem] font-semibold tracking-[0.32em] uppercase px-3 py-1 rounded-full border"
-                style={{
-                  color: ORANGE,
-                  borderColor: 'rgba(249,115,22,0.25)',
-                  background: 'rgba(249,115,22,0.05)',
-                }}
+                style={{ color: ORANGE, borderColor: 'rgba(249,115,22,0.25)', background: 'rgba(249,115,22,0.05)' }}
               >
                 building intelligence · delivering impact
               </span>
             </motion.div>
 
-            {/* Headline — one flowing line, marker-highlight device */}
+            {/* Headline — marker-highlight device */}
             <motion.h1
-              className="font-display font-bold tracking-[-0.03em] mb-6 text-zinc-50"
-              style={{ fontSize: 'clamp(1.9rem, 3.2vw, 2.9rem)', lineHeight: 1.25 }}
+              className="hero-headline font-display font-bold tracking-[-0.03em] mb-6 text-zinc-50"
               initial={{ opacity: 0, y: 22 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.85, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             >
-              <span className="sm:whitespace-nowrap">Intelligent Solutions.</span>{' '}
+              <span className="lg:whitespace-nowrap">Intelligent Solutions.</span>{' '}
               <motion.span
-                className="sm:whitespace-nowrap"
+                className="lg:whitespace-nowrap"
                 style={{
                   background: 'linear-gradient(120deg, #FF8A2A, #F26205)',
                   color: 'rgb(9 9 11)',
@@ -248,15 +297,12 @@ export default function Hero() {
               transition={{ duration: 0.7, delay: 0.38, ease: [0.22, 1, 0.36, 1] }}
               style={{ transformOrigin: 'left center' }}
             >
-              <span
-                className="block h-[3px] w-32 rounded-full"
-                style={{ background: `linear-gradient(to right, ${EMBER}, transparent)` }}
-              />
+              <span className="block h-[3px] w-32 rounded-full" style={{ background: `linear-gradient(to right, ${EMBER}, transparent)` }} />
             </motion.div>
 
-            {/* Description — poster copy */}
+            {/* Description */}
             <motion.p
-              className="text-[0.98rem] text-zinc-400 leading-relaxed mb-9 max-w-md"
+              className="text-[0.98rem] text-zinc-400 leading-relaxed mb-8 max-w-md"
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.65, delay: 0.52 }}
@@ -264,19 +310,15 @@ export default function Hero() {
               We build AI-powered solutions that learn, adapt, and drive real business outcomes.
             </motion.p>
 
-            {/* Poster service columns */}
+            {/* Service columns */}
             <motion.div
-              className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-10"
+              className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-9"
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.65, delay: 0.6 }}
             >
               {SERVICES.map((svc, i) => (
-                <div
-                  key={svc.title}
-                  className="relative pl-4 sm:pl-0 sm:pt-4"
-                >
-                  {/* Divider — left on mobile, top on desktop */}
+                <div key={svc.title} className="relative pl-4 sm:pl-0 sm:pt-4">
                   <span
                     className="absolute left-0 top-0 bottom-0 w-px sm:bottom-auto sm:right-[30%] sm:h-px sm:w-auto"
                     style={{ background: `linear-gradient(to right, rgba(249,115,22,${0.45 - i * 0.1}), transparent)` }}
@@ -287,12 +329,8 @@ export default function Hero() {
                   >
                     <IntentMark size={16} />
                   </span>
-                  <p className="font-display text-[0.78rem] font-semibold text-zinc-200 mb-1">
-                    {svc.title}
-                  </p>
-                  <p className="text-[0.72rem] leading-relaxed text-zinc-500">
-                    {svc.desc}
-                  </p>
+                  <p className="font-display text-[0.78rem] font-semibold text-zinc-200 mb-1">{svc.title}</p>
+                  <p className="text-[0.72rem] leading-relaxed text-zinc-500">{svc.desc}</p>
                 </div>
               ))}
             </motion.div>
@@ -304,12 +342,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.65, delay: 0.68 }}
             >
-              <a
-                href="https://calendar.app.google/Wqbt8EJuEh5xvvV58"
-                target="_blank"
-                rel="noopener"
-                className="btn-primary font-display tracking-wide"
-              >
+              <a href="https://calendar.app.google/Wqbt8EJuEh5xvvV58" target="_blank" rel="noopener" className="btn-primary btn-magnetic font-display tracking-wide">
                 Book a Discovery Call
               </a>
               <a
@@ -318,19 +351,29 @@ export default function Hero() {
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-1.5 text-sm text-zinc-500 hover:text-zinc-300 transition-colors duration-300"
               >
-                <span className="transition-colors duration-300 group-hover:text-orange-300" style={{ color: ORANGE }}>
-                  explore
-                </span>
+                <span className="transition-colors duration-300 group-hover:text-orange-300" style={{ color: ORANGE }}>explore</span>
                 <span>270+ plugins</span>
                 <span className="transition-transform duration-300 group-hover:translate-x-0.5">→</span>
               </a>
             </motion.div>
           </div>
 
-          {/* ── Right: the poster scene (desktop only) ── */}
-          <LogoScene />
+          {/* ── The logo scene (now on every viewport) ── */}
+          <LogoScene rotateX={rotateX} rotateY={rotateY} />
 
         </div>
+
+        {/* ── Proof stats — count up on load ── */}
+        <motion.div
+          className="hero-stats"
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.95, ease: [0.22, 1, 0.36, 1] }}
+        >
+          {STATS.map((s) => (
+            <Stat key={s.label} value={s.value} suffix={s.suffix} label={s.label} start={statsStart} />
+          ))}
+        </motion.div>
       </div>
     </section>
   );

@@ -343,6 +343,71 @@
   }
 }
 
+/* ── Hero scene (logo + podium) — responsive, shows on every viewport ── */
+.hero-scene { width: 560px; min-height: 540px; }
+.hero-mark { width: 280px; height: auto; }
+.hero-podium { width: 540px; height: auto; }
+.hero-podium-wrap { margin-top: 1.6rem; }
+.hero-cast-shadow { width: 210px; height: 30px; top: 26px; }
+
+@media (max-width: 1023px) {
+  .hero-scene { width: 320px; min-height: 280px; }
+  .hero-mark { width: 178px; }
+  .hero-podium { width: 300px; }
+  .hero-podium-wrap { margin-top: 0.8rem; }
+  .hero-cast-shadow { width: 130px; height: 20px; top: 14px; }
+}
+
+@media (max-width: 400px) {
+  .hero-scene { width: 280px; min-height: 260px; }
+  .hero-mark { width: 158px; }
+  .hero-podium { width: 270px; }
+}
+
+/* Hero headline size */
+.hero-headline { font-size: clamp(1.9rem, 3.2vw, 2.9rem); line-height: 1.25; }
+@media (max-width: 480px) { .hero-headline { font-size: 1.75rem; } }
+
+/* ── Hero proof stats — count up on load ── */
+.hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.75rem;
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(39, 39, 42, 0.6);
+}
+
+.hero-stat { display: flex; flex-direction: column; gap: 0.2rem; }
+
+.hero-stat-num {
+  font-family: 'Syne', system-ui, sans-serif;
+  font-size: 1.9rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #FB923C;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 0 24px rgba(249, 115, 22, 0.3);
+}
+
+.hero-stat-label {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgb(113 113 122);
+}
+
+@media (max-width: 1023px) {
+  .hero-stats { justify-content: center; margin-top: 2.75rem; gap: 1.75rem; }
+  .hero-stat { align-items: center; }
+  .hero-stat-num { font-size: 1.5rem; }
+}
+
+/* ── Magnetic CTA — subtle lift on hover ── */
+.btn-magnetic { transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease; }
+.btn-magnetic:hover { transform: translateY(-2px) scale(1.02); }
+
 /* Footer responsive columns */
 @media (max-width: 900px) {
   .footer-top {
