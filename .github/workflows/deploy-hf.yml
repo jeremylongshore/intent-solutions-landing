@@ -1,0 +1,70 @@
+name: deploy-hf
+
+# Auto-deploy the built Astro site to the Hugging Face static Space
+# (intent-solutions-io/home), which mirrors intentsolutions.io.
+# Same source as the VPS deploy — this simply adds Hugging Face as a second target.
+# Hugging Face Spaces are git repos; the `hf` CLI upload handles binary assets via
+# Xet automatically, so no git-lfs plumbing is needed here.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'astro-site/**'
+      - '.github/workflows/deploy-hf.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-hf-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: astro-site/package-lock.json
+
+      - name: Build the Astro site
+        working-directory: astro-site
+        run: |
+          npm install --no-audit --no-fund
+          npm run build
+
+      - name: Write the Space config into the build output
+        working-directory: astro-site/dist
+        run: |
+          cat > README.md <<'EOF'
+          ---
+          title: Intent Solutions
+          emoji: 🧭
+          colorFrom: gray
+          colorTo: blue
+          sdk: static
+          app_file: index.html
+          pinned: true
+          ---
+
+          Intent Solutions — auto-deployed from `intent-solutions-landing/astro-site`
+          (the same source as https://intentsolutions.io).
+          EOF
+
+      - name: Install the Hugging Face CLI
+        run: pip install --upgrade "huggingface_hub" "hf_xet"
+
+      - name: Deploy the build to the Space (Xet handles binaries)
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          hf upload intent-solutions-io/home astro-site/dist . \
+            --repo-type=space \
+            --delete "*" \
+            --commit-message "Deploy intentsolutions.io from CI — ${{ github.sha }}"
