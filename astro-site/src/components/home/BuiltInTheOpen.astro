@@ -1,0 +1,78 @@
+---
+// Real, verifiable proof — replaces the (removed) fabricated testimonials.
+// Numbers are the live GitHub/marketplace figures; refresh them alongside TrustBar.
+const openSource = [
+  {
+    href: 'https://github.com/jeremylongshore/claude-code-plugins-plus-skills',
+    title: 'claude-code-plugins',
+    desc: 'Our open Claude Code plugin & skill marketplace — 2,500+ ★, 460+ plugins, 3,600+ agent skills.',
+    cta: 'View on GitHub',
+  },
+  {
+    href: 'https://labs.intentsolutions.io',
+    title: 'Intent Eval Platform',
+    desc: 'A vendor-neutral evaluation lab — scoring and standards for agents, skills, and LLM judges.',
+    cta: 'Explore the lab',
+  },
+  {
+    href: 'https://startaitools.com',
+    title: 'Field notes & guides',
+    desc: 'How we actually build — deep-dive write-ups, including our Kobiton device-testing work.',
+    cta: 'Read the blog',
+  },
+  {
+    href: 'https://huggingface.co/intent-solutions-io',
+    title: 'On Hugging Face',
+    desc: 'Our org on Hugging Face — the live site mirror, datasets, and methodology as they ship.',
+    cta: 'View on Hugging Face',
+  },
+];
+---
+
+<section id="open-source" class="oss-section" aria-labelledby="oss-title">
+  <div class="oss-container">
+    <div class="oss-eyebrow" aria-hidden="true">
+      <span class="oss-rule"></span>
+      <span class="oss-label">Built in the open</span>
+      <span class="oss-rule"></span>
+    </div>
+
+    <h2 id="oss-title" class="oss-title">Proof, <span class="oss-hl">not promises</span></h2>
+    <p class="oss-subtitle">We ship in public — the work is the reference.</p>
+
+    <div class="oss-grid">
+      {openSource.map((s) => (
+        <a href={s.href} target="_blank" rel="noopener noreferrer" class="oss-card">
+          <h3 class="oss-name">{s.title}</h3>
+          <p class="oss-desc">{s.desc}</p>
+          <span class="oss-cta">{s.cta}
+            <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M2.5 7h9M7.5 3l4 4-4 4" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .oss-section { padding: 5rem 1.5rem; }
+  .oss-container { max-width: 1100px; margin: 0 auto; }
+
+  .oss-eyebrow { display: flex; align-items: center; justify-content: center; gap: 0.75rem; margin-bottom: 1.25rem; }
+  .oss-rule { display: block; height: 1px; width: 3.5rem; background: linear-gradient(to right, transparent, rgba(34,211,238,0.3)); }
+  .oss-rule:last-child { background: linear-gradient(to left, transparent, rgba(34,211,238,0.3)); }
+  .oss-label { font-family: 'Syne', system-ui, sans-serif; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: #22d3ee; }
+
+  .oss-title { font-family: 'Syne', system-ui, sans-serif; text-align: center; font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; color: #fafafa; }
+  .oss-hl { color: #22d3ee; }
+  .oss-subtitle { text-align: center; color: #a1a1aa; margin-top: 0.75rem; font-size: 1.05rem; }
+
+  .oss-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-top: 2.5rem; }
+  .oss-card { display: flex; flex-direction: column; background: rgba(39,39,42,0.6); border: 1px solid rgba(161,161,170,0.2); border-radius: 0.85rem; padding: 1.5rem; text-decoration: none; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); }
+  .oss-card:hover { background: rgba(39,39,42,0.85); border-color: #22d3ee; transform: translateY(-2px); box-shadow: 0 10px 30px -12px rgba(34,211,238,0.25); }
+  .oss-name { font-family: 'Syne', system-ui, sans-serif; font-size: 1.1rem; font-weight: 700; color: #fafafa; margin-bottom: 0.5rem; }
+  .oss-desc { color: #a1a1aa; font-size: 0.9rem; line-height: 1.6; margin-bottom: 1rem; flex: 1; }
+  .oss-cta { display: inline-flex; align-items: center; gap: 0.4rem; color: #22d3ee; font-size: 0.85rem; font-weight: 600; }
+</style>
