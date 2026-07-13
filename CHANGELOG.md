@@ -4,6 +4,63 @@
 
 ## Changes since v2.3.0
 
+- feat(home): add a real "Built in the open" proof block + refresh TrustBar numbers (#44) (4ad1446)
+- docs: update changelog for v2.4.0 [skip ci] (b8b5ec1)
+- fix(home): remove the fabricated customer testimonials from the homepage (#43) (67388ae)
+- docs: update changelog for v2.4.0 [skip ci] (d92b454)
+- chore: release v2.4.0 [skip ci] (74dc2e2)
+- chore(ci): make release.yml tag idempotent + commit encrypted HF token (#42) (1002b72)
+- fix(ci): deploy to HF via git+LFS instead of `hf upload` (402 on repo-create) (#41) (5bab119)
+- feat(footer): add a Hugging Face link to the footer resources (#40) (73f4c67)
+- ci(deploy): auto-deploy the Astro site to Hugging Face on push (#39) (e4858b6)
+- content(field-notes): add making-fire-and-forget-capture-safe-under-failure (a7dbff8)
+- Merge pull request #38 from jeremylongshore/feat/homepage-polish-animations (b73abbc)
+- feat(homepage): hero animations + polish (cc2535c)
+- Merge pull request #37 from jeremylongshore/feat/ember-homepage-redesign (7b08911)
+- feat(homepage): Tolulope headshot, "brains behind" heading, footer wordmark (f469b27)
+- fix(homepage): mobile nav overlap + testimonials swipe carousel (55de007)
+- feat(homepage): ember-brand redesign (hero, nav, team, proof, footer FAQ) (b7707c9)
+- content(field-notes): add adversarial-review-before-team-rollout (795d7d5)
+- chore(deploy): remove dead Firebase Hosting deploy workflow (#36) (805449c)
+- content(field-notes): add noise-robust-signed-llm-judge-evals (f79db11)
+- feat(field-notes): add gate-the-statement-not-the-tool-name to intentsolutions.io/field-notes (5b1d74f)
+- feat(field-notes): add when-llm-output-lies-instead-of-crashing to intentsolutions.io/field-notes (027ada6)
+- chore(netlify): strip dead Netlify leftovers (site is VPS-hosted) (#35) (b36e2be)
+- feat(field-notes): add the-api-is-the-real-boundary to intentsolutions.io/field-notes (1c0cc92)
+- chore: rewrite astro-site/.env.example — no Resend, Slack-only (#34) (911ffc1)
+- feat(field-notes): add cap-drop-all-broke-the-gate-socket to intentsolutions.io/field-notes (331330f)
+- chore(ci): bump pinned jeremylongshore/.github vps-deploy SHA → 53d6be3 (#33) (3e68065)
+- chore(ci): bump actions/checkout + actions/setup-node v4 → v6 (#32) (47772b8)
+- chore(hygiene): add SECURITY/CONTRIBUTING/CODE_OF_CONDUCT + gitignore agent state (#31) (2404dd4)
+- feat(field-notes): add 3 cross-posted field-notes (broadcast-day, gemini-pr-review, schema-debacle) (#30) (5cf7383)
+- feat(field-notes): honest-perf-benchmarks-paid-api-compiler (2026-05-17) (#22) (28e4099)
+- feat(field-notes): add 'Green CI Proves Nothing' to intentsolutions.io/field-notes (89eaee5)
+- chore(self-hosted): deep clean — Firebase out, Umami in, dead code deleted (#29) (2ece1ab)
+- docs(seo-audit): record CTO-grade noindex hardening for internal subdomains (#28) (795a266)
+- docs(seo-audit): document the 'Blocked by robots.txt' subdomain finding (#27) (64b6de1)
+- feat(field-notes): add the-wrong-product-built-perfectly to intentsolutions.io/field-notes (0de7931)
+- chore(deps): bump vendored audit-harness to v1.1.5 (#26) (b35abcc)
+- content(stats): refresh proof-point stats + add Kobiton client proof (#25) (00e42d8)
+- fix(ci): sync package-lock.json with @astrojs/sitemap (#24) (1214697)
+- fix(seo): resolve GSC indexing regression — trailing slash, sitemap, soft-404 (#23) (8897de4)
+- fix(trustbar): add '53k+ npm Downloads' stat badge (#21) (eeceff3)
+- docs(claude): drop Resend/SQLite from form-flow notes — Slack-only is final (#20) (2ef6037)
+- fix(deploy): turn off compressHTML + bump line-length cap to 50k (#19) (e82eccd)
+- feat(deploy): migrate intentsolutions.io off Firebase to Contabo VPS (#18) (702b350)
+- chore(test): install audit-harness v0.1.0 (P6 batch) (#17) (aaf4c19)
+- Merge pull request #15 from intent-solutions-io/feat/homepage-testimonials (fbe753c)
+- Merge pull request #14 from intent-solutions-io/feat/visual-animation-components (5e3e546)
+- feat: wire Testimonials component into homepage (8e1054a)
+- feat: add visual/animation components from PR #4 (b9d4f9b)
+
+---
+
+# Release v2.4.0
+
+**Release Date**: 2026-07-13
+
+## Changes since v2.3.0
+
 - fix(home): remove the fabricated customer testimonials from the homepage (#43) (67388ae)
 - docs: update changelog for v2.4.0 [skip ci] (d92b454)
 - chore: release v2.4.0 [skip ci] (74dc2e2)
