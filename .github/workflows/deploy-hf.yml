@@ -1,10 +1,14 @@
 name: deploy-hf
 
 # Auto-deploy the built Astro site to the Hugging Face static Space
-# (intent-solutions-io/home), which mirrors intentsolutions.io.
-# Same source as the VPS deploy — this simply adds Hugging Face as a second target.
-# Hugging Face Spaces are git repos; the `hf` CLI upload handles binary assets via
-# Xet automatically, so no git-lfs plumbing is needed here.
+# (intent-solutions-io/home), which mirrors intentsolutions.io. Same source as the
+# VPS deploy — HF is a second target.
+#
+# Deploys with a plain git + git-lfs push (NOT `hf upload`): `hf upload` first calls
+# the repo-create API, which an organization without a paid plan cannot do (HTTP 402),
+# even for an already-existing FREE static Space. A git push to the existing Space repo
+# never touches repo-create, and git-lfs (preinstalled on the runner) stores the binary
+# assets that HF requires to be in LFS.
 
 on:
   push:
@@ -39,10 +43,14 @@ jobs:
           npm install --no-audit --no-fund
           npm run build
 
-      - name: Write the Space config into the build output
-        working-directory: astro-site/dist
+      - name: Deploy the build to the Space (git + LFS)
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          cat > README.md <<'EOF'
+          set -euo pipefail
+
+          # The Space config file HF reads for its static-Space settings.
+          cat > astro-site/dist/README.md <<'EOF'
           ---
           title: Intent Solutions
           emoji: 🧭
@@ -57,14 +65,25 @@ jobs:
           (the same source as https://intentsolutions.io).
           EOF
 
-      - name: Install the Hugging Face CLI
-        run: pip install --upgrade "huggingface_hub" "hf_xet"
+          git config --global user.email "jeremy@intentsolutions.io"
+          git config --global user.name "Intent Solutions CI"
+          # Feed the token via a credential helper so it is not baked into the remote URL.
+          git config --global credential.helper store
+          printf 'https://JLongshore:%s@huggingface.co\n' "$HF_TOKEN" > "$HOME/.git-credentials"
 
-      - name: Deploy the build to the Space (Xet handles binaries)
-        env:
-          HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: |
-          hf upload intent-solutions-io/home astro-site/dist . \
-            --repo-type=space \
-            --delete "*" \
-            --commit-message "Deploy intentsolutions.io from CI — ${{ github.sha }}"
+          git clone https://huggingface.co/spaces/intent-solutions-io/home hf-space
+          cd hf-space
+          git lfs install --local
+
+          # Replace the Space contents with the fresh build.
+          find . -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} +
+          cp -a ../astro-site/dist/. .
+
+          # HF requires binary media to be tracked in LFS.
+          git lfs track "*.jpg" "*.jpeg" "*.png" "*.gif" "*.webp" "*.avif" "*.ico" \
+                        "*.mp4" "*.mov" "*.webm" "*.woff" "*.woff2" "*.ttf" "*.otf" >/dev/null
+
+          git add -A
+          git commit -m "Deploy intentsolutions.io from CI — ${{ github.sha }}" \
+            || { echo "no changes to deploy"; exit 0; }
+          git push origin HEAD:main
