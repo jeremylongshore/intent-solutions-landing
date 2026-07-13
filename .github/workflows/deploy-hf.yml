@@ -1,7 +1,7 @@
 name: deploy-hf
 
 # Auto-deploy the built Astro site to the Hugging Face static Space
-# (intent-solutions-io/intent-solutions), which mirrors intentsolutions.io.
+# (intent-solutions-io/home), which mirrors intentsolutions.io.
 # Same source as the VPS deploy — this simply adds Hugging Face as a second target.
 # Hugging Face Spaces are git repos; the `hf` CLI upload handles binary assets via
 # Xet automatically, so no git-lfs plumbing is needed here.
@@ -64,7 +64,7 @@ jobs:
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          hf upload intent-solutions-io/intent-solutions astro-site/dist . \
+          hf upload intent-solutions-io/home astro-site/dist . \
             --repo-type=space \
             --delete "*" \
             --commit-message "Deploy intentsolutions.io from CI — ${{ github.sha }}"
