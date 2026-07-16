@@ -91,7 +91,7 @@ production and reading the repo (`firebase.json` redirect history, `SiteNav.astr
 4. Trailing-slash: directory-format file_server already 308s no-slash → slash
    (matches `trailingSlash: 'always'`).
 
-> Mirror these into `intentsolutions-vps-runbook` Caddy doc (follow-up, non-blocking).
+> Reconcile these with `intent-os/ops/ingress/` (follow-up, non-blocking).
 
 ## 4. Intentional alternates — do not "fix"
 
