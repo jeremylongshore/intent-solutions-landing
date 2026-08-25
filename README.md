@@ -4,6 +4,8 @@
 
 ---
 
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/U5S225PTME)
+
 ## 🚀 Active Project (Production)
 
 The production website (`intentsolutions.io`) is built using Astro and is located in the `astro-site/` directory.
