@@ -1,3 +1,14 @@
+# Release v3.2.1
+
+**Release Date**: 2026-09-19
+
+## Changes since v3.2.0
+
+- chore: release v3.2.1 [skip ci] (b726074)
+- content(field-notes): add reachability-is-not-freshness (e31ea29)
+
+---
+
 # Release v3.2.0
 
 **Release Date**: 2026-09-13
