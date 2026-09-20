@@ -7,6 +7,7 @@
 - [084: Approved brand family contract](084-AT-DSGN-brand-family-contract.md)
 - [085: Individual site map and visitor journeys](085-AT-ARCH-site-map.md)
 - [086: Messaging and release record](086-DC-DEVN-customer-first-release.md)
+- [088: Estate bar amendment to the brand family contract](088-AT-DSGN-estate-bar-amendment.md)
 
 **Generated:** $(date -u +"%Y-%m-%dT%H:%M:%SZ")
 **Standard:** Document Filing System v2.0
