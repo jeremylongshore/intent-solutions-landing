@@ -1,13 +1,4 @@
 ---
-const network = [
-  { href: 'https://intentsolutions.io/', label: 'Intent Solutions', active: true },
-  { href: 'https://labs.intentsolutions.io/', label: 'Labs' },
-  { href: 'https://evals.intentsolutions.io/', label: 'Evals' },
-  { href: 'https://demos.intentsolutions.io/', label: 'Demos' },
-  { href: 'https://learn.intentsolutions.io/', label: 'Learn' },
-  { href: 'https://oma.intentsolutions.io/', label: 'Omarchy' },
-];
-
 const primary = [
   { href: '/#method', label: 'How we work' },
   { href: '/#proof', label: 'Proof' },
@@ -16,14 +7,6 @@ const primary = [
   { href: '/about/', label: 'About' },
 ];
 ---
-
-<nav class="network-bar" aria-label="Intent Solutions network">
-  <div class="network-inner">
-    {network.map(({ href, label, active }) => (
-      <a href={href} aria-current={active ? 'page' : undefined}>{label}</a>
-    ))}
-  </div>
-</nav>
 
 <nav class="site-nav" aria-label="Primary navigation">
   <div class="nav-inner">
@@ -66,44 +49,6 @@ const primary = [
 </script>
 
 <style>
-  .network-bar {
-    background: #050506;
-    border-bottom: 1px solid rgba(63, 63, 70, 0.52);
-  }
-
-  .network-inner {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0 1rem;
-    width: min(72rem, calc(100% - 2rem));
-    min-height: 2.15rem;
-    margin: 0 auto;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-
-  .network-inner::-webkit-scrollbar { display: none; }
-
-  .network-inner a {
-    display: inline-flex;
-    align-items: center;
-    min-height: 44px;
-    flex: 0 0 auto;
-    color: #8b8b95;
-    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-    font-size: 0.75rem;
-    letter-spacing: 0.09em;
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: color 160ms ease;
-  }
-
-  .network-inner a:hover,
-  .network-inner a:focus-visible { color: #fafafa; }
-
-  .network-inner a[aria-current='page'] { color: #fb923c; text-decoration: underline; text-underline-offset: 0.35em; }
-
   .site-nav {
     position: sticky;
     top: 0;
@@ -219,12 +164,10 @@ const primary = [
   }
 
   @media (max-width: 420px) {
-    .network-inner { gap: 1rem; }
     .brand span { font-size: 0.92rem; }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .network-inner a,
     .desktop-links a,
     .mobile-panel a { transition: none; }
   }

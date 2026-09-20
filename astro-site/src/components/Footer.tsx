@@ -1,11 +1,9 @@
-const networkLinks = [
-  { label: 'Intent Labs', href: 'https://labs.intentsolutions.io/' },
-  { label: 'Evals', href: 'https://evals.intentsolutions.io/' },
-  { label: 'Learn', href: 'https://learn.intentsolutions.io/' },
-  { label: 'Demos', href: 'https://demos.intentsolutions.io/' },
-  { label: 'Marketplace', href: 'https://tonsofskills.com/' },
-  { label: 'Omarchy', href: 'https://oma.intentsolutions.io/' },
-];
+import estateLinks from '../generated/estate-bar/links.json';
+// Labels and hrefs come from the canonical estate bar (/estate-bar/links.json),
+// so the footer can never name a property differently from the top strip.
+const networkLinks = estateLinks.links
+  .filter((link) => link.site !== 'company')
+  .map(({ label, href }) => ({ label, href }));
 
 const companyLinks = [
   { label: 'Projects', href: '/projects/' },

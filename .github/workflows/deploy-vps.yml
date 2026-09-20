@@ -11,11 +11,13 @@ on:
   pull_request:
     paths:
       - 'astro-site/**'
+      - 'estate-bar/**'
       - '.github/workflows/deploy-vps.yml'
   push:
     branches: [main]
     paths:
       - 'astro-site/**'
+      - 'estate-bar/**'
       - '.github/workflows/deploy-vps.yml'
   workflow_dispatch: {}
 
@@ -57,6 +59,12 @@ jobs:
 
       - name: Verify build artifacts
         run: npm run audit:site-map
+
+      - name: Estate bar matches the canonical strip on every page
+        # The top network strip is shared by every Intent Solutions property and
+        # its single source is /estate-bar. This fails the deploy if any built
+        # page is missing the bar or carries one that differs from it.
+        run: npm run audit:estate-bar
 
       - name: Verify generated HTML
         run: |

@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { pages, legacy } from '../src/data/site-map.mjs';
+import { pages, legacy, properties } from '../src/data/site-map.mjs';
 
 const root = new URL('../', import.meta.url);
 const entries = [...pages, ...legacy];
@@ -10,6 +10,15 @@ const sourceRoute = (file) => {
   return route.endsWith('.xml') ? route : route.replace(/\/?$/, '/');
 };
 assert.equal(new Set(entries.map((e) => e.path)).size, entries.length, 'Duplicate route contract');
+
+// A property named in the canonical estate bar must carry the same label here.
+// The footer reads the list directly; this file adds purposes, so it is checked.
+const estate = JSON.parse(fs.readFileSync(new URL('../estate-bar/links.json', root), 'utf8'));
+const canonicalLabel = new Map(estate.links.map((link) => [link.href, link.label]));
+for (const property of properties) {
+  const expected = canonicalLabel.get(property.href);
+  if (expected) assert.equal(property.label, expected, `site-map label for ${property.href} must match the estate bar`);
+}
 assert.deepEqual(sourceFiles.map(sourceRoute).sort(), entries.map((e) => e.path).sort(), 'Every source page needs an individual contract');
 const sitemap = fs.readFileSync(new URL('dist/sitemap-0.xml', root), 'utf8');
 const fileFor = (path) => new URL('dist/' + (path === '/404/' ? '404.html' : path.slice(1) + 'index.html'), root);

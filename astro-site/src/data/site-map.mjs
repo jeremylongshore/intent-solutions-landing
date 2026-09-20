@@ -38,7 +38,7 @@ export const legacy = [
 
 export const properties = [
   { label: 'Demos', href: 'https://demos.intentsolutions.io/', purpose: 'Explore systems and experiments. A listing is not a purchase or a production-readiness guarantee.' },
-  { label: 'Intent Labs', href: 'https://labs.intentsolutions.io/', purpose: 'Inspect published evaluations, including failed results.' },
+  { label: 'Labs', href: 'https://labs.intentsolutions.io/', purpose: 'Inspect published evaluations, including failed results.' },
   { label: 'Evals', href: 'https://evals.intentsolutions.io/', purpose: 'Read the definitions behind evaluation results.' },
   { label: 'Learn', href: 'https://learn.intentsolutions.io/', purpose: 'Explore the practitioner method and the access requirements.' },
   { label: 'Tons of Skills', href: 'https://tonsofskills.com/', purpose: 'Discover public plugins and agent skills.' },
