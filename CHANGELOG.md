@@ -1,3 +1,14 @@
+# Release v4.2.0
+
+**Release Date**: 2026-09-20
+
+## Changes since v4.1.0
+
+- chore: release v4.2.0 [skip ci] (105973b)
+- feat(estate-bar): render the canonical network strip on every page from the shared layout (#58) (12d5391)
+
+---
+
 # Release v4.1.0
 
 **Release Date**: 2026-09-20
