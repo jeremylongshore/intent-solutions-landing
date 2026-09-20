@@ -1,3 +1,14 @@
+# Release v4.1.0
+
+**Release Date**: 2026-09-20
+
+## Changes since v4.0.0
+
+- chore: release v4.1.0 [skip ci] (32b2627)
+- feat(estate-bar): add the canonical network strip and amend the brand contract (#57) (cb1625e)
+
+---
+
 # Release v4.0.0
 
 **Release Date**: 2026-09-19
