@@ -23,7 +23,7 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: '22'
-      - name: dist and manifest match links.json
+      - name: fragments and manifest match links.json
         run: node estate-bar/render.mjs --check
       - name: checker passes a good page and fails a drifted one
         run: bash estate-bar/selftest.sh

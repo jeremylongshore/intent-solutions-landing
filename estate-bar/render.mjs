@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 // Renders the canonical estate bar fragment for every carrier site from
 // links.json, and writes manifest.sha256. No dependencies.
-//   node estate-bar/render.mjs          write dist/ + manifest
-//   node estate-bar/render.mjs --check  fail if dist/ or manifest is stale
+//   node estate-bar/render.mjs          write fragments/ + manifest
+//   node estate-bar/render.mjs --check  fail if fragments/ or manifest is stale
 import { createHash } from 'node:crypto';
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
@@ -32,7 +32,7 @@ const sha = (buf) => createHash('sha256').update(buf).digest('hex');
 
 function build() {
   const out = new Map();
-  for (const site of spec.carriers) out.set(`dist/estate-bar.${site}.html`, renderBar(site));
+  for (const site of spec.carriers) out.set(`fragments/estate-bar.${site}.html`, renderBar(site));
   const tracked = ['links.json', 'estate-bar.css', 'fonts/JetBrainsMono-Medium.woff2'];
   const lines = [];
   for (const f of tracked) lines.push(`${sha(readFileSync(join(root, f)))}  ${f}`);
@@ -54,5 +54,5 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     }
   }
   if (stale) { console.error('Run: node estate-bar/render.mjs'); process.exit(1); }
-  if (check) console.log('estate-bar: dist and manifest are current');
+  if (check) console.log('estate-bar: fragments and manifest are current');
 }

@@ -45,7 +45,7 @@ def main() -> int:
     a = ap.parse_args()
 
     errors = verify_manifest(a.vendor)
-    fragment = a.vendor / "dist" / f"estate-bar.{a.site}.html"
+    fragment = a.vendor / "fragments" / f"estate-bar.{a.site}.html"
     if not fragment.is_file():
         print(f"estate-bar: no canonical fragment for site '{a.site}' at {fragment}", file=sys.stderr)
         return 2

@@ -4,7 +4,7 @@ set -euo pipefail
 cd "$(dirname "$0")"
 T=$(mktemp -d); trap 'rm -rf "$T"' EXIT
 for site in company labs evals demos learn omarchy; do
-  printf '<html><body>\n%s\n<main>x</main></body></html>' "$(cat dist/estate-bar.$site.html)" > "$T/$site.html"
+  printf '<html><body>\n%s\n<main>x</main></body></html>' "$(cat fragments/estate-bar.$site.html)" > "$T/$site.html"
   python3 check_estate_bar.py --site "$site" --vendor . "$T/$site.html" >/dev/null
 done
 sed 's/>Omarchy</>OMA</' "$T/demos.html" > "$T/label.html"

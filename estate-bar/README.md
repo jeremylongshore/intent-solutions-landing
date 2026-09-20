@@ -16,9 +16,9 @@ checked against `manifest.sha256`. Authority: `000-docs/088-AT-DSGN-estate-bar-a
 | `links.json` | Labels, order, hrefs, and which sites carry the bar |
 | `estate-bar.css` | Self-contained styles, px-sized, font included via `fonts/` |
 | `fonts/JetBrainsMono-Medium.woff2` | Self-hosted JetBrains Mono (SIL OFL 1.1, see `fonts/OFL.txt`) |
-| `dist/estate-bar.<site>.html` | The rendered fragment for each carrier, with `aria-current` set |
+| `fragments/estate-bar.<site>.html` | The rendered fragment for each carrier, with `aria-current` set |
 | `manifest.sha256` | Hashes of everything above |
-| `render.mjs` | Regenerates `dist/` and the manifest from `links.json` |
+| `render.mjs` | Regenerates `fragments/` and the manifest from `links.json` |
 | `check_estate_bar.py` | Stdlib checker each consumer runs in CI |
 
 ## Who carries it
@@ -38,7 +38,7 @@ Never edit a vendored copy in a consumer repo. The manifest check will fail it.
 
 ## Consuming it
 
-Copy this folder's `estate-bar.css`, `fonts/`, `dist/`, `manifest.sha256` and
+Copy this folder's `estate-bar.css`, `fonts/`, `fragments/`, `manifest.sha256` and
 `check_estate_bar.py` into the consumer (for example `vendor/estate-bar/`). Put
 the fragment for your site as the first element in `<body>`, serve the CSS and
 font from your own origin (Learn's content security policy blocks outside fonts),
