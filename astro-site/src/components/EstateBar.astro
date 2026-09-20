@@ -1,0 +1,9 @@
+---
+// The top network strip shared by every Intent Solutions property. The markup
+// is the canonical company fragment from /estate-bar (synced by
+// scripts/sync-estate-bar.mjs); do not rebuild it here. Its stylesheet is linked
+// from Layout.astro. A post-build check fails the deploy if any page's bar
+// differs from the canonical one.
+import fragment from '../generated/estate-bar/estate-bar.company.html?raw';
+---
+<Fragment set:html={fragment} />

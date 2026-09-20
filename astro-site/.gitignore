@@ -27,3 +27,7 @@ tests/reports/
 
 # Firebase cache
 .firebase/
+
+# canonical estate bar, synced from ../estate-bar by scripts/sync-estate-bar.mjs
+public/estate-bar/
+src/generated/

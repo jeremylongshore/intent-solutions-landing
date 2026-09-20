@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import { SEO } from 'astro-seo';
+import EstateBar from '../components/EstateBar.astro';
 
 interface Props {
   title: string;
@@ -104,8 +105,10 @@ const siteJsonLd = [
       data-website-id="474bce85-f97d-409c-aba5-1e1ff36ee571"
       data-domains="intentsolutions.io,oma.intentsolutions.io,learn.intentsolutions.io,demo.intentsolutions.io,demos.intentsolutions.io"
     ></script>
+    <link rel="stylesheet" href="/estate-bar/estate-bar.css" />
   </head>
   <body>
+    <EstateBar />
     <slot />
   </body>
 </html>
