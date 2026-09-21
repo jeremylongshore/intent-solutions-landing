@@ -1,3 +1,14 @@
+# Release v4.2.1
+
+**Release Date**: 2026-09-21
+
+## Changes since v4.2.0
+
+- chore: release v4.2.1 [skip ci] (d2b7d79)
+- content(field-notes): add three-classes-of-self-healing-and-slow-is-not-failed (d23903f)
+
+---
+
 # Release v4.2.0
 
 **Release Date**: 2026-09-20
