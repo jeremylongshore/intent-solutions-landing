@@ -1,3 +1,14 @@
+# Release v4.2.2
+
+**Release Date**: 2026-09-22
+
+## Changes since v4.2.1
+
+- chore: release v4.2.2 [skip ci] (951cc63)
+- content(field-notes): add git-plumbing-unattended-cron-shared-checkout (494c9d3)
+
+---
+
 # Release v4.2.1
 
 **Release Date**: 2026-09-21
