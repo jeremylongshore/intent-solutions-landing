@@ -3,168 +3,298 @@ import Layout from '../layouts/Layout.astro';
 import SiteNav from '../components/SiteNav.astro';
 import Footer from '../components/Footer';
 
-const responsibilities = [
+const offerings = [
   {
-    title: 'The intent',
-    body: 'We define the outcome, responsible team, authority, constraints, and failure boundary before work begins.',
+    title: 'Frame the outcome',
+    body: 'We turn the work a team needs done into a written outcome, authority boundary, set of constraints, and definition of done. That gives the customer and the builders one testable target before implementation begins.',
   },
   {
-    title: 'The system',
-    body: 'We design the context, tools, handoffs, human control, and operating loop around the agent.',
+    title: 'Build the operating system around the AI',
+    body: 'We design the context, tools, handoffs, human approvals, and failure paths around the model. The result is a production system that fits the customer’s work instead of a disconnected demonstration.',
   },
   {
-    title: 'The evidence',
-    body: 'We test the claim, retain the failures, and publish results that can be inspected and reproduced.',
+    title: 'Prove the claim',
+    body: 'We evaluate the behavior against the agreed test and keep failed results visible with the passes. Customers get evidence they can inspect, date, and reproduce before treating the system as done.',
   },
   {
-    title: 'The operation',
-    body: 'We account for ownership, observability, cost, rollback, and what happens when a component fails.',
+    title: 'Operate what ships',
+    body: 'We account for ownership, observability, cost, rollback, and the response when a component fails. The customer knows who is responsible and how the system will be run after launch.',
+  },
+  {
+    title: 'Publish the useful parts',
+    body: 'Intent Labs and Evals publish evidence and definitions, Demos exposes working systems, Learn teaches the method, and Tons of Skills distributes inspectable tools. Together, those public properties let buyers and practitioners judge the work in context.',
   },
 ];
 
-const team = [
-  { name: 'Jeremy Longshore', role: 'Founder & CEO' },
-  { name: 'Opeyemi Ariyo', role: 'Co-Founder & Chief Technical Officer' },
-  { name: 'Pablo Perez', role: 'Co-Founder & Project Manager' },
-  { name: 'Max Sheahan', role: 'Lead Instructor' },
-  { name: 'Tim Neunzig', role: 'Head of German Operations' },
-  { name: 'Tolulope Ariyo', role: 'Software & Design Engineer' },
-];
-
-const credentials = [
+const differentiators = [
   {
-    title: 'Claude Partner Badge · Claude Code',
-    holder: 'Jeremy Longshore',
-    issuer: 'Anthropic',
-    embedUrl: 'https://www.credly.com/embedded_badge/ddf22fb4-0aa6-46b3-a93b-0b45b509e471',
-    frameTitle: 'Claude Partner Badge for Claude Code, held by Jeremy Longshore and verified on Credly',
+    title: 'Done is defined before the build',
+    body: 'Every engagement starts with the outcome, accountable party, authority, constraints, evidence, and stopping conditions. That definition becomes the acceptance test instead of leaving success to a presentation at the end.',
+  },
+  {
+    title: 'Failed evidence stays visible',
+    body: 'A failed evaluation is part of the record, not a result to hide. This makes the limits of a system inspectable and gives the next change a concrete regression target.',
+  },
+  {
+    title: 'Operations are part of delivery',
+    body: 'The work includes monitoring, cost controls, rollback, and a named response when the system is wrong. A system is not complete merely because it produced the right output once.',
+  },
+  {
+    title: 'Models and vendors stay replaceable',
+    body: 'We choose models, providers, runtimes, and protocols for the job and the customer’s constraints. The operating standard remains stable when one of those components changes.',
+  },
+  {
+    title: 'The work can be inspected before the pitch',
+    body: 'The public network includes working demos, evaluation records, definitions, field notes, and source-linked tools. Each artifact states what it demonstrates and avoids turning a public example into a promise about a customer result.',
   },
 ];
+
+const audiences = [
+  'Operators who need an AI system with a written test, a responsible owner, and a rollback path.',
+  'Technical founders moving an AI workflow from a working prototype into a production operating loop.',
+  'Teams that need human control, inspectable evidence, and a clear response when an AI component fails.',
+  'Practitioners who want to learn the Intent method and show their work through the separate Learn practice.',
+];
+
+const facts = [
+  ['Company Name', 'Intent Solutions'],
+  ['Type', 'Accountable AI implementation practice'],
+  ['Founded', '[[FOUNDING_YEAR]]'],
+  ['Founder', 'Jeremy Longshore'],
+  ['Headquarters', 'Gulf Shores, Alabama, United States'],
+  ['Website', 'https://intentsolutions.io/'],
+  ['Core Offering', 'Design, evaluation, delivery, and operation of production AI systems around defined business outcomes'],
+  ['Pricing', '[[PRICING_MODEL]]'],
+  ['Contract Terms', '[[CONTRACT_TERMS]]'],
+  ['Services', 'Outcome framing; system design and build; evaluation; operational handoff and support'],
+  ['Communication', 'Outcome request form; jeremy@intentsolutions.io for new work; support@intentsolutions.io for support'],
+  ['Notable Clients', '[[PUBLICLY_NAMED_CLIENTS]]'],
+  ['Customers Served', '[[VERIFIED_CUSTOMERS_SERVED]]'],
+  ['Projects Delivered', 'Public examples are listed in Projects and Demos; a total count is not published'],
+  ['Competitors', '[[NAMED_ALTERNATIVE]]'],
+  ['Social', 'GitHub and LinkedIn'],
+  ['Network', 'Intent Labs, Evals, Demos, Learn, Omarchy, Tons of Skills, Start AI Tools, DiagnosticPro, and Hustle'],
+];
+
+const faqs = [
+  {
+    question: 'What is Intent Solutions, exactly?',
+    answer: 'Intent Solutions is an accountable AI implementation practice. We frame a business outcome, build and evaluate the system, publish or retain the relevant evidence, and establish who owns the operation after launch.',
+  },
+  {
+    question: 'Who is Intent Solutions for?',
+    answer: 'It is for operators, technical founders, and teams that need an AI system they can test, own, and run. It is a poor fit for someone seeking an untested prototype, a generic prompt pack, or a result with no accountable operator.',
+  },
+  {
+    question: 'How is Intent Solutions different from [[NAMED_ALTERNATIVE]]?',
+    answer: 'The comparison must be completed against a verified, named alternative before publication. The relevant differences to assess are ownership, test evidence, human control, portability, rollback, and what happens after the first successful demonstration.',
+  },
+  {
+    question: 'How does onboarding work?',
+    answer: 'Start by describing what must change, where the system must run, and what evidence would make the result trustworthy. We review the fit, then write the outcome, constraints, acceptance test, and operating responsibilities before the build begins.',
+  },
+  {
+    question: 'What does Intent Solutions charge, and are contracts required?',
+    answer: 'Current pricing and contract terms are not published on this site and must be confirmed for the specific engagement. The request process starts with the outcome so scope and commercial terms can be tied to the actual work.',
+  },
+  {
+    question: 'How does this relate to the other Intent Solutions sites?',
+    answer: 'Intent Solutions is the parent practice and accountable operator. Labs and Evals hold evidence and definitions, Demos shows working systems, Learn is the practitioner practice, Omarchy catalogs desktop plugins, Tons of Skills distributes agent tools, Start AI Tools publishes implementation notes, and DiagnosticPro and Hustle are operated products.',
+  },
+  {
+    question: 'Where can I inspect the evidence, source, or demos?',
+    answer: 'Start with Intent Labs for dated results, Demos for working systems, Projects for public work, and GitHub for source-linked artifacts. Those materials demonstrate the method and specific behavior; they do not promise that a different system will produce the same result.',
+  },
+];
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+  })),
+};
 ---
 
 <Layout
-  title="About Intent Solutions"
-  description="Intent Solutions is a team of builders, operators, and instructors who build, evaluate, teach, and run agentic systems."
+  title="About Intent Solutions | Accountable AI Implementation"
+  description="Intent Solutions designs, builds, evaluates, and operates production AI systems around defined business outcomes, with clear ownership and evidence."
 >
+  <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
   <SiteNav />
 
   <main class="about">
-    <section class="about-hero">
+    <section class="about-hero" aria-labelledby="about-title">
       <div class="wrap narrow">
-        <h1>A team stands behind the work.</h1>
+        <h1 id="about-title">About Intent Solutions</h1>
         <p class="lede">
-          Jeremy Longshore founded Intent Solutions. Today, our engineers, operators, instructors, and
-          project leaders build and run agentic systems together—with written definitions of done and
-          evidence that survives the demo.
+          Intent Solutions is an accountable AI implementation practice that designs, builds, evaluates,
+          and operates production AI systems for operators, technical founders, and teams that need AI
+          they can test, own, and run.
+        </p>
+        <p class="hero-support">
+          The work is framed around a defined business outcome, proven with inspectable evidence, and
+          handed to a named operator with clear responsibilities.
         </p>
       </div>
     </section>
 
-    <section class="section">
-      <div class="wrap responsibility-grid">
-        <div>
-          <p class="kicker">What the name means</p>
-          <h2>Intent Solutions is the brand, the practice, and the operating standard.</h2>
-          <p>
-            Models, providers, runtimes, protocols, and distribution channels are components.
-            We choose them for the job. None of them becomes the identity of the company.
-          </p>
-        </div>
-        <div class="responsibilities">
-          {responsibilities.map((item) => (
-            <article>
-              <h3>{item.title}</h3>
-              <p>{item.body}</p>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <section id="team" class="team section" aria-labelledby="team-title">
-      <div class="wrap team-intro">
+    <section class="section" aria-labelledby="what-we-do-title">
+      <div class="wrap section-layout">
         <div class="section-head">
-          <p class="kicker">Built by practitioners</p>
-          <h2 id="team-title">The people in the operating loop.</h2>
-          <p>
-            The company is founder-led and team-built. These are the people shaping the systems,
-            evaluations, delivery, and learning practice behind the Intent Solutions name.
-          </p>
+          <h2 id="what-we-do-title">What Intent Solutions does</h2>
+          <p>We carry one outcome through four operating stages, then expose useful evidence and tools through the public network.</p>
         </div>
-
-        <div class="team-list">
-          {team.map((member) => (
-            <article>
-              <h3>{member.name}</h3>
-              <p>{member.role}</p>
-            </article>
+        <div class="ledger">
+          {offerings.map((offering) => (
+            <article><h3>{offering.title}</h3><p>{offering.body}</p></article>
           ))}
-        </div>
-
-        <div class="credentials" aria-labelledby="credentials-title">
-          <div class="credentials-head">
-            <p class="kicker">Team credentials</p>
-            <h3 id="credentials-title">Verified practice, kept in context.</h3>
-            <p>
-              Credentials support the work; they do not replace the evidence. This shelf can grow as
-              the team earns and maintains additional partner credentials.
-            </p>
-          </div>
-          <div class="credentials-list">
-            {credentials.map((credential) => (
-              <article class="credential-item">
-                <iframe
-                  src={credential.embedUrl}
-                  width="150"
-                  height="270"
-                  loading="lazy"
-                  title={credential.frameTitle}></iframe>
-                <p><strong>{credential.title}</strong><span>{credential.holder} · Issued by {credential.issuer}</span></p>
-              </article>
-            ))}
-          </div>
         </div>
       </div>
     </section>
 
-    <section class="network section">
+    <section class="section surface" aria-labelledby="different-title">
+      <div class="wrap section-layout">
+        <div class="section-head">
+          <h2 id="different-title">What makes Intent Solutions different</h2>
+          <p>The standard stays fixed even when the model, vendor, runtime, or delivery channel changes.</p>
+        </div>
+        <div class="ledger">
+          {differentiators.map((item) => (
+            <article><h3>{item.title}</h3><p>{item.body}</p></article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="users-title">
+      <div class="wrap section-layout">
+        <div class="section-head">
+          <h2 id="users-title">Who uses Intent Solutions</h2>
+          <p>The practice is designed for teams with a concrete operating problem and a real standard for deciding whether the work succeeded.</p>
+        </div>
+        <ul class="audience-list">
+          {audiences.map((audience) => <li>{audience}</li>)}
+        </ul>
+      </div>
+    </section>
+
+    <section id="team" class="section surface" aria-labelledby="team-title">
+      <div class="wrap section-layout">
+        <div class="section-head">
+          <h2 id="team-title">The team behind Intent Solutions</h2>
+          <p>Intent Solutions is founder-led and delivered by a team of engineers, operators, instructors, and project leaders.</p>
+        </div>
+        <div class="ledger team-ledger">
+          <article>
+            <h3>Jeremy Longshore, founder</h3>
+            <p>Jeremy Longshore founded Intent Solutions and leads its work from Gulf Shores, Alabama after an operations career. His public work centers on production AI systems, the Claude Code ecosystem, and the discipline required to move from a demo to a system someone can own.</p>
+          </article>
+          <article>
+            <h3>How the company began</h3>
+            <p>Intent Solutions grew from building AI systems and open developer tools, then documenting what held up under real operating pressure. The company made that method explicit: define done, test the claim, keep the failures, and assign responsibility for what runs.</p>
+          </article>
+          <article>
+            <h3>The operating team</h3>
+            <p>Engineers, operators, instructors, and project leaders contribute to system delivery, evaluation, teaching, and ongoing operation. The team works under one Intent Solutions standard across <a href="https://learn.intentsolutions.io/">Learn</a>, <a href="https://labs.intentsolutions.io/">Labs</a>, <a href="https://demos.intentsolutions.io/">Demos</a>, and the other network properties while models and providers remain replaceable components.</p>
+          </article>
+          <article>
+            <h3>Public profiles</h3>
+            <p>Follow Jeremy’s engineering work on <a href="https://github.com/jeremylongshore">GitHub</a> and his professional profile on <a href="https://www.linkedin.com/in/jeremylongshore/">LinkedIn</a>. The company’s public systems and evidence are linked throughout this page and in the <a href="/site-map/">site map</a>.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="works-title">
+      <div class="wrap section-layout">
+        <div class="section-head">
+          <h2 id="works-title">How Intent Solutions works</h2>
+          <p>The engagement follows the same sequence shown in the public method: Frame, Build, Prove, Operate.</p>
+        </div>
+        <div class="ledger process-ledger">
+          <article>
+            <h3>Start with the outcome</h3>
+            <p>Use the <a href="/contact/?door=outcome">outcome request</a> or email <a href="mailto:jeremy@intentsolutions.io">jeremy@intentsolutions.io</a> with what must change and how you would recognize a useful result. Every request receives a fit review, but the site does not publish a response-time guarantee.</p>
+          </article>
+          <article>
+            <h3>Write the acceptance test</h3>
+            <p>The customer and Intent Solutions define the outcome, constraints, authority, evidence, and stopping conditions together. That written frame controls the build and gives both sides the same definition of done.</p>
+          </article>
+          <article>
+            <h3>Work with the accountable team</h3>
+            <p>Customers work with the founder-led delivery team responsible for the system, evidence, and operating handoff. The assigned people and communication cadence are set during framing because they depend on the scope and the systems involved.</p>
+          </article>
+          <article>
+            <h3>Set the schedule from the work</h3>
+            <p>Intent Solutions does not publish a generic turnaround promise. Delivery milestones are established after the outcome, dependencies, approval boundaries, and acceptance test are known.</p>
+          </article>
+          <article>
+            <h3>Prove and operate</h3>
+            <p>The system is evaluated against the agreed claim, with failures retained as evidence and regression targets. Delivery includes ownership, observability, rollback, cost controls, and the response path for incorrect behavior.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section facts-section surface" aria-labelledby="facts-title">
       <div class="wrap">
-        <div class="section-head">
-          <p class="kicker">The public network</p>
-          <h2>Separate rooms. One operating standard.</h2>
+        <div class="section-head wide-head">
+          <h2 id="facts-title">Key facts</h2>
+          <p>Short, extractable facts about the company and its relationship to the wider Intent Solutions network.</p>
         </div>
-        <div class="network-grid">
-          <a href="https://labs.intentsolutions.io/">
-            <span>Labs + Evals</span>
-            <h3>The proof system</h3>
-            <p>Labs publishes results. Evals defines what those results mean.</p>
-          </a>
-          <a href="https://demos.intentsolutions.io/">
-            <span>Demos</span>
-            <h3>The working catalog</h3>
-            <p>Open systems, architecture walkthroughs, and representative outputs.</p>
-          </a>
-          <a href="https://learn.intentsolutions.io/">
-            <span>Learn</span>
-            <h3>The separate practice</h3>
-            <p>Practitioners learn the method and work against production-shaped evidence.</p>
-          </a>
-          <a href="https://tonsofskills.com/">
-            <span>Marketplace</span>
-            <h3>The reusable tools</h3>
-            <p>Plugins and agent skills that can be inspected before adoption.</p>
-          </a>
+        <div class="table-scroll" role="region" aria-label="Intent Solutions key facts" tabindex="0">
+          <table>
+            <tbody>
+              {facts.map(([label, value]) => (
+                <tr>
+                  <th scope="row">{label}</th>
+                  <td>
+                    {label === 'Website' ? <a href="https://intentsolutions.io/">{value}</a> : null}
+                    {label === 'Projects Delivered' ? <><a href="/projects/">Projects</a> and <a href="https://demos.intentsolutions.io/">Demos</a> publish examples; a total count is not published</> : null}
+                    {label === 'Social' ? <><a href="https://github.com/jeremylongshore">GitHub</a> and <a href="https://www.linkedin.com/in/jeremylongshore/">LinkedIn</a></> : null}
+                    {label === 'Network' ? <><a href="https://labs.intentsolutions.io/">Intent Labs</a>, <a href="https://evals.intentsolutions.io/">Evals</a>, <a href="https://demos.intentsolutions.io/">Demos</a>, <a href="https://learn.intentsolutions.io/">Learn</a>, <a href="https://oma.intentsolutions.io/">Omarchy</a>, <a href="https://tonsofskills.com/">Tons of Skills</a>, <a href="https://startaitools.com/">Start AI Tools</a>, <a href="https://diagnosticpro.io/">DiagnosticPro</a>, and <a href="https://hustlestats.io/">Hustle</a></> : null}
+                    {!['Website', 'Projects Delivered', 'Social', 'Network'].includes(label) ? value : null}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </section>
 
-    <section class="close section">
-      <div class="wrap narrow">
-        <p class="kicker">Gulf Shores, Alabama</p>
-        <h2>Bring the outcome. We will define the proof with you.</h2>
-        <div class="actions">
-          <a class="primary" href="/contact/?door=outcome">Request an outcome</a>
-          <a class="secondary" href="https://labs.intentsolutions.io/results/">Inspect current results</a>
+    <section class="section faq-section" aria-labelledby="faq-title">
+      <div class="wrap section-layout">
+        <div class="section-head">
+          <h2 id="faq-title">Frequently asked questions</h2>
+          <p>Answers about fit, onboarding, commercial terms, the public evidence, and the wider network.</p>
+        </div>
+        <div class="ledger faq-list">
+          {faqs.map((faq) => (
+            <article>
+              <h3>{faq.question}</h3>
+              <p>{faq.answer}</p>
+              {faq.question === 'How does this relate to the other Intent Solutions sites?' ? (
+                <nav class="faq-links" aria-label="Intent Solutions network properties">
+                  <a href="https://labs.intentsolutions.io/">Labs</a>
+                  <a href="https://demos.intentsolutions.io/">Demos</a>
+                  <a href="https://learn.intentsolutions.io/">Learn</a>
+                  <a href="https://oma.intentsolutions.io/">Omarchy</a>
+                  <a href="https://tonsofskills.com/">Tons of Skills</a>
+                  <a href="https://startaitools.com/">Start AI Tools</a>
+                  <a href="https://diagnosticpro.io/">DiagnosticPro</a>
+                  <a href="https://hustlestats.io/">Hustle</a>
+                </nav>
+              ) : null}
+            </article>
+          ))}
+          <div class="primary-action">
+            <p>Have a defined outcome or an operating problem that needs one?</p>
+            <a href="/contact/?door=outcome">Request an outcome</a>
+          </div>
         </div>
       </div>
     </section>
@@ -176,75 +306,62 @@ const credentials = [
 <style>
   :global(body) { margin: 0; background: #09090b; }
   :global(*) { box-sizing: border-box; }
+  :global(::selection) { background: #f97316; color: #09090b; }
   .wrap { width: min(72rem, calc(100% - 2.5rem)); margin: 0 auto; }
-  .narrow { max-width: 54rem; }
-  .section { padding: clamp(5rem, 9vw, 8rem) 0; }
+  .narrow { max-width: 58rem; }
+  .section { padding: clamp(4.75rem, 8vw, 7.5rem) 0; }
+  .surface { background: #101012; border-block: 1px solid #2f2f35; }
   .about-hero {
-    padding: clamp(6rem, 12vw, 10rem) 0;
-    background:
-      linear-gradient(90deg, rgba(9,9,11,0.98), rgba(9,9,11,0.68)),
-      url('/images/hero-about.jpg') center / cover no-repeat;
+    padding: clamp(6.5rem, 12vw, 10.5rem) 0 clamp(5rem, 9vw, 8rem);
+    background: linear-gradient(90deg, rgba(9, 9, 11, 0.99), rgba(9, 9, 11, 0.72)), url('/images/hero-about.jpg') center / cover no-repeat;
     border-bottom: 1px solid #3f3f46;
   }
-  .kicker,
-  .network-grid span { color: #fb923c; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.66rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
-  h1,
-  h2,
-  h3 { font-family: 'Syne', system-ui, sans-serif; }
-  h1 { max-width: 50rem; margin: 1rem 0 1.5rem; color: #fafafa; font-size: clamp(3rem, 7vw, 5.8rem); line-height: 0.98; letter-spacing: -0.05em; }
-  h2 { margin: 0.8rem 0 1rem; color: #fafafa; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.1; letter-spacing: -0.035em; }
-  .lede { max-width: 46rem; color: #d4d4d8; font-size: clamp(1.05rem, 2vw, 1.3rem); line-height: 1.75; }
-  .responsibility-grid { display: grid; grid-template-columns: minmax(18rem, 0.8fr) minmax(0, 1.2fr); gap: clamp(3rem, 8vw, 8rem); }
-  .responsibility-grid > div:first-child > p:last-child { color: #a1a1aa; line-height: 1.75; }
-  .responsibilities { border-top: 1px solid #3f3f46; }
-  .responsibilities article { padding: 1.4rem 0; border-bottom: 1px solid #3f3f46; }
-  .responsibilities h3 { margin: 0 0 0.45rem; color: #fafafa; font-size: 1.15rem; }
-  .responsibilities p { margin: 0; color: #a1a1aa; font-size: 0.9rem; line-height: 1.7; }
-  .team { background: #09090b; }
-  .team-intro > .section-head > p:last-child { max-width: 47rem; color: #a1a1aa; line-height: 1.75; }
-  .team-list { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid #3f3f46; }
-  .team-list article { min-height: 8.5rem; padding: 1.5rem 1.25rem 1.5rem 0; border-bottom: 1px solid #3f3f46; }
-  .team-list article:not(:nth-child(3n + 1)) { padding-left: 1.25rem; border-left: 1px solid #3f3f46; }
-  .team-list h3 { margin: 0 0 0.45rem; color: #fafafa; font-size: 1.05rem; }
-  .team-list p { margin: 0; color: #a1a1aa; font-size: 0.82rem; line-height: 1.5; }
-  .credentials { margin-top: 3.5rem; padding: 1.75rem; background: #101012; border: 1px solid #3f3f46; border-radius: 0.8rem; }
-  .credentials h3 { margin: 0.7rem 0; color: #fafafa; font-size: 1.35rem; }
-  .credentials-head > p:last-child { max-width: 42rem; margin: 0; color: #a1a1aa; font-size: 0.88rem; line-height: 1.7; }
-  .credentials-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(19rem, 100%), 1fr)); gap: 1rem; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid #3f3f46; }
-  .credential-item { display: flex; align-items: center; gap: 1rem; min-width: 0; }
-  .credential-item iframe { flex: 0 0 auto; border: 0; }
-  .credential-item p { display: flex; flex-direction: column; gap: 0.35rem; margin: 0; color: #d4d4d8; font-size: 0.78rem; line-height: 1.45; }
-  .credential-item strong { color: #fafafa; font-size: 0.86rem; }
-  .credential-item span { color: #8b8b95; }
-  .network { background: #101012; border-top: 1px solid #3f3f46; border-bottom: 1px solid #3f3f46; }
-  .section-head { max-width: 50rem; margin-bottom: 3rem; }
-  .network-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
-  .network-grid a { min-height: 18rem; padding: 1.5rem; background: #18181b; border: 1px solid #3f3f46; border-radius: 0.8rem; color: inherit; text-decoration: none; transition: border-color 160ms ease, transform 160ms ease; }
-  .network-grid a:hover,
-  .network-grid a:focus-visible { border-color: #fb923c; transform: translateY(-2px); }
-  .network-grid h3 { margin: 1.4rem 0 0.7rem; color: #fafafa; font-size: 1.3rem; }
-  .network-grid p { margin: 0; color: #a1a1aa; font-size: 0.9rem; line-height: 1.7; }
-  .close { text-align: center; }
-  .close .narrow { display: flex; align-items: center; flex-direction: column; }
-  .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.8rem; margin-top: 1rem; }
-  .actions a { padding: 0.8rem 1.15rem; border: 1px solid transparent; border-radius: 0.48rem; font-size: 0.85rem; font-weight: 800; text-decoration: none; }
-  .actions .primary { background: #f97316; color: #09090b; }
-  .actions .secondary { border-color: #52525b; color: #fafafa; }
-  a:focus-visible { outline: 2px solid #fb923c; outline-offset: 4px; }
+  h1, h2, h3 { font-family: 'Syne', system-ui, sans-serif; text-wrap: balance; }
+  h1 { max-width: 54rem; margin: 0 0 1.5rem; color: #fafafa; font-size: clamp(3rem, 7vw, 5.8rem); line-height: 0.98; letter-spacing: -0.04em; }
+  h2 { margin: 0 0 1rem; color: #fafafa; font-size: clamp(2rem, 4vw, 3.15rem); line-height: 1.08; letter-spacing: -0.035em; }
+  h3 { margin: 0 0 0.6rem; color: #fafafa; font-size: clamp(1.05rem, 1.8vw, 1.3rem); line-height: 1.25; }
+  p { text-wrap: pretty; }
+  a { color: #fdba74; text-underline-offset: 0.2em; }
+  a:hover { color: #fed7aa; }
+  a:focus-visible { outline: 2px solid #fb923c; outline-offset: 4px; border-radius: 0.18rem; }
+  .lede { max-width: 52rem; margin: 0; color: #f4f4f5; font-size: clamp(1.15rem, 2vw, 1.45rem); line-height: 1.65; }
+  .hero-support { max-width: 46rem; margin: 1.4rem 0 0; color: #b8b8c1; font-size: 1rem; line-height: 1.75; }
+  .section-layout { display: grid; grid-template-columns: minmax(17rem, 0.75fr) minmax(0, 1.25fr); gap: clamp(3rem, 8vw, 7rem); align-items: start; }
+  .section-head { position: sticky; top: 7rem; }
+  .section-head p { max-width: 34rem; margin: 0; color: #b8b8c1; line-height: 1.75; }
+  .wide-head { position: static; max-width: 52rem; margin-bottom: 2.5rem; }
+  .ledger { border-top: 1px solid #52525b; }
+  .ledger article { padding: 1.6rem 0; border-bottom: 1px solid #3f3f46; }
+  .ledger article:first-child { padding-top: 1.35rem; }
+  .ledger p { max-width: 72ch; margin: 0; color: #b8b8c1; line-height: 1.75; }
+  .team-ledger article, .process-ledger article { padding-block: 1.8rem; }
+  .faq-links { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; margin-top: 0.9rem; font-size: 0.86rem; }
+  .audience-list { display: grid; gap: 0; margin: 0; padding: 0; border-top: 1px solid #52525b; list-style: none; }
+  .audience-list li { position: relative; padding: 1.4rem 0 1.4rem 2rem; border-bottom: 1px solid #3f3f46; color: #d4d4d8; line-height: 1.7; }
+  .audience-list li::before { position: absolute; top: 1.9rem; left: 0; width: 0.65rem; height: 0.65rem; background: #f97316; border-radius: 50%; content: ''; }
+  .table-scroll { overflow-x: auto; border: 1px solid #3f3f46; border-radius: 0.8rem; background: #09090b; scrollbar-color: #f97316 #18181b; }
+  .table-scroll:focus-visible { outline: 2px solid #fb923c; outline-offset: 4px; }
+  table { width: 100%; border-collapse: collapse; color: #d4d4d8; font-variant-numeric: tabular-nums; }
+  th, td { padding: 1rem 1.2rem; border-bottom: 1px solid #2f2f35; text-align: left; vertical-align: top; line-height: 1.6; }
+  tr:last-child th, tr:last-child td { border-bottom: 0; }
+  th { width: 13rem; color: #fafafa; font-family: 'Syne', system-ui, sans-serif; font-size: 0.9rem; }
+  td { min-width: 28rem; color: #b8b8c1; font-size: 0.92rem; }
+  .primary-action { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; padding: 2rem 0 0; }
+  .primary-action p { color: #d4d4d8; font-weight: 600; }
+  .primary-action a { flex: 0 0 auto; padding: 0.85rem 1.2rem; background: #f97316; border-radius: 0.5rem; color: #09090b; font-size: 0.9rem; font-weight: 800; text-decoration: none; transition: background-color 160ms ease, transform 160ms ease; }
+  .primary-action a:hover { background: #fb923c; color: #09090b; transform: translateY(-2px); }
   @media (max-width: 800px) {
-    .responsibility-grid,
-    .network-grid { grid-template-columns: 1fr; }
-    .team-list { grid-template-columns: 1fr 1fr; }
-    .team-list article:not(:nth-child(3n + 1)) { padding-left: 0; border-left: 0; }
-    .team-list article:nth-child(even) { padding-left: 1.25rem; border-left: 1px solid #3f3f46; }
-    .credentials { grid-template-columns: 1fr; }
-    .credential-item { min-width: 0; }
-    .network-grid a { min-height: 13rem; }
+    .section-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+    .section-head { position: static; }
+    .primary-action { align-items: flex-start; flex-direction: column; }
   }
-  @media (max-width: 520px) {
-    .team-list { grid-template-columns: 1fr; }
-    .team-list article:nth-child(even) { padding-left: 0; border-left: 0; }
-    .credential-item { align-items: flex-start; flex-direction: column; }
+  @media (max-width: 560px) {
+    .wrap { width: min(100% - 1.5rem, 72rem); }
+    .section { padding-block: 4.25rem; }
+    .about-hero { padding-block: 5.5rem 4.5rem; }
+    th, td { padding: 0.9rem; }
+    th { width: 9.5rem; min-width: 9.5rem; }
+    td { min-width: 22rem; }
   }
-  @media (prefers-reduced-motion: reduce) { .network-grid a { transition: none; } }
+  @media (prefers-reduced-motion: reduce) { .primary-action a { transition: none; } }
 </style>
