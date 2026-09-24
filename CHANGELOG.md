@@ -1,3 +1,15 @@
+# Release v4.3.0
+
+**Release Date**: 2026-09-24
+
+## Changes since v4.2.2
+
+- chore: release v4.3.0 [skip ci] (c92f5f1)
+- Merge pull request #59 from jeremylongshore/feat/about-ai-search-20260924 (3020bd9)
+- feat: rebuild About page for AI search (d5a65d6)
+
+---
+
 # Release v4.2.2
 
 **Release Date**: 2026-09-22
