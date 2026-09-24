@@ -1,3 +1,15 @@
+# Release v4.3.1
+
+**Release Date**: 2026-09-24
+
+## Changes since v4.3.0
+
+- chore: release v4.3.1 [skip ci] (b487be1)
+- docs: map estate visitor journeys and purpose-specific capture (#60) (c7f3cf1)
+- chore(deps): bump vendored audit-harness to 1.4.0 (#48) (3480836)
+
+---
+
 # Release v4.3.0
 
 **Release Date**: 2026-09-24
