@@ -2,6 +2,7 @@
 
 ## September 2026 brand audit
 
+- [087: Current estate visitor journeys and capture plan](087-PP-PLAN-estate-visitor-journeys.md) (supersedes 084's separate master theme)
 - [082: Brand estate research](082-RA-ANLY-brand-estate-research.md)
 - [083: Impeccable estate review](083-RA-AUDT-impeccable-estate-review.md)
 - [084: Approved brand family contract](084-AT-DSGN-brand-family-contract.md)
