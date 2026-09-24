@@ -1,3 +1,14 @@
+# Release v4.3.1
+
+**Release Date**: 2026-09-24
+
+## Changes since v4.3.0
+
+- chore: release v4.3.1 [skip ci] (b12baaf)
+- chore(deps): bump vendored audit-harness to 1.4.0 (#48) (3480836)
+
+---
+
 # Release v4.3.0
 
 **Release Date**: 2026-09-24
