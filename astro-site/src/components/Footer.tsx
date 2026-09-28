@@ -9,6 +9,7 @@ const companyLinks = [
   { label: 'Projects', href: '/projects/' },
   { label: 'Field notes', href: '/field-notes/' },
   { label: 'About', href: '/about/' },
+  { label: 'Our team', href: '/about/#team' },
   { label: 'Contact', href: '/contact/' },
   { label: 'Support', href: '/support/' },
   { label: 'Site map', href: '/site-map/' },

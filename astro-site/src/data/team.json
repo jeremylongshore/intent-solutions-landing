@@ -1,0 +1,51 @@
+[
+  {
+    "id": "jeremy-longshore",
+    "name": "Jeremy Longshore",
+    "title": "Founder & CEO",
+    "photo": "/images/team/jeremy-longshore-suit.jpeg",
+    "bio": ""
+  },
+  {
+    "id": "opeyemi-ariyo",
+    "name": "Opeyemi Ariyo",
+    "title": "Co-Founder & Chief Technical Officer",
+    "photo": "/images/team/opeyemi-ariyo.jpeg",
+    "bio": ""
+  },
+  {
+    "id": "pablo-perez",
+    "name": "Pablo Perez",
+    "title": "Co-Founder & Project Manager",
+    "photo": "/images/team/pablo-perez.jpeg",
+    "bio": ""
+  },
+  {
+    "id": "max-sheahan",
+    "name": "Max Sheahan",
+    "title": "Lead Instructor",
+    "photo": "/images/team/max-sheahan-suit.jpeg",
+    "bio": ""
+  },
+  {
+    "id": "tim-neunzig",
+    "name": "Tim Neunzig",
+    "title": "Head of German Operations",
+    "photo": "/images/team/tim-neunzig.png",
+    "bio": ""
+  },
+  {
+    "id": "tolulope-ariyo",
+    "name": "Tolulope Ariyo",
+    "title": "Software & Design Engineer",
+    "photo": "/images/team/tolulope-ariyo.jpeg",
+    "bio": ""
+  },
+  {
+    "id": "heather-johnson",
+    "name": "Heather C. Johnson, JD",
+    "title": "Legal Counsel",
+    "photo": "/images/team/heather-johnson.png",
+    "bio": "Florida-licensed attorney supporting Intent Solutions with contracts, governance, and startup legal matters."
+  }
+]
