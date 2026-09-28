@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import SiteNav from '../components/SiteNav.astro';
 import Footer from '../components/Footer';
+import team from '../data/team.json';
 
 const offerings = [
   {
@@ -185,9 +186,21 @@ const faqJsonLd = {
       <div class="wrap section-layout">
         <div class="section-head">
           <h2 id="team-title">The team behind Intent Solutions</h2>
-          <p>Intent Solutions is founder-led and delivered by a team of engineers, operators, instructors, and project leaders.</p>
+          <p>The people responsible for engineering, operations, instruction, project delivery, and legal guidance.</p>
         </div>
         <div class="ledger team-ledger">
+          <div class="team-profiles">
+            {team.map((member) => (
+              <article class="team-profile" id={member.id}>
+                <img src={member.photo} alt={member.name} width="96" height="96" loading="lazy" decoding="async" />
+                <div>
+                  <h3>{member.name}</h3>
+                  <p class="team-role">{member.title}</p>
+                  {member.bio ? <p class="team-bio">{member.bio}</p> : null}
+                </div>
+              </article>
+            ))}
+          </div>
           <article>
             <h3>Jeremy Longshore, founder</h3>
             <p>Jeremy Longshore founded Intent Solutions and leads its work from Gulf Shores, Alabama after an operations career. His public work centers on production AI systems, the Claude Code ecosystem, and the discipline required to move from a demo to a system someone can own.</p>
@@ -335,6 +348,12 @@ const faqJsonLd = {
   .ledger article:first-child { padding-top: 1.35rem; }
   .ledger p { max-width: 72ch; margin: 0; color: #b8b8c1; line-height: 1.75; }
   .team-ledger article, .process-ledger article { padding-block: 1.8rem; }
+  .team-profile { display: flex; gap: 1.25rem; align-items: flex-start; scroll-margin-top: 7rem; }
+  .team-profile img { flex: 0 0 96px; width: 96px; height: 96px; border-radius: 0.5rem; object-fit: cover; object-position: center 25%; }
+  .team-profile > div { min-width: 0; }
+  .team-profile h3 { font-size: 1.15rem; }
+  .team-profile .team-role { color: #fdba74; font-size: 0.9rem; }
+  .team-profile .team-bio { margin-top: 0.65rem; font-size: 0.92rem; }
   .faq-links { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; margin-top: 0.9rem; font-size: 0.86rem; }
   .audience-list { display: grid; gap: 0; margin: 0; padding: 0; border-top: 1px solid #52525b; list-style: none; }
   .audience-list li { position: relative; padding: 1.4rem 0 1.4rem 2rem; border-bottom: 1px solid #3f3f46; color: #d4d4d8; line-height: 1.7; }
