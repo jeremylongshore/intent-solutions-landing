@@ -1,3 +1,14 @@
+# Release v4.4.1
+
+**Release Date**: 2026-09-29
+
+## Changes since v4.4.0
+
+- chore: release v4.4.1 [skip ci] (92808e1)
+- fix(team): place Heather directly after Jeremy (#62) (7b333e5)
+
+---
+
 # Release v4.4.0
 
 **Release Date**: 2026-09-28
