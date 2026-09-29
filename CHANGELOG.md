@@ -1,3 +1,14 @@
+# Release v4.4.2
+
+**Release Date**: 2026-09-29
+
+## Changes since v4.4.1
+
+- chore: release v4.4.2 [skip ci] (661a9ae)
+- content(field-notes): add team-page-ordering-is-a-release-decision (987daa9)
+
+---
+
 # Release v4.4.1
 
 **Release Date**: 2026-09-29
