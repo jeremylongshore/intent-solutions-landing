@@ -1,0 +1,17 @@
+{
+  "name": "intent-motion",
+  "version": "1.0.0",
+  "description": "Deterministic Intent Solutions company film, landscape and portrait",
+  "scripts": {
+    "render:landscape": "python3 scripts/render-full.py landscape",
+    "render:portrait": "python3 scripts/render-full.py portrait",
+    "check:syntax": "node --check film/main.js && node --check film/scenes/a.js && node --check film/scenes/b.js"
+  },
+  "keywords": [],
+  "type": "commonjs",
+  "dependencies": {
+    "gsap": "3.15.0",
+    "hyperframes": "0.8.95"
+  },
+  "private": true
+}

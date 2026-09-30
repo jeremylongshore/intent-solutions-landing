@@ -1,0 +1,13 @@
+node_modules/
+.venv/
+.render-stage*/
+.lint-stage/
+renders/
+qa/components/
+qa/component-review*/
+assets/audio/source/
+assets/audio/*.wav
+assets/audio/*.mp3
+assets/audio/*.html
+__pycache__/
+*.log
