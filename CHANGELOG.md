@@ -1,3 +1,14 @@
+# Release v4.4.3
+
+**Release Date**: 2026-09-30
+
+## Changes since v4.4.2
+
+- chore: release v4.4.3 [skip ci] (b618b0f)
+- fix(team): remove the bio sentence from Heather Johnson's profile (#64) (0531af2)
+
+---
+
 # Release v4.4.2
 
 **Release Date**: 2026-09-29
