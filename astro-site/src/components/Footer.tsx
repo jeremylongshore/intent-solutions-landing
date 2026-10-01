@@ -31,7 +31,7 @@ export default function Footer() {
             <img src="/images/logo-mark.png" alt="" width="28" height="28" />
             <span>Intent <strong>Solutions</strong></span>
           </a>
-          <p>AI implementation with a defined outcome, evidence you can inspect, and a plan for operating the system.</p>
+          <p>Applied AI engineering with a defined outcome, inspectable evidence, and knowledge your team can carry forward.</p>
           <small>Gulf Shores, Alabama</small>
         </div>
 
