@@ -1,0 +1,56 @@
+[
+  {
+    "file": "intent-solutions-landscape-1080p60-music-only.mp4",
+    "programs": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "pix_fmt": "yuv420p",
+        "r_frame_rate": "60/1",
+        "duration": "30.000000",
+        "nb_frames": "1800"
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2,
+        "r_frame_rate": "0/0",
+        "duration": "30.000000",
+        "nb_frames": "1408"
+      }
+    ],
+    "format": {
+      "duration": "30.000000",
+      "size": "13375847"
+    }
+  },
+  {
+    "file": "intent-solutions-landscape-1080p60.mp4",
+    "programs": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "pix_fmt": "yuv420p",
+        "r_frame_rate": "60/1",
+        "duration": "30.000000",
+        "nb_frames": "1800"
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2,
+        "r_frame_rate": "0/0",
+        "duration": "30.000000",
+        "nb_frames": "1408"
+      }
+    ],
+    "format": {
+      "duration": "30.000000",
+      "size": "13373946"
+    }
+  }
+]

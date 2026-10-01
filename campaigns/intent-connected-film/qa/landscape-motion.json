@@ -1,0 +1,37 @@
+{
+  "video": "deliverables/intent-solutions-landscape-1080p60.mp4",
+  "width": 1920,
+  "height": 1080,
+  "fps": 60.0,
+  "frames_measured": 1800,
+  "duration_s": 30.0,
+  "all_frame_mean_luma": 18.040180971666665,
+  "all_frame_mean_edge": 4.138912018333333,
+  "method": "Native-rate every-frame numeric scan at320px. Acceptance freeze screen runs the exact pinned kit FFmpeg fps10 filter; phase0_diagnostic preserves a separate sample phase (frames0,6,...). Sampling phase can change near-threshold counts; no threshold was changed.",
+  "phase0_diagnostic": {
+    "sample_fps": 10,
+    "width": 320,
+    "height": 180,
+    "threshold_luma_delta": 0.35,
+    "total_s": 1.2,
+    "longest_s": 0.1,
+    "passes": false
+  },
+  "frozen_screen": {
+    "source": "Pinned motion-video-kit/scripts/frozen-time.sh",
+    "sample_fps": 10,
+    "threshold_luma_delta": 0.35,
+    "total_s": 0.7,
+    "longest_s": 0.1,
+    "sample_times_s": [
+      2.8,
+      5.3,
+      10.3,
+      12.8,
+      22.8,
+      25.3,
+      27.8
+    ],
+    "passes": true
+  }
+}

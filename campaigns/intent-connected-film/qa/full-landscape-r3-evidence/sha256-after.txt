@@ -1,0 +1,2 @@
+5208b0f5b93491cdf1f5785bdaf89622831768e68c0cedfca4ce4d809a33cc1c  deliverables/intent-solutions-landscape-1080p60.mp4
+73132ee43d83fb61007ee21dd67d4fa19fbd599315626908f37461b50a2e5db0  deliverables/intent-solutions-landscape-1080p60-music-only.mp4

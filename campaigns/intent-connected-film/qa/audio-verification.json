@@ -1,0 +1,496 @@
+{
+  "primary-music-only": {
+    "probe": {
+      "streams": [
+        {
+          "index": 0,
+          "codec_name": "pcm_s24le",
+          "codec_long_name": "PCM signed 24-bit little-endian",
+          "codec_type": "audio",
+          "codec_tag_string": "[1][0][0][0]",
+          "codec_tag": "0x0001",
+          "sample_fmt": "s32",
+          "sample_rate": "48000",
+          "channels": 2,
+          "channel_layout": "stereo",
+          "bits_per_sample": 24,
+          "initial_padding": 0,
+          "r_frame_rate": "0/0",
+          "avg_frame_rate": "0/0",
+          "time_base": "1/48000",
+          "duration_ts": 1440000,
+          "duration": "30.000000",
+          "bit_rate": "2304000",
+          "bits_per_raw_sample": "24",
+          "disposition": {
+            "default": 0,
+            "dub": 0,
+            "original": 0,
+            "comment": 0,
+            "lyrics": 0,
+            "karaoke": 0,
+            "forced": 0,
+            "hearing_impaired": 0,
+            "visual_impaired": 0,
+            "clean_effects": 0,
+            "attached_pic": 0,
+            "timed_thumbnails": 0,
+            "non_diegetic": 0,
+            "captions": 0,
+            "descriptions": 0,
+            "metadata": 0,
+            "dependent": 0,
+            "still_image": 0
+          }
+        }
+      ],
+      "format": {
+        "filename": "assets/audio/primary-music-only.wav",
+        "nb_streams": 1,
+        "nb_programs": 0,
+        "format_name": "wav",
+        "format_long_name": "WAV / WAVE (Waveform Audio)",
+        "duration": "30.000000",
+        "size": "8640102",
+        "bit_rate": "2304027",
+        "probe_score": 99,
+        "tags": {
+          "encoder": "Lavf60.16.100"
+        }
+      }
+    },
+    "rms_dbfs_per_second": [
+      -16.279130935668945,
+      -15.2484130859375,
+      -16.317811965942383,
+      -15.017192840576172,
+      -15.207928657531738,
+      -14.299190521240234,
+      -15.009594917297363,
+      -12.834325790405273,
+      -15.087974548339844,
+      -14.100488662719727,
+      -14.703272819519043,
+      -14.212523460388184,
+      -14.44975471496582,
+      -13.91186809539795,
+      -14.345605850219727,
+      -12.005467414855957,
+      -14.04568862915039,
+      -13.29171085357666,
+      -13.416911125183105,
+      -12.761896133422852,
+      -13.27881908416748,
+      -12.432132720947266,
+      -12.928421020507812,
+      -11.467668533325195,
+      -14.005585670471191,
+      -13.348037719726562,
+      -14.705904960632324,
+      -13.898487091064453,
+      -14.689338684082031,
+      -16.648834228515625
+    ],
+    "rms_spread_first_29_seconds_db": 4.8501434326171875,
+    "dominant_beat_period_ms": 498,
+    "measured_bpm": 120.48192771084338,
+    "bass_attack_checks": [
+      {
+        "scene_boundary_s": 2.5,
+        "nearest_bass_attack_s": 2.498,
+        "offset_ms": -2
+      },
+      {
+        "scene_boundary_s": 5.0,
+        "nearest_bass_attack_s": 5.055,
+        "offset_ms": 55
+      },
+      {
+        "scene_boundary_s": 7.5,
+        "nearest_bass_attack_s": 7.494,
+        "offset_ms": -6
+      },
+      {
+        "scene_boundary_s": 10.0,
+        "nearest_bass_attack_s": 9.984,
+        "offset_ms": -16
+      },
+      {
+        "scene_boundary_s": 12.5,
+        "nearest_bass_attack_s": 12.514,
+        "offset_ms": 14
+      },
+      {
+        "scene_boundary_s": 15.0,
+        "nearest_bass_attack_s": 15.011,
+        "offset_ms": 11
+      },
+      {
+        "scene_boundary_s": 17.5,
+        "nearest_bass_attack_s": 17.512,
+        "offset_ms": 12
+      },
+      {
+        "scene_boundary_s": 20.0,
+        "nearest_bass_attack_s": 20.0,
+        "offset_ms": 0
+      },
+      {
+        "scene_boundary_s": 22.5,
+        "nearest_bass_attack_s": 22.481,
+        "offset_ms": -19
+      },
+      {
+        "scene_boundary_s": 25.0,
+        "nearest_bass_attack_s": 25.054,
+        "offset_ms": 54
+      },
+      {
+        "scene_boundary_s": 27.5,
+        "nearest_bass_attack_s": 27.514,
+        "offset_ms": 14
+      }
+    ]
+  },
+  "primary-final-mix": {
+    "probe": {
+      "streams": [
+        {
+          "index": 0,
+          "codec_name": "pcm_s24le",
+          "codec_long_name": "PCM signed 24-bit little-endian",
+          "codec_type": "audio",
+          "codec_tag_string": "[1][0][0][0]",
+          "codec_tag": "0x0001",
+          "sample_fmt": "s32",
+          "sample_rate": "48000",
+          "channels": 2,
+          "channel_layout": "stereo",
+          "bits_per_sample": 24,
+          "initial_padding": 0,
+          "r_frame_rate": "0/0",
+          "avg_frame_rate": "0/0",
+          "time_base": "1/48000",
+          "duration_ts": 1440000,
+          "duration": "30.000000",
+          "bit_rate": "2304000",
+          "bits_per_raw_sample": "24",
+          "disposition": {
+            "default": 0,
+            "dub": 0,
+            "original": 0,
+            "comment": 0,
+            "lyrics": 0,
+            "karaoke": 0,
+            "forced": 0,
+            "hearing_impaired": 0,
+            "visual_impaired": 0,
+            "clean_effects": 0,
+            "attached_pic": 0,
+            "timed_thumbnails": 0,
+            "non_diegetic": 0,
+            "captions": 0,
+            "descriptions": 0,
+            "metadata": 0,
+            "dependent": 0,
+            "still_image": 0
+          }
+        }
+      ],
+      "format": {
+        "filename": "assets/audio/primary-final-mix.wav",
+        "nb_streams": 1,
+        "nb_programs": 0,
+        "format_name": "wav",
+        "format_long_name": "WAV / WAVE (Waveform Audio)",
+        "duration": "30.000000",
+        "size": "8640102",
+        "bit_rate": "2304027",
+        "probe_score": 99,
+        "tags": {
+          "encoder": "Lavf60.16.100"
+        }
+      }
+    },
+    "rms_dbfs_per_second": [
+      -16.279130935668945,
+      -15.2484130859375,
+      -16.306488037109375,
+      -15.017192840576172,
+      -15.20391845703125,
+      -14.29461669921875,
+      -15.009594917297363,
+      -12.829410552978516,
+      -15.087974548339844,
+      -14.099546432495117,
+      -14.69875717163086,
+      -14.212523460388184,
+      -14.443668365478516,
+      -13.91186809539795,
+      -14.338754653930664,
+      -12.005334854125977,
+      -14.04568862915039,
+      -13.28609561920166,
+      -13.416911125183105,
+      -12.760799407958984,
+      -13.273372650146484,
+      -12.432132720947266,
+      -12.923608779907227,
+      -11.467668533325195,
+      -14.000969886779785,
+      -13.343559265136719,
+      -14.705904960632324,
+      -13.891596794128418,
+      -14.689338684082031,
+      -16.648834228515625
+    ],
+    "rms_spread_first_29_seconds_db": 4.83881950378418
+  },
+  "alternate-music-only": {
+    "probe": {
+      "streams": [
+        {
+          "index": 0,
+          "codec_name": "pcm_s24le",
+          "codec_long_name": "PCM signed 24-bit little-endian",
+          "codec_type": "audio",
+          "codec_tag_string": "[1][0][0][0]",
+          "codec_tag": "0x0001",
+          "sample_fmt": "s32",
+          "sample_rate": "48000",
+          "channels": 2,
+          "channel_layout": "stereo",
+          "bits_per_sample": 24,
+          "initial_padding": 0,
+          "r_frame_rate": "0/0",
+          "avg_frame_rate": "0/0",
+          "time_base": "1/48000",
+          "duration_ts": 1440000,
+          "duration": "30.000000",
+          "bit_rate": "2304000",
+          "bits_per_raw_sample": "24",
+          "disposition": {
+            "default": 0,
+            "dub": 0,
+            "original": 0,
+            "comment": 0,
+            "lyrics": 0,
+            "karaoke": 0,
+            "forced": 0,
+            "hearing_impaired": 0,
+            "visual_impaired": 0,
+            "clean_effects": 0,
+            "attached_pic": 0,
+            "timed_thumbnails": 0,
+            "non_diegetic": 0,
+            "captions": 0,
+            "descriptions": 0,
+            "metadata": 0,
+            "dependent": 0,
+            "still_image": 0
+          }
+        }
+      ],
+      "format": {
+        "filename": "assets/audio/alternate-music-only.wav",
+        "nb_streams": 1,
+        "nb_programs": 0,
+        "format_name": "wav",
+        "format_long_name": "WAV / WAVE (Waveform Audio)",
+        "duration": "30.000000",
+        "size": "8640102",
+        "bit_rate": "2304027",
+        "probe_score": 99,
+        "tags": {
+          "encoder": "Lavf60.16.100"
+        }
+      }
+    },
+    "rms_dbfs_per_second": [
+      -16.857803344726562,
+      -15.487709045410156,
+      -17.00420570373535,
+      -15.21139144897461,
+      -16.749753952026367,
+      -14.852537155151367,
+      -16.445375442504883,
+      -14.507057189941406,
+      -16.110227584838867,
+      -14.435731887817383,
+      -16.11202049255371,
+      -14.216133117675781,
+      -15.994495391845703,
+      -14.200199127197266,
+      -15.885701179504395,
+      -14.065994262695312,
+      -14.13427734375,
+      -13.232440948486328,
+      -14.098758697509766,
+      -12.774595260620117,
+      -13.962772369384766,
+      -12.939373016357422,
+      -14.209184646606445,
+      -13.00384521484375,
+      -14.134573936462402,
+      -13.60527229309082,
+      -15.242584228515625,
+      -14.196887016296387,
+      -15.245296478271484,
+      -18.037002563476562
+    ],
+    "rms_spread_first_29_seconds_db": 4.229610443115234,
+    "dominant_beat_period_ms": 504,
+    "measured_bpm": 119.04761904761905,
+    "bass_attack_checks": [
+      {
+        "scene_boundary_s": 2.5,
+        "nearest_bass_attack_s": 2.441,
+        "offset_ms": -59
+      },
+      {
+        "scene_boundary_s": 5.0,
+        "nearest_bass_attack_s": 5.001,
+        "offset_ms": 1
+      },
+      {
+        "scene_boundary_s": 7.5,
+        "nearest_bass_attack_s": 7.499,
+        "offset_ms": -1
+      },
+      {
+        "scene_boundary_s": 10.0,
+        "nearest_bass_attack_s": 10.012,
+        "offset_ms": 12
+      },
+      {
+        "scene_boundary_s": 12.5,
+        "nearest_bass_attack_s": 12.446,
+        "offset_ms": -54
+      },
+      {
+        "scene_boundary_s": 15.0,
+        "nearest_bass_attack_s": 15.008,
+        "offset_ms": 8
+      },
+      {
+        "scene_boundary_s": 17.5,
+        "nearest_bass_attack_s": 17.493,
+        "offset_ms": -7
+      },
+      {
+        "scene_boundary_s": 20.0,
+        "nearest_bass_attack_s": 19.99,
+        "offset_ms": -10
+      },
+      {
+        "scene_boundary_s": 22.5,
+        "nearest_bass_attack_s": 22.451,
+        "offset_ms": -49
+      },
+      {
+        "scene_boundary_s": 25.0,
+        "nearest_bass_attack_s": 25.004,
+        "offset_ms": 4
+      },
+      {
+        "scene_boundary_s": 27.5,
+        "nearest_bass_attack_s": 27.502,
+        "offset_ms": 2
+      }
+    ]
+  },
+  "alternate-final-mix": {
+    "probe": {
+      "streams": [
+        {
+          "index": 0,
+          "codec_name": "pcm_s24le",
+          "codec_long_name": "PCM signed 24-bit little-endian",
+          "codec_type": "audio",
+          "codec_tag_string": "[1][0][0][0]",
+          "codec_tag": "0x0001",
+          "sample_fmt": "s32",
+          "sample_rate": "48000",
+          "channels": 2,
+          "channel_layout": "stereo",
+          "bits_per_sample": 24,
+          "initial_padding": 0,
+          "r_frame_rate": "0/0",
+          "avg_frame_rate": "0/0",
+          "time_base": "1/48000",
+          "duration_ts": 1440000,
+          "duration": "30.000000",
+          "bit_rate": "2304000",
+          "bits_per_raw_sample": "24",
+          "disposition": {
+            "default": 0,
+            "dub": 0,
+            "original": 0,
+            "comment": 0,
+            "lyrics": 0,
+            "karaoke": 0,
+            "forced": 0,
+            "hearing_impaired": 0,
+            "visual_impaired": 0,
+            "clean_effects": 0,
+            "attached_pic": 0,
+            "timed_thumbnails": 0,
+            "non_diegetic": 0,
+            "captions": 0,
+            "descriptions": 0,
+            "metadata": 0,
+            "dependent": 0,
+            "still_image": 0
+          }
+        }
+      ],
+      "format": {
+        "filename": "assets/audio/alternate-final-mix.wav",
+        "nb_streams": 1,
+        "nb_programs": 0,
+        "format_name": "wav",
+        "format_long_name": "WAV / WAVE (Waveform Audio)",
+        "duration": "30.000000",
+        "size": "8640102",
+        "bit_rate": "2304027",
+        "probe_score": 99,
+        "tags": {
+          "encoder": "Lavf60.16.100"
+        }
+      }
+    },
+    "rms_dbfs_per_second": [
+      -16.857803344726562,
+      -15.487709045410156,
+      -16.965665817260742,
+      -15.21139144897461,
+      -16.74384307861328,
+      -14.845621109008789,
+      -16.445375442504883,
+      -14.488771438598633,
+      -16.110227584838867,
+      -14.423376083374023,
+      -16.102632522583008,
+      -14.216133117675781,
+      -15.971404075622559,
+      -14.200199127197266,
+      -15.875419616699219,
+      -14.065356254577637,
+      -14.13427734375,
+      -13.215231895446777,
+      -14.098758697509766,
+      -12.757425308227539,
+      -13.968544006347656,
+      -12.939373016357422,
+      -14.193155288696289,
+      -13.00384521484375,
+      -14.125415802001953,
+      -13.595008850097656,
+      -15.242584228515625,
+      -14.194664001464844,
+      -15.245296478271484,
+      -18.037002563476562
+    ],
+    "rms_spread_first_29_seconds_db": 4.208240509033203
+  }
+}
