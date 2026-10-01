@@ -1,3 +1,14 @@
+# Release v4.4.4
+
+**Release Date**: 2026-10-01
+
+## Changes since v4.4.3
+
+- chore: release v4.4.4 [skip ci] (fcdbfd8)
+- content: connect the company front door to production work and customer independence (#65) (4e50346)
+
+---
+
 # Release v4.4.3
 
 **Release Date**: 2026-09-30
