@@ -1,3 +1,14 @@
+# Release v4.4.5
+
+**Release Date**: 2026-10-05
+
+## Changes since v4.4.4
+
+- chore: release v4.4.5 [skip ci] (00e4ba4)
+- content(field-notes): add rank-current-truth-with-the-rerank-not-the-clock (7c45d98)
+
+---
+
 # Release v4.4.4
 
 **Release Date**: 2026-10-01
