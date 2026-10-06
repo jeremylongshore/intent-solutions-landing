@@ -1,3 +1,14 @@
+# Release v4.4.6
+
+**Release Date**: 2026-10-06
+
+## Changes since v4.4.5
+
+- chore: release v4.4.6 [skip ci] (2f5c852)
+- content(field-notes): add the-sidecar-must-never-block-the-deliverable (4f09677)
+
+---
+
 # Release v4.4.5
 
 **Release Date**: 2026-10-05
