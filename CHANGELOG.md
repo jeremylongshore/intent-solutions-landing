@@ -1,3 +1,14 @@
+# Release v4.4.7
+
+**Release Date**: 2026-10-08
+
+## Changes since v4.4.6
+
+- chore: release v4.4.7 [skip ci] (a6029b9)
+- content(field-notes): add three-pass-settlement-recurring-ai-pipeline-contract (5bf484f)
+
+---
+
 # Release v4.4.6
 
 **Release Date**: 2026-10-06
