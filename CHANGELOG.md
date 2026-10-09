@@ -1,3 +1,14 @@
+# Release v4.4.8
+
+**Release Date**: 2026-10-09
+
+## Changes since v4.4.7
+
+- chore: release v4.4.8 [skip ci] (d191286)
+- content(field-notes): add park-the-cutover-keep-the-work (5c67a76)
+
+---
+
 # Release v4.4.7
 
 **Release Date**: 2026-10-08
