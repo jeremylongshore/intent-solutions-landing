@@ -4,6 +4,7 @@ export const pages = [
   { path: '/', label: 'Home', audience: 'Prospective customers', purpose: 'Understand the outcome, method, and evidence.', next: '/contact/?door=outcome', index: true },
   { path: '/projects/', label: 'Projects', audience: 'Customers and builders', purpose: 'Inspect public work and choose an example to explore.', next: 'https://demos.intentsolutions.io/', index: true },
   { path: '/about/', label: 'About', audience: 'People evaluating the company', purpose: 'Understand the team and its responsibilities.', next: '/contact/?door=outcome', index: true },
+  { path: '/estate/', label: 'The estate', audience: 'Customers and practitioners', purpose: 'See how the company practice, evidence, learning, tools, and products connect.', next: '/contact/?door=outcome', index: true },
   { path: '/contact/', label: 'Request an outcome', audience: 'Prospective customers', purpose: 'Describe the work and request a fit review.', next: 'Form confirmation on this page', index: true },
   { path: '/support/', label: 'Support', audience: 'Existing customers and tool users', purpose: 'Find the correct support channel without assuming service entitlements.', next: '/contact/', index: true },
   { path: '/field-notes/', label: 'Field notes', audience: 'Technical evaluators and readers', purpose: 'Read the development record and lessons from the work.', next: '/field-notes/[...slug]/', index: true },
