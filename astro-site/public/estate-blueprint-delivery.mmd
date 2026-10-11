@@ -1,0 +1,18 @@
+flowchart TB
+  frame["Agree what must change"]
+  build["Engineer the whole workflow"]
+  prove["Test the claim in context"]
+  operate["Transfer, run, and improve"]
+  brief["Outcome brief"]
+  candidate["Versioned candidate"]
+  release["Evidence + release decision"]
+  handoff["Operating handoff"]
+  frame -->|"scope"| build
+  build -->|"test"| prove
+  prove -->|"accept"| operate
+  frame -.->|"produces / governance"| brief
+  build -.->|"produces / governance"| candidate
+  prove -.->|"produces / governance"| release
+  operate -.->|"produces / governance"| handoff
+  release -.->|"Failure → correction → rerun / feedback"| candidate
+  handoff -.->|"Operating evidence → changed baseline, scope, or next problem / feedback"| brief

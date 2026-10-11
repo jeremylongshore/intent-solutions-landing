@@ -1,0 +1,21 @@
+flowchart TB
+  source["Source & decisions"]
+  beads["Durable work"]
+  brain["Governed knowledge"]
+  skills["Skills"]
+  mcp["MCP & tool interfaces"]
+  agents["People & agent sessions"]
+  review["Review & release gates"]
+  deploy["Deployment"]
+  operate["Operation"]
+  learn["Evidence & proposals"]
+  source -.->|"procedures / governance"| skills
+  beads -.->|"claim work / governance"| agents
+  brain -.->|"cited recall / governance"| mcp
+  skills -->|"shared method"| agents
+  mcp -->|"tools"| agents
+  agents -->|"evidence"| review
+  review -.->|"authorized release / governance"| deploy
+  deploy -->|"run"| operate
+  operate -->|"observations"| learn
+  learn -.->|"propose lesson / feedback"| brain

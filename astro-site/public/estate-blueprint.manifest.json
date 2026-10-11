@@ -1,0 +1,252 @@
+{
+  "date": "2026-10-11",
+  "contentSha256": "e5ba01c5d37d678fba031bcfb7eaf94d7e47241cb67ad84c9a737d74cdba2137",
+  "pages": [
+    {
+      "id": "estate",
+      "href": "/estate-blueprint.html",
+      "nodes": 9,
+      "edges": 8,
+      "sources": [
+        {
+          "label": "Intent Solutions practice",
+          "href": "https://intentsolutions.io/"
+        },
+        {
+          "label": "Learn and linked credential evidence",
+          "href": "https://learn.intentsolutions.io/"
+        },
+        {
+          "label": "Tons of Skills",
+          "href": "https://tonsofskills.com/"
+        },
+        {
+          "label": "Omarchy portfolio",
+          "href": "https://oma.intentsolutions.io/"
+        },
+        {
+          "label": "Product portfolio",
+          "href": "https://jeremylongshore.com/"
+        },
+        {
+          "label": "DiagnosticPro",
+          "href": "https://diagnosticpro.io/"
+        },
+        {
+          "label": "Scorecard Echo",
+          "href": "https://scorecardecho.com/"
+        },
+        {
+          "label": "HustleStats",
+          "href": "https://hustlestats.io/"
+        },
+        {
+          "label": "Intent Longbox development",
+          "href": "https://github.com/jeremylongshore/intent-longbox"
+        },
+        {
+          "label": "Implementation journal",
+          "href": "https://startaitools.com/"
+        },
+        {
+          "label": "Network direction and six-function framing: owner-supplied vision, October 2026."
+        }
+      ]
+    },
+    {
+      "id": "compounding",
+      "href": "/estate-blueprint-compounding.html",
+      "nodes": 12,
+      "edges": 16,
+      "sources": [
+        {
+          "label": "The shared engineering method",
+          "href": "https://intentsolutions.io/"
+        },
+        {
+          "label": "Evidence and scoped evaluations",
+          "href": "https://labs.intentsolutions.io/"
+        },
+        {
+          "label": "Practitioner knowledge transfer",
+          "href": "https://learn.intentsolutions.io/"
+        },
+        {
+          "label": "Public reusable components",
+          "href": "https://tonsofskills.com/"
+        },
+        {
+          "label": "Implementation journal",
+          "href": "https://startaitools.com/"
+        },
+        {
+          "label": "Routing and commercial feedback: owner-directed intended operating model."
+        }
+      ]
+    },
+    {
+      "id": "delivery",
+      "href": "/estate-blueprint-delivery.html",
+      "nodes": 8,
+      "edges": 9,
+      "sources": [
+        {
+          "label": "Published Intent delivery method",
+          "href": "https://intentsolutions.io/#method"
+        },
+        {
+          "label": "Learn: the shared operating standard",
+          "href": "https://learn.intentsolutions.io/"
+        },
+        {
+          "label": "Public evaluation evidence",
+          "href": "https://labs.intentsolutions.io/"
+        },
+        {
+          "label": "Owner-directed operating model; handoff artifacts are a method specification, not a completed-engagement claim."
+        }
+      ]
+    },
+    {
+      "id": "spine",
+      "href": "/estate-blueprint-spine.html",
+      "nodes": 10,
+      "edges": 10,
+      "sources": [
+        {
+          "label": "Public developer and operating-tool inventory",
+          "href": "https://jeremylongshore.com/"
+        },
+        {
+          "label": "Governed brain plugin and team mode",
+          "href": "https://github.com/jeremylongshore/bobs-big-brain-plugin"
+        },
+        {
+          "label": "Compiler architecture",
+          "href": "https://github.com/jeremylongshore/bobs-big-brain-compiler"
+        },
+        {
+          "label": "Registrar",
+          "href": "https://github.com/jeremylongshore/bobs-big-brain-registrar"
+        },
+        {
+          "label": "Beads",
+          "href": "https://github.com/gastownhall/beads"
+        },
+        {
+          "label": "Reusable procedures",
+          "href": "https://tonsofskills.com/"
+        },
+        {
+          "label": "Public Mission Control projection",
+          "href": "https://demos.intentsolutions.io/mission-control/"
+        },
+        {
+          "label": "Buzz application fork",
+          "href": "https://github.com/intent-solutions-io/buzz"
+        },
+        {
+          "label": "Intent OS is the private company control surface; this page shows conceptual responsibilities, not private infrastructure topology."
+        }
+      ]
+    },
+    {
+      "id": "evidence",
+      "href": "/estate-blueprint-evidence.html",
+      "nodes": 10,
+      "edges": 12,
+      "sources": [
+        {
+          "label": "Lab capabilities and limits",
+          "href": "https://labs.intentsolutions.io/"
+        },
+        {
+          "label": "Result definitions",
+          "href": "https://evals.intentsolutions.io/"
+        },
+        {
+          "label": "Platform repository",
+          "href": "https://github.com/intent-solutions-io/intent-eval-platform"
+        },
+        {
+          "label": "Lab methodology",
+          "href": "https://github.com/jeremylongshore/intent-eval-lab"
+        },
+        {
+          "label": "Behavioral evaluation",
+          "href": "https://github.com/jeremylongshore/j-rig-skill-binary-eval"
+        },
+        {
+          "label": "Audit Harness",
+          "href": "https://github.com/jeremylongshore/intent-audit-harness"
+        },
+        {
+          "label": "Working demonstrations",
+          "href": "https://demos.intentsolutions.io/"
+        }
+      ]
+    },
+    {
+      "id": "people",
+      "href": "/estate-blueprint-people.html",
+      "nodes": 12,
+      "edges": 12,
+      "sources": [
+        {
+          "label": "Intent Learn: practice and access",
+          "href": "https://learn.intentsolutions.io/"
+        },
+        {
+          "label": "Current request-access surface",
+          "href": "https://learn.intentsolutions.io/request-access"
+        },
+        {
+          "label": "Owner-provided operating brief; current onboarding records reviewed for this atlas"
+        }
+      ]
+    },
+    {
+      "id": "network",
+      "href": "/estate-blueprint-network.html",
+      "nodes": 7,
+      "edges": 6,
+      "sources": [
+        {
+          "label": "Owner-provided international network and commercial operating brief"
+        },
+        {
+          "label": "Intent Solutions: outcome, evidence and operating responsibility",
+          "href": "https://intentsolutions.io/"
+        },
+        {
+          "label": "Intent Learn: the practitioner entry point",
+          "href": "https://learn.intentsolutions.io/"
+        }
+      ]
+    },
+    {
+      "id": "principles",
+      "href": "/estate-blueprint-principles.html",
+      "nodes": 7,
+      "edges": 6,
+      "sources": [
+        {
+          "label": "Owner-provided six governing principles and operating vision"
+        },
+        {
+          "label": "Intent Solutions: applied AI engineering",
+          "href": "https://intentsolutions.io/"
+        },
+        {
+          "label": "Intent Labs: inspectable experiments",
+          "href": "https://labs.intentsolutions.io/"
+        },
+        {
+          "label": "Tons of Skills: reusable developer tooling",
+          "href": "https://tonsofskills.com/"
+        }
+      ]
+    }
+  ],
+  "scope": "Content hash includes labels, status, sources, geometry and explanatory text. Structural fingerprints are maintained separately."
+}
