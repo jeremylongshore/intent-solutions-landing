@@ -1,3 +1,14 @@
+# Release v4.5.1
+
+**Release Date**: 2026-10-11
+
+## Changes since v4.5.0
+
+- chore: release v4.5.1 [skip ci] (5ff4f67)
+- docs: publish source-linked estate diagram (#67) (a463f7a)
+
+---
+
 # Release v4.5.0
 
 **Release Date**: 2026-10-11
