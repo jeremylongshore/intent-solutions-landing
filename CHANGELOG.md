@@ -1,3 +1,14 @@
+# Release v4.6.0
+
+**Release Date**: 2026-10-11
+
+## Changes since v4.5.2
+
+- chore: release v4.6.0 [skip ci] (4f3c920)
+- feat(estate): publish eight-view company operating atlas (#69) (a601fb5)
+
+---
+
 # Release v4.5.2
 
 **Release Date**: 2026-10-11
