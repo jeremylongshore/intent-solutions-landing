@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Intent Solutions | Estate operating diagram</title>
+  <meta name="description" content="A source-linked diagram of how Intent Solutions connects engineering, evidence, teaching, open tools, and owned products.">
+  <meta name="robots" content="noindex, follow">
+  <style>
+    /* ESTATE_BAR_CSS */
+    :root{color-scheme:dark;--bg:#0f1117;--surface:#161b22;--card:#1c2128;--line:#52525b;--text:#f4f4f5;--muted:#c4c4cd;--accent:#fb923c;--green:#86efac}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.55 Inter,system-ui,sans-serif}
+    a{color:#fdba74;text-underline-offset:3px}a:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+    .layout{display:grid;grid-template-columns:240px minmax(0,1fr);gap:2rem;width:min(1480px,calc(100% - 3rem));margin:0 auto;padding:2.5rem 0}
+    aside{position:sticky;top:2rem;align-self:start}.brand{display:flex;align-items:center;gap:.7rem;color:var(--accent);font-weight:750;text-decoration:none}.mark{display:grid;place-items:center;width:2.1rem;height:2.1rem;background:var(--accent);color:#111;border-radius:.35rem;font-size:1.4rem}
+    .eyebrow{margin:2rem 0 .4rem;color:var(--accent);font:700 .68rem ui-monospace,monospace;letter-spacing:.13em}.side-list{list-style:none;padding:0;margin:0}.side-list li{margin:.4rem 0}.side-list a{color:var(--muted);text-decoration:none}.side-list a:hover{color:#fff}.invariants{margin:0;padding-left:1.1rem;color:var(--muted);font-size:.82rem}.invariants li{margin:.65rem 0}.swatch{display:inline-block;width:1rem;height:.12rem;margin-right:.45rem;vertical-align:middle;background:var(--accent)}.swatch.dashed{height:0;border-top:2px dashed var(--muted);background:none}
+    h1,h2,h3,p{margin-top:0}h1,h2,h3{line-height:1.15}h1{margin-bottom:.8rem;font-size:clamp(2.3rem,4vw,3.7rem);letter-spacing:-.04em}h1 span{color:var(--accent)}.lead{max-width:52rem;color:var(--muted);font-size:1.08rem}.notice{max-width:55rem;color:var(--muted);font-size:.85rem}
+    .diagram-card,.details{margin-top:2rem;padding:1.5rem;border:1px solid #3f3f46;border-radius:.75rem;background:var(--surface)}.card-top{display:flex;justify-content:space-between;gap:1rem;align-items:baseline}.card-top h2{margin:0;font-size:1.25rem}.card-top span{color:var(--accent);font:700 .7rem ui-monospace,monospace}.diagram-scroll{overflow-x:auto;margin:1rem -1.5rem 0;padding:0 1.5rem}.diagram-stage{position:relative;width:1060px;height:596px;min-width:1060px;margin:auto;background:radial-gradient(circle at 45% 50%,#24201e,var(--surface) 60%)}
+    svg{position:absolute;inset:0;width:1060px;height:596px;pointer-events:none}.node{position:absolute;display:flex;flex-direction:column;justify-content:center;min-height:125px;padding:1rem;border:1px solid #71717a;border-top:3px solid var(--accent);border-radius:.55rem;background:var(--card);color:var(--text);text-decoration:none;box-shadow:0 15px 28px #0006}.node:hover{border-color:var(--accent);background:#262a31}.node small{color:var(--accent);font:700 .63rem ui-monospace,monospace;letter-spacing:.07em}.node strong{margin:.45rem 0 .2rem;font-size:1.03rem}.node em{color:var(--muted);font-size:.77rem;font-style:normal}.node.work{left:20px;top:235px;width:180px}.node.practice{left:255px;top:228px;width:200px;border-color:var(--accent);background:#2a211c}.node.evidence{left:515px;top:75px;width:220px}.node.transfer{left:790px;top:75px;width:220px}.node.products{left:515px;top:368px;width:220px}.figure-caption{margin:.8rem 0 0;color:var(--muted);font-size:.84rem}
+    .details h2{font-size:1.3rem}.detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.detail-grid section{padding:1.1rem;border:1px solid #3f3f46;border-radius:.55rem;background:var(--card)}.detail-grid h3{margin-bottom:.4rem;font-size:1rem}.detail-grid p{color:var(--muted);font-size:.85rem}.detail-grid ul{margin:.8rem 0 0;padding-left:1.2rem;font-size:.84rem}.detail-grid li{margin:.3rem 0}.footnote{margin-top:1.5rem;color:var(--muted);font-size:.8rem}
+    @media(max-width:1000px){.layout{display:block;width:min(100% - 2rem,860px)}aside{position:static;display:flex;flex-wrap:wrap;gap:0 2rem;margin-bottom:2rem}aside .eyebrow,aside .side-list,aside .invariants{display:none}.detail-grid{grid-template-columns:1fr}.diagram-card{padding:1rem}.diagram-scroll{margin:1rem -1rem 0;padding:0 1rem}.card-top{display:block}.card-top span{display:block;margin-top:.5rem}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <!-- ESTATE_BAR_FRAGMENT -->
+  <div class="layout">
+    <aside aria-label="Diagram context">
+      <a class="brand" href="/estate/"><span class="mark" aria-hidden="true">↗</span> Intent Solutions</a>
+      <div><p class="eyebrow">ON THIS PAGE</p><ul class="side-list"><li><a href="#diagram">Operating diagram</a></li><li><a href="#sources">Property sources</a></li><li><a href="/estate/">Estate page</a></li></ul></div>
+      <div><p class="eyebrow">READING RULES</p><ul class="invariants"><li>One company with several ways to build and share work.</li><li>Arrows describe an intended operating relationship.</li><li>Public artifacts do not prove customer conversion.</li></ul></div>
+      <div><p class="eyebrow">CONNECTORS</p><p class="invariants"><span class="swatch"></span>Work sequence<br><span class="swatch dashed"></span>Potential feedback</p></div>
+    </aside>
+    <main>
+      <p class="eyebrow" style="margin-top:0">SOURCE-LINKED VISUAL / OCTOBER 2026</p>
+      <h1>The <span>compounding</span> AI engineering estate</h1>
+      <p class="lead">Intent Solutions turns a defined business problem into work that can be engineered, tested, operated, and improved. Evidence, teaching, open tools, and products are ways the same work can travel further.</p>
+      <p class="notice">This is a strategic operating model grounded in the current public estate. It is not a runtime dependency graph, a claim of existing revenue, or a forecast that every path will succeed.</p>
+      <section class="diagram-card" id="diagram" aria-labelledby="diagram-heading">
+        <div class="card-top"><h2 id="diagram-heading">How the parts reinforce one another</h2><span>SCROLL TO INSPECT →</span></div>
+        <div class="diagram-scroll" tabindex="0" aria-label="Scroll horizontally to inspect the estate diagram">
+          <div class="diagram-stage">
+            <svg viewBox="0 0 1060 596" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="svg-title svg-desc" tabindex="0">
+              <title id="svg-title">Intent Solutions estate work loop</title>
+              <desc id="svg-desc">A real problem leads to engineering. Engineering is tested in Labs, Evals, and Demos. Permitted methods transfer through Learn, open tools, and writing. Feedback may reveal the next problem. Repeatable patterns may become owned products.</desc>
+              <defs><marker id="head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M1 1 L7 4.5 L1 8" fill="none" stroke="#fb923c" stroke-width="1.5"/></marker></defs>
+              <path d="M200 298 H250" stroke="#fb923c" stroke-width="2" marker-end="url(#head)"/>
+              <path d="M455 253 C485 253 485 138 510 138" fill="none" stroke="#fb923c" stroke-width="2" marker-end="url(#head)"/>
+              <path d="M735 138 H785" stroke="#fb923c" stroke-width="2" marker-end="url(#head)"/>
+              <path d="M900 201 V540 H115 V368" fill="none" stroke="#a1a1aa" stroke-width="2" stroke-dasharray="7 8" marker-end="url(#head)"/>
+              <path d="M455 342 C485 342 485 430 510 430" fill="none" stroke="#a1a1aa" stroke-width="2" stroke-dasharray="7 8" marker-end="url(#head)"/>
+              <path d="M625 495 V525 H205 C180 525 174 480 174 368" fill="none" stroke="#a1a1aa" stroke-width="2" stroke-dasharray="7 8" marker-end="url(#head)"/>
+            </svg>
+            <div class="node work"><small>START HERE</small><strong>Real work</strong><em>A defined outcome and an owner</em></div>
+            <a class="node practice" href="/"><small>ENGINEER</small><strong>Intent Solutions</strong><em>Design · build · operate</em></a>
+            <a class="node evidence" href="https://labs.intentsolutions.io/"><small>PROVE</small><strong>Evidence & inspection</strong><em>Labs · Evals · Demos</em></a>
+            <a class="node transfer" href="https://learn.intentsolutions.io/"><small>TRANSFER</small><strong>Teaching & distribution</strong><em>Learn · Skills · open source · writing</em></a>
+            <a class="node products" href="https://jeremylongshore.com/"><small>APPLY WHAT REPEATS</small><strong>Owned products</strong><em>Distinct products at distinct stages</em></a>
+          </div>
+        </div>
+        <p class="figure-caption">The dashed paths show possible learning and product feedback. They do not assert that adoption becomes a paying customer.</p>
+      </section>
+      <section class="details" id="sources" aria-labelledby="sources-heading">
+        <h2 id="sources-heading">Inspect the public surfaces</h2>
+        <div class="detail-grid">
+          <section><h3>Engineering</h3><p>Intent Solutions is the customer-facing practice and accountable operating center.</p><ul><li><a href="https://intentsolutions.io/">Intent Solutions</a></li></ul></section>
+          <section><h3>Evidence</h3><p>Tests and demonstrations support specific claims about behavior.</p><ul><li><a href="https://labs.intentsolutions.io/">Labs</a></li><li><a href="https://evals.intentsolutions.io/">Evals</a></li><li><a href="https://demos.intentsolutions.io/">Demos</a></li></ul></section>
+          <section><h3>Teaching and distribution</h3><p>Lessons and reusable work can travel beyond one engagement.</p><ul><li><a href="https://learn.intentsolutions.io/">Learn</a></li><li><a href="https://tonsofskills.com/">Tons of Skills</a></li><li><a href="https://oma.intentsolutions.io/">Omarchy</a></li><li><a href="https://startaitools.com/">Start AI Tools</a></li><li><a href="https://github.com/jeremylongshore">GitHub</a></li></ul></section>
+          <section><h3>Products and project index</h3><p>Product maturity varies. Jeremy’s project index is a broader discovery source; not every entry there is an Intent Solutions product.</p><ul><li><a href="https://diagnosticpro.io/">DiagnosticPro</a></li><li><a href="https://hustlestats.io/">HustleStats</a></li><li><a href="https://scorecardecho.com/">Scorecard Echo</a></li><li><a href="https://jeremylongshore.com/">Jeremy’s project index</a></li></ul></section>
+        </div>
+        <p class="footnote">Source graph: <a href="/estate-blueprint.graph.json">JSON</a> · Portable diagram source: <a href="/estate-blueprint.mmd">Mermaid</a> · <a href="/estate/">Return to the estate page</a></p>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
