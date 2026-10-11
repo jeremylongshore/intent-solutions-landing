@@ -1,3 +1,14 @@
+# Release v4.5.2
+
+**Release Date**: 2026-10-11
+
+## Changes since v4.5.1
+
+- chore: release v4.5.2 [skip ci] (6f5ab63)
+- fix: include canonical estate bar in standalone diagram (#68) (81f9c96)
+
+---
+
 # Release v4.5.1
 
 **Release Date**: 2026-10-11
