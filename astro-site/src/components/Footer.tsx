@@ -7,6 +7,7 @@ const networkLinks = estateLinks.links
 
 const companyLinks = [
   { label: 'Projects', href: '/projects/' },
+  { label: 'The estate', href: '/estate/' },
   { label: 'Field notes', href: '/field-notes/' },
   { label: 'About', href: '/about/' },
   { label: 'Our team', href: '/about/#team' },
