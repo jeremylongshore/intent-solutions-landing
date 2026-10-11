@@ -1,0 +1,30 @@
+{
+  "repo": {
+    "root": "intent-solutions-landing",
+    "git_sha": "ed46a04",
+    "branch": "main",
+    "remote": "https://github.com/jeremylongshore/intent-solutions-landing"
+  },
+  "nodes": [
+    {"id":"real-work","label":"Real work","role":"external","source":"astro-site/src/data/estate.mjs:loopSteps"},
+    {"id":"practice","label":"Engineering and delivery","role":"backend","source":"astro-site/src/data/estate.mjs:estateGroups.practice"},
+    {"id":"evidence","label":"Evidence and inspection","role":"external","source":"astro-site/src/data/estate.mjs:estateGroups.evidence"},
+    {"id":"transfer","label":"Teaching and distribution","role":"external","source":"astro-site/src/data/estate.mjs:estateGroups.transfer"},
+    {"id":"products","label":"Owned products","role":"external","source":"astro-site/src/data/estate.mjs:estateGroups.products"}
+  ],
+  "edges": [
+    {"from":"real-work","to":"practice","kind":"unknown","label":"defines outcome","source":"astro-site/src/data/estate.mjs:loopSteps"},
+    {"from":"practice","to":"evidence","kind":"unknown","label":"tests the claim","source":"astro-site/src/data/estate.mjs:loopSteps"},
+    {"from":"evidence","to":"transfer","kind":"unknown","label":"shares permitted learning","source":"astro-site/src/data/estate.mjs:loopSteps"},
+    {"from":"transfer","to":"real-work","kind":"unknown","label":"feedback and new use cases","source":"astro-site/src/data/estate.mjs:loopSteps"},
+    {"from":"practice","to":"products","kind":"unknown","label":"reusable patterns may become products","source":"astro-site/src/pages/estate.astro:decision-card"},
+    {"from":"products","to":"real-work","kind":"unknown","label":"product use informs next problem","source":"astro-site/src/data/estate.mjs:loopSteps"}
+  ],
+  "groups": [
+    {"id":"operating-loop","label":"Proposed compounding work loop","kind":"conceptual","members":["real-work","practice","evidence","transfer","products"]}
+  ],
+  "annotations": [
+    {"node_id":"practice","kind":"disclosure","text":"Conceptual business relationship; arrows do not assert current revenue, customer conversion, or software dependency.","source":"astro-site/src/pages/estate.astro:loop-caveat"}
+  ],
+  "tech_inventory": {"package_managers":["npm","bun"],"orchestrators":[],"iac":[],"cloud_providers_detected":[]}
+}
