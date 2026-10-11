@@ -1,0 +1,14 @@
+flowchart TB
+  customer["Customers"]
+  originators["Origination"]
+  intent_layer["Intent operating layer (proposed)"]
+  specialists["Execution"]
+  origination_arrangement["Referral or presales (proposed)"]
+  delivery_arrangement["Subcontract or joint delivery (proposed)"]
+  managed_arrangement["Managed work and support (proposed)"]
+  customer -->|"scope"| intent_layer
+  intent_layer -.->|"evidence / feedback"| customer
+  originators -->|"context"| intent_layer
+  intent_layer -.->|"alignment / feedback"| originators
+  intent_layer -->|"scope"| specialists
+  specialists -.->|"delivery / feedback"| intent_layer

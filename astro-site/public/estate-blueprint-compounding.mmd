@@ -1,0 +1,29 @@
+flowchart TB
+  problem["Real workflow"]
+  build["Engineering"]
+  prove["Evidence"]
+  rights["Rights & reuse"]
+  private["Retained capability"]
+  tools["Reusable tools"]
+  knowledge["Shared knowledge"]
+  products["Focused products"]
+  brief["A sharper brief"]
+  qualified["Qualified relationship"]
+  discovery["Discovery & trust"]
+  feedback["Use & operations"]
+  problem -->|"scope"| build
+  build -->|"test"| prove
+  prove -->|"assess"| rights
+  prove -.->|"failed → revise / feedback"| build
+  rights -.->|"retain / governance"| private
+  rights -.->|"publish / governance"| tools
+  rights -.->|"teach / governance"| knowledge
+  rights -.->|"productize / governance"| products
+  private -.->|"feedback"| brief
+  tools -->|"adoption"| discovery
+  knowledge --> discovery
+  products --> feedback
+  discovery -->|"qualify"| qualified
+  qualified -->|"reframe"| brief
+  feedback -.->|"use · failures · new needs / feedback"| brief
+  brief -.->|"feedback"| problem

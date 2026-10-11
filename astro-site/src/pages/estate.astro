@@ -2,157 +2,65 @@
 import Layout from '../layouts/Layout.astro';
 import SiteNav from '../components/SiteNav.astro';
 import Footer from '../components/Footer';
-import { estateGroups, loopSteps } from '../data/estate.mjs';
+import { atlasPages, atlasPath, chapterNames } from '../data/operating-atlas.mjs';
+import { renderDiagram, interactionScript } from '../diagrams/atlas-render.mjs';
+import '../diagrams/operating-atlas.css';
+const questions = {
+  estate:'What is the whole company, and where does each part belong?',
+  compounding:'How can the same work create tools, evidence, knowledge, and opportunity?',
+  delivery:'What moves an agreed outcome into a system somebody can own?',
+  spine:'How do people, agents, durable context, and operating tools work together?',
+  evidence:'What turns a claim into inspectable evidence and a release decision?',
+  people:'What separates participation, capability, capacity, and delivery authority?',
+  network:'How could customers, originators, specialists, and Intent work together?',
+  principles:'What stays consistent as the company and its methods evolve?',
+};
 ---
-
-<Layout
-  title="The Intent Solutions Estate | Applied AI Engineering"
-  description="See how Intent Solutions connects engineering, evaluations, working demos, education, open tools, and owned products around real work."
->
+<Layout title="The Intent Solutions Estate | Operating Atlas" description="Eight connected views of Intent Solutions: the company, compounding work, delivery, operating systems, evidence, people, and the emerging engineering network.">
   <SiteNav />
   <main class="estate-page">
-    <section class="estate-hero" aria-labelledby="estate-title">
-      <div class="estate-wrap">
-        <p class="eyebrow"><span class="signal" aria-hidden="true"></span> THE CONNECTED ESTATE</p>
-        <h1 id="estate-title">One company.<br /><span>Work that compounds.</span></h1>
-        <p class="lead">Intent Solutions is an applied AI engineering company. We turn a defined business outcome into a system people can test, operate, and improve. The evidence, teaching, tools, and products grow from that same work.</p>
-        <div class="hero-links">
-          <a class="primary-action" href="/contact/?door=outcome">Request an outcome <span aria-hidden="true">↗</span></a>
-          <a class="quiet-action" href="#estate-map">Explore the estate <span aria-hidden="true">↓</span></a>
+    <header class="estate-hero estate-wrap">
+      <p class="estate-eyebrow">INTENT SOLUTIONS / THE OPERATING ATLAS</p>
+      <h1>The compounding<br /><span>AI engineering estate.</span></h1>
+      <p class="estate-lead">One company that builds, tests, demonstrates, teaches, and distributes what it creates. Services, products, research, open source, education, and media connect through the same work.</p>
+      <p class="estate-context">Our mission is to close the gap between changing AI capability and reliable work inside real businesses. This atlas explains the whole system—from the company’s direction to the tools, decisions, and people that make it work.</p>
+      <div class="estate-actions"><a class="estate-primary" href="/estate-blueprint.html">Open the visual atlas <span aria-hidden="true">↗</span></a><a href="#atlas-chapters">Choose a view ↓</a><a href="/intent-solutions-operating-atlas.pdf">Download the workshop PDF</a></div>
+    </header>
+    <section class="estate-map-section" aria-labelledby="estate-map-title">
+      <div class="estate-wide">
+        <div class="estate-section-heading"><div><p class="estate-eyebrow">01 / THE COMPANY IN CONTEXT</p><h2 id="estate-map-title">Each part has a job.<br />The value travels between them.</h2></div><p>Six connected functions and an emerging seventh arm. This is an operating view of the business; teams and products can contribute to more than one function.</p></div>
+        <div class="operating-atlas">
+          <figure class="atlas-figure"><div class="atlas-toolbar"><span>THE CONNECTED COMPANY</span><div><button type="button" data-reset>Reset focus</button><button type="button" data-fullscreen>Expand view</button></div></div><Fragment set:html={renderDiagram(atlasPages[0])} /><figcaption>{atlasPages[0].takeaway}</figcaption></figure>
         </div>
+        <p class="estate-map-note">Solid connections show roles within the practice. The dashed network boundary marks a proposed model. Select a node to follow its connections; scroll the drawing on smaller screens. <a href="/estate-blueprint.html">Open the full explanation →</a></p>
       </div>
     </section>
-
-    <section id="estate-map" class="estate-section" aria-labelledby="map-title">
-      <div class="estate-wrap">
-        <div class="section-heading">
-          <div><p class="eyebrow">01 / THE ESTATE</p><h2 id="map-title">Different surfaces. One engineering practice.</h2></div>
-          <p>Each part has a distinct job. A public site or repository proves that a property exists; its link lets you judge the specific work for yourself.</p>
-        </div>
-        <div class="status-key" aria-label="Maturity legend">
-          <span><i class="key-mark existing" aria-hidden="true"></i> Existing public work</span>
-          <span><i class="key-mark in-progress" aria-hidden="true"></i> In development</span>
-          <span><i class="key-mark proposed" aria-hidden="true"></i> Possible next use</span>
-        </div>
-        <div class="estate-overview" aria-label="How the Intent Solutions estate fits together">
-          <div class="overview-heading"><span>ONE CONNECTED COMPANY</span><span>ENGINEER → PROVE → SHARE → REUSE</span></div>
-          <div class="overview-stage">
-            <svg class="overview-lines" role="img" aria-labelledby="overview-title overview-desc" viewBox="0 0 1100 480" xmlns="http://www.w3.org/2000/svg">
-              <title id="overview-title">Four connected parts of the Intent Solutions estate</title>
-              <desc id="overview-desc">Intent Solutions sits at the center. Client engineering creates working systems; Labs, Evals, and Demos establish evidence; Learn, open tools, and publishing transfer knowledge; owned products apply repeatable patterns. Each part feeds learning back to the company.</desc>
-              <defs><marker id="overview-arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M1 1 L6 4 L1 7" fill="none" stroke="#fb923c" stroke-width="1.5"/></marker></defs>
-              <path d="M320 113 L431 206 M780 113 L669 206 M320 367 L431 274 M780 367 L669 274" fill="none" stroke="#fb923c" stroke-width="2" marker-end="url(#overview-arrow)"/>
-              <path d="M324 111 C550 5 776 5 778 111 M776 369 C550 475 324 475 324 369" fill="none" stroke="#71717a" stroke-width="1.5" stroke-dasharray="6 7"/>
-            </svg>
-            <a class="overview-card overview-practice" href="#practice"><span>01 / DO THE WORK</span><strong>Engineering & delivery</strong><small>Defined outcomes, systems, ownership</small></a>
-            <a class="overview-card overview-evidence" href="#evidence"><span>02 / TEST THE CLAIM</span><strong>Evidence & inspection</strong><small>Labs · Evals · Demos</small></a>
-            <div class="overview-core"><span>THE OPERATING CENTER</span><strong>Intent<br />Solutions</strong><small>Applied AI engineering</small></div>
-            <a class="overview-card overview-transfer" href="#transfer"><span>03 / SHARE THE METHOD</span><strong>Teaching & distribution</strong><small>Learn · Skills · Omarchy · Journal</small></a>
-            <a class="overview-card overview-products" href="#products"><span>04 / APPLY WHAT REPEATS</span><strong>Owned products</strong><small>Focused applications at distinct stages</small></a>
-          </div>
-          <p class="overview-caption">The same work can inform a deployment, a test, a public example, a lesson, or a product. Each route has its own evidence and maturity.</p>
-        </div>
-        <div class="estate-grid">
-          {estateGroups.map((group) => (
-            <article class="estate-group" id={group.id}>
-              <div class="group-heading"><span class="group-number">{group.number}</span><h3>{group.title}</h3></div>
-              <p>{group.description}</p>
-              <ul>
-                {group.entries.map((entry) => (
-                  <li>
-                    <a href={entry.href} aria-label={`${entry.name}: ${entry.role}`}>
-                      <span class="entry-name"><i class:list={['key-mark', entry.status]} aria-hidden="true"></i>{entry.name}</span>
-                      <span class="entry-role">{entry.role}</span>
-                      <span class="entry-arrow" aria-hidden="true">↗</span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </article>
-          ))}
-        </div>
-        <p class="map-note">“Existing” describes a public property or inspectable artifact, not an assurance that every feature, engagement, or product is commercially mature. <a href="https://jeremylongshore.com/">Jeremy’s broader project index</a> includes related work across products and open source.</p>
-        <p class="map-note"><a href="/estate-blueprint.html">Open the standalone operating diagram</a> with its <a href="/estate-blueprint.mmd">Mermaid source</a> and <a href="/estate-blueprint.graph.json">source graph</a>.</p>
+    <section class="estate-chapters-section estate-wrap" id="atlas-chapters" aria-labelledby="chapters-title">
+      <div class="estate-section-heading"><div><p class="estate-eyebrow">MACRO → MICRO</p><h2 id="chapters-title">Eight views.<br />One operating picture.</h2></div><p>Read in order for a team walkthrough, or open the view that answers your question. Every chapter has a diagram, an explanation, and its source boundaries.</p></div>
+      <div class="estate-chapters">
+        {atlasPages.map(p=>(<a class="estate-chapter" href={atlasPath(p.id)}>
+          <div class="chapter-top"><span>{p.number} / 08</span><span aria-hidden="true">↗</span></div>
+          <svg class="chapter-preview" viewBox="0 0 1320 760" aria-hidden="true">
+            {p.diagram.regions.map(r=><rect x={r.x} y={r.y} width={r.w} height={r.h} fill="none" stroke="#4d5967" stroke-width="4" rx="10" />)}
+            {p.diagram.edges.map(e=><path d={e.path} fill="none" stroke={e.kind==='feedback'?'#d0ab82':'#788da5'} stroke-width="7" stroke-dasharray={e.kind==='feedback'?'20 14':undefined} />)}
+            {p.diagram.nodes.map(n=><rect x={n.x} y={n.y} width={n.w} height={n.h} rx="12" fill={n.status==='proposed'?'#4b412b':'#2c3b4d'} stroke={n.status==='proposed'?'#dcc484':'#9ab3d1'} stroke-width="4" />)}
+          </svg>
+          <h3>{chapterNames[p.id]}</h3><p>{questions[p.id]}</p>
+        </a>))}
       </div>
     </section>
-
-    <section id="operating-loop" class="estate-section loop-section" aria-labelledby="loop-title">
-      <div class="estate-wrap">
-        <div class="section-heading">
-          <div><p class="eyebrow">02 / THE COMPOUNDING LOOP</p><h2 id="loop-title">The work creates the next useful piece.</h2></div>
-          <p>A deployed workflow can create evidence. Evidence can inform a demo, lesson, tool, or product. Feedback returns to the next real problem.</p>
-        </div>
-        <div class="diagram-shell">
-          <div class="diagram-topline"><span>OPERATING MODEL</span><span>Frame → Build → Prove → Operate → Improve</span></div>
-          <div class="diagram-scroll" tabindex="0" aria-label="Scroll horizontally to inspect the entire operating loop">
-            <div class="diagram-stage">
-              <svg class="flow-lines" role="img" aria-labelledby="flow-title flow-desc" tabindex="0" viewBox="0 0 1100 310" xmlns="http://www.w3.org/2000/svg">
-                <title id="flow-title">Intent Solutions compounding work loop</title>
-                <desc id="flow-desc">Five connected stages: real work, engineering, evaluation, knowledge transfer, and learning again. An arrow returns from learning to the next real problem. The stages are explained in the ordered list below.</desc>
-                <defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M1 1 L7 4.5 L1 8" fill="none" stroke="#fb923c" stroke-width="1.5"/></marker></defs>
-                <path d="M212 117 H231 M432 117 H451 M652 117 H671 M872 117 H891" fill="none" stroke="#fb923c" stroke-width="2" marker-end="url(#arrow)"/>
-                <path d="M982 178 V245 H102 C77 245 76 223 76 197" fill="none" stroke="#fb923c" stroke-width="2" stroke-dasharray="6 7" marker-end="url(#arrow)"/>
-                <text x="510" y="267" fill="#e4e4e7" font-size="13" font-family="Inter, sans-serif">Feedback returns to the next problem</text>
-              </svg>
-              {loopSteps.map((step, index) => (
-                <div class="flow-node" style={`left:${12 + index * 220}px`}>
-                  <span>{step.number}</span><strong>{step.title}</strong><small>{step.detail}</small>
-                </div>
-              ))}
-            </div>
-          </div>
-          <ol class="flow-list">
-            {loopSteps.map((step) => <li><span>{step.number}</span><strong>{step.title}</strong><p>{step.detail}</p></li>)}
-          </ol>
-        </div>
-        <p class="loop-caveat">This loop describes how the work can reinforce itself. Tool adoption, an audience, and a working demo are different from a paying customer or a proven return on investment.</p>
-      </div>
+    <section class="estate-reading estate-wrap" aria-labelledby="read-title">
+      <div><p class="estate-eyebrow">READ THE MATURITY CORRECTLY</p><h2 id="read-title">Capability, permission,<br />and commercial proof are distinct.</h2></div>
+      <div class="estate-reading-copy"><p>The public properties and repositories give you work to inspect. The delivery method describes how Intent intends work to be framed, proven, and operated. Each initiative has its own implementation and adoption status.</p><p>The international engineering and commercial network is under development. Participation, a credential, and technical ability do not automatically establish current capacity, project authority, or a repeatable commercial model.</p><p>Owned products have their own users and maturity. Explore DiagnosticPro, HustleStats, Scorecard Echo, and other work through the <a href="https://jeremylongshore.com/">product portfolio</a>; use the linked artifacts to inspect each one.</p></div>
     </section>
-
-    <section class="estate-section evidence-section" aria-labelledby="boundaries-title">
-      <div class="estate-wrap evidence-grid">
-        <div>
-          <p class="eyebrow">03 / WHAT THE EVIDENCE MEANS</p>
-          <h2 id="boundaries-title">Make the claim match the artifact.</h2>
-          <p>Our <a href="https://labs.intentsolutions.io/results/">published evaluations</a> record dated outcomes, including failures. <a href="https://demos.intentsolutions.io/">Demos</a> let you inspect particular systems. <a href="https://tonsofskills.com/">Tons of Skills</a> and <a href="https://oma.intentsolutions.io/">Omarchy</a> expose reusable tools and their source.</p>
-          <p>Each link supports a narrower claim than “this will work for every customer.” We agree on the customer’s own test, operating owner, and handoff before treating a deployment as complete.</p>
-        </div>
-        <aside class="decision-card" aria-labelledby="decision-title">
-          <span class="key-mark proposed" aria-hidden="true"></span>
-          <h3 id="decision-title">When a pattern repeats</h3>
-          <p>A useful result may become a public example, a lesson, an open tool, or an owned product when the rights and evidence support it. That is a decision to test, not an automatic revenue stream.</p>
-          <a href="/projects/">Inspect current public work <span aria-hidden="true">↗</span></a>
-        </aside>
-      </div>
-    </section>
+    <section class="estate-close estate-wrap"><p class="estate-eyebrow">FROM UNDERSTANDING TO A REAL OUTCOME</p><h2>What work needs to change?</h2><p>Bring the workflow, the constraints, and what a useful result would look like.</p><a class="estate-primary" href="/contact/?door=outcome">Request an outcome <span aria-hidden="true">↗</span></a></section>
   </main>
-  <Footer client:visible />
+  <Footer client:load />
 </Layout>
-
+<script is:inline set:html={interactionScript} />
 <style>
-  .estate-page{background:#09090b;color:#fafafa}.estate-wrap{width:min(76rem,calc(100% - 2.5rem));margin-inline:auto}.estate-hero{position:relative;overflow:hidden;padding:7rem 0 6rem;background:radial-gradient(circle at 82% 20%,rgba(249,115,22,.16),transparent 32%),linear-gradient(145deg,#111317,#09090b 65%)}.estate-hero:after{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(113,113,122,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(113,113,122,.07) 1px,transparent 1px);background-size:48px 48px;mask-image:linear-gradient(90deg,transparent 25%,black)}.estate-hero .estate-wrap{position:relative;z-index:1}.eyebrow{margin:0 0 1rem;color:#fb923c;font-size:.76rem;font-weight:700;letter-spacing:.16em}.signal{display:inline-block;width:.48rem;height:.48rem;margin-right:.55rem;border-radius:50%;background:#fb923c;vertical-align:middle}.estate-hero h1{max-width:15ch;margin:0;font-family:Syne,Inter,sans-serif;font-size:clamp(2.9rem,7.4vw,6.4rem);font-weight:700;letter-spacing:-.055em;line-height:1.04}.estate-hero h1 span{color:#fb923c}.lead{max-width:50rem;margin:2rem 0;color:#d4d4d8;font-size:clamp(1.05rem,1.5vw,1.3rem);line-height:1.65}.hero-links{display:flex;align-items:center;flex-wrap:wrap;gap:1rem}.hero-links a{display:inline-flex;align-items:center;gap:.7rem;min-height:48px;padding:.85rem 1.2rem;border-radius:.45rem;font-weight:700;text-decoration:none}.primary-action{background:#f97316;color:#09090b}.primary-action:hover,.primary-action:focus-visible{background:#fb923c}.quiet-action{border:1px solid #52525b;color:#e4e4e7}.quiet-action:hover,.quiet-action:focus-visible{border-color:#fb923c;color:#fff}.estate-section{padding:5.25rem 0;border-top:1px solid #27272a}.section-heading{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(17rem,.7fr);gap:3rem;align-items:end;margin-bottom:2rem}.section-heading h2,.evidence-grid h2{margin:0;font-family:Syne,Inter,sans-serif;font-size:clamp(2rem,3.4vw,3.1rem);letter-spacing:-.035em;line-height:1.15}.section-heading>p{max-width:33rem;margin:0;color:#a1a1aa;line-height:1.7}.status-key{display:flex;flex-wrap:wrap;gap:.75rem 1.5rem;padding:1rem 0 1.5rem;color:#d4d4d8;font-size:.82rem}.status-key span{display:inline-flex;align-items:center;gap:.55rem}.key-mark{display:inline-block;flex:none;width:.58rem;height:.58rem;border-radius:50%}.key-mark.existing{background:#86efac}.key-mark.in-progress{background:#fdba74;border-radius:2px}.key-mark.proposed{background:transparent;border:1.5px dashed #e4e4e7}.estate-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.estate-group{padding:1.6rem;border:1px solid #3f3f46;border-radius:.8rem;background:#141416}.group-heading{display:flex;align-items:baseline;gap:.8rem}.group-number{font:600 .76rem ui-monospace,monospace;color:#fb923c}.estate-group h3{margin:0;font-family:Syne,Inter,sans-serif;font-size:1.3rem}.estate-group>p{min-height:3.2rem;margin:.9rem 0 1.35rem;color:#b5b5bf;line-height:1.6}.estate-group ul{list-style:none;margin:0;padding:0;border-top:1px solid #3f3f46}.estate-group li+li{border-top:1px solid #2a2a2e}.estate-group li a{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr) auto;align-items:center;gap:.8rem;min-height:58px;padding:.65rem 0;color:#f4f4f5;text-decoration:none}.estate-group li a:hover,.estate-group li a:focus-visible{color:#fb923c}.entry-name{display:inline-flex;align-items:center;gap:.6rem;font-weight:650}.entry-role{color:#a1a1aa;font-size:.86rem}.entry-arrow{color:#fb923c}.map-note,.loop-caveat{margin:1.1rem 0 0;color:#a1a1aa;font-size:.84rem;line-height:1.6}.loop-section{background:#101114}.diagram-shell{border:1px solid #3f3f46;border-radius:.8rem;background:#16181c;overflow:hidden}.diagram-topline{display:flex;justify-content:space-between;gap:1rem;padding:1rem 1.4rem;border-bottom:1px solid #3f3f46;color:#a1a1aa;font:600 .7rem ui-monospace,monospace;letter-spacing:.08em}.diagram-topline span:first-child{color:#fb923c}.diagram-scroll{overflow-x:auto;outline-offset:-3px}.diagram-scroll:focus-visible{outline:2px solid #fb923c}.diagram-stage{position:relative;width:1100px;height:310px;margin:auto}.flow-lines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}.flow-node{position:absolute;top:65px;display:flex;flex-direction:column;width:200px;min-height:113px;padding:1rem;border:1px solid #71717a;border-top:3px solid #fb923c;border-radius:.5rem;background:#1e2025;box-shadow:0 9px 22px #0005}.flow-node span{font:700 .67rem ui-monospace,monospace;color:#fb923c}.flow-node strong{margin:.4rem 0;font:700 1rem Syne,Inter,sans-serif}.flow-node small{color:#d4d4d8;font-size:.72rem;line-height:1.45}.flow-list{display:none}.evidence-grid{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(17rem,.6fr);gap:4rem;align-items:start}.evidence-grid p:not(.eyebrow){color:#b5b5bf;line-height:1.75}.evidence-grid a{color:#fdba74;text-underline-offset:3px}.evidence-grid a:hover{color:#fff}.decision-card{padding:1.6rem;border:1px dashed #71717a;border-radius:.8rem;background:#18181b}.decision-card h3{margin:1rem 0 .6rem;font-family:Syne,Inter,sans-serif;font-size:1.25rem}.decision-card p{margin:0 0 1.3rem}.decision-card a{font-weight:700}.estate-page a:focus-visible{outline:2px solid #fb923c;outline-offset:4px}@media(max-width:800px){.estate-hero{padding:5rem 0 4rem}.estate-section{padding:3.6rem 0}.section-heading,.evidence-grid{grid-template-columns:1fr;gap:1rem}.estate-grid{grid-template-columns:1fr}.estate-group>p{min-height:0}.diagram-topline span:last-child{display:none}.diagram-scroll{overflow:visible}.diagram-stage{display:none}.flow-list{display:grid;gap:0;list-style:none;margin:0;padding:1rem 1.4rem}.flow-list li{display:grid;grid-template-columns:2.4rem 1fr;column-gap:.55rem;padding:.9rem 0;border-bottom:1px solid #3f3f46}.flow-list li:last-child{border-bottom:0}.flow-list span{grid-row:span 2;color:#fb923c;font:700 .72rem ui-monospace,monospace}.flow-list strong{font-family:Syne,Inter,sans-serif}.flow-list p{margin:.3rem 0 0;color:#b5b5bf;font-size:.88rem;line-height:1.5}}@media(max-width:520px){.estate-wrap{width:min(100% - 1.5rem,76rem)}.estate-group{padding:1.15rem}.estate-group li a{grid-template-columns:1fr auto;gap:.2rem}.entry-role{grid-column:1;grid-row:2;padding-left:1.18rem}.entry-arrow{grid-column:2;grid-row:1 / span 2}.estate-hero h1{font-size:clamp(2.6rem,12vw,4.4rem)}}@media(prefers-reduced-motion:reduce){.estate-page *{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
-</style>
-
-<style>
-  .estate-overview { margin: 0 0 2rem; overflow: hidden; border: 1px solid #52525b; border-radius: .85rem; background: radial-gradient(circle at 50% 50%, #24201e, #15171b 46%, #0e1014 85%); }
-  .overview-heading { display: flex; justify-content: space-between; gap: 1rem; padding: 1rem 1.35rem; border-bottom: 1px solid #3f3f46; color: #fb923c; font: 700 .69rem ui-monospace, monospace; letter-spacing: .12em; }
-  .overview-heading span:last-child { color: #a1a1aa; }
-  .overview-stage { position: relative; width: 1100px; height: 480px; margin: auto; }
-  .overview-lines { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
-  .overview-card, .overview-core { position: absolute; display: flex; flex-direction: column; justify-content: center; width: 282px; height: 142px; padding: 1.2rem; border: 1px solid #71717a; border-radius: .65rem; background: #1b1e24; box-shadow: 0 14px 25px #0005; }
-  .overview-card { color: #fafafa; text-decoration: none; }
-  .overview-card:hover, .overview-card:focus-visible { border-color: #fb923c; transform: translateY(-2px); }
-  .overview-card span, .overview-core span { color: #fb923c; font: 700 .64rem ui-monospace, monospace; letter-spacing: .07em; }
-  .overview-card strong { margin: .5rem 0 .32rem; font: 700 1.12rem Syne, Inter, sans-serif; }
-  .overview-card small, .overview-core small { color: #c4c4cd; font-size: .8rem; line-height: 1.4; }
-  .overview-practice { left: 38px; top: 41px; }
-  .overview-evidence { right: 38px; top: 41px; }
-  .overview-transfer { left: 38px; bottom: 41px; }
-  .overview-products { right: 38px; bottom: 41px; }
-  .overview-core { left: 430px; top: 173px; width: 240px; height: 134px; align-items: center; border: 2px solid #fb923c; background: #2a211c; text-align: center; }
-  .overview-core strong { margin: .3rem 0; color: #fff; font: 700 1.55rem/1.1 Syne, Inter, sans-serif; }
-  .overview-caption { margin: 0; padding: 1rem 1.35rem; border-top: 1px solid #3f3f46; color: #c4c4cd; font-size: .86rem; line-height: 1.55; }
-  @media (max-width: 1150px) { .estate-overview { overflow-x: auto; } .overview-heading, .overview-caption { min-width: 1100px; } }
-  @media (max-width: 800px) { .estate-overview { overflow: visible; } .overview-heading, .overview-caption { min-width: 0; } .overview-heading span:last-child { display: none; } .overview-stage { display: grid; width: auto; height: auto; gap: .75rem; padding: 1rem; } .overview-lines { display: none; } .overview-card, .overview-core { position: static; width: auto; height: auto; min-height: 106px; } .overview-core { order: -1; } }
-  @media (prefers-reduced-motion: reduce) { .overview-card { transition: none; } }
+  .estate-page{background:#0f1117;color:#f0f3f7}.estate-wrap{max-width:1240px;margin:auto;padding-left:28px;padding-right:28px}.estate-wide{max-width:1496px;margin:auto;padding:0 28px}.estate-hero{padding-top:88px;padding-bottom:72px}.estate-eyebrow{color:#ffab70;font-size:11px;letter-spacing:.13em;font-weight:600;line-height:1.5;margin:0 0 22px}.estate-hero h1{font-family:Syne,Arial,sans-serif;font-size:clamp(44px,5.6vw,78px);font-weight:600;line-height:1.04;letter-spacing:-.045em;margin:0 0 30px}.estate-hero h1 span{color:#ffab70}.estate-lead{font-size:clamp(18px,1.7vw,23px);line-height:1.6;max-width:920px;color:#d9e2ed;margin:0 0 20px}.estate-context{max-width:820px;font-size:16px;line-height:1.8;color:#aebaca}.estate-actions{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-top:32px;font-size:13px}.estate-actions a:not(.estate-primary){color:#c0cbd9;text-decoration:underline;text-underline-offset:5px}.estate-primary{display:inline-flex;align-items:center;gap:25px;background:#ff9c51;color:#151515;padding:14px 19px;border-radius:5px;font-size:14px;font-weight:600;text-decoration:none}.estate-primary:hover{background:#ffb879}.estate-map-section{border-top:1px solid #303b49;border-bottom:1px solid #303b49;padding:56px 0;background:#121820}.estate-section-heading{display:grid;grid-template-columns:1.25fr 1fr;gap:64px;align-items:end;margin-bottom:32px}.estate-section-heading h2,.estate-reading h2,.estate-close h2{font-family:Syne,Arial,sans-serif;font-size:clamp(26px,2.5vw,38px);line-height:1.15;letter-spacing:-.025em;font-weight:600;margin:0}.estate-section-heading .estate-eyebrow{margin-bottom:16px}.estate-section-heading>p,.estate-map-note{color:#b4c0d0;font-size:14px;line-height:1.7;margin:0}.estate-map-note{margin-top:18px;font-size:12px;max-width:1000px}.estate-map-note a{color:#ffd0ad;text-decoration:underline;text-underline-offset:3px}.estate-chapters-section{padding-top:72px;padding-bottom:72px}.estate-chapters{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}.estate-chapter{display:block;border:1px solid #354150;border-radius:6px;padding:20px;background:#151c26;color:#eff3f8;text-decoration:none;transition:border-color .15s,background .15s}.estate-chapter:hover{border-color:#ffab70;background:#1b2633}.chapter-top{display:flex;justify-content:space-between;font-size:11px;letter-spacing:.08em;color:#ffab70}.chapter-preview{display:block;width:100%;height:135px;margin:20px 0}.estate-chapter h3{font-size:18px;line-height:1.25;letter-spacing:-.02em;margin:0 0 12px;font-weight:600}.estate-chapter p{font-size:13px;line-height:1.65;color:#b4c0d0;margin:0}.estate-reading{display:grid;grid-template-columns:1fr 1.2fr;gap:64px;padding-top:48px;padding-bottom:64px;border-top:1px solid #354150}.estate-reading-copy p{font-size:15px;color:#b4c0d0;line-height:1.8;margin:0 0 18px}.estate-reading-copy a{color:#f2c59f;text-decoration:underline}.estate-close{border-top:1px solid #354150;padding-top:64px;padding-bottom:80px}.estate-close p:not(.estate-eyebrow){font-size:16px;color:#b4c0d0;margin:20px 0 26px}.estate-page :focus-visible{outline:3px solid #ffab70;outline-offset:5px}
+  @media(max-width:1050px){.estate-chapters{grid-template-columns:repeat(2,minmax(0,1fr))}.estate-section-heading,.estate-reading{gap:32px}.estate-hero{padding-top:60px}}
+  @media(max-width:640px){.estate-wrap,.estate-wide{padding-left:20px;padding-right:20px}.estate-hero{padding-top:44px;padding-bottom:48px}.estate-section-heading,.estate-reading{grid-template-columns:1fr;gap:24px}.estate-chapters{grid-template-columns:1fr}.chapter-preview{height:155px}.estate-chapter{padding:22px}.estate-actions{gap:20px}.estate-page :global(.atlas-toolbar){flex-wrap:wrap}.estate-reading{padding-top:36px;padding-bottom:36px}}
+  @media(prefers-reduced-motion:reduce){.estate-chapter{transition:none}}
 </style>

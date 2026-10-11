@@ -1,10 +1,18 @@
-flowchart LR
-  W["Real work<br/>defined outcome"] -->|frame and build| P["Intent Solutions<br/>engineering and delivery"]
-  P -->|test the claim| E["Labs · Evals · Demos<br/>evidence and inspection"]
-  E -->|share permitted learning| T["Learn · Skills · Omarchy · Journal · GitHub<br/>teaching and distribution"]
-  T -.->|feedback and new use cases| W
-  P -.->|reusable pattern may become| O["Owned products<br/>distinct maturity"]
-  O -.->|product use informs| W
-
-  %% Solid arrows express the intended work sequence; dashed arrows are possible feedback paths.
-  %% This is a strategic operating model, not a software dependency graph or proof of revenue.
+flowchart TB
+  engineering["Client engineering"]
+  opensource["Open source & tooling"]
+  education["Education & community"]
+  mission["Close the deployment gap"]
+  practice["Intent Solutions"]
+  network["Engineering network (proposed)"]
+  products["Owned products"]
+  research["Research & evidence"]
+  media["Content & media"]
+  mission -.->|"sets direction / governance"| practice
+  practice -->|"deliver"| engineering
+  practice -->|"reuse"| opensource
+  practice -->|"teach"| education
+  practice -->|"productize"| products
+  practice -->|"test"| research
+  practice -->|"explain"| media
+  practice -.->|"coordinate / governance"| network
