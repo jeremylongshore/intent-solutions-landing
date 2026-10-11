@@ -1,3 +1,14 @@
+# Release v4.5.0
+
+**Release Date**: 2026-10-11
+
+## Changes since v4.4.8
+
+- chore: release v4.5.0 [skip ci] (8748fc6)
+- feat: show connected Intent Solutions estate (#66) (b14f528)
+
+---
+
 # Release v4.4.8
 
 **Release Date**: 2026-10-09
