@@ -5,7 +5,7 @@
   "scripts": {
     "predev": "node scripts/sync-estate-bar.mjs",
     "dev": "astro dev",
-    "prebuild": "node scripts/sync-estate-bar.mjs",
+    "prebuild": "node scripts/sync-estate-bar.mjs && node scripts/build-estate-blueprint.mjs",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
