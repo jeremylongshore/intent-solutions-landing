@@ -5,7 +5,7 @@
   "scripts": {
     "predev": "node scripts/sync-estate-bar.mjs",
     "dev": "astro dev",
-    "prebuild": "node scripts/sync-estate-bar.mjs && node scripts/build-estate-blueprint.mjs",
+    "prebuild": "node scripts/sync-estate-bar.mjs && node scripts/build-estate-blueprint.mjs && node scripts/build-financial-diagrams.mjs",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
@@ -21,7 +21,8 @@
     "test:firefox": "playwright test --project=firefox",
     "test:webkit": "playwright test --project=webkit",
     "test:mobile": "playwright test --project='Mobile Chrome' --project='Mobile Safari'",
-    "test:all": "npm run test && npm run test:mobile"
+    "test:all": "npm run test && npm run test:mobile",
+    "test:economics": "node scripts/test-economics.mjs"
   },
   "dependencies": {
     "@astrojs/react": "^4.4.0",

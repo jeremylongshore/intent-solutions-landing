@@ -1,6 +1,8 @@
 // Route contract: visitor purpose, next action, and discovery policy.
 // Every page source must be represented here; scripts/audit-site-map.mjs enforces it.
 export const pages = [
+  { path: '/estate/economics/', label: 'Financial atlas', audience: 'Customers, independent firms and contributors', purpose: 'Explore proposed network economics with fictional teaching examples.', next: '/estate/economics/network-economy/', index: true },
+  { path: '/estate/economics/[chapter]/', label: 'Financial atlas chapter', audience: 'Customers, independent firms and contributors', purpose: 'Understand contributions, earning conditions, cash timing and risk.', next: '/estate/economics/', index: 'self-canonical only' },
   { path: '/', label: 'Home', audience: 'Prospective customers', purpose: 'Understand the outcome, method, and evidence.', next: '/contact/?door=outcome', index: true },
   { path: '/projects/', label: 'Projects', audience: 'Customers and builders', purpose: 'Inspect public work and choose an example to explore.', next: 'https://demos.intentsolutions.io/', index: true },
   { path: '/about/', label: 'About', audience: 'People evaluating the company', purpose: 'Understand the team and its responsibilities.', next: '/contact/?door=outcome', index: true },

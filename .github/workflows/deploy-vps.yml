@@ -47,6 +47,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Financial teaching models reconcile
+        run: npm run test:economics
+
       - name: Build Astro site
         run: npm run build
 
@@ -97,6 +100,8 @@ jobs:
           trap 'kill "$INTENT_PREVIEW_PID" 2>/dev/null || true' EXIT
           curl --retry 20 --retry-connrefused --retry-delay 1 --fail --silent http://127.0.0.1:49731/ > /dev/null
           python scripts/test-brand-polish.py http://127.0.0.1:49731
+          export ECONOMICS_CHROME="$(python -c 'from playwright.sync_api import sync_playwright; p=sync_playwright().start(); print(p.chromium.executable_path); p.stop()')"
+          node scripts/test-economics-browser.mjs http://127.0.0.1:49731
 
   deploy:
     if: github.event_name != 'pull_request'
