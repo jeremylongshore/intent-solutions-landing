@@ -1,0 +1,52 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SiteNav from '../SiteNav.astro';
+import Footer from '../Footer';
+import {chapters,chapterPath,disclaimer} from '../../data/economics-teaching.mjs';
+import '../../styles/economics.css';
+const {chapter} = Astro.props;
+const index=chapter ? chapters.findIndex(c=>c.id===chapter.id) : -1;
+const next=chapters[index+1];
+const prev=index>0?chapters[index-1]:null;
+---
+<Layout title={`${chapter?chapter.title:'How everyone can earn'} | Intent Solutions Financial Atlas`} description={chapter?.summary || 'Explore how customer value, relationships, independent specialists, providers and the Intent Solutions estate could become sustainable paid work. Illustrated teaching examples.'}>
+ <SiteNav />
+ <main class="econ-page" id="financial-atlas">
+  <div class="econ-topbar econ-wrap"><a href="/estate/">Operating atlas</a><a href="/estate/economics/" aria-current={!chapter?'page':undefined}>Financial atlas</a><span class="topbar-spacer"></span><button data-present hidden type="button" aria-pressed="false">Presentation view</button><button data-print hidden type="button">Print chapter</button></div>
+  <header class="econ-header econ-wrap">
+   {chapter ? <><p class="chapter-position">Chapter {index+1} of {chapters.length}</p><h1>{chapter.title}</h1><p class="econ-lead">{chapter.question}</p></> : <><h1>How the work<br />can become <em>income.</em></h1><p class="econ-lead">Follow the value. Name the contribution. Make the economics work for the people doing it.</p><p class="econ-intro">A financial companion to the Intent Solutions operating atlas, built for customers, independent firms, commercial partners, specialists and the people running the work. Explore the possibilities, then test the assumptions.</p></>}
+   <p class="example-note">{disclaimer}</p>
+  </header>
+  <div class="econ-wrap"><details class="chapter-directory"><summary>Choose a chapter</summary><ol>{chapters.map(c=><li><a href={chapterPath(c.id)} aria-current={c.id===chapter?.id?'page':undefined}>{c.title}</a></li>)}</ol></details></div>
+  <div class="econ-content econ-wrap"><slot /></div>
+  <nav class="econ-pager econ-wrap" aria-label="Chapter navigation"><a data-prev href={prev?chapterPath(prev.id):'/estate/economics/'}>{prev?`Previous: ${prev.title}`:'Financial atlas contents'}</a>{next?<a data-next href={chapterPath(next.id)}>Next: {next.title}</a>:<a data-next href="/estate/">Return to the operating atlas</a>}</nav>
+  <section class="econ-close econ-wrap"><h2>Apply it to a real workflow.</h2><p>Start with a customer problem, the people who can help, and a clearly bounded first piece of work.</p><a class="econ-primary" href="/contact/?door=outcome">Request an outcome</a></section>
+ </main>
+ <Footer client:load />
+</Layout>
+<script>
+ import {customerModel,money} from '../../data/economics-teaching.mjs';
+ import {customerValueBars} from '../../diagrams/economics-charts.mjs';
+ const params=new URLSearchParams(location.search);
+ const present=document.querySelector<HTMLButtonElement>('[data-present]');
+ const setPresentation=(on:boolean)=>{document.documentElement.classList.toggle('econ-present',on);present?.setAttribute('aria-pressed',String(on));if(present)present.textContent=on?'Exit presentation':'Presentation view';document.querySelectorAll<HTMLAnchorElement>('.econ-pager a,.chapter-directory a').forEach(a=>{const url=new URL(a.href);on?url.searchParams.set('present','1'):url.searchParams.delete('present');a.href=url.href;});};
+ present?.removeAttribute('hidden');setPresentation(params.get('present')==='1');
+ present?.addEventListener('click',()=>{const on=present.getAttribute('aria-pressed')!=='true';setPresentation(on);const u=new URL(location.href);on?u.searchParams.set('present','1'):u.searchParams.delete('present');history.replaceState(null,'',u);});
+ document.querySelectorAll<HTMLButtonElement>('[data-print]').forEach(b=>{b.hidden=false;b.addEventListener('click',()=>window.print());});
+ document.querySelectorAll<HTMLElement>('[data-scenario-group]').forEach(group=>{
+  const selector=group.querySelector<HTMLSelectElement>('[data-select-case]');
+  const downside=group.querySelector<HTMLInputElement>('[data-downside]');
+  group.querySelectorAll<HTMLElement>('[data-js-controls]').forEach(e=>e.hidden=false);
+  if(selector && Array.from(selector.options).some(o=>o.value===params.get('case')))selector.value=params.get('case')!;
+  if(downside)downside.checked=params.get('downside')==='1';
+  const update=()=>{const selected=selector?.value || group.querySelector<HTMLElement>('[data-case]')?.dataset.case;group.querySelectorAll<HTMLElement>('[data-case]').forEach(p=>p.hidden=p.dataset.case!==selected);group.querySelectorAll<HTMLElement>('[data-mode]').forEach(p=>p.hidden=p.dataset.mode!==(downside?.checked?'downside':'baseline'));const u=new URL(location.href);u.searchParams.set('case',selected||'');downside?.checked?u.searchParams.set('downside','1'):u.searchParams.delete('downside');history.replaceState(null,'',u);};
+  selector?.addEventListener('change',update);downside?.addEventListener('change',update);
+  group.querySelector('[data-reset]')?.addEventListener('click',()=>{if(selector)selector.selectedIndex=0;if(downside)downside.checked=false;update();});update();
+ });
+ document.querySelectorAll<HTMLButtonElement>('[data-expand]').forEach(b=>{b.hidden=false;b.addEventListener('click',async()=>{const figure=b.closest('figure');if(!figure)return;try{if(document.fullscreenElement)await document.exitFullscreen();else await figure.requestFullscreen();}catch{figure.classList.toggle('figure-wide');b.textContent=figure.classList.contains('figure-wide')?'Restore diagram':'Expand diagram';}});});
+ document.addEventListener('fullscreenchange',()=>document.querySelectorAll<HTMLButtonElement>('[data-expand]').forEach(b=>b.textContent=document.fullscreenElement===b.closest('figure')?'Exit full screen':'Expand diagram'));
+ document.querySelectorAll<HTMLButtonElement>('[data-svg-download]').forEach(b=>{b.hidden=false;b.addEventListener('click',()=>{const svg=b.closest('figure')?.querySelector('svg');if(!svg)return;const url=URL.createObjectURL(new Blob([svg.outerHTML],{type:'image/svg+xml'}));const a=document.createElement('a');a.href=url;a.download=`${svg.dataset.chartId||'intent-example'}.svg`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});});
+ const customer=document.querySelector<HTMLElement>('[data-customer-model]');
+ if(customer){const adoption=customer.querySelector<HTMLInputElement>('[name=adoption]')!;const share=customer.querySelector<HTMLInputElement>('[name=cash-share]')!;customer.querySelectorAll<HTMLElement>('[data-js-controls]').forEach(e=>e.hidden=false);const update=()=>{const model=customerModel(Number(adoption.value)/100,Number(share.value)/100);customer.querySelector('[data-adoption-output]')!.textContent=`${adoption.value}%`;customer.querySelector('[data-share-output]')!.textContent=`${share.value}%`;customer.querySelector('[data-customer-net]')!.textContent=money(model.firstYearCashNet);customer.querySelector('[data-payback]')!.textContent=model.paybackMonths===null?'No payback at this run rate':`${model.paybackMonths.toFixed(1)} months at the selected adoption level`;customer.querySelector('.figure-scroll')!.innerHTML=customerValueBars({id:'customer-value',title:'Benefit is an assumption to test',items:[{name:'Freed capacity value',value:model.capacityValue},{name:'Realizable cash benefit',value:model.cashBenefit},{name:'Year-one total costs',value:model.firstYearCost}],unit:'USD'});};adoption.addEventListener('input',update);share.addEventListener('input',update);customer.querySelector('[data-customer-reset]')?.addEventListener('click',()=>{adoption.value='75';share.value='50';update();});}
+ document.addEventListener('keydown',e=>{if(!document.documentElement.classList.contains('econ-present')||e.altKey||e.ctrlKey||e.metaKey||e.shiftKey||(e.target as Element)?.closest('input,select,textarea,button,a,summary'))return;if(e.key==='ArrowRight')document.querySelector<HTMLAnchorElement>('[data-next]')?.click();if(e.key==='ArrowLeft')document.querySelector<HTMLAnchorElement>('[data-prev]')?.click();});
+</script>

@@ -1,0 +1,38 @@
+---
+import {economicsCases,economicsSources,summarizeEconomicsCase} from '../../data/estate-economics-cases.mjs';
+import {money} from '../../data/economics-teaching.mjs';
+import {allocationSankey,contributionWaterfall} from '../../diagrams/economics-charts.mjs';
+import Figure from './Figure.astro';
+const {ids,allocation=false} = Astro.props;
+const cases=ids.map(id=>economicsCases.find(c=>c.id===id));
+if(cases.some(c=>!c))throw new Error('Unknown economics case');
+---
+<section data-scenario-group aria-label="Worked examples">
+ <div class="econ-controls" data-js-controls hidden>
+  <label>Worked example<select data-select-case>{cases.map(c=><option value={c.id}>{c.title}</option>)}</select></label>
+  <label class="check-label"><input type="checkbox" data-downside />Show the downside</label>
+  <button type="button" data-reset>Reset example</button>
+ </div>
+ {cases.map(c=><article class="case-pane" id={c.id} data-case={c.id}>
+  <h2>{c.title}</h2><p>{c.summary}</p>
+  <dl class="econ-facts"><div><dt>Buyer / budget holder</dt><dd>{c.buyer}</dd></div><div><dt>Who pays this invoice</dt><dd>{c.payer}</dd></div><div><dt>Ledger boundary</dt><dd>{c.companyRole}</dd></div><div><dt>Period covered</dt><dd>{c.horizon}</dd></div></dl>
+  <p><strong>Customer value:</strong> {c.customerBenefit}</p>
+  {[false,true].map(downside=>{const m=summarizeEconomicsCase(c,{downside});return <section class="case-mode" data-mode={downside?'downside':'baseline'} aria-label={downside?'Downside example':'Baseline example'}>
+   <h3>{downside?c.downside.label:'The baseline assumption'}</h3>
+   {downside&&<p>{c.downside.explanation}</p>}
+   {allocation&&!downside&&<Figure svg={allocationSankey({id:`${c.id}-allocation`,title:'Follow the $80,000 project fee',revenue:m.revenue,categories:m.costGroups,reserve:m.reserve})} caption="The bands divide a hypothetical fee allocation, not collected cash. Contribution must cover company costs; designated reserve is held within contribution, not charged again as an expense." />}
+   <Figure svg={contributionWaterfall({id:`${c.id}-${downside?'downside':'base'}-bridge`,title:downside?'What happens when the plan breaks':'Fees become contribution, not take-home pay',revenue:m.revenue,costs:m.costGroups})} caption={`${money(m.revenue)} in illustrative fees minus ${money(m.costs)} in listed costs leaves ${money(m.contribution)} before central overhead and tax. ${m.contribution<0?'This is a loss under these assumptions.':'This is not company profit or personal income.'}`} />
+   <dl class="econ-facts"><div><dt>Fees less listed costs</dt><dd class="big">{money(m.contribution)}</dd></div><div><dt>After a proposed {money(m.reserve)} cash designation</dt><dd class="big">{money(m.remainder)}</dd></div></dl>
+   <p><small>Reserve is not an expense or an extra payment to a participant. A negative remainder means this model cannot fund that reserve from its contribution. Fees do not establish accounting recognition or cash collection.</small></p>
+   {m.breakEven&&<p class="econ-conclusion">{m.breakEven.customers===null?'No finite break-even under these unit assumptions.':`This model needs ${m.breakEven.customers} customers to cover the included fixed costs over its stated horizon.`}</p>}
+   {m.breakEven&&<p>{m.breakEven.limitation}</p>}
+   <details class="econ-details"><summary>Show the full fee and cost ledger</summary>
+    <div class="econ-table-scroll"><table><caption>Illustrative fees / billings within this business boundary</caption><thead><tr><th scope="col">Scope</th><th scope="col">Quantity × rate</th><th scope="col">Amount</th></tr></thead><tbody>{m.revenueRows.map(r=><tr><th scope="row">{r.label}{r.conditional?' (conditional)':''}</th><td>{r.quantity} {r.unit} × {money(r.rate)}</td><td class="money">{money(r.amount)}</td></tr>)}</tbody></table></div>
+    <div class="econ-table-scroll"><table><caption>Who could earn what, for which work, and when payment is due</caption><thead><tr><th scope="col">Work / recipient</th><th scope="col">Quantity × rate</th><th scope="col">Business invoice / cost</th><th scope="col">Earned when</th><th scope="col">Payment trigger</th></tr></thead><tbody>{m.costRows.map(r=><tr><th scope="row">{r.label}<br/><small>{r.recipient}</small></th><td>{r.quantity} {r.unit} × {money(r.rate)}</td><td class="money">{money(r.amount)}</td><td>{r.earnTrigger}</td><td>{r.paymentTrigger}</td></tr>)}</tbody></table></div>
+   </details>
+  </section>})}
+  <details class="econ-details"><summary>How each participant benefits—and what they owe</summary><div class="econ-table-scroll"><table><thead><tr><th scope="col">Participant</th><th scope="col">Potential benefit</th><th scope="col">Condition / responsibility</th></tr></thead><tbody>{c.participantBenefits.map(p=><tr><th scope="row">{p.role}</th><td>{p.benefit}</td><td>{p.earningCondition}</td></tr>)}</tbody></table></div></details>
+  <details class="econ-details"><summary>Contract route, payment terms and assumptions</summary><p>{c.contractingRoute}</p><ul>{[...c.paymentTerms,...c.assumptions].map(s=><li>{s}</li>)}</ul></details>
+  <details class="econ-details econ-sources"><summary>Evidence behind this mechanism</summary><p>Every amount above is a constructed teaching input. Sources explain mechanisms and constraints; they do not supply these prices, prove demand or establish Intent’s eligibility.</p>{c.sourceIds.length?<ul>{c.sourceIds.map(id=>{const s=economicsSources.find(x=>x.id===id);return <li><a href={s.url}>{s.title}</a><p>{s.evidenceRole} {s.limits}</p></li>})}</ul>:<p>This scenario is a proposed commercial design, not an observed industry benchmark.</p>}</details>
+ </article>)}
+</section>

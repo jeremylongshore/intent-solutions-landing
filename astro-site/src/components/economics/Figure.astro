@@ -1,0 +1,9 @@
+---
+const {svg,caption} = Astro.props;
+const chartId=svg.match(/data-chart-id="([a-zA-Z0-9_-]+)"/)?.[1];
+---
+<figure class="econ-figure">
+  <div class="figure-actions"><span>Example · USD · not an offer</span>{chartId&&<a href={`/financial-diagrams/${chartId}.html`}>Standalone example</a>}<button type="button" data-expand hidden>Expand diagram</button><button type="button" data-svg-download hidden>Save SVG</button></div>
+  <div class="figure-scroll" tabindex="0" role="region" aria-label="Financial diagram; scroll horizontally on a small screen" set:html={svg} />
+  <figcaption>{caption}<slot /></figcaption>
+</figure>

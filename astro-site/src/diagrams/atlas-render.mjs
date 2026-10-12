@@ -48,6 +48,7 @@ ${estateBar}
   <p class="rail-caption">THE OPERATING ATLAS<br><span>Macro → micro · October 2026</span></p>
   <nav aria-label="Eight views of the estate"><ol class="atlas-chapters">${atlasPages.map(p=>`<li><a href="${atlasPath(p.id)}" ${p.id===page.id ? 'aria-current="page"' : ''}><span>${p.number}</span>${esc(chapterNames[p.id])}</a></li>`).join('')}</ol></nav>
   <div class="rail-invariants"><p class="rail-label">ONE OPERATING STANDARD</p><ul><li>Start with the outcome.</li><li>Make the claim testable.</li><li>Name who owns the result.</li><li>Leave capability with the customer.</li></ul></div>
+  <a class="rail-home" href="/estate/economics/">Financial atlas →</a>
   <a class="rail-home" href="/estate/">← Company overview</a>
 </aside>
 <main id="atlas-content" class="atlas-main">
