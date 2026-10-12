@@ -1,3 +1,14 @@
+# Release v4.7.0
+
+**Release Date**: 2026-10-12
+
+## Changes since v4.6.0
+
+- chore: release v4.7.0 [skip ci] (4eba4fc)
+- feat: add financial teaching atlas for proposed network economy (#70) (64d4e01)
+
+---
+
 # Release v4.6.0
 
 **Release Date**: 2026-10-11
