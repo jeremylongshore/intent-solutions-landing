@@ -22,6 +22,22 @@ Current site structure: [individual route map](000-docs/085-AT-ARCH-site-map.md)
 
 Before release, run `npm run build`, `npm run audit:indexability`, and `npm run audit:site-map` in `astro-site`. The deployment workflow also runs the intercepted Playwright browser journey checks. See the [release record](000-docs/086-DC-DEVN-customer-first-release.md) for scope and test boundaries.
 
+## Estate and financial teaching atlas
+
+Start with the [connected estate](https://intentsolutions.io/estate/), then the
+[eight-view operating blueprint](https://intentsolutions.io/estate-blueprint.html).
+The [financial teaching atlas](https://intentsolutions.io/estate/economics/) adds eleven
+chapters about the proposed network, customer value, roles, project economics and cash timing.
+Use [presentation view](https://intentsolutions.io/estate/economics/network-economy/?present=1)
+for a walkthrough; each chapter also offers standalone diagrams.
+
+These are teaching examples and proposed operating arrangements, not adopted terms,
+promised earnings or evidence of customer results. The
+[financial atlas design and release record](000-docs/089-AT-DSGN-financial-atlas.md)
+identifies the research boundaries, Cathryn Lavery Diagram Design authority, implementation
+sources and verified release. Presenter scripts and the session after-action report were
+delivered privately to the owner; their contents and delivery receipts are not public assets.
+
 ## 📦 Archived Legacy Project
 
 A previous, alternative implementation of this project (a React/Vite SPA) was formerly located at the root of this repository. To avoid confusion, it has been archived.
