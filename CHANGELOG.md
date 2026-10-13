@@ -1,3 +1,14 @@
+# Release v4.7.1
+
+**Release Date**: 2026-10-13
+
+## Changes since v4.7.0
+
+- chore: release v4.7.1 [skip ci] (a71569e)
+- docs: reconcile estate atlas release and session recovery (#71) (7f025a3)
+
+---
+
 # Release v4.7.0
 
 **Release Date**: 2026-10-12
