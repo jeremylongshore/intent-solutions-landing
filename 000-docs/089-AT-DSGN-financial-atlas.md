@@ -2,7 +2,52 @@
 
 The financial companion extends the live operating atlas at `/estate/`. It explains a proposed federated engineering and commercial network: independent firms and contributors, project-specific teams, an accountable operating layer, and permitted common assets. It is educational design, not an adopted constitution, compensation policy, offer, provider allocation or forecast.
 
-The owner explicitly requested public website teaching examples with realistic assumptions and clear labels. The owner also clarified that the institutional ambition is DAO-like coordination; no blockchain, token, shared company ownership or voting model is assumed. Actual private arrangements and source notebooks remain excluded. A presenter script is a separate dependent Beads task.
+The owner explicitly requested public website teaching examples with realistic assumptions and clear labels. The owner also clarified that the institutional ambition is DAO-like coordination; no blockchain, token, shared company ownership or voting model is assumed. Actual private arrangements and source notebooks remain excluded. The separate presenter task was completed with a privately delivered short introduction, YouTube walkthrough and internal webinar script; see the dated delivery status below.
+
+## Published release and session recovery — October 12, 2026
+
+[PR #70](https://github.com/jeremylongshore/intent-solutions-landing/pull/70) merged as
+`64d4e01d0fdad73d7892b64e89d287752fd76455` and shipped in v4.7.0.
+The [canonical VPS deployment](https://github.com/jeremylongshore/intent-solutions-landing/actions/runs/38210923516)
+succeeded. The release verification covered twelve financial routes and all 33 standalone
+HTML downloads against the generated hash manifest. This is a dated release receipt;
+later documentation commits do not create new commercial evidence.
+
+| Entry point | Use |
+| --- | --- |
+| [Estate](https://intentsolutions.io/estate/) | Company overview and connected capabilities |
+| [Operating blueprint](https://intentsolutions.io/estate-blueprint.html) | Eight views from company architecture to delivery |
+| [Financial atlas](https://intentsolutions.io/estate/economics/) | Eleven chapters and twelve baseline/downside cases |
+| [Network presentation](https://intentsolutions.io/estate/economics/network-economy/?present=1) | Start a live financial walkthrough |
+
+The short, medium and webinar scripts, printable PDFs and editable bundle were emailed to
+the owner, with delivery confirmed. A separate seven-page after-action report was also
+saved and delivered. These owner-private records are not stored in this public repository.
+Their delivery does not mean a video was recorded, uploaded or distributed to the team.
+
+The canonical VPS site and the secondary Hugging Face mirror are separate delivery targets.
+The mirror PDF/LFS defect remains tracked as `bd_000-projects-htnu`; landing-local Beads
+repair is `bd_000-projects-dxtq.9`. Neither changes the verified VPS release status.
+
+## Source ownership
+
+Paths below are relative to `astro-site/`; edit sources and regenerate, rather than changing
+generated public HTML or its manifest directly.
+
+| Source | Owns |
+| --- | --- |
+| `src/data/operating-atlas.mjs` | Operating blueprint views |
+| `src/data/economics-teaching.mjs` | Financial chapters and teaching copy |
+| `src/data/network-economy.mjs` | Proposed institutional model |
+| `src/data/estate-economics-cases.mjs` | Executable fictional case ledgers |
+| `src/data/economics-research.mjs` | Public research citations and boundaries |
+| `src/diagrams/economics-charts.mjs` | Shared figure renderers |
+| `scripts/build-financial-diagrams.mjs` | Standalone HTML and manifest generation |
+| `src/pages/estate/economics/[chapter].astro` | Chapter routes and presentation controls |
+
+The earlier source-linked engineering diagram and the later operating/financial atlases are
+distinct artifacts. Do not attribute every historical diagram to the same skill or overwrite
+older research records when updating the current teaching material.
 
 ## Experience and information architecture
 

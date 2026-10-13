@@ -4,17 +4,22 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Task Tracking (Beads / bd)
 
-Use `bd` for all tasks/issues (no markdown TODO lists). Root-level `AGENTS.md` defines the "landing the plane" session-end workflow — work is not complete until `git push` succeeds (pull --rebase → `bd sync` → push → verify "up to date with origin").
+Use `bd` for all tasks/issues (no markdown TODO lists). Root-level `AGENTS.md` defines the
+session-end workflow and tracker context. The landing-local database currently requires
+repair (`bd_000-projects-dxtq.9`); on the owner's workstation use the established umbrella
+tracker at `/home/jeremy/000-projects`. Do not initialize, import or migrate the local database
+to work around it. Code pushes and Beads data pushes are separate operations.
 
 ```bash
-bd ready                                    # Start of session
-bd create "Title" -p 1 --description "..."  # Create work
-bd update <id> --status in_progress         # Begin task
-bd close <id> --reason "Done"               # Complete task
-bd sync                                     # End of session
+bd -C /home/jeremy/000-projects prime          # Refresh context
+bd -C /home/jeremy/000-projects ready          # Start of session
+bd -C /home/jeremy/000-projects update <id> --claim
+bd -C /home/jeremy/000-projects close <id> --reason "Done"
+bd -C /home/jeremy/000-projects dolt push      # Sync issue data
 ```
 
-After upgrading `bd`: run `bd info --whats-new` and `bd hooks install` if warned.
+Elsewhere, establish the maintainer-designated tracker before making issue mutations.
+The passive `.beads/issues.jsonl` export is not the source of truth.
 
 ## Repository Overview
 
@@ -32,6 +37,19 @@ Current authority: `000-docs/084-AT-DSGN-brand-family-contract.md`, `000-docs/08
 - **Legacy**: `99-Archive/` contains old React/Vite SPA (not in production).
 
 ## Commands
+
+### Estate session recovery
+
+Read `000-docs/089-AT-DSGN-financial-atlas.md` for the published atlas, release evidence,
+source map and private presenter/AAR delivery status. The financial diagrams use Cathryn
+Lavery's `diagram-design` v2.6 with 44 diagram grammars, pinned in that record; they are not
+44 interchangeable themes. Preserve the fictional-example and proposed-model disclosures.
+No successful website deployment proves adopted partner terms or completed legal agreements.
+
+Presenter scripts were delivered privately; do not recreate them as a new unfinished task
+or publish the source notebooks, scripts or email receipts into this repository.
+
+### Development and verification
 
 All commands run from `astro-site/` directory:
 
@@ -142,12 +160,16 @@ Current brand: orange branching-arrow mark, charcoal/zinc surfaces, Syne display
 | `/about/` | Team and operating responsibilities |
 | `/support/` | Existing agreements and repository support channels |
 | `/projects/` | Public work and evidence discovery, not a sales catalog |
+| `/estate/` | Connected company and operating atlas entry point |
+| `/estate-blueprint.html` | Generated eight-view operating blueprint |
+| `/estate/economics/` | Financial teaching index and eleven chapter routes |
 | `/field-notes/` | Engineering blog index (posts cross-post to startaitools.com; canonical there) |
 | `/site-map/` | Human directory of current company pages and related properties |
 | `/terms/`, `/privacy/`, `/acceptable-use/` | Existing published policies |
 | Legacy service and `/learn/` routes | Individual noindex handoffs defined in `src/data/site-map.mjs` |
 
-All internal routes are slash-terminated; the audit guard rejects any sitemap URL whose canonical isn't self-referential.
+Astro page routes are slash-terminated; standalone generated diagrams intentionally use
+`.html` URLs. The audit guard rejects any sitemap URL whose canonical isn't self-referential.
 
 ## Content Guidelines
 
@@ -180,6 +202,7 @@ This repo participates in the **Intent Solutions Testing SOP** per `~/.claude/CL
 
 ## Reference docs
 
+- `000-docs/089-AT-DSGN-financial-atlas.md` — atlas sources, research limits, diagram authority, release and delivery status.
 - `000-docs/079-OD-AUDT-search-console-indexing-audit.md` — SEO posture, robots.txt rationale, subdomain noindex hardening (§ 4a), GSC actions.
 - `000-docs/078-OD-SOPS-audit-harness-baseline-2026-05-01.md` — testing harness baseline.
 - `000-docs/search-console-url-audit.csv` — per-URL audit data from the SEO regression cleanup.
