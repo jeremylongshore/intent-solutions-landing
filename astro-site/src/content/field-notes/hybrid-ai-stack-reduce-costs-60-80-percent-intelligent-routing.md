@@ -503,7 +503,7 @@ calculate_roi(50000, 0.45, 0.35, 0.2, tier=2)
 5. **Scale up** to Tier 3 when you exceed 100K requests/month
 
 
-**Questions or feedback**: [jeremy@intentsolutions.io](mailto:jeremy@intentsolutions.io)
+**Questions or feedback**: [support@intentsolutions.io](mailto:support@intentsolutions.io)
 **GitHub**: [@jeremylongshore](https://github.com/jeremylongshore)
 
 *Open source project maintained by Intent Solutions as an educational resource for cost-effective AI infrastructure.*

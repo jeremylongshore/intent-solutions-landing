@@ -341,7 +341,7 @@ This case study proves that with the right architecture, tools, and approach, re
 
 **Ready to revolutionize your development process?**
 
-Contact: [jeremy@intentsolutions.io](mailto:jeremy@intentsolutions.io)  
+Contact: [support@intentsolutions.io](mailto:support@intentsolutions.io)\
 DiagnosticPro: [Transforming Vehicle Diagnostics with AI](https://diagnosticpro.io)
 
 

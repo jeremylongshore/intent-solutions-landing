@@ -832,7 +832,7 @@ terraform output
 5. Explore advanced features like `for_each` and dynamic blocks
 
 
-**Questions or feedback**: [jeremy@intentsolutions.io](mailto:jeremy@intentsolutions.io)
+**Questions or feedback**: [support@intentsolutions.io](mailto:support@intentsolutions.io)
 **GitHub**: [@jeremylongshore](https://github.com/jeremylongshore)
 
 *Educational resource from Intent Solutions for AI infrastructure and DevOps practitioners.*
