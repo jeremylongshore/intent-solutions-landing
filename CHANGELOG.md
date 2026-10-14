@@ -1,3 +1,14 @@
+# Release v4.7.2
+
+**Release Date**: 2026-10-14
+
+## Changes since v4.7.1
+
+- chore: release v4.7.2 [skip ci] (466b073)
+- fix: show official Select partner badge on homepage (#72) (a32c210)
+
+---
+
 # Release v4.7.1
 
 **Release Date**: 2026-10-13
