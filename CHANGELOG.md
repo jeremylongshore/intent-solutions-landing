@@ -1,3 +1,14 @@
+# Release v4.8.1
+
+**Release Date**: 2026-10-14
+
+## Changes since v4.8.0
+
+- chore: release v4.8.1 [skip ci] (7a97e00)
+- docs: display official Intent Solutions Select partner badge (#75) (60b8110)
+
+---
+
 # Release v4.8.0
 
 **Release Date**: 2026-10-14
