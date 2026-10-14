@@ -1,3 +1,14 @@
+# Release v4.7.3
+
+**Release Date**: 2026-10-14
+
+## Changes since v4.7.2
+
+- chore: release v4.7.3 [skip ci] (32f6363)
+- fix: repair mobile contact layout and compact footer (#73) (6756d43)
+
+---
+
 # Release v4.7.2
 
 **Release Date**: 2026-10-14
