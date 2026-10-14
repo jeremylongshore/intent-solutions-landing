@@ -1,3 +1,14 @@
+# Release v4.8.0
+
+**Release Date**: 2026-10-14
+
+## Changes since v4.7.3
+
+- chore: release v4.8.0 [skip ci] (45de1b3)
+- feat: feature Intent Outreach on the company homepage (#74) (45ba98d)
+
+---
+
 # Release v4.7.3
 
 **Release Date**: 2026-10-14
