@@ -27,8 +27,8 @@ const receipts = [
   },
   {
     label: 'Demos',
-    title: 'Working systems, not pitch-deck mockups.',
-    body: 'A catalog of systems and experiments you can open, use, and judge for yourself.',
+    title: 'Find a demo that fits your work.',
+    body: 'Browse business tools, industry workflows and technical examples. Each page explains what you can try.',
     href: 'https://demos.intentsolutions.io/',
     cta: 'Open the demos',
   },
@@ -145,6 +145,18 @@ const method = [
             <div><dt>Definition</dt><dd><a href="https://evals.intentsolutions.io/gate-result/v1">gate-result/v1</a></dd></div>
           </dl>
           <p class="specimen-note">Dated example, checked 12 September 2026. This is one gate result, not a verdict on an entire system. <a href="https://labs.intentsolutions.io/results/">See current results</a>.</p>
+        </article>
+        <article class="featured-demo" aria-labelledby="outreach-demo-title">
+          <div>
+            <span class="receipt-label">Featured demo · Real estate</span>
+            <h3 id="outreach-demo-title">Intent Outreach</h3>
+            <p>Shape a workflow around your market, buy box or relationships. Explore example shortlists, client briefs and follow-up queues, then send us the version you want to build.</p>
+            <p class="demo-boundary">Interactive examples use fictional data. A separate property-data sandbox lets you inspect the connection.</p>
+          </div>
+          <div class="demo-actions">
+            <a class="button primary" href="https://demos.intentsolutions.io/intentoutreach/">Try Intent Outreach <span aria-hidden="true">↗</span></a>
+            <a href="https://demos.intentsolutions.io/#catalog">Browse all demos <span aria-hidden="true">↗</span></a>
+          </div>
         </article>
         <div class="receipt-grid">
           {receipts.map((receipt) => (
@@ -408,6 +420,13 @@ const method = [
   .proof-intro { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr); align-items: end; gap: 4rem; margin-bottom: 3rem; }
   .proof-intro .section-head { margin-bottom: 0; }
   .proof-intro > p { margin: 0 0 0.35rem; color: #a1a1aa; line-height: 1.75; }
+  .featured-demo { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 2rem; padding: clamp(1.25rem, 3vw, 2rem); border: 1px solid #52525b; margin-bottom: 2rem; background: #101012; }
+  .featured-demo h3 { margin: 0.5rem 0; color: #fafafa; font-size: 1.6rem; }
+  .featured-demo p { color: #d4d4d8; line-height: 1.7; max-width: 65ch; }
+  .featured-demo .demo-boundary { color: #a1a1aa; font-size: 0.85rem; }
+  .demo-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .demo-actions > a:not(.button) { color: #d4d4d8; text-underline-offset: 0.2em; padding: 0.6rem 0; }
+  @media (max-width: 768px) { .featured-demo { grid-template-columns: minmax(0, 1fr); gap: 1rem; } }
   .receipt-grid { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid #3f3f46; border-left: 1px solid #3f3f46; }
   .receipt {
     min-height: 16rem;
