@@ -211,7 +211,7 @@ That's progress.
 ---
 
 **Current focus:** Intent Solutions (intentsolutions.io)
-**Contact:** jeremy@intentsolutions.io
+**Contact:** support@intentsolutions.io
 **Portfolio:** Five production platforms detailed above
 
 **Last updated:** October 20, 2025

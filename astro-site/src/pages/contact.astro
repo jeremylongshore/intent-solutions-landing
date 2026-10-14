@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import SiteNav from '../components/SiteNav.astro';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
+import '../styles/contact.css';
 ---
 
 <Layout
@@ -10,53 +11,16 @@ import Footer from '../components/Footer';
   description="Tell Intent Solutions what must change, where the system must run, and what evidence would prove the outcome."
 >
   <SiteNav />
-
-  <main class="bg-zinc-900">
-    <div class="container mx-auto px-8 pt-8">
-      <a href="/" class="text-sm text-zinc-400 hover:text-zinc-200 transition-smooth">
-        &larr; Back to Home
-      </a>
+  <main class="contact-page">
+    <div class="contact-wrap">
+      <a href="/" class="contact-back">&larr; Back to Home</a>
+      <header class="contact-intro">
+        <h1>Request an outcome</h1>
+        <p>Tell us what must change, where the system must run, and what evidence would make you trust the result.</p>
+      </header>
+      <noscript><p class="contact-nojs">The form needs JavaScript to submit. You can email <a href="mailto:support@intentsolutions.io">support@intentsolutions.io</a> instead.</p></noscript>
+      <Contact client:load />
     </div>
-
-    <div class="container mx-auto px-8 pt-12 text-center">
-      <h1 class="text-h1 font-bold text-zinc-50 mb-3">Request an outcome</h1>
-      <p class="text-zinc-400 max-w-2xl mx-auto">
-        Tell us what must change, where the system must run, and what evidence would make you trust the result.
-      </p>
-    </div>
-
-    <Contact client:load />
-    <noscript><p class="container mx-auto px-8 py-8 text-zinc-300">The form needs JavaScript to submit. You can email <a href="mailto:jeremy@intentsolutions.io">jeremy@intentsolutions.io</a> instead.</p></noscript>
-
-    <section class="py-16 bg-zinc-950 border-t border-zinc-800">
-      <div class="container mx-auto px-8">
-        <div class="max-w-2xl mx-auto text-center">
-          <h2 class="text-xl font-semibold text-zinc-50 mb-6">Other paths</h2>
-
-          <div class="grid gap-6 md:grid-cols-3">
-            <div class="card-slate text-center">
-              <h3 class="text-sm font-semibold text-zinc-200 mb-2">Email</h3>
-              <a href="mailto:jeremy@intentsolutions.io" class="text-zinc-400 hover:text-zinc-200 transition-smooth text-sm">
-                jeremy@intentsolutions.io
-              </a>
-            </div>
-
-            <div class="card-slate text-center">
-              <h3 class="text-sm font-semibold text-zinc-200 mb-2">Learn the method</h3>
-              <a href="https://learn.intentsolutions.io/" class="text-zinc-400 hover:text-zinc-200 transition-smooth text-sm">
-                Visit Intent Solutions Learn
-              </a>
-            </div>
-
-            <div class="card-slate text-center">
-              <h3 class="text-sm font-semibold text-zinc-200 mb-2">Location</h3>
-              <p class="text-zinc-400 text-sm">Gulf Shores, Alabama</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
-
   <Footer />
 </Layout>

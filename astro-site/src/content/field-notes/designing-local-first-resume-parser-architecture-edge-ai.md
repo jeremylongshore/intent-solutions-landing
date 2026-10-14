@@ -100,5 +100,5 @@ What I'm planning to build first:
 Week 1: Extension scaffold with Leptos popup rendering. I'll document what actually works vs. what was planned.
 
 
-*Documenting the build at Intent Solutions. jeremy@intentsolutions.io*
+*Documenting the build at Intent Solutions. support@intentsolutions.io*
 

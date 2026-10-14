@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-:root { --intent-muted: #a1a1aa; }
+:root { --intent-muted: #a1a1aa; --color-feedback-error: 248 113 113; }
 input::placeholder, textarea::placeholder { color: #a1a1aa; opacity: 1; }
 input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 2px solid #fb923c !important; outline-offset: 3px; }
 input, select, textarea { caret-color: #fb923c; min-width: 0; }

@@ -34,16 +34,30 @@ export default function Footer() {
           </a>
           <p>Applied AI engineering with a defined outcome, inspectable evidence, and knowledge your team can carry forward.</p>
           <small>Gulf Shores, Alabama</small>
+          <a className="footer-email" href="mailto:support@intentsolutions.io">support@intentsolutions.io</a>
         </div>
 
-        <div>
+        <div className="footer-desktop-links">
           <h2>Network</h2>
           {networkLinks.map((link) => <a key={link.href} href={link.href}>{link.label}</a>)}
         </div>
 
-        <div>
+        <div className="footer-desktop-links">
           <h2>Company</h2>
           {companyLinks.map((link) => <a key={link.href} href={link.href}>{link.label}</a>)}
+        </div>
+        <div className="footer-mobile-links">
+          {[
+            { title: 'Network', links: networkLinks },
+            { title: 'Company', links: companyLinks },
+          ].map(({ title, links }) => (
+            <details key={title}>
+              <summary>{title}</summary>
+              <nav aria-label={`Footer ${title.toLowerCase()}`}>
+                {links.map((link) => <a key={link.href} href={link.href}>{link.label}</a>)}
+              </nav>
+            </details>
+          ))}
         </div>
       </div>
 
@@ -67,7 +81,7 @@ export default function Footer() {
           max-width: 72rem;
           margin: 0 auto 3.5rem;
         }
-        .footer-brand > a {
+        .footer-brand > a:not(.footer-email) {
           display: inline-flex;
           align-items: center;
           gap: 0.6rem;
@@ -92,6 +106,18 @@ export default function Footer() {
           letter-spacing: 0.08em;
           text-transform: uppercase;
         }
+        .footer-brand .footer-email {
+          display: flex;
+          align-items: center;
+          min-height: 44px;
+          width: fit-content;
+          max-width: 100%;
+          overflow-wrap: anywhere;
+          color: var(--intent-muted);
+          font-size: 0.875rem;
+          text-underline-offset: 0.2em;
+        }
+        .footer-mobile-links { display: none; }
         .footer-grid h2 {
           margin: 0 0 1rem;
           color: #fb923c;
@@ -134,6 +160,21 @@ export default function Footer() {
           .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
           .footer-brand { grid-column: 1 / -1; }
           .footer-bottom { align-items: flex-start; flex-direction: column; }
+        }
+        @media (max-width: 960px) {
+          .site-footer { padding: 1.75rem 1.25rem 1.25rem; }
+          .footer-grid { grid-template-columns: minmax(0, 1fr); gap: 1rem; margin-bottom: 1rem; }
+          .footer-brand > a:not(.footer-email) { margin-bottom: 0.5rem; }
+          .footer-brand p { margin-bottom: 0.5rem; font-size: 0.875rem; line-height: 1.5; }
+          .footer-desktop-links { display: none; }
+          .footer-mobile-links { display: block; min-width: 0; }
+          .footer-mobile-links details { border-top: 1px solid rgba(63, 63, 70, 0.55); }
+          .footer-mobile-links summary { cursor: pointer; min-height: 48px; padding-block: 0.75rem; color: #fafafa; font-size: 0.9375rem; }
+          .footer-mobile-links summary:focus-visible { outline: 2px solid #fb923c; outline-offset: 3px; }
+          .footer-mobile-links nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 1rem; padding-bottom: 0.75rem; }
+          .footer-mobile-links nav a { display: flex; align-items: center; min-height: 44px; color: var(--intent-muted); font-size: 0.875rem; overflow-wrap: anywhere; }
+          .footer-bottom { padding-top: 1rem; gap: 0.5rem; }
+          .footer-bottom div { column-gap: 1rem; row-gap: 0; }
         }
       `}</style>
     </footer>
