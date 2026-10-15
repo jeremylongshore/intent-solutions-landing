@@ -1,3 +1,14 @@
+# Release v4.8.2
+
+**Release Date**: 2026-10-15
+
+## Changes since v4.8.1
+
+- chore: release v4.8.2 [skip ci] (c79ad7c)
+- fix: remove withdrawn public team profile and photo assets (#76) (1831ecb)
+
+---
+
 # Unreleased
 
 - Remove the withdrawn team profile and its three public photo copies; anonymize associated personal references in published field notes.
