@@ -23,7 +23,7 @@ The intent-solutions-landing repo (the source of truth for the company team surf
   { "name": "Pablo Hernandez", "role": "Engineering" },
   { "name": "Max Sheahan", "role": "Education" },
   { "name": "Tim Yates", "role": "AI Engineering" },
-  { "name": "Tolulope Bakare", "role": "Engineering" },
+  { "name": "Engineering contributor", "role": "Engineering" },
   { "name": "Heather Johnson", "role": "Legal Counsel" }
 ]
 ```
@@ -40,7 +40,7 @@ v4.4.1 reordered the file thirty-four minutes later:
   { "name": "Pablo Hernandez", "role": "Engineering" },
   { "name": "Max Sheahan", "role": "Education" },
   { "name": "Tim Yates", "role": "AI Engineering" },
-  { "name": "Tolulope Bakare", "role": "Engineering" }
+  { "name": "Engineering contributor", "role": "Engineering" }
 ]
 ```
 
