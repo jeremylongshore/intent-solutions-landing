@@ -20,7 +20,7 @@ Nine threads on one filesystem. That is the collision surface. The three with th
 
 ## Two nights, two root causes
 
-The day opened with a question about the blog's social-posting packet, which goes to Ezekiel, who posts the syndication by hand. Was he still getting it?
+The day opened with a question about the blog's social-posting packet, which goes to the social publishing operator, who posts the syndication by hand. Was he still getting it?
 
 He was. The 5am packet job had fired every day and reported "nothing to send" on August 2 and August 3. That is its correct behavior when no post landed.
 

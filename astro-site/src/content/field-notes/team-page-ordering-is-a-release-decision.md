@@ -19,7 +19,7 @@ The intent-solutions-landing repo (the source of truth for the company team surf
 ```json
 [
   { "name": "Jeremy Longshore", "role": "Founder" },
-  { "name": "Opeyemi Adeyemi", "role": "Operations" },
+  { "name": "Operations lead", "role": "Operations" },
   { "name": "Pablo Hernandez", "role": "Engineering" },
   { "name": "Max Sheahan", "role": "Education" },
   { "name": "Tim Yates", "role": "AI Engineering" },
@@ -36,7 +36,7 @@ v4.4.1 reordered the file thirty-four minutes later:
 [
   { "name": "Jeremy Longshore", "role": "Founder" },
   { "name": "Heather Johnson", "role": "Legal Counsel" },
-  { "name": "Opeyemi Adeyemi", "role": "Operations" },
+  { "name": "Operations lead", "role": "Operations" },
   { "name": "Pablo Hernandez", "role": "Engineering" },
   { "name": "Max Sheahan", "role": "Education" },
   { "name": "Tim Yates", "role": "AI Engineering" },
