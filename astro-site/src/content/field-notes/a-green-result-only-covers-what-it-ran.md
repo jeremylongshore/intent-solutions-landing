@@ -195,7 +195,7 @@ Two signals are genuinely readable, and both were captured on the day.
 1. **The marketplace's own public stats endpoint.** Views, copies, and hearts per plugin. `copies` is the closest thing exposed to an install, so that is the conversion metric.
 2. **GitHub traffic on repos we own.** GitHub reports referrer hostnames natively, so `x.com` and `linkedin.com` arrive already separated with no tagging needed. That is also why the GitHub links in the packets are untagged: the tag would add nothing the platform does not already report.
 
-The timing constraint is the part worth copying. GitHub traffic is a rolling 14-day window and cannot be backfilled. Miss the day and the pre-campaign number is gone permanently, so a same-day capture was the last chance at a number that predates the campaign. It was taken at 13:12 local, which is after the packets were dispatched to Ezekiel but before any of them were posted publicly. Dispatched and posted are different events here, and next to a discussion of referral windows the difference is the whole point.
+The timing constraint is the part worth copying. GitHub traffic is a rolling 14-day window and cannot be backfilled. Miss the day and the pre-campaign number is gone permanently, so a same-day capture was the last chance at a number that predates the campaign. It was taken at 13:12 local, which is after the packets were dispatched to the social publishing operator but before any of them were posted publicly. Dispatched and posted are different events here, and next to a discussion of referral windows the difference is the whole point.
 
 Marketplace snapshot `2026-08-25T18:12:41.735Z`, across 1,366 listed plugins:
 
@@ -225,7 +225,7 @@ Listening Post got no packet at all. There was no listing page for a packet to l
 
 ## Sibling three: copy that read well and could not be found
 
-Nine showcase packets (an X post plus two LinkedIn variants each) had already been generated and emailed to Ezekiel earlier that day. Then somebody read them.
+Nine showcase packets (an X post plus two LinkedIn variants each) had already been generated and emailed to the social publishing operator earlier that day. Then somebody read them.
 
 Four of the nine X posts never said the word Omarchy anywhere: wait-state, x-files, docket, crew-chief. None of the nine carried a single hashtag. Omarchy was trending on X at the time.
 
@@ -245,20 +245,20 @@ The guard is a lint at the render step. The builder now refuses to render a pack
 
 From the commit body: this class of miss is exactly what a lint is for, invisible on a read-through and obvious to a checker. Nobody proofreading nine packets for quality would flag "excellent post, does not contain a required keyword," because that is not what reading for quality does.
 
-Verified after the fix: all nine X posts name Omarchy, all carry four hashtags, all land between 457 and 620 characters. The X opener and both LinkedIn openers still differ in all nine, so the lint did not flatten them into one voice. Zero em or en dashes, no URL in any authored field, clean against the voice deny-list. The nine corrected packets were re-sent to Ezekiel with the subject prefixed `CORRECTED, use this one`, and the nine Plane issues were re-synced in place, updated rather than duplicated.
+Verified after the fix: all nine X posts name Omarchy, all carry four hashtags, all land between 457 and 620 characters. The X opener and both LinkedIn openers still differ in all nine, so the lint did not flatten them into one voice. Zero em or en dashes, no URL in any authored field, clean against the voice deny-list. The nine corrected packets were re-sent to the social publishing operator with the subject prefixed `CORRECTED, use this one`, and the nine Plane issues were re-synced in place, updated rather than duplicated.
 
 ## Where the packets go, and why they go into Plane
 
-Ezekiel does the actual social posting, remote, from emailed packets. The lane that builds them went in at `89afdfa` (12:27): `scripts/build-showcase-packet.py` at 180 lines, `scripts/campaign-baseline.py` at 158, `showcase-packets.json` at 106, plus the baseline doc.
+The social publishing operator does the actual social posting, remote, from emailed packets. The lane that builds them went in at `89afdfa` (12:27): `scripts/build-showcase-packet.py` at 180 lines, `scripts/campaign-baseline.py` at 158, `showcase-packets.json` at 106, plus the baseline doc.
 
 Then `87b04a8` at 12:57: `feat(plane): mirror the showcase packets into Plane so done is a state, not a report`. That is `plane-sync-packets.py` at 200 lines and `plane-assign-when-accepted.sh` at 48. Jeremy's steer that drove it:
 
 ```
-is there a way ezekiel can get into plane and we track all his work
+is there a way [the social publishing operator] can get into plane and we track all his work
 in plane so we know it is done ?
 ```
 
-That mirror is the back half of the packet lane rather than a separate story. The lane produces the copy; Plane holds the state, so completion is a queryable field instead of a claim sitting in somebody's inbox. The nine packets went to `ezekiel@intentsolutions.io`, CC Jeremy, ordered individual plugins first, then the widget template, then the portfolio page last, because a summary lands better once a few of the parts have already gone out.
+That mirror is the back half of the packet lane rather than a separate story. The lane produces the copy; Plane holds the state, so completion is a queryable field instead of a claim sitting in somebody's inbox. The nine packets went to the social publishing operator, CC Jeremy, ordered individual plugins first, then the widget template, then the portfolio page last, because a summary lands better once a few of the parts have already gone out.
 
 ## The model collaboration beat, and what it actually taught
 

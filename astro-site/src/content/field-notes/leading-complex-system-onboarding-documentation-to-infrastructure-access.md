@@ -8,7 +8,7 @@ canonical: "https://startaitools.com/posts/leading-complex-system-onboarding-doc
 ---
 When you're responsible for bringing a new senior team member onto a complex platform spanning multiple GCP projects, hundreds of database tables, and interconnected services, the quality of your onboarding process becomes a direct reflection of your technical leadership capabilities.
 
-Today I want to share how I approached onboarding Opeyemi Ariyo as Senior Cybersecurity Engineer to the DiagnosticPro platform - not just the technical work, but the leadership thinking and systematic problem-solving that made it successful.
+Today I want to share how I approached onboarding a Senior Cybersecurity Engineer to the DiagnosticPro platform - not just the technical work, but the leadership thinking and systematic problem-solving that made it successful.
 
 ## The Challenge: Multi-Project Architecture Complexity
 
@@ -54,7 +54,7 @@ This template approach demonstrates several leadership qualities:
 
 ### 3. Real-World Testing Through Infrastructure Access
 
-Documentation without access is useless. This is where the rubber met the road - getting Opeyemi connected to development infrastructure in the `diagnosticpro-relay-1758728286` project.
+Documentation without access is useless. This is where the rubber met the road - getting the engineer connected to development infrastructure in the `diagnosticpro-relay-1758728286` project.
 
 ## The Technical Leadership Moment
 
@@ -63,7 +63,7 @@ What started as "give him VM access" became a comprehensive lesson in systematic
 ### Initial Attempt: Standard Permissions
 ```bash
 gcloud projects add-iam-policy-binding diagnosticpro-relay-1758728286 \
-  --member="user:opeyemi.ariyo@gmail.com" \
+  --member="user:engineer@example.com" \
   --role="roles/compute.instanceAdmin.v1"
 ```
 
@@ -102,7 +102,7 @@ This project highlighted several aspects of senior technical leadership:
 Creating reusable frameworks instead of one-off solutions shows maturity in software development. The universal template is now being used for additional team onboarding across other projects.
 
 ### 2. Stakeholder Management
-Managing Jeremy's concerns about costs while ensuring Opeyemi had proper access required balancing technical needs with business constraints - a core senior engineer skill.
+Managing Jeremy's concerns about costs while ensuring the engineer had proper access required balancing technical needs with business constraints - a core senior engineer skill.
 
 ### 3. Documentation That Actually Works
 The 20,000-word analysis isn't impressive because it's long - it's valuable because it covers operational reality, including failure modes and troubleshooting steps that someone actually needs.
