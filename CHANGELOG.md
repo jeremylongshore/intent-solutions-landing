@@ -1,3 +1,9 @@
+# Unreleased
+
+- Remove an additional withdrawn team profile and both public photo copies; anonymize the corresponding field-note example.
+
+---
+
 # Release v4.8.2
 
 **Release Date**: 2026-10-15
