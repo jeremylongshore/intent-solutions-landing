@@ -1,3 +1,14 @@
+# Release v4.9.0
+
+**Release Date**: 2026-10-16
+
+## Changes since v4.8.3
+
+- chore: release v4.9.0 [skip ci] (873ba78)
+- feat: make the public estate discoverable through Explore (#80) (0d0b780)
+
+---
+
 # Release v4.8.3
 
 **Release Date**: 2026-10-15
