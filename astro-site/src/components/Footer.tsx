@@ -6,7 +6,7 @@ const networkLinks = estateLinks.links
   .map(({ label, href }) => ({ label, href }));
 
 const companyLinks = [
-  { label: 'Projects', href: '/projects/' },
+  { label: 'Explore', href: '/projects/' },
   { label: 'The estate', href: '/estate/' },
   { label: 'Field notes', href: '/field-notes/' },
   { label: 'About', href: '/about/' },

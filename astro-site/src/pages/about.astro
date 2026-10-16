@@ -369,7 +369,7 @@ const faqJsonLd = {
   .primary-action a { flex: 0 0 auto; padding: 0.85rem 1.2rem; background: #f97316; border-radius: 0.5rem; color: #09090b; font-size: 0.9rem; font-weight: 800; text-decoration: none; transition: background-color 160ms ease, transform 160ms ease; }
   .primary-action a:hover { background: #fb923c; color: #09090b; transform: translateY(-2px); }
   @media (max-width: 800px) {
-    .section-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+    .section-layout { grid-template-columns: minmax(0, 1fr); gap: 2.5rem; }
     .section-head { position: static; }
     .primary-action { align-items: flex-start; flex-direction: column; }
   }
