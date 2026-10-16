@@ -19,7 +19,7 @@ import { experiences, categories } from '../data/public-experiences.mjs';
   <noscript><p>All entries are listed below. Use your browser's Find command to look for a topic.</p></noscript>
   <div id="discovery-empty" hidden><h2>No matching entries</h2><p>Try a broader word or browse everything.</p><button type="button" id="discovery-reset">Show everything</button></div>
   <ul class="experience-list" aria-label="Public tools, projects and collections">
-    {experiences.map((item) => <li class="experience" data-experience={item.id} data-category={item.category} data-search={[item.name,item.description,item.audience,...item.tags].join(' ').toLowerCase()}>
+    {experiences.map((item) => <li class="experience" data-experience={item.id} data-category={item.category} data-search={[item.name,item.description,item.audience,...item.tags,...item.links.map(link => link.label)].join(' ').toLowerCase()}>
       <div class="experience-heading"><h2><a href={item.href}>{item.name}</a></h2><span class="availability">{item.status}</span></div>
       <p>{item.description}</p>
       <p class="audience">For {item.audience}</p>

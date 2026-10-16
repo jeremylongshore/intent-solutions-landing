@@ -104,6 +104,10 @@ export const experiences = [
         "href": "https://learn.intentsolutions.io/course/explore"
       },
       {
+        "label": "Certification study links",
+        "href": "https://learn.intentsolutions.io/start"
+      },
+      {
         "label": "Request access",
         "href": "https://learn.intentsolutions.io/request-access"
       },

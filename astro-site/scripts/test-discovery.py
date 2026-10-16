@@ -25,7 +25,7 @@ with sync_playwright() as p:
         total = entries.count()
         assert total >= 40, total
         search = page.get_by_label('What are you looking for?')
-        for term, item_id in [('typing', 'beacon-wakes'), ('migration', 'blue-gold-blue'), ('real estate', 'intent-outreach'), ('AI learning', 'learn')]:
+        for term, item_id in [('typing', 'beacon-wakes'), ('migration', 'blue-gold-blue'), ('real estate', 'intent-outreach'), ('AI learning', 'learn'), ('platform design review', 'learn'), ('certification', 'learn')]:
             search.fill(term)
             expect(page.locator(f'[data-experience="{item_id}"]')).to_be_visible()
             assert page.locator('[data-experience]:visible').count() < total
