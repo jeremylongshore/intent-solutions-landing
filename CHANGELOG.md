@@ -1,3 +1,14 @@
+# Release v4.9.1
+
+**Release Date**: 2026-10-16
+
+## Changes since v4.9.0
+
+- chore: release v4.9.1 [skip ci] (961157c)
+- fix(home): lead the proof section with Tons of Skills, not a failed eval (#79) (abf2998)
+
+---
+
 # Release v4.9.0
 
 **Release Date**: 2026-10-16
