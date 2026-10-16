@@ -63,6 +63,9 @@ jobs:
       - name: Verify build artifacts
         run: npm run audit:site-map
 
+      - name: Public experience registry and coverage
+        run: npm run audit:discovery
+
       - name: Estate bar matches the canonical strip on every page
         # The top network strip is shared by every Intent Solutions property and
         # its single source is /estate-bar. This fails the deploy if any built
@@ -100,6 +103,7 @@ jobs:
           trap 'kill "$INTENT_PREVIEW_PID" 2>/dev/null || true' EXIT
           curl --retry 20 --retry-connrefused --retry-delay 1 --fail --silent http://127.0.0.1:49731/ > /dev/null
           python scripts/test-brand-polish.py http://127.0.0.1:49731
+          python scripts/test-discovery.py http://127.0.0.1:49731
           export ECONOMICS_CHROME="$(python -c 'from playwright.sync_api import sync_playwright; p=sync_playwright().start(); print(p.chromium.executable_path); p.stop()')"
           node scripts/test-economics-browser.mjs http://127.0.0.1:49731
 

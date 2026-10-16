@@ -22,7 +22,10 @@
     "test:webkit": "playwright test --project=webkit",
     "test:mobile": "playwright test --project='Mobile Chrome' --project='Mobile Safari'",
     "test:all": "npm run test && npm run test:mobile",
-    "test:economics": "node scripts/test-economics.mjs"
+    "test:economics": "node scripts/test-economics.mjs",
+    "audit:discovery": "node scripts/audit-discovery.mjs",
+    "audit:discovery:live": "node scripts/audit-discovery.mjs --live",
+    "test:discovery": "python3 scripts/test-discovery.py"
   },
   "dependencies": {
     "@astrojs/react": "^4.4.0",

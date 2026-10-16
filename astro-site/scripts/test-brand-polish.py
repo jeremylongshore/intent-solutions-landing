@@ -5,6 +5,7 @@ Run after build against a local preview:
 Dependency: pip install playwright && playwright install chromium
 """
 import sys
+import os
 from playwright.sync_api import sync_playwright, expect
 
 base = sys.argv[1] if len(sys.argv) > 1 else 'http://127.0.0.1:4896'
@@ -32,7 +33,7 @@ def assert_contact_bounds(page, width):
     assert not clipped, (width, clipped)
 
 with sync_playwright() as p:
-    browser = p.chromium.launch(headless=True)
+    browser = p.chromium.launch(headless=True, **({"executable_path": os.environ["PLAYWRIGHT_CHROMIUM_EXECUTABLE"]} if os.environ.get("PLAYWRIGHT_CHROMIUM_EXECUTABLE") else {}))
     for width in (320, 390, 768, 1440):
         page = browser.new_page(viewport={'width': width, 'height': 1000}, reduced_motion='reduce')
         page.goto(base, wait_until='networkidle')

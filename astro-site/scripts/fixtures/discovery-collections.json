@@ -1,0 +1,158 @@
+{
+  "verifiedAt": "2026-10-16",
+  "scope": "Snapshot of 19 curated demo cards and 16 OMA plugin listings. Coverage accepts primary or related links; it does not enumerate the estate or every child route. Refresh this snapshot when either collection changes.",
+  "collections": [
+    {
+      "id": "demos",
+      "source": "https://demos.intentsolutions.io/#catalog",
+      "items": [
+        {
+          "href": "https://demos.intentsolutions.io/intentoutreach/",
+          "name": "Intent Outreach"
+        },
+        {
+          "href": "https://demos.intentsolutions.io/longbox/",
+          "name": "Longbox"
+        },
+        {
+          "href": "https://demos.intentsolutions.io/searchcarriers/",
+          "name": "SearchCarriers skills"
+        },
+        {
+          "href": "https://demos.intentsolutions.io/bbb/",
+          "name": "Bob's Big Brain"
+        },
+        {
+          "href": "https://demos.intentsolutions.io/diagnosticpro-2/",
+          "name": "DiagnosticPro"
+        },
+        {
+          "href": "https://demos.intentsolutions.io/diagnosticpro-1/",
+          "name": "Auction lot intelligence"
+        },
+        {
+          "href": "https://demos.intentsolutions.io/cad-ai-agent/",
+          "name": "CAD AI Agent"
+        },
+        {
+          "href": "https://demos.intentsolutions.io/mission-control/",
+          "name": "Mission Control"
+        },
+        {
+          "href": "https://demos.intentsolutions.io/how-we-build/",
+          "name": "How we build"
+        },
+        {
+          "href": "https://demos.intentsolutions.io/docfiling/",
+          "name": "Document Filing Standard"
+        },
+        {
+          "href": "https://demos.intentsolutions.io/claude-for-slack-rent-vs-own.html",
+          "name": "Claude for Slack, four ways"
+        },
+        {
+          "href": "https://demos.intentsolutions.io/ico-architecture.html",
+          "name": "Intentional Cognition OS"
+        },
+        {
+          "href": "https://demos.intentsolutions.io/platform-review/",
+          "name": "Learning Platform review"
+        },
+        {
+          "href": "https://demos.intentsolutions.io/dentalmcp/",
+          "name": "Dental billing MCP"
+        },
+        {
+          "href": "https://demos.intentsolutions.io/databricks/",
+          "name": "Databricks pack"
+        },
+        {
+          "href": "https://demos.intentsolutions.io/databricks-cost-leak-hunter/",
+          "name": "Databricks cost-leak hunter"
+        },
+        {
+          "href": "https://demos.intentsolutions.io/prospect-prep-automation/",
+          "name": "Prospect Prep Engine"
+        },
+        {
+          "href": "https://demos.intentsolutions.io/mandy-real-estate-skills/",
+          "name": "Lead Edge skills"
+        },
+        {
+          "href": "https://demos.intentsolutions.io/mandy-design-audition/",
+          "name": "Lead Edge design audition"
+        }
+      ]
+    },
+    {
+      "id": "oma-plugins",
+      "source": "https://oma.intentsolutions.io/#catalog",
+      "items": [
+        {
+          "href": "https://oma.intentsolutions.io/plugins/bazaar/",
+          "name": "Bazaar"
+        },
+        {
+          "href": "https://oma.intentsolutions.io/plugins/capture-conveyor/",
+          "name": "Capture Conveyor"
+        },
+        {
+          "href": "https://oma.intentsolutions.io/plugins/crew-chief/",
+          "name": "Crew Chief"
+        },
+        {
+          "href": "https://oma.intentsolutions.io/plugins/desk-transition/",
+          "name": "Desk Transition"
+        },
+        {
+          "href": "https://oma.intentsolutions.io/plugins/docket/",
+          "name": "Docket"
+        },
+        {
+          "href": "https://oma.intentsolutions.io/plugins/flow-boundary/",
+          "name": "Flow Boundary"
+        },
+        {
+          "href": "https://oma.intentsolutions.io/plugins/foundry/",
+          "name": "Foundry"
+        },
+        {
+          "href": "https://oma.intentsolutions.io/plugins/listening-post/",
+          "name": "Listening Post"
+        },
+        {
+          "href": "https://oma.intentsolutions.io/plugins/loose-ends/",
+          "name": "Loose Ends"
+        },
+        {
+          "href": "https://oma.intentsolutions.io/plugins/mlb-booth/",
+          "name": "MLB Booth"
+        },
+        {
+          "href": "https://oma.intentsolutions.io/plugins/omatrail/",
+          "name": "omaTrail"
+        },
+        {
+          "href": "https://oma.intentsolutions.io/plugins/pit-wall/",
+          "name": "Pit Wall"
+        },
+        {
+          "href": "https://oma.intentsolutions.io/plugins/quiet-queue/",
+          "name": "Quiet Queue"
+        },
+        {
+          "href": "https://oma.intentsolutions.io/plugins/wait-state/",
+          "name": "Wait State"
+        },
+        {
+          "href": "https://oma.intentsolutions.io/plugins/workspace-storyboard/",
+          "name": "Workspace Storyboard"
+        },
+        {
+          "href": "https://oma.intentsolutions.io/plugins/x-files/",
+          "name": "X Files"
+        }
+      ]
+    }
+  ]
+}
