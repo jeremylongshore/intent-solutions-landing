@@ -19,11 +19,11 @@ const receipts = [
     cta: 'Read the definitions',
   },
   {
-    label: 'Marketplace',
-    title: 'Tools built in the open.',
-    body: 'A public marketplace of plugins and agent skills that can be inspected before adoption.',
-    href: 'https://tonsofskills.com/',
-    cta: 'Explore the marketplace',
+    label: 'Source',
+    title: 'The code behind the work.',
+    body: 'Our public repositories on GitHub, with the commit and review history attached.',
+    href: 'https://github.com/intent-solutions-io',
+    cta: 'Browse the source',
   },
   {
     label: 'Demos',
@@ -134,17 +134,21 @@ const method = [
         </div>
         <article class="proof-specimen" aria-labelledby="specimen-title">
           <div>
-            <h3 id="specimen-title">A failed evaluation stays in the record.</h3>
-            <p>This published Labs record shows the gate, its decision, and when it ran. Open the bundle to inspect the result in context.</p>
-            <a class="button secondary" href="https://labs.intentsolutions.io/results/jrig/sha256-4668fdaa17dc9d7b330fe84886fb69535516cf39226c030b001571cf818d25b1/">Inspect this evaluation</a>
+            <span class="receipt-label">Flagship work · Open source</span>
+            <h3 id="specimen-title">Inspect how we build before we build for you.</h3>
+            <p>Tons of Skills is our public marketplace of plugins and agent skills for AI coding agents. The code, the change history and the review trail are all open, so you can judge the work itself.</p>
+            <div class="demo-actions">
+              <a class="button secondary" href="https://tonsofskills.com/">Explore Tons of Skills <span aria-hidden="true">↗</span></a>
+              <a href="https://github.com/jeremylongshore/tons-of-skills-marketplace">Read the source <span aria-hidden="true">↗</span></a>
+            </div>
           </div>
           <dl>
-            <div><dt>Gate</dt><dd><code>databricks-cluster-forensics</code></dd></div>
-            <div><dt>Recorded decision</dt><dd class="decision">Fail</dd></div>
-            <div><dt>Evaluated</dt><dd><time datetime="2026-09-12T04:06:46.451Z">12 September 2026 · 04:06 UTC</time></dd></div>
-            <div><dt>Definition</dt><dd><a href="https://evals.intentsolutions.io/gate-result/v1">gate-result/v1</a></dd></div>
+            <div><dt>What it is</dt><dd>Plugins and agent skills for AI coding agents</dd></div>
+            <div><dt>Source</dt><dd><a href="https://github.com/jeremylongshore/tons-of-skills-marketplace"><code>tons-of-skills-marketplace</code></a> on GitHub</dd></div>
+            <div><dt>License</dt><dd>MIT</dd></div>
+            <div><dt>Maintained by</dt><dd>Intent Solutions</dd></div>
           </dl>
-          <p class="specimen-note">Dated example, checked 12 September 2026. This is one gate result, not a verdict on an entire system. <a href="https://labs.intentsolutions.io/results/">See current results</a>.</p>
+          <p class="specimen-note">The catalog changes often, so current figures live on the site itself. Evaluation results, including the ones that did not pass, are published at <a href="https://labs.intentsolutions.io/results/">Intent Labs</a>.</p>
         </article>
         <article class="featured-demo" aria-labelledby="outreach-demo-title">
           <div>
@@ -414,7 +418,8 @@ const method = [
   .proof-specimen dl > div { padding: 0.8rem 0; border-bottom: 1px solid #3f3f46; }
   .proof-specimen dt { font-size: 0.8rem; color: var(--intent-muted); }
   .proof-specimen dd { margin: 0.35rem 0 0; font-size: 0.9rem; color: #fafafa; overflow-wrap: anywhere; }
-  .proof-specimen dd.decision { color: #fb923c; font-weight: 700; }
+  .proof-specimen .receipt-label { display: inline-block; margin-bottom: 0.75rem; }
+  .proof-specimen .demo-actions { margin-top: 1.5rem; }
   .proof-specimen a:not(.button) { color: #d4d4d8; text-underline-offset: 0.2em; }
   .proof-specimen .specimen-note { grid-column: 1 / -1; margin: 0; max-width: 70ch; font-size: 0.8rem; }
   .proof-intro { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr); align-items: end; gap: 4rem; margin-bottom: 3rem; }
