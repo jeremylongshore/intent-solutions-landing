@@ -1,0 +1,116 @@
+{
+  "audit_date": "2026-10-16",
+  "verified_request_urls": 390,
+  "status_counts": {
+    "200": 381,
+    "404": 9
+  },
+  "verified_hosts": {
+    "intentsolutions.io": 184,
+    "labs.intentsolutions.io": 59,
+    "evals.intentsolutions.io": 11,
+    "oma.intentsolutions.io": 26,
+    "demos.intentsolutions.io": 73,
+    "tonsofskills.com": 1,
+    "startaitools.com": 1,
+    "jeremylongshore.com": 1,
+    "diagnosticpro.io": 1,
+    "scorecardecho.com": 1,
+    "hustlestats.io": 1,
+    "noupick.intentsolutions.io": 1,
+    "mandy.intentsolutions.io": 1,
+    "comehomealabama.com": 1,
+    "claudecodeplugins.io": 1,
+    "claudecodeskills.io": 1,
+    "claudecoworkskills.io": 1,
+    "demo.intentsolutions.io": 1,
+    "learn.intentsolutions.io": 24
+  },
+  "additional_sitemap_url_count": 4541,
+  "sitemap_sources": [
+    {
+      "host": "tonsofskills.com",
+      "sitemaps": [
+        "https://tonsofskills.com/sitemap.xml"
+      ],
+      "errors": [],
+      "capped": false,
+      "url_count": 3376
+    },
+    {
+      "host": "startaitools.com",
+      "sitemaps": [
+        "https://startaitools.com/sitemap.xml"
+      ],
+      "errors": [],
+      "capped": false,
+      "url_count": 1107
+    },
+    {
+      "host": "jeremylongshore.com",
+      "sitemaps": [
+        "https://jeremylongshore.com/sitemap.xml"
+      ],
+      "errors": [],
+      "capped": false,
+      "url_count": 4
+    },
+    {
+      "host": "diagnosticpro.io",
+      "sitemaps": [
+        "https://diagnosticpro.io/sitemap.xml"
+      ],
+      "errors": [],
+      "capped": false,
+      "url_count": 4
+    },
+    {
+      "host": "scorecardecho.com",
+      "sitemaps": [
+        "https://scorecardecho.com/sitemap.xml"
+      ],
+      "errors": [
+        {
+          "url": "https://scorecardecho.com/sitemap.xml",
+          "error": "syntax error: line 1, column 0"
+        }
+      ],
+      "capped": false,
+      "url_count": 0
+    },
+    {
+      "host": "hustlestats.io",
+      "sitemaps": [
+        "https://hustlestats.io/sitemap.xml"
+      ],
+      "errors": [],
+      "capped": false,
+      "url_count": 0
+    },
+    {
+      "host": "noupick.intentsolutions.io",
+      "sitemaps": [
+        "https://noupick.intentsolutions.io/sitemap.xml"
+      ],
+      "errors": [
+        {
+          "url": "https://noupick.intentsolutions.io/sitemap.xml",
+          "error": "not well-formed (invalid token): line 10, column 71"
+        }
+      ],
+      "capped": false,
+      "url_count": 0
+    },
+    {
+      "host": "comehomealabama.com",
+      "sitemaps": [
+        "https://comehomealabama.com/sitemap-0.xml",
+        "https://comehomealabama.com/sitemap-index.xml"
+      ],
+      "errors": [],
+      "capped": false,
+      "url_count": 50
+    }
+  ],
+  "scope_note": "URL counts include supporting artifacts, metadata, aliases and negative probes. They are not product counts. Sitemap-only entries are not verified destinations. No complete DNS or authenticated inventory claimed."
+}
