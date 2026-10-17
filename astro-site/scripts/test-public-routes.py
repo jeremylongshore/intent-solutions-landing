@@ -158,6 +158,15 @@ class CoverageTests(unittest.TestCase):
         self.page(**result)
         self.assertIn('broken-target', self.kinds())
 
+    def test_transport_error_is_not_a_verified_http_response(self):
+        row = self.audit.discover('https://labs.intentsolutions.io/examples/', 'fixture')
+        self.audit.inspect(row, {'url': row['url'], 'error': 'timed out'})
+        counts = self.audit.report()['counts']
+        self.assertEqual(counts['checksAttempted'], 1)
+        self.assertEqual(counts['httpChecked'], 0)
+        self.assertEqual(counts['successfulResponses'], 0)
+        self.assertFalse(self.audit.eligible(row))
+
 
 if __name__ == '__main__':
     unittest.main()

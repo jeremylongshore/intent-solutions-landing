@@ -214,7 +214,7 @@ class Audit:
         if len(self.rows) >= 5000:
             self.issue('route-cap', '', 'More than5000 discovered routes; review source boundary.')
             return {'url': url, 'classification': 'outside row cap', 'excluded': 'row cap', 'httpChecked': False}
-        row = {'url': url, 'discoveredBy': [origin], 'httpChecked': False,
+        row = {'url': url, 'discoveredBy': [origin], 'checkAttempted': False, 'httpChecked': False,
                **(meta or {'classification': 'unclassified'})}
         self.rows[url] = row
         if not meta:
@@ -230,7 +230,8 @@ class Audit:
             self.discover(url, 'reviewed-policy-or-registry')
 
     def inspect(self, row, response):
-        row['httpChecked'] = True
+        row['checkAttempted'] = True
+        row['httpChecked'] = 'status' in response
         row.update({k: v for k, v in response.items() if k != 'body'})
         if response.get('error') or response.get('status') != 200:
             self.issue('broken-target', row['url'], response.get('error') or f"HTTP {response.get('status')}")
@@ -264,7 +265,7 @@ class Audit:
                       host in self.policy['coreHosts'] and not ASSET.search(U.urlsplit(u).path))
 
     def eligible(self, row):
-        if row['httpChecked'] or row.get('excluded') or row['classification'] == 'unclassified':
+        if row.get('checkAttempted') or row.get('excluded') or row['classification'] == 'unclassified':
             return False
         if row.get('family'):
             family = next(f for f in self.policy['sampleFamilies'] if f['id'] == row['family'])
@@ -291,10 +292,12 @@ class Audit:
                 'scope': self.policy['scope'],
                 'limits': {'requests':350,'pages':300,'sourceDocuments':12,'discoveredRows':5000,'pageWaves':3,'workers':4},
                 'limitations': ['Unlinked deployed files require an owner-exported --deployed-routes manifest.',
-                    'Source manifests do not prove deployment. Only HTTP-checked rows attest a response.',
+                    'Source manifests do not prove deployment. checkAttempted records attempts; httpChecked requires a received status; successfulResponses requires HTTP200 without a fetch error.',
                     'Historical result records and crossposted articles are sampled, not exhaustively fetched.',
                     'Successful GET and return navigation do not prove product functionality, provider integrations, form delivery or entitlement.'],
-                'counts': {'discovered': len(rows), 'httpChecked': sum(r['httpChecked'] for r in rows),
+                'counts': {'discovered': len(rows), 'checksAttempted': sum(bool(r.get('checkAttempted')) for r in rows),
+                    'httpChecked': sum(r['httpChecked'] for r in rows),
+                    'successfulResponses': sum(r.get('status') == 200 and not r.get('error') for r in rows),
                     'sourceDiscovered': sum(any(x.startswith('source:') for x in r['discoveredBy']) for r in rows),
                     'deployedManifest': sum('owner-deployed-manifest' in r['discoveredBy'] for r in rows),
                     'unclassified': sum(r['classification'] == 'unclassified' for r in rows),
@@ -404,7 +407,7 @@ def main():
             pending = [r for r in sorted(audit.rows.values(), key=lambda x: x['url']) if audit.eligible(r)]
             if not pending:
                 break
-            if len(pending) + sum(r['httpChecked'] for r in audit.rows.values()) > 300:
+            if len(pending) + sum(bool(r.get('checkAttempted')) for r in audit.rows.values()) > 300:
                 audit.issue('page-cap', '', 'More than 300 approved page checks; review boundary before increasing cap.')
                 break
             with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
