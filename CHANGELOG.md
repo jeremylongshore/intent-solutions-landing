@@ -1,3 +1,14 @@
+# Release v4.11.0
+
+**Release Date**: 2026-10-17
+
+## Changes since v4.10.1
+
+- chore: release v4.11.0 [skip ci] (a1f63e8)
+- feat(discovery): reconcile public routes and verify visitor return paths (#87) (6e2ba06)
+
+---
+
 # Release v4.10.1
 
 **Release Date**: 2026-10-17
