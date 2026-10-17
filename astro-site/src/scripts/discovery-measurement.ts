@@ -33,7 +33,7 @@ document.addEventListener('click', (event) => {
   // navigation a short delivery window; blocked/hung analytics never traps it.
   // Preserve downloads, modifier keys and the browser's new-tab behavior.
   if (delivery && event.button === 0 && !event.ctrlKey && !event.metaKey
-      && !event.shiftKey && !event.altKey && !link.download
+      && !event.shiftKey && !event.altKey && !link.hasAttribute('download')
       && (!link.target || link.target === '_self')) {
     event.preventDefault();
     const href = link.href;

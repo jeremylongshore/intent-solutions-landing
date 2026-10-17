@@ -54,6 +54,20 @@ with sync_playwright() as p:
         events = page.evaluate('window.measured')
         assert events and all(e['name'] == 'explore_filter' and set(e['data']) == {'category'} for e in events), events
         page.screenshot(path=f'/tmp/intent-explore-{width}.png', full_page=True)
+        # Empty boolean download attributes must keep native browser semantics.
+        assert page.evaluate('''() => {
+            const link = document.createElement('a');
+            link.href = '/projects/'; link.setAttribute('download', '');
+            document.body.append(link);
+            let prevented;
+            document.addEventListener('click', event => {
+                prevented = event.defaultPrevented;
+                event.preventDefault(); // Suppress the actual test download.
+            }, {once:true});
+            link.dispatchEvent(new MouseEvent('click', {bubbles:true,cancelable:true}));
+            link.remove();
+            return prevented;
+        }''') is False
         # A delayed collector must finish before a real document navigation.
         page.route('https://demos.intentsolutions.io/intentoutreach/', lambda route: route.fulfill(body='<h1>Intercepted destination</h1>', content_type='text/html'))
         page.locator('[data-experience="intent-outreach"] .experience-primary').click()
