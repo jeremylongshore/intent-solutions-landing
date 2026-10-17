@@ -1,3 +1,14 @@
+# Release v4.9.5
+
+**Release Date**: 2026-10-17
+
+## Changes since v4.9.4
+
+- chore: release v4.9.5 [skip ci] (06a691c)
+- fix(privacy): make published policy readable without JavaScript (#84) (6b7118f)
+
+---
+
 # Release v4.9.4
 
 **Release Date**: 2026-10-17
