@@ -1,3 +1,14 @@
+# Release v4.9.3
+
+**Release Date**: 2026-10-17
+
+## Changes since v4.9.2
+
+- chore: release v4.9.3 [skip ci] (fe9f9e4)
+- ci(deploy-vps): run the pre-deploy gate on every pull request (#83) (7ed606d)
+
+---
+
 # Release v4.9.2
 
 **Release Date**: 2026-10-17
