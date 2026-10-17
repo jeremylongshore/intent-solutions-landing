@@ -126,7 +126,7 @@ Any benchmark suite that mixes deterministic and paid steps needs all three piec
 
 ## Related posts
 
-- [Five Silent Failures in One Day](/posts/five-silent-failures-one-day/) — the regex `lastIndex` bug that re-appeared in PR #69 was one of these.
-- [Deterministic-First, LLM-Advisory CI](/posts/deterministic-first-llm-advisory-ci/) — same principle: the deterministic gate decides, the paid gate informs.
-- [Transitive CVE Clearance: A Dual-Layer Pattern](/posts/transitive-cve-clearance-dual-layer-pattern/) — the double-gate is the same shape as that two-layer defense.
+- [Five Silent Failures in One Day](https://startaitools.com/posts/five-silent-failures-one-day/) — the regex `lastIndex` bug that re-appeared in PR #69 was one of these.
+- [Deterministic-First, LLM-Advisory CI](https://startaitools.com/posts/deterministic-first-llm-advisory-ci/) — same principle: the deterministic gate decides, the paid gate informs.
+- [Transitive CVE Clearance: A Dual-Layer Pattern](https://startaitools.com/posts/transitive-cve-clearance-dual-layer-pattern/) — the double-gate is the same shape as that two-layer defense.
 

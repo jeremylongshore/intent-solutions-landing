@@ -157,9 +157,9 @@ A best-effort, fire-and-forget writer is a distributed system wearing a convenie
 
 ## Related Posts
 
-- [Adversarial Review: The Six Lenses That Halted a Rollout](/posts/adversarial-review-before-team-rollout/) — the governance review that gated this same team-brain rollout.
-- [Every Safety Gate Has a Failure Direction](/posts/every-safety-gate-has-a-failure-direction/) — why drop-on-4xx / keep-on-5xx is a direction choice, not a detail.
-- [Liveness Without Health Is Theater](/posts/liveness-without-health-is-theater/) — the sibling lesson for unattended systems: running is not the same as working.
+- [Adversarial Review: The Six Lenses That Halted a Rollout](https://startaitools.com/posts/adversarial-review-before-team-rollout/) — the governance review that gated this same team-brain rollout.
+- [Every Safety Gate Has a Failure Direction](https://startaitools.com/posts/every-safety-gate-has-a-failure-direction/) — why drop-on-4xx / keep-on-5xx is a direction choice, not a detail.
+- [Liveness Without Health Is Theater](https://startaitools.com/posts/liveness-without-health-is-theater/) — the sibling lesson for unattended systems: running is not the same as working.
 
 <script type="application/ld+json">
 {

@@ -1,0 +1,248 @@
+{
+  "reviewedAt": "2026-10-17",
+  "scope": "Six core public carriers; registry destinations; company source contract; reviewed Demos HTML manifest. Not DNS enumeration, private routes, all article archives, or proof of product capability.",
+  "coreHosts": [
+    "intentsolutions.io",
+    "demos.intentsolutions.io",
+    "oma.intentsolutions.io",
+    "learn.intentsolutions.io",
+    "labs.intentsolutions.io",
+    "evals.intentsolutions.io"
+  ],
+  "sitemaps": [
+    "https://intentsolutions.io/sitemap-index.xml",
+    "https://demos.intentsolutions.io/sitemap.xml",
+    "https://oma.intentsolutions.io/sitemap.xml",
+    "https://learn.intentsolutions.io/sitemap.xml",
+    "https://labs.intentsolutions.io/sitemap.xml",
+    "https://evals.intentsolutions.io/sitemap.xml"
+  ],
+  "manifest": {
+    "url": "https://raw.githubusercontent.com/intent-solutions-io/intent-demos/main/site/assets/public-page-routes.json",
+    "host": "demos.intentsolutions.io",
+    "key": "pages"
+  },
+  "routes": {
+    "demos.intentsolutions.io": {
+      "classification": "reviewed public collection/detail or policy",
+      "paths": [
+        "/about/",
+        "/acceptable-use.html",
+        "/bbb/",
+        "/bbb/system-map.html",
+        "/built-with-claude-code/",
+        "/cad-ai-agent/",
+        "/claude-for-slack-rent-vs-own.html",
+        "/databricks-cost-leak-hunter/architecture.html",
+        "/databricks-cost-leak-hunter/data-planes/",
+        "/databricks-cost-leak-hunter/how-it-works/",
+        "/databricks-cost-leak-hunter/",
+        "/databricks-cost-leak-hunter/what-it-touches/",
+        "/databricks-cost-leak-hunter/which-fixes-pay/",
+        "/databricks/",
+        "/dentalmcp/",
+        "/diagnosticpro-1/",
+        "/diagnosticpro-2/",
+        "/docfiling/",
+        "/how-we-build/01-beads.html",
+        "/how-we-build/02-cockpit.html",
+        "/how-we-build/03-brain.html",
+        "/how-we-build/",
+        "/ico-architecture.html",
+        "/",
+        "/intent-outreach/architecture.html",
+        "/intent-outreach/how-it-works.html",
+        "/intent-outreach/",
+        "/intent-outreach/sample-run.html",
+        "/intent-outreach/what-it-touches.html",
+        "/kobiton/",
+        "/longbox/",
+        "/mandy-design-audition/dash-d-baseline/",
+        "/mandy-design-audition/dash-e-linear/",
+        "/mandy-design-audition/dash-f-mercury-linear/",
+        "/mandy-design-audition/",
+        "/mandy-design-audition/public-a-baseline/",
+        "/mandy-design-audition/public-b-mercury/",
+        "/mandy-design-audition/public-c-mastercard/",
+        "/mandy-real-estate-skills/architecture.html",
+        "/mandy-real-estate-skills/how-it-works.html",
+        "/mandy-real-estate-skills/",
+        "/platform-review/adr-001-architecture.html",
+        "/platform-review/adr-001-panel.html",
+        "/platform-review/adr-001.html",
+        "/platform-review/adr-002.html",
+        "/platform-review/adr-003.html",
+        "/platform-review/adr-004.html",
+        "/platform-review/adr-005.html",
+        "/platform-review/adr-006.html",
+        "/platform-review/adr-007.html",
+        "/platform-review/adr-008.html",
+        "/platform-review/adr-index.html",
+        "/platform-review/competitors-membership.html",
+        "/platform-review/competitors-platform.html",
+        "/platform-review/competitors.html",
+        "/platform-review/estate.html",
+        "/platform-review/",
+        "/platform-review/method.html",
+        "/platform-review/pillars.html",
+        "/platform-review/roadmap.html",
+        "/platform-review/tiers.html",
+        "/platform-review/vision.html",
+        "/privacy.html",
+        "/prospect-prep-automation/how-it-works.html",
+        "/prospect-prep-automation/",
+        "/searchcarriers/",
+        "/terms.html"
+      ]
+    },
+    "oma.intentsolutions.io": {
+      "classification": "reviewed public collection/detail or policy",
+      "paths": [
+        "/",
+        "/about/",
+        "/privacy/",
+        "/app-privacy/",
+        "/acceptable-use/",
+        "/terms/"
+      ]
+    },
+    "learn.intentsolutions.io": {
+      "classification": "reviewed public collection/detail or policy",
+      "paths": [
+        "/",
+        "/course/explore",
+        "/request-access",
+        "/page/about-us",
+        "/start",
+        "/page/privacy-policy"
+      ]
+    },
+    "labs.intentsolutions.io": {
+      "classification": "reviewed public collection/detail or policy",
+      "paths": [
+        "/",
+        "/start/",
+        "/how-it-works/",
+        "/examples/",
+        "/results/",
+        "/eval-sets/",
+        "/skills/",
+        "/methodology/",
+        "/status/",
+        "/evals/",
+        "/results/iec/",
+        "/results/iel/",
+        "/results/iah/",
+        "/results/iaj/",
+        "/results/iar/",
+        "/results/ccp/",
+        "/results/jrig/",
+        "/results/qmd/",
+        "/skills/validate-skillmd/",
+        "/skills/skill-creator/",
+        "/skills/audit-tests/",
+        "/eval-sets/iep-self-eval-dogfood/",
+        "/eval-sets/j-rig-bench/",
+        "/eval-sets/j-rig-bench/phase-a0/",
+        "/eval-sets/j-rig-binary-eval-7-layer/"
+      ]
+    },
+    "evals.intentsolutions.io": {
+      "classification": "reviewed public collection/detail or policy",
+      "paths": [
+        "/",
+        "/gate-result/v1",
+        "/retraction/v1",
+        "/skill-refiner-pass/v1",
+        "/dashboard-render/v1",
+        "/human-review/v1",
+        "/validation-result/v1",
+        "/skill-snapshot/v1",
+        "/runtime-receipt/v1",
+        "/regression-pack/v1",
+        "/eval-verdict/v1"
+      ]
+    },
+    "intentsolutions.io": {
+      "classification": "reviewed generated teaching artifact",
+      "paths": [
+        "/estate-blueprint-evidence.html",
+        "/estate-blueprint-people.html",
+        "/estate-blueprint-delivery.html",
+        "/estate-blueprint.html",
+        "/estate-blueprint-spine.html",
+        "/estate-blueprint.print.html",
+        "/estate-blueprint-principles.html",
+        "/estate-blueprint-compounding.html",
+        "/estate-blueprint-network.html",
+        "/financial-diagrams/independent-prime-base-bridge.html",
+        "/financial-diagrams/company-bridge.html",
+        "/financial-diagrams/software-subscription-base-bridge.html",
+        "/financial-diagrams/paid-discovery-no-build-base-bridge.html",
+        "/financial-diagrams/maintained-skills-downside-bridge.html",
+        "/financial-diagrams/pursuit-cost.html",
+        "/financial-diagrams/employer-workshop-base-bridge.html",
+        "/financial-diagrams/referral-only-downside-bridge.html",
+        "/financial-diagrams/outcome-hybrid-base-bridge.html",
+        "/financial-diagrams/recurring-assurance-base-bridge.html",
+        "/financial-diagrams/earning-authority.html",
+        "/financial-diagrams/proposed-network-economy.html",
+        "/financial-diagrams/employer-workshop-downside-bridge.html",
+        "/financial-diagrams/referral-only-base-bridge.html",
+        "/financial-diagrams/cash-comparison.html",
+        "/financial-diagrams/maintained-skills-base-bridge.html",
+        "/financial-diagrams/vendor-operating-costs-base-bridge.html",
+        "/financial-diagrams/relationship-led-project-base-bridge.html",
+        "/financial-diagrams/integrator-prime-base-bridge.html",
+        "/financial-diagrams/customer-value.html",
+        "/financial-diagrams/relationship-led-project-downside-bridge.html",
+        "/financial-diagrams/integrator-prime-downside-bridge.html",
+        "/financial-diagrams/shared-component-downside-bridge.html",
+        "/financial-diagrams/financial-atlas-entry.html",
+        "/financial-diagrams/outcome-hybrid-downside-bridge.html",
+        "/financial-diagrams/vendor-operating-costs-downside-bridge.html",
+        "/financial-diagrams/relationship-led-project-allocation.html",
+        "/financial-diagrams/opportunity-routes.html",
+        "/financial-diagrams/recurring-assurance-downside-bridge.html",
+        "/financial-diagrams/independent-prime-downside-bridge.html",
+        "/financial-diagrams/shared-component-base-bridge.html",
+        "/financial-diagrams/paid-discovery-no-build-downside-bridge.html",
+        "/financial-diagrams/software-subscription-downside-bridge.html"
+      ]
+    }
+  },
+  "aliases": {
+    "https://demos.intentsolutions.io/batchdata/": "https://demos.intentsolutions.io/intentoutreach/",
+    "https://demos.intentsolutions.io/scott-porter-automation/": "https://demos.intentsolutions.io/prospect-prep-automation/"
+  },
+  "exclusions": {
+    "https://learn.intentsolutions.io/home": "Duplicate legacy Learn home; not advertised as a separate offering.",
+    "https://learn.intentsolutions.io/program/explore": "Archived empty program browser; current catalog is /course/explore.",
+    "https://demos.intentsolutions.io/dental-billing-mcp-architecture.html": "Retired duplicate architecture artifact; canonical demo is /dentalmcp/.",
+    "https://demos.intentsolutions.io/databricks-cost-leak-hunter/build/docs_shell.html": "Build template, not an approved public experience."
+  },
+  "browserReturns": {
+    "https://oma.intentsolutions.io/perception/": "Client-rendered navigation; checked by test-public-journeys.py.",
+    "https://oma.intentsolutions.io/the-beacon-wakes/play/": "Child play intentionally separates parent navigation; test-public-journeys.py verifies two local transmissions, visible parent gate, overview and Explore return."
+  },
+  "sampleFamilies": [
+    {
+      "id": "labs-result",
+      "pattern": "https://labs\\.intentsolutions\\.io/results/(?:iec|iel|iah|iaj|iar|ccp|jrig|qmd)/sha256-[0-9a-f]{64}/",
+      "parent": "https://labs.intentsolutions.io/results/",
+      "limit": 8,
+      "reason": "Generated historical evidence records, sampled for HTTP and return navigation; never promoted to offerings."
+    },
+    {
+      "id": "company-field-note",
+      "pattern": "(?!)",
+      "parent": "https://intentsolutions.io/field-notes/",
+      "limit": 5,
+      "reason": "Source-backed crosscanonical articles; sample only."
+    }
+  ],
+  "htmlAliases": {
+    "https://demos.intentsolutions.io/prospect-prep-automation/": "https://demos.intentsolutions.io/prospect-prep-automation/how-it-works.html",
+    "https://demos.intentsolutions.io/mandy-real-estate-skills/": "https://demos.intentsolutions.io/mandy-real-estate-skills/how-it-works.html"
+  }
+}

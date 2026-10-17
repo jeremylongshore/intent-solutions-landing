@@ -139,7 +139,7 @@ Every one of these is the same move: take something that was working by conventi
 ## Related Posts
 
 - [Twelve PRs, a Security Sprint, and a Pregame Overhaul](https://startaitools.com/posts/twelve-prs-security-sprint-pregame-overhaul/)
-- [Zero to CI: Full-Stack Dashboard, One Session](/field-notes/zero-to-ci-full-stack-dashboard-one-session)
+- [Zero to CI: Full-Stack Dashboard, One Session](/field-notes/zero-to-ci-full-stack-dashboard-one-session/)
 - [Wild Deep Dive #3: Observability](https://startaitools.com/posts/wild-deep-dive-3-observability/)
 
 <script type="application/ld+json">
