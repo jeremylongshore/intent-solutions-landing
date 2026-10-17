@@ -293,7 +293,7 @@ The NON-NEGOTIABLES section exists to make this layering visible at the top of t
 
 ## Related Posts
 
-- [Design Tokens and Validator Parity: Marketplace Foundations](/posts/design-tokens-and-validator-parity-marketplace-foundations/) — the marketplace validator's role in the broader design-token system.
-- [Nuclear Option Day: Validator Rewrite Across 414 Plugins](/posts/nuclear-option-day-validator-rewrite-414-plugins/) — when validator changes do warrant a bulk rewrite, and how to scope it.
-- [Debugging a Critical Marketplace Schema Validation Failure](/posts/debugging-critical-marketplace-schema-validation-failure/) — earlier marketplace-validator failure mode and the gate's recovery path.
+- [Design Tokens and Validator Parity: Marketplace Foundations](https://startaitools.com/posts/design-tokens-and-validator-parity-marketplace-foundations/) — the marketplace validator's role in the broader design-token system.
+- [Nuclear Option Day: Validator Rewrite Across 414 Plugins](https://startaitools.com/posts/nuclear-option-day-validator-rewrite-414-plugins/) — when validator changes do warrant a bulk rewrite, and how to scope it.
+- [Debugging a Critical Marketplace Schema Validation Failure](https://startaitools.com/posts/debugging-critical-marketplace-schema-validation-failure/) — earlier marketplace-validator failure mode and the gate's recovery path.
 

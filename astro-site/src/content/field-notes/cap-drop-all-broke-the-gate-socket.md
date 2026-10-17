@@ -154,9 +154,9 @@ The same day, away from the gate socket:
 
 ## Related posts
 
-- [When Green CI Proves Nothing](/posts/when-green-ci-proves-nothing/) — the gate that counts only counts what reaches it
-- [Honor the Gate When the Verdict Is Inconvenient](/posts/honor-the-gate-when-the-verdict-is-inconvenient/)
-- [HITL Delivery Is a Fail-Closed, Exactly-Once Problem](/posts/hitl-delivery-is-a-fail-closed-exactly-once-problem/)
+- [When Green CI Proves Nothing](https://startaitools.com/posts/when-green-ci-proves-nothing/) — the gate that counts only counts what reaches it
+- [Honor the Gate When the Verdict Is Inconvenient](https://startaitools.com/posts/honor-the-gate-when-the-verdict-is-inconvenient/)
+- [HITL Delivery Is a Fail-Closed, Exactly-Once Problem](https://startaitools.com/posts/hitl-delivery-is-a-fail-closed-exactly-once-problem/)
 
 <script type="application/ld+json">
 {

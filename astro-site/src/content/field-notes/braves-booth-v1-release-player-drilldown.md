@@ -174,6 +174,6 @@ v1.0.0 is live.
 
 **Related Posts:**
 
-- [Building Production Multi-Agent AI with BrightStream on Vertex AI](/field-notes/building-production-multi-agent-ai-brightstream-vertex-ai) — Multi-agent architecture patterns that informed the narrative prefetch design
-- [Building Production-Grade Testing Infrastructure: A Playwright Case Study](/field-notes/building-production-grade-testing-infrastructure-playwright-case-study) — The testing methodology that caught the lineup cache bug before production
+- [Building Production Multi-Agent AI with BrightStream on Vertex AI](/field-notes/building-production-multi-agent-ai-brightstream-vertex-ai/) — Multi-agent architecture patterns that informed the narrative prefetch design
+- [Building Production-Grade Testing Infrastructure: A Playwright Case Study](/field-notes/building-production-grade-testing-infrastructure-playwright-case-study/) — The testing methodology that caught the lineup cache bug before production
 
