@@ -1,3 +1,14 @@
+# Release v4.10.1
+
+**Release Date**: 2026-10-17
+
+## Changes since v4.10.0
+
+- chore: release v4.10.1 [skip ci] (5762e0b)
+- fix: deliver discovery events before leaving the page (#86) (0b32e65)
+
+---
+
 # Release v4.10.0
 
 **Release Date**: 2026-10-17
