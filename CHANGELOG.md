@@ -1,3 +1,37 @@
+# Release v4.10.0
+
+**Release Date**: 2026-10-17
+
+## Changes since v4.9.4
+
+- chore: release v4.10.0 [skip ci] (10e7a0e)
+- feat: measure public discovery with bounded aggregate events (#85) (5b3eaf1)
+- fix(privacy): make published policy readable without JavaScript (#84) (6b7118f)
+
+---
+
+# Release v4.9.4
+
+**Release Date**: 2026-10-17
+
+## Changes since v4.9.3
+
+- chore: release v4.9.4 [skip ci] (0403628)
+- docs(claude): run the manual deploy fallback as the deploy user, never with sudo (#82) (02753b3)
+
+---
+
+# Release v4.9.3
+
+**Release Date**: 2026-10-17
+
+## Changes since v4.9.2
+
+- chore: release v4.9.3 [skip ci] (fe9f9e4)
+- ci(deploy-vps): run the pre-deploy gate on every pull request (#83) (7ed606d)
+
+---
+
 # Release v4.9.2
 
 **Release Date**: 2026-10-17

@@ -12,6 +12,8 @@ with sync_playwright() as p:
     browser = p.chromium.launch(headless=True, **({'executable_path': executable} if executable else {}))
     for width in (320, 390, 768, 1440):
         page = browser.new_page(viewport={'width': width, 'height': 1000})
+        page.route('https://analytics.intentsolutions.io/**', lambda route: route.fulfill(status=200, content_type='application/javascript', body=''))
+        page.add_init_script('window.measured=[];window.umami={track:(name,data)=>{window.measured.push({name,data});sessionStorage.setItem("measured",JSON.stringify(window.measured));}};')
         page.goto(base + '/', wait_until='networkidle')
         explore = page.locator('.is-estate-bar a').filter(has_text='Explore')
         expect(explore).to_have_count(1)
@@ -19,6 +21,9 @@ with sync_playwright() as p:
         assert box and box['x'] >= 0 and box['x'] + box['width'] <= width, (width, box)
         page.get_by_role('link', name='Explore everything', exact=True).click()
         expect(page).to_have_url(base + '/projects/')
+        assert page.evaluate('JSON.parse(sessionStorage.getItem("measured"))') == [
+            {'name':'explore_open','data':{'source':'home','surface':'content'}}
+        ]
         expect(page.get_by_role('heading', level=1)).to_have_text('Explore Intent Solutions')
         assert page.evaluate('document.documentElement.scrollWidth <= innerWidth'), width
         entries = page.locator('[data-experience]')
@@ -43,6 +48,20 @@ with sync_playwright() as p:
         search.focus()
         page.keyboard.press('Tab')
         expect(select).to_be_focused()
+        # Searching never exports free text. Only fixed category values were sent.
+        events = page.evaluate('window.measured')
+        assert events and all(e['name'] == 'explore_filter' and set(e['data']) == {'category'} for e in events), events
+        # Stop external navigation after the measurement listener handles the click.
+        page.evaluate('document.addEventListener("click", e=>e.preventDefault())')
+        page.locator('[data-experience="intent-outreach"] .experience-primary').click()
+        recorded = page.evaluate('window.measured.at(-1)')
+        assert recorded['name'] == 'experience_open'
+        assert recorded['data']['experience'] == 'intent-outreach'
+        assert set(recorded['data']) == {'experience','category','destination'}
+        assert recorded['data']['destination'] == 'primary'
+        page.evaluate('() => {window.umami.track=()=>{throw new Error("blocked")};}')
+        select.select_option('all')
+        expect(page.locator('[data-experience]:visible')).to_have_count(total)
         page.screenshot(path=f'/tmp/intent-explore-{width}.png', full_page=True)
         page.close()
     context = browser.new_context(java_script_enabled=False, viewport={'width':390,'height':900})
