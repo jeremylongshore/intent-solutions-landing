@@ -1,3 +1,14 @@
+# Release v4.9.2
+
+**Release Date**: 2026-10-17
+
+## Changes since v4.9.1
+
+- chore: release v4.9.2 [skip ci] (4d43860)
+- fix(about): resolve unfilled placeholders on the About page (#81) (52b7982)
+
+---
+
 # Release v4.9.1
 
 **Release Date**: 2026-10-16
