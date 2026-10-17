@@ -6,6 +6,8 @@ Dependency: pip install playwright && playwright install chromium
 """
 import sys
 import os
+import hashlib
+import re
 from playwright.sync_api import sync_playwright, expect
 
 base = sys.argv[1] if len(sys.argv) > 1 else 'http://127.0.0.1:4896'
@@ -131,5 +133,25 @@ with sync_playwright() as p:
     page.add_style_tag(content='html {font-size:200% !important;}')
     assert_contact_bounds(page, 768)
     assert page.evaluate('document.documentElement.scrollWidth <= innerWidth'), 'contact 200% text reflow'
+    # The policy must survive disabled JavaScript and an unavailable policy CDN.
+    # Digest is the whitespace-normalized body of the previously published policy.
+    policy_digest = '7129d3d98dc26a17c3018837be7d8e1b504ddb07d67fcd0a53f4ecaea0d7da08'
+    for enabled in (False, True):
+        for width in (320, 390, 1440):
+            page = browser.new_page(viewport={'width': width, 'height': 900}, java_script_enabled=enabled)
+            page.route('**/*getterms*', lambda route: route.abort())
+            response = page.goto(base + '/privacy/', wait_until='networkidle')
+            assert response.status == 200
+            expect(page.get_by_role('heading', level=1)).to_have_text('Privacy Policy')
+            policy = page.get_by_role('article', name='Privacy policy')
+            expect(policy.get_by_role('heading', name='Contact Us', exact=True)).to_be_visible()
+            normalized = re.sub(r'\s+', ' ', policy.inner_text()).strip()
+            assert hashlib.sha256(normalized.encode()).hexdigest() == policy_digest
+            assert page.evaluate('document.documentElement.scrollWidth <= innerWidth'), ('privacy', width, enabled)
+            assert not page.locator('script[src*="getterms"], iframe[src*="getterms"]').count()
+            if width == 390:
+                page.add_style_tag(content='html {font-size:200% !important;}')
+                assert page.evaluate('document.documentElement.scrollWidth <= innerWidth'), 'privacy 200% text reflow'
+            page.close()
     browser.close()
 print('PASS: 4 viewport sizes, 8 routes, hero glyph bounds, menu keyboard/anchor dismissal, touch targets, contact descendant bounds, compact mobile footer keyboard disclosure, form validation/failure/retry/persistent success, support address, no-JS fallback, 200% text reflow. No real submissions sent.')
