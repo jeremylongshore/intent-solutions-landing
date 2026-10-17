@@ -1,3 +1,15 @@
+# Release v4.10.0
+
+**Release Date**: 2026-10-17
+
+## Changes since v4.9.4
+
+- chore: release v4.10.0 [skip ci] (10e7a0e)
+- feat: measure public discovery with bounded aggregate events (#85) (5b3eaf1)
+- fix(privacy): make published policy readable without JavaScript (#84) (6b7118f)
+
+---
+
 # Release v4.9.4
 
 **Release Date**: 2026-10-17
