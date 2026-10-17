@@ -67,16 +67,19 @@ class NoRedirect(urllib.request.HTTPRedirectHandler):
 
 class Fetcher:
     """Redirects checked before every request. Per-host pacing, hard body/request caps."""
-    def __init__(self, hosts, sources=(), max_requests=350):
+    def __init__(self, hosts, sources=(), max_requests=350, redirect_allowed=None):
         self.hosts, self.sources = hosts, set(sources)
         self.max_requests, self.count = max_requests, 0
         self.lock, self.last = threading.Lock(), {}
+        self.redirect_allowed = redirect_allowed
 
     def get(self, url):
         initial, redirects = url, []
         for _ in range(4):
             if not (safe(url, self.hosts) or url in self.sources):
                 return {'url': initial, 'error': 'unsafe redirect or URL refused', 'final': url}
+            if redirects and self.redirect_allowed and not self.redirect_allowed(url):
+                return {'url': initial, 'error': 'unclassified redirect refused before request', 'final': url}
             host = U.urlsplit(url).hostname
             with self.lock:
                 if self.count >= self.max_requests:
@@ -389,7 +392,11 @@ def main():
             parser.error('Deployed manifest must contain at most 5000 public URL strings')
         for url in deployed:
             audit.discover(url, 'owner-deployed-manifest')
-    fetcher = Fetcher(audit.hosts, [policy['manifest']['url']])
+    def redirect_allowed(url):
+        row = audit.rows.get(url)
+        return (url in policy['sitemaps'] or url == policy['manifest']['url'] or
+                bool(row and row['classification'] != 'unclassified' and not row.get('excluded')))
+    fetcher = Fetcher(audit.hosts, [policy['manifest']['url']], redirect_allowed=redirect_allowed)
     if args.live:
         live_sources(audit, fetcher)
         # Two bounded discovery waves beyond approved seeds. Unclassified links never fetched.

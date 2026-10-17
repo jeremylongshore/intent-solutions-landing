@@ -64,6 +64,18 @@ class CoverageTests(unittest.TestCase):
         self.assertNotEqual(row['classification'], 'unclassified')
         self.assertNotIn('alias', row)
 
+    def test_unclassified_same_host_redirect_is_not_followed(self):
+        response = MagicMock()
+        response.__enter__.return_value = response
+        response.code = 302
+        response.headers = {'Location': '/new-unreviewed/'}
+        opener = MagicMock()
+        opener.open.return_value = response
+        with patch.object(m.urllib.request, 'build_opener', return_value=opener):
+            result = m.Fetcher({'labs.intentsolutions.io'}, redirect_allowed=lambda u: False).get('https://labs.intentsolutions.io/')
+        self.assertEqual(opener.open.call_count, 1)
+        self.assertEqual(result['error'], 'unclassified redirect refused before request')
+
     def test_reviewed_html_handoff_preserves_canonical_target(self):
         url = 'https://demos.intentsolutions.io/prospect-prep-automation/'
         target = url + 'how-it-works.html'
