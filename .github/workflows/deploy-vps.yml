@@ -8,11 +8,11 @@ name: Deploy intentsolutions.io to VPS
 # Stage C and intent-solutions-io/intent-os/ops/deploy (D90).
 
 on:
+  # Every pull request runs the gate, including doc-only ones. safe-merge needs
+  # "pre-deploy gate" green on the PR head, and a path filter here leaves a
+  # doc-only PR with no check at all, so it could never merge cleanly.
   pull_request:
-    paths:
-      - 'astro-site/**'
-      - 'estate-bar/**'
-      - '.github/workflows/deploy-vps.yml'
+  # Deploys stay path-filtered: a merge that touches only docs doesn't redeploy.
   push:
     branches: [main]
     paths:
@@ -25,9 +25,12 @@ permissions:
   contents: read
   id-token: write   # required for Tailscale OIDC
 
+# Pull requests get their own group per PR, so a PR run can never queue in the
+# deploy group and displace a pending main deploy. A newer push to the same PR
+# cancels its older run; a deploy already running is never cancelled.
 concurrency:
-  group: deploy-vps-${{ github.repository }}
-  cancel-in-progress: false
+  group: ${{ github.event_name == 'pull_request' && format('deploy-vps-pr-{0}', github.event.pull_request.number) || format('deploy-vps-{0}', github.repository) }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   test:
