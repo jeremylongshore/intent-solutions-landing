@@ -129,7 +129,7 @@ The legacy `astro-site/functions/` Cloud Functions directory was removed on 2026
 - Pre-deploy gate runs `npm ci` + `npm run build` + `npm run audit:indexability` + line-length cap check.
 - Deploy job uses the reusable `jeremylongshore/.github` `vps-deploy.yml` — Tailscale OIDC → force-command SSH on the VPS → `/usr/local/sbin/deploy-intentsolutions` does `git fetch + npm ci + astro build + atomic rsync` to `/srv/intentsolutions/dist`. Health check at `https://intentsolutions.io/healthz`.
 - Smoke validation: `.ok == true` on the healthz response.
-- **Known issue**: when the Tailscale OIDC trust credential at `login.tailscale.com/admin/settings/trust-credentials` is broken, automated deploy fails at the "Connect Tailscale" step (HTTP 403). Manual fallback: `ssh intentsolutions; sudo /usr/local/sbin/deploy-intentsolutions`. Tracked as bead `OPS-b78`.
+- **Known issue**: when the Tailscale OIDC trust credential at `login.tailscale.com/admin/settings/trust-credentials` is broken, automated deploy fails at the "Connect Tailscale" step (HTTP 403). Manual fallback: `ssh intentsolutions '/usr/local/sbin/deploy-intentsolutions'`, run as the `intentsolutions` user exactly as the CI force-command does. **Never with sudo**: a root run leaves root-owned files in `/srv/intentsolutions/` that the next unprivileged CI deploy cannot overwrite (cleaned up 2026-10-17). The same rule applies to every `/usr/local/sbin/deploy-*` script. Tracked as bead `OPS-b78`; the Tailscale trial expiry that blocks CI deploys is intent-os bead "Tailscale trial expired".
 
 **Release** (`.github/workflows/release.yml`):
 - Auto-detects version bump from commit messages (BREAKING→major, feat→minor, else patch).
