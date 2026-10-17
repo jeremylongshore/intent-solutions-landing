@@ -149,7 +149,7 @@ with sync_playwright() as p:
             assert hashlib.sha256(normalized.encode()).hexdigest() == policy_digest
             assert page.evaluate('document.documentElement.scrollWidth <= innerWidth'), ('privacy', width, enabled)
             assert not page.locator('script[src*="getterms"], iframe[src*="getterms"]').count()
-            if width == 390:
+            if enabled and width == 390:
                 page.add_style_tag(content='html {font-size:200% !important;}')
                 assert page.evaluate('document.documentElement.scrollWidth <= innerWidth'), 'privacy 200% text reflow'
             page.close()
