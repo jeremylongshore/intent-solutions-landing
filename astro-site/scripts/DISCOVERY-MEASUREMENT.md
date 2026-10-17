@@ -17,6 +17,10 @@ include names, emails, addresses, form contents, search terms, provider records,
 destination URLs or arbitrary query parameters. Standard Umami page metadata is
 still governed by the existing tracker. Do not put personal data in public URLs.
 Event calls are best effort and cannot prevent navigation or form submission.
+Ordinary same-tab discovery links allow up to 250ms for delivery before leaving;
+this avoids cancelling the collector request during document unload. Missing,
+throwing or unresponsive analytics still permits navigation. Modifier keys,
+new-tab targets and downloads retain the browser's normal behavior.
 
 ## Read the results
 
