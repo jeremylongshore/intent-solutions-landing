@@ -1,3 +1,14 @@
+# Release v4.9.4
+
+**Release Date**: 2026-10-17
+
+## Changes since v4.9.3
+
+- chore: release v4.9.4 [skip ci] (0403628)
+- docs(claude): run the manual deploy fallback as the deploy user, never with sudo (#82) (02753b3)
+
+---
+
 # Release v4.9.3
 
 **Release Date**: 2026-10-17
