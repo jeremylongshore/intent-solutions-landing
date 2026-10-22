@@ -1,3 +1,14 @@
+# Release v4.11.2
+
+**Release Date**: 2026-10-22
+
+## Changes since v4.11.1
+
+- chore: release v4.11.2 [skip ci] (c9a87b3)
+- content(field-notes): add docker-hardening-your-test-suite-cannot-see (65852be)
+
+---
+
 # Release v4.11.1
 
 **Release Date**: 2026-10-17
