@@ -71,8 +71,8 @@ export default function Footer() {
       <style>{`
         .site-footer {
           padding: 4.5rem 1.25rem 2rem;
-          background: #070708;
-          border-top: 1px solid rgba(63, 63, 70, 0.55);
+          background: var(--intent-ink-deep);
+          border-top: 1px solid var(--intent-line-soft);
         }
         .footer-grid {
           display: grid;
@@ -86,25 +86,23 @@ export default function Footer() {
           align-items: center;
           gap: 0.6rem;
           margin-bottom: 1rem;
-          color: #fafafa;
-          font-family: 'Syne', system-ui, sans-serif;
+          color: var(--intent-text);
+          font-family: var(--font-display);
           font-weight: 700;
           text-decoration: none;
         }
-        .footer-brand strong { color: #ff7a1a; }
+        .footer-brand strong { color: var(--intent-brand); }
         .footer-brand p {
           max-width: 31rem;
           margin: 0 0 1.2rem;
-          color: #a1a1aa;
+          color: var(--intent-muted);
           font-size: 0.9rem;
           line-height: 1.7;
         }
         .footer-brand small {
+          display: block;
           color: var(--intent-muted);
-          font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-          font-size: 0.75rem;
-          letter-spacing: 0.08em;
-          text-transform: uppercase;
+          font-size: 0.82rem;
         }
         .footer-brand .footer-email {
           display: flex;
@@ -120,11 +118,10 @@ export default function Footer() {
         .footer-mobile-links { display: none; }
         .footer-grid h2 {
           margin: 0 0 1rem;
-          color: #fb923c;
-          font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-          font-size: 0.75rem;
-          letter-spacing: 0.14em;
-          text-transform: uppercase;
+          color: var(--intent-accent-hi);
+          font-family: var(--font-body);
+          font-size: 0.82rem;
+          font-weight: 700;
         }
         .footer-grid > div:not(.footer-brand) > a {
           display: flex;
@@ -134,14 +131,16 @@ export default function Footer() {
           max-width: 100%;
           overflow-wrap: anywhere;
           margin-bottom: 0.2rem;
-          color: #a1a1aa;
+          color: var(--intent-muted);
           font-size: 0.86rem;
           text-decoration: none;
         }
         .footer-grid a:hover,
         .footer-grid a:focus-visible,
         .footer-bottom a:hover,
-        .footer-bottom a:focus-visible { color: #fafafa; }
+        .footer-bottom a:focus-visible { color: var(--intent-text); }
+        .footer-grid a:active,
+        .footer-bottom a:active { color: var(--intent-accent-hi); }
         .footer-bottom {
           display: flex;
           align-items: center;
@@ -150,12 +149,12 @@ export default function Footer() {
           max-width: 72rem;
           margin: 0 auto;
           padding-top: 1.5rem;
-          border-top: 1px solid rgba(63, 63, 70, 0.45);
+          border-top: 1px solid var(--intent-line-soft);
         }
         .footer-bottom p { margin: 0; color: var(--intent-muted); font-size: 0.73rem; }
         .footer-bottom div { display: flex; flex-wrap: wrap; gap: 1.25rem; }
         .footer-bottom a { display: inline-flex; align-items: center; min-height: 44px; color: var(--intent-muted); font-size: 0.73rem; text-decoration: none; }
-        a:focus-visible { outline: 2px solid #fb923c; outline-offset: 3px; }
+        a:focus-visible { outline: 2px solid var(--intent-accent-hi); outline-offset: 3px; }
         @media (max-width: 960px) {
           .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
           .footer-brand { grid-column: 1 / -1; }
@@ -168,9 +167,9 @@ export default function Footer() {
           .footer-brand p { margin-bottom: 0.5rem; font-size: 0.875rem; line-height: 1.5; }
           .footer-desktop-links { display: none; }
           .footer-mobile-links { display: block; min-width: 0; }
-          .footer-mobile-links details { border-top: 1px solid rgba(63, 63, 70, 0.55); }
-          .footer-mobile-links summary { cursor: pointer; min-height: 48px; padding-block: 0.75rem; color: #fafafa; font-size: 0.9375rem; }
-          .footer-mobile-links summary:focus-visible { outline: 2px solid #fb923c; outline-offset: 3px; }
+          .footer-mobile-links details { border-top: 1px solid var(--intent-line-soft); }
+          .footer-mobile-links summary { cursor: pointer; min-height: 48px; padding-block: 0.75rem; color: var(--intent-text); font-size: 0.9375rem; }
+          .footer-mobile-links summary:focus-visible { outline: 2px solid var(--intent-accent-hi); outline-offset: 3px; }
           .footer-mobile-links nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 1rem; padding-bottom: 0.75rem; }
           .footer-mobile-links nav a { display: flex; align-items: center; min-height: 44px; color: var(--intent-muted); font-size: 0.875rem; overflow-wrap: anywhere; }
           .footer-bottom { padding-top: 1rem; gap: 0.5rem; }

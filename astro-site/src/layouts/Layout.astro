@@ -107,6 +107,10 @@ const siteJsonLd = [
       data-domains="intentsolutions.io,oma.intentsolutions.io,learn.intentsolutions.io,demo.intentsolutions.io,demos.intentsolutions.io"
     ></script>
     <link rel="stylesheet" href="/estate-bar/estate-bar.css" />
+    <style is:global>
+      /* Clip, not hide: a sideways overflow never scrolls the page, and sticky still works. */
+      html, body { overflow-x: clip; }
+    </style>
   </head>
   <body>
     <EstateBar />
