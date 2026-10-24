@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { pages, legacy, properties } from '../src/data/site-map.mjs';
+import { pages, legacy, properties, staticPages } from '../src/data/site-map.mjs';
 
 const root = new URL('../', import.meta.url);
 const entries = [...pages, ...legacy];
@@ -50,4 +50,32 @@ for (const entry of entries.filter((e) => !e.path.includes('[') && !e.path.endsW
     links++;
   }
 }
-console.log(`PASS: ${entries.length} individually mapped routes; ${links} internal links and anchors; indexing contract.`);
+// Standalone HTML in public/: each file is classified exactly once, indexable
+// pages are self-canonical and in the XML sitemap, the rest are noindex and absent.
+const publicDir = new URL('public/', root);
+const publicHtml = fs.readdirSync(publicDir, { recursive: true }).filter((p) => p.endsWith('.html')).map((p) => '/' + p.split('\\').join('/'));
+const covers = (entry, path) => (entry.path.endsWith('*') ? path.startsWith(entry.path.slice(0, -1)) : path === entry.path);
+assert.equal(new Set(staticPages.map((e) => e.path)).size, staticPages.length, 'Duplicate static page contract');
+for (const path of publicHtml) {
+  const matches = staticPages.filter((entry) => covers(entry, path));
+  assert.equal(matches.length, 1, `Public HTML needs exactly one static contract: ${path} (${matches.length} match)`);
+  const entry = matches[0];
+  const html = fs.readFileSync(new URL('dist' + path, root), 'utf8');
+  const robots = html.match(/<meta[^>]+name="robots"[^>]*>/)?.[0] || '';
+  const canonical = html.match(/<link[^>]+rel="canonical"[^>]+href="([^"]+)"/)?.[1];
+  const loc = `https://intentsolutions.io${path}</loc>`;
+  if (entry.index === true) {
+    assert.ok(!robots.includes('noindex'), `Indexable public page blocked: ${path}`);
+    assert.equal(canonical, `https://intentsolutions.io${path}`, `Indexable public page must be self-canonical: ${path}`);
+    assert.ok(sitemap.includes(loc), `Indexable public page absent from sitemap: ${path}`);
+  } else {
+    assert.match(robots, /noindex/, `Non-indexable public page needs noindex: ${path}`);
+    assert.ok(!sitemap.includes(loc), `Excluded public page leaked into sitemap: ${path}`);
+  }
+}
+for (const entry of staticPages.filter((e) => !e.path.endsWith('*'))) {
+  assert.ok(publicHtml.includes(entry.path), `Static contract names a missing file: ${entry.path}`);
+}
+const indexedStatic = publicHtml.filter((path) => staticPages.find((e) => covers(e, path)).index === true).length;
+
+console.log(`PASS: ${entries.length} individually mapped routes; ${links} internal links and anchors; ${publicHtml.length} public HTML files (${indexedStatic} indexable); indexing contract.`);
