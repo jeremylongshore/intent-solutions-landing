@@ -5,6 +5,7 @@ import { readdirSync, readFileSync } from 'node:fs';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
+import { staticPages } from './src/data/site-map.mjs';
 
 const SITE = 'https://intentsolutions.io';
 const SITE_HOST = 'intentsolutions.io';
@@ -89,6 +90,9 @@ export default defineConfig({
   integrations: [
     react(),
     sitemap({
+      // Standalone public/ HTML that the route contract marks indexable (the
+      // operating atlas chapters). Astro does not route these, so list them.
+      customPages: staticPages.filter((page) => page.index === true).map((page) => `${SITE}${page.path}`),
       filter: (page) =>
         !EXCLUDED_PATHS.has(page) &&
         !page.startsWith(`${SITE}/learn/`) &&

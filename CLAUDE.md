@@ -79,13 +79,13 @@ npx playwright test tests/<spec-file>.spec.ts  # Single test
 Pages are static Astro files; interactive sections use React islands with `client:load` (immediate) or `client:visible` (lazy) hydration:
 
 ```astro
-<Hero client:load />                 <!-- Hydrates immediately (above fold) -->
-<ClaudeCodeTiers client:visible />   <!-- Hydrates when scrolled into view -->
+<Contact client:load />   <!-- the request form: hydrates immediately -->
+<Footer client:load />    <!-- footer disclosures -->
 ```
 
 - **Pages**: `src/pages/*.astro` — File-based routing, static content
 - **Layout**: `src/layouts/Layout.astro` — SEO (astro-seo), Organization + WebSite JSON-LD, Umami analytics, `noindex` prop for utility pages
-- **React Islands**: `src/components/*.tsx` — Interactive sections with Framer Motion + GSAP
+- **React Islands**: `src/components/*.tsx` — the contact form and footer; no animation libraries (removed with the unreachable components on 2026-10-24)
 - **Styles**: `src/styles/global.css` — Tailwind 4 + charcoal slate theme
 
 ### SEO posture (pinned 2026-05-25, see `000-docs/079-OD-AUDT`)
@@ -137,16 +137,17 @@ The legacy `astro-site/functions/` Cloud Functions directory was removed on 2026
 
 ## Design System
 
-Theme in `src/styles/global.css` (Charcoal Slate / Theme 7):
+Theme in `src/styles/global.css` (Charcoal Slate / Theme 7). Every colour and font goes through a token in its `:root` block (`--intent-*`, `--font-body`, `--font-display`); do not write literal hex/rgb or `font-family` values in pages or components. Its first lines are the Hallmark check stamp (waivers, rewordings and dismissals on the record); keep them current when the homepage changes and re-run `node ~/.claude/skills/hallmark/scripts/sloplint.mjs` with `--render` where the skill is installed.
+
 
 | Class | Purpose |
 |-------|---------|
-| `card-slate` | Semi-transparent cards with backdrop blur |
+| `card-slate` | Semi-transparent cards with backdrop blur (not used on the homepage) |
 | `btn-primary` | Established action styling; homepage uses scoped orange primary buttons |
 | `btn-secondary` | Transparent with zinc border |
 | `btn-sm` | Smaller button padding |
 | `text-hero` | 3.5rem/2.5rem mobile hero text |
-| `text-h1`, `text-h2` | Heading sizes with tight tracking |
+| `text-h1` | Heading size with tight tracking |
 | `transition-smooth` | Cubic-bezier transitions |
 
 Current brand: orange branching-arrow mark, charcoal/zinc surfaces, Syne display and Inter body text. Preserve this identity. The contact form is a React island; core company and directory content is static Astro. Legacy animation libraries and components are not visual authority for current pages.

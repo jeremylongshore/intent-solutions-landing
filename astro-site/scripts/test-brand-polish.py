@@ -133,25 +133,32 @@ with sync_playwright() as p:
     page.add_style_tag(content='html {font-size:200% !important;}')
     assert_contact_bounds(page, 768)
     assert page.evaluate('document.documentElement.scrollWidth <= innerWidth'), 'contact 200% text reflow'
-    # The policy must survive disabled JavaScript and an unavailable policy CDN.
-    # Digest is the whitespace-normalized body of the previously published policy.
-    policy_digest = '7129d3d98dc26a17c3018837be7d8e1b504ddb07d67fcd0a53f4ecaea0d7da08'
-    for enabled in (False, True):
-        for width in (320, 390, 1440):
-            page = browser.new_page(viewport={'width': width, 'height': 900}, java_script_enabled=enabled)
-            page.route('**/*getterms*', lambda route: route.abort())
-            response = page.goto(base + '/privacy/', wait_until='networkidle')
-            assert response.status == 200
-            expect(page.get_by_role('heading', level=1)).to_have_text('Privacy Policy')
-            policy = page.get_by_role('article', name='Privacy policy')
-            expect(policy.get_by_role('heading', name='Contact Us', exact=True)).to_be_visible()
-            normalized = re.sub(r'\s+', ' ', policy.inner_text()).strip()
-            assert hashlib.sha256(normalized.encode()).hexdigest() == policy_digest
-            assert page.evaluate('document.documentElement.scrollWidth <= innerWidth'), ('privacy', width, enabled)
-            assert not page.locator('script[src*="getterms"], iframe[src*="getterms"]').count()
-            if enabled and width == 390:
-                page.add_style_tag(content='html {font-size:200% !important;}')
-                assert page.evaluate('document.documentElement.scrollWidth <= innerWidth'), 'privacy 200% text reflow'
-            page.close()
+    # Each policy must survive disabled JavaScript and an unavailable policy CDN.
+    # Digests are the whitespace-normalized bodies of the published GetTerms documents
+    # (provenance: 000-docs/090 for privacy, 000-docs/091 for terms and acceptable use).
+    policies = [
+        ('/privacy/', 'Privacy Policy', 'Contact Us', '7129d3d98dc26a17c3018837be7d8e1b504ddb07d67fcd0a53f4ecaea0d7da08'),
+        ('/terms/', 'Terms of Service', 'Contact Information', 'ef4ac4d3fac83a81da68fef86b6a235699a0401afaa241d74d05295d4609b3ed'),
+        ('/acceptable-use/', 'Acceptable Use Policy', 'About This Policy', '98e66e44d5c9f0a9cb1fa8b162de924df2ba7a78b728df750b0cf0d5c533ab44'),
+    ]
+    for route, title, last_heading, policy_digest in policies:
+        for enabled in (False, True):
+            for width in (320, 390, 1440):
+                page = browser.new_page(viewport={'width': width, 'height': 900}, java_script_enabled=enabled)
+                page.route('**/*getterms*', lambda route: route.abort())
+                response = page.goto(base + route, wait_until='networkidle')
+                assert response.status == 200
+                expect(page.get_by_role('heading', level=1)).to_have_text(title)
+                assert page.locator('h1').count() == 1, (route, 'one h1')
+                policy = page.get_by_role('article', name=title)
+                expect(policy.get_by_role('heading', name=last_heading, exact=True)).to_be_visible()
+                normalized = re.sub(r'\s+', ' ', policy.inner_text()).strip()
+                assert hashlib.sha256(normalized.encode()).hexdigest() == policy_digest, (route, 'published text changed')
+                assert page.evaluate('document.documentElement.scrollWidth <= innerWidth'), (route, width, enabled)
+                assert not page.locator('script[src*="getterms"], iframe[src*="getterms"]').count()
+                if enabled and width == 390:
+                    page.add_style_tag(content='html {font-size:200% !important;}')
+                    assert page.evaluate('document.documentElement.scrollWidth <= innerWidth'), (route, '200% text reflow')
+                page.close()
     browser.close()
-print('PASS: 4 viewport sizes, 8 routes, hero glyph bounds, menu keyboard/anchor dismissal, touch targets, contact descendant bounds, compact mobile footer keyboard disclosure, form validation/failure/retry/persistent success, support address, no-JS fallback, 200% text reflow. No real submissions sent.')
+print('PASS: 4 viewport sizes, 8 routes, hero glyph bounds, menu keyboard/anchor dismissal, touch targets, contact descendant bounds, compact mobile footer keyboard disclosure, form validation/failure/retry/persistent success, support address, no-JS fallback, 200% text reflow, three static policies (digest, no-JS, CDN blocked). No real submissions sent.')

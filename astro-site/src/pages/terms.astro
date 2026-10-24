@@ -1,30 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import LegalDocument from '../components/LegalDocument.astro';
+import terms from '../content/legal/terms-of-service.html?raw';
+// Published GetTerms terms, captured October 24, 2026; provenance in
+// 000-docs/091-AT-MAINT-terms-and-acceptable-use-rendering.md.
 ---
 
-<Layout title="Terms of Service - intent solutions io">
-  <div class="min-h-screen bg-zinc-900 py-24">
-    <div class="container mx-auto px-8 max-w-4xl">
-      <h1 class="text-h1 font-bold text-zinc-50 mb-12">Terms of Service</h1>
-
-      <div class="getterms-document-embed"
-           data-getterms="wH2cn"
-           data-getterms-document="terms-of-service"
-           data-getterms-lang="en-us"
-           data-getterms-mode="direct"
-           data-getterms-env="https://gettermscdn.com">
-      </div>
-
-      <script type="text/javascript">
-        (function(d, s, id) {
-          var js, ref = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) return;
-          js = d.createElement(s);
-          js.id = id;
-          js.src = "https://gettermscdn.com/dist/js/embed.js";
-          ref.parentNode.insertBefore(js, ref);
-        })(document, "script", "getterms-embed-js");
-      </script>
-    </div>
-  </div>
+<Layout
+  title="Terms of Service | Intent Solutions"
+  description="The terms and conditions that govern use of Intent Solutions websites and services. Last updated September 12, 2026."
+>
+  <LegalDocument id="terms" title="Terms of Service" html={terms} />
 </Layout>

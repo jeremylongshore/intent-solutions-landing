@@ -32,10 +32,12 @@ const sitemapXml = readFileSync(sitemapPath, 'utf8');
 const urls = [...sitemapXml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
 if (urls.length === 0) fail('sitemap-0.xml contains zero <loc> entries');
 
-// Map a sitemap URL to its built file path (directory format → index.html).
+// Map a sitemap URL to its built file path (directory format → index.html;
+// standalone public/ pages such as /estate-blueprint.html map to themselves).
 function urlToFile(url) {
   const { pathname } = new URL(url);
   const clean = pathname.replace(/^\/+/, '').replace(/\/+$/, '');
+  if (clean.endsWith('.html')) return join(distDir, clean);
   return clean === '' ? join(distDir, 'index.html') : join(distDir, clean, 'index.html');
 }
 
