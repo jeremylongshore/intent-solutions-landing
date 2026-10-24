@@ -1,3 +1,18 @@
+# Release v4.12.0
+
+**Release Date**: 2026-10-24
+
+## Changes since v4.11.2
+
+- chore: release v4.12.0 [skip ci] (dcbbb42)
+- Merge pull request #90 from jeremylongshore/feat/homepage-hallmark-floor (da4d19d)
+- fix(legal): serve the published Terms and Acceptable Use text without the GetTerms script (030e3e0)
+- feat(site-map): index the eight operating atlas pages and audit every public HTML file (294b720)
+- style(home): remove the machine-made design tells from the homepage within the brand contract (f07b69a)
+- chore(site): delete 29 unreachable components and the three libraries only they used (e9c5097)
+
+---
+
 # Release v4.11.2
 
 **Release Date**: 2026-10-22
