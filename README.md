@@ -24,7 +24,7 @@ cd astro-site
 
 All development, builds, and testing should be performed within the `astro-site` directory. Please see the `astro-site/README.md` for full instructions, and review the root-level [`AGENTS.md`](AGENTS.md) for contributor expectations and workflows.
 
-Public discoverability: [estate reachability audit and route inventory](000-docs/090-AA-AUDT-public-estate-discovery.md) records the October 2026 page-level review, evidence boundaries and tracked repairs.
+Public discoverability: [estate reachability audit and route inventory](000-docs/092-AA-AUDT-public-estate-discovery.md) records the October 2026 page-level review, evidence boundaries and tracked repairs.
 
 Current site structure: [individual route map](000-docs/085-AT-ARCH-site-map.md). Current brand: [presentation contract](000-docs/084-AT-DSGN-brand-family-contract.md). The company homepage is customer-first; Projects supplies evidence, Learn is a separate practitioner property, and legacy service URLs are explicit non-indexable handoffs.
 

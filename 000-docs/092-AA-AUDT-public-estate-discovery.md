@@ -2,6 +2,12 @@
 
 Date: 2026-10-16. Audit owner: Intent Solutions web team (three independent agent reviewers and lead synthesis). Tracking: `bd_000-projects-1u2o`. Scope: public navigation, page coverage and visitor understanding; no visual redesign or production changes.
 
+> **Status, 2026-10-25:** a point-in-time record, merged after the repairs it specifies shipped. All
+> four repair beads are closed: the Projects page as the Explore directory (`bd_000-projects-4um6`),
+> the Learn handoff (`xt6p.1`), demo return paths (`qln7`) and automated route-coverage checks
+> (`djgu`, now `audit:discovery`). Route statuses and counts below describe 2026-10-16. Renumbered
+> from 090 to 092 because 090 went to the privacy-policy record first.
+
 ## Decision in one minute
 
 The estate is partly organized within individual sites, but it does not yet have a complete public discovery layer. The shared header identifies websites. Visitors need to find individual experiences: a keyboard game, a migration project, a real-estate workflow, practitioner education, a desktop tool or a useful test example. A visitor should not need to know which subdomain owns it.
@@ -16,11 +22,11 @@ This report delivers the audit and implementation specification. The repair issu
 
 Methods: fresh public HTTP GETs, robots/sitemap inspection, source route comparison, deployed demo HTML and read-only ingress hostname inspection, and browser journeys using the **webapp-testing** skill. Reviewer scopes were independent: Learn; OMA/Demos; company/Labs/Evals. The lead checked additional branded/public roots, aliases and sitemaps. Global skills supplied methods, not project brand or capability facts.
 
-- **390 distinct requested URLs** recorded in [verified-routes.csv](090-public-discovery-evidence/verified-routes.csv), across 19 requested hostnames including aliases and one restricted portal boundary. There were 381 final 200 responses and nine 404s. The 404s are the intentional company not-found page and eight old Learn source routes no longer served, not nine broken advertised links. Redirect targets and classifications are recorded separately.
+- **390 distinct requested URLs** recorded in [verified-routes.csv](092-public-discovery-evidence/verified-routes.csv), across 19 requested hostnames including aliases and one restricted portal boundary. There were 381 final 200 responses and nine 404s. The 404s are the intentional company not-found page and eight old Learn source routes no longer served, not nine broken advertised links. Redirect targets and classifications are recorded separately.
 - **40 browser observations** from the three specialists: 22 OMA/Demos/selected company observations, ten Learn/company observations, eight company/Labs/Evals observations. Widths: 390 and 1440 pixels. Learn's company → practice → tracks → application chain was actually clicked at both widths. Other observations check navigation and rendered content; they are not end-to-end proof of every product action.
-- **4,541 additional sitemap entries** collected across marketplace, publishing, founder, product and realty sites in [additional-sitemap-routes.csv](090-public-discovery-evidence/additional-sitemap-routes.csv). These are discovered URLs, mostly not individually fetched or browser-tested. They are not 4,541 products. Some overlap verified roots; do not add the two counts as unique estate coverage.
+- **4,541 additional sitemap entries** collected across marketplace, publishing, founder, product and realty sites in [additional-sitemap-routes.csv](092-public-discovery-evidence/additional-sitemap-routes.csv). These are discovered URLs, mostly not individually fetched or browser-tested. They are not 4,541 products. Some overlap verified roots; do not add the two counts as unique estate coverage.
 - Core coverage: company 184 source-derived routes; Labs 59 discovered routes/artifacts; Evals 11; OMA 26; Demos 73 requested routes; Learn 24 probes. The remaining 13 are portfolio roots/aliases/boundaries.
-- Exact counts, sitemap source errors and limits: [coverage.json](090-public-discovery-evidence/coverage.json).
+- Exact counts, sitemap source errors and limits: [coverage.json](092-public-discovery-evidence/coverage.json).
 
 The company source reconciliation accounts for 141 Astro HTML routes (30 fixed pages, 11 financial chapters, 100 field notes), 42 standalone HTML files and RSS. The 23-entry company XML sitemap is intentionally smaller: crossposted articles, retired handoffs, utility pages and noindex diagrams are excluded. The eight linked, self-canonical operating diagrams are absent from XML; that is an indexing opportunity, not evidence they are orphaned.
 
@@ -110,11 +116,11 @@ A two-click standard applies to promoted named experiences, not every article, l
 
 ## Independent reviews and evidence handling
 
-- [Learn review](090-public-discovery-evidence/learn-review.md)
-- [OMA and Demos review](090-public-discovery-evidence/experiences-review.md)
-- [Company, Labs and Evals review](090-public-discovery-evidence/architecture-review.md)
-- [Verified request inventory](090-public-discovery-evidence/verified-routes.csv)
-- [Additional sitemap discovery](090-public-discovery-evidence/additional-sitemap-routes.csv)
-- [Coverage and limitations](090-public-discovery-evidence/coverage.json)
+- [Learn review](092-public-discovery-evidence/learn-review.md)
+- [OMA and Demos review](092-public-discovery-evidence/experiences-review.md)
+- [Company, Labs and Evals review](092-public-discovery-evidence/architecture-review.md)
+- [Verified request inventory](092-public-discovery-evidence/verified-routes.csv)
+- [Additional sitemap discovery](092-public-discovery-evidence/additional-sitemap-routes.csv)
+- [Coverage and limitations](092-public-discovery-evidence/coverage.json)
 
 The versioned evidence contains normalized public route data and specialist findings. Full HTML, screenshots and browser captures remain in the working evidence directory `/tmp/estate-team-audit/`; they are ephemeral and are not required to understand the findings. No secrets, customer records or private curriculum are included in the deliverable. Follow-up status lives in Beads rather than a parallel Markdown task list.
