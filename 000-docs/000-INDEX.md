@@ -2,6 +2,7 @@
 
 ## October 2026 rendering and indexing repairs
 
+- [092: Public estate discovery and reachability audit](092-AA-AUDT-public-estate-discovery.md) (2026-10-16 record; its four repairs have shipped)
 - [090: Privacy policy rendering repair](090-AT-MAINT-privacy-policy-rendering.md)
 - [091: Terms and acceptable use rendering repair](091-AT-MAINT-terms-and-acceptable-use-rendering.md)
 - [085: Site map](085-AT-ARCH-site-map.md) amended 2026-10-24 with the standalone public pages table
