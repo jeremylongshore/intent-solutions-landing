@@ -1,0 +1,82 @@
+---
+import BbbFrame from '../../components/bbb/BbbFrame.astro';
+import { verifiedAt, proven, limits, repos, tracker } from '../../data/bbb.mjs';
+
+const formatted = new Date(`${verifiedAt}T12:00:00Z`).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+---
+
+<BbbFrame
+  title="Bob’s Big Brain beta status | Intent Solutions"
+  description="What works in Bob’s Big Brain today, what is not finished, and the exact commits each claim was checked against. Beta, under development."
+  current="status"
+>
+  <section class="bbb-pagehead" aria-labelledby="st-title">
+    <div class="bbb-container bbb-head">
+      <h1 id="st-title">What works today</h1>
+      <p class="bbb-lead">Checked against the code on <time datetime={verifiedAt}>{formatted}</time>.</p>
+    </div>
+  </section>
+
+  <section class="bbb-section bbb-section--band" aria-labelledby="proven-title">
+    <div class="bbb-container bbb-split">
+      <div class="bbb-head">
+        <h2 id="proven-title">What a clean local install proved</h2>
+      </div>
+      <ol class="bbb-rows bbb-rows--single">
+        {proven.map((item) => (<li><p>{item}</p></li>))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="bbb-section" aria-labelledby="limits-title">
+    <div class="bbb-container">
+      <div class="bbb-head">
+        <h2 id="limits-title">What is not done</h2>
+        <p>Each limit is tracked in public. We would rather you read it here than find it.</p>
+      </div>
+      <ul class="bbb-rows bbb-rows--roomy">
+        {limits.map((limit) => (
+          <li>
+            <h3>{limit.title}</h3>
+            <p>{limit.short}{limit.href && (<> <a href={limit.href} aria-label={`Tracking issue: ${limit.title}`}>Tracking issue</a></>)}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="bbb-section bbb-section--band" aria-labelledby="ver-title">
+    <div class="bbb-container">
+      <div class="bbb-head">
+        <h2 id="ver-title">What we checked</h2>
+        <p>The default branch of each repository at these commits.</p>
+      </div>
+      <div class="bbb-table-wrap">
+        <table class="bbb-table bbb-table--stack">
+          <thead><tr><th scope="col">Repository</th><th scope="col">Version</th><th scope="col">Commit</th><th scope="col">Licence</th></tr></thead>
+          <tbody>
+            {repos.map((repo) => (
+              <tr>
+                <td><a href={repo.href}>{repo.name}</a></td>
+                <td data-label="Version" class="num">{repo.version ?? 'n/a'}</td>
+                <td data-label="Commit" class="num">{repo.commit ? <a href={`${repo.href}/commit/${repo.commit}`}>{repo.commit}</a> : 'pinned release'}</td>
+                <td data-label="Licence">{repo.license}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="bbb-caption">The full audit and the open work live in the <a href={tracker}>umbrella tracker</a>.</p>
+    </div>
+  </section>
+
+  <section class="bbb-section" aria-labelledby="st-next">
+    <div class="bbb-container bbb-close">
+      <h2 id="st-next">Comfortable with beta?</h2>
+      <div class="bbb-actions">
+        <a class="bbb-btn bbb-btn--primary" href="/bbb/install/">Install local mode</a>
+        <a class="bbb-btn bbb-btn--quiet" href="/contact/?door=outcome">Request a team brain</a>
+      </div>
+    </div>
+  </section>
+</BbbFrame>

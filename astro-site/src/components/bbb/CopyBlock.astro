@@ -1,0 +1,57 @@
+---
+// A copy-ready block of text with one Copy button. Without JavaScript the text stays selectable.
+interface Props {
+  label: string;
+  text: string;
+  id: string;
+  /** Long text: keep it behind a disclosure; Copy still copies all of it. */
+  collapsed?: boolean;
+  /** Visible short excerpt shown above a collapsed full text. */
+  preview?: string;
+}
+
+const { label, text, id, collapsed = false, preview } = Astro.props;
+---
+
+<div class="bbb-copy" data-copy-block>
+  <div class="bbb-copy__bar">
+    <span class="bbb-copy__label" id={`${id}-label`}>{label}</span>
+    <button type="button" class="bbb-btn bbb-btn--quiet bbb-copy__btn" data-copy-target={id} aria-describedby={`${id}-label`}>Copy</button>
+  </div>
+  {preview && <pre class="bbb-copy__preview" aria-hidden="true">{preview}</pre>}
+  {collapsed ? (
+    <details class="bbb-details">
+      <summary>{preview ? 'Read the full prompt before you paste it' : 'Read it before you paste it'}</summary>
+      <pre id={id} tabindex="0" aria-labelledby={`${id}-label`}>{text}</pre>
+    </details>
+  ) : (
+    <pre id={id} tabindex="0" aria-labelledby={`${id}-label`}>{text}</pre>
+  )}
+  <p class="bbb-copy__status" role="status" aria-live="polite" data-copy-status></p>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('[data-copy-target]').forEach((button) => {
+    if (button.dataset.wired) return;
+    button.dataset.wired = 'true';
+    const block = button.closest('[data-copy-block]');
+    const status = block?.querySelector<HTMLElement>('[data-copy-status]');
+    const source = document.getElementById(button.dataset.copyTarget ?? '');
+    button.addEventListener('click', async () => {
+      if (!source || !status) return;
+      try {
+        await navigator.clipboard.writeText(source.textContent ?? '');
+        button.textContent = 'Copied';
+        status.textContent = 'Copied. Paste it into Claude.';
+        window.setTimeout(() => { button.textContent = 'Copy'; status.textContent = ''; }, 2000);
+      } catch {
+        const range = document.createRange();
+        range.selectNodeContents(source);
+        const selection = window.getSelection();
+        selection?.removeAllRanges();
+        selection?.addRange(range);
+        status.textContent = 'Selected. Press Ctrl+C (or Cmd+C) to copy.';
+      }
+    });
+  });
+</script>

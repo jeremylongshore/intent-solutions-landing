@@ -358,21 +358,26 @@ export const experiences = [
   {
     "id": "bobs-big-brain",
     "name": "Bob’s Big Brain",
-    "description": "Explore how team knowledge can be captured, retrieved with citations and kept accountable through an audit trail.",
-    "audience": "Teams working with AI agents",
+    "description": "A governed memory for Claude Code: answers cite the exact memory, code decides what is saved, and each save leaves a verifiable receipt.",
+    "audience": "Claude Code builders and team leads",
     "category": "research",
-    "status": "Architecture demo",
-    "href": "https://demos.intentsolutions.io/bbb/",
-    "action": "Explore team knowledge",
+    "status": "In development",
+    "href": "https://intentsolutions.io/bbb/",
+    "action": "See Bob’s Big Brain",
     "tags": [
       "memory",
       "knowledge",
       "citations",
       "agents"
     ],
-    "links": [],
-    "verifiedAt": "2026-10-16",
-    "source": "intent-demos curated catalog; public page and 2026-10-16 discovery audit",
+    "links": [
+      {
+        "label": "Earlier architecture demo",
+        "href": "https://demos.intentsolutions.io/bbb/"
+      }
+    ],
+    "verifiedAt": "2026-10-25",
+    "source": "bobs-big-brain-umbrella 000-docs/029-035; product site checked against code 2026-10-25",
     "parent": "demos"
   },
   {

@@ -1,0 +1,134 @@
+---
+import BbbFrame from '../../components/bbb/BbbFrame.astro';
+import { verifiedAt } from '../../data/bbb.mjs';
+
+const egress = [
+  { step: 'Search and saves', local: 'Nothing', team: 'Your team server only' },
+  { step: 'First start', local: 'npm fetches three pinned modules, once', team: 'Nothing extra' },
+  { step: 'Compile, optional', local: 'File text, to the model you choose', team: 'Run by the operator, not the plugin' },
+  { step: 'Anchor log', local: 'Only if you add a git remote', team: 'Stays on the server' },
+];
+
+const permissions = [
+  { action: 'Search the brain', member: 'Yes', admin: 'Yes' },
+  { action: 'Propose a memory', member: 'Yes', admin: 'Yes' },
+  { action: 'Approve or reject a proposal', member: 'No', admin: 'Yes' },
+  { action: 'Retire or supersede a memory', member: 'No', admin: 'Yes' },
+];
+---
+
+<BbbFrame
+  title="How Bob’s Big Brain works | Intent Solutions"
+  description="Compile, govern, retrieve and package: what runs where in Bob’s Big Brain, what leaves your machine, and how team permissions work. Beta."
+  current="how"
+>
+  <section class="bbb-pagehead" aria-labelledby="how-title">
+    <div class="bbb-container bbb-head">
+      <h1 id="how-title">From a save to a cited answer</h1>
+      <p class="bbb-lead">The model proposes. Code decides what becomes memory.</p>
+    </div>
+  </section>
+
+  <section class="bbb-section" aria-label="The pipeline">
+    <div class="bbb-container">
+      <figure class="bbb-panel bbb-figure">
+        <div class="bbb-diagram-wrap" tabindex="0" role="region" aria-label="Pipeline diagram, scrolls sideways on small screens">
+        <svg class="bbb-diagram" viewBox="0 0 1180 300" role="img" aria-labelledby="pipeline-title pipeline-desc">
+          <title id="pipeline-title">Diagram of the Bob’s Big Brain pipeline</title>
+          <desc id="pipeline-desc">Your files and saves flow through optional compile into a spool, then governance runs dedupe, policy and promotion, writing memories and hash-chained receipts; retrieval searches the memories and Claude answers with qmd citations.</desc>
+          <defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path class="d-arrow" d="M0,0 L10,5 L0,10 z" /></marker></defs>
+          <rect class="d-box" x="10" y="40" width="170" height="90" rx="8" />
+          <text x="95" y="80" text-anchor="middle" font-size="18" font-weight="700">Your files</text>
+          <text class="d-muted" x="95" y="106" text-anchor="middle" font-size="14">and /brain-save</text>
+          <rect class="d-box" x="230" y="40" width="170" height="90" rx="8" />
+          <text x="315" y="80" text-anchor="middle" font-size="18" font-weight="700">Compile</text>
+          <text class="d-muted" x="315" y="106" text-anchor="middle" font-size="14">optional</text>
+          <rect class="d-box" x="450" y="40" width="130" height="90" rx="8" />
+          <text x="515" y="92" text-anchor="middle" font-size="18" font-weight="700">Spool</text>
+          <rect class="d-key" x="630" y="20" width="230" height="130" rx="8" />
+          <text x="745" y="62" text-anchor="middle" font-size="18" font-weight="700">Govern</text>
+          <text class="d-muted" x="745" y="90" text-anchor="middle" font-size="14">dedupe, policy, promote</text>
+          <text class="d-muted" x="745" y="114" text-anchor="middle" font-size="14">code decides</text>
+          <rect class="d-box" x="910" y="10" width="200" height="60" rx="8" />
+          <text x="1010" y="46" text-anchor="middle" font-size="16" font-weight="700">Memories</text>
+          <rect class="d-box" x="910" y="110" width="200" height="60" rx="8" />
+          <text x="1010" y="146" text-anchor="middle" font-size="16" font-weight="700">Receipt chain</text>
+          <rect class="d-box" x="630" y="210" width="230" height="70" rx="8" />
+          <text x="745" y="242" text-anchor="middle" font-size="18" font-weight="700">Retrieve</text>
+          <text class="d-muted" x="745" y="266" text-anchor="middle" font-size="14">keyword arms, fused, reranked</text>
+          <rect class="d-box" x="300" y="210" width="230" height="70" rx="8" />
+          <text x="415" y="242" text-anchor="middle" font-size="18" font-weight="700">Claude answers</text>
+          <text class="d-muted" x="415" y="266" text-anchor="middle" font-size="14">with a qmd:// citation</text>
+          <path class="d-line" d="M180 85 H226" marker-end="url(#arr)" stroke-width="2" />
+          <path class="d-line" d="M400 85 H446" marker-end="url(#arr)" stroke-width="2" />
+          <path class="d-line" d="M580 85 H626" marker-end="url(#arr)" stroke-width="2" />
+          <path class="d-line" d="M860 50 H906" marker-end="url(#arr)" stroke-width="2" />
+          <path class="d-line" d="M860 130 H906" marker-end="url(#arr)" stroke-width="2" />
+          <path class="d-line" d="M1110 40 H1150 V245 H864" marker-end="url(#arr)" stroke-width="2" />
+          <path class="d-line" d="M630 245 H534" marker-end="url(#arr)" stroke-width="2" />
+        </svg>
+        </div>
+        <figcaption class="bbb-caption">Inventory: files and saves enter the spool directly or through optional compile; governance reads the spool and writes memories plus one receipt per decision; retrieval reads only governed memories; Claude cites what retrieval returns. Checked against code on {verifiedAt}.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="bbb-section bbb-section--band" aria-label="The four layers">
+    <div class="bbb-container">
+      <ul class="bbb-layer-list">
+        <li id="compile"><h2>Compile</h2><p>Optional. Turns your files into summaries, concepts and gaps, and records each step in its own trace.</p></li>
+        <li id="govern"><h2>Govern</h2><p>Code runs dedupe, policy and promotion. Each save writes a receipt; a newer decision retires the old entry.</p></li>
+        <li id="retrieve"><h2>Retrieve</h2><p>Keyword search fused by rank, reranked for freshness; an optional semantic arm. No generative model. Every hit is a <code>qmd://</code> link.</p></li>
+        <li id="package"><h2>Package</h2><p>One plugin for Claude Code and Cowork. <code>/brain</code> asks and cites; <code>/brain-save</code> saves, only when you type it.</p></li>
+      </ul>
+      <p class="bbb-caption">On a new local brain, two of the ten governance rules run today. <a href="/bbb/status/">See the status</a></p>
+    </div>
+  </section>
+
+  <section class="bbb-section" aria-labelledby="egress-title">
+    <div class="bbb-container">
+      <div class="bbb-head">
+        <h2 id="egress-title">What leaves your machine</h2>
+      </div>
+      <div class="bbb-table-wrap">
+        <table class="bbb-table bbb-table--stack">
+          <thead><tr><th scope="col">Step</th><th scope="col">Local mode</th><th scope="col">Team mode</th></tr></thead>
+          <tbody>
+            {egress.map((row) => (
+              <tr><td>{row.step}</td><td data-label="Local">{row.local}</td><td data-label="Team">{row.team}</td></tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="bbb-section bbb-section--band" aria-labelledby="perm-title">
+    <div class="bbb-container">
+      <div class="bbb-head">
+        <h2 id="perm-title">Who can change a team brain</h2>
+        <p>Each teammate gets their own token; the server keeps only a salted hash. Checked in code; our clean-room test covered local mode.</p>
+      </div>
+      <div class="bbb-table-wrap">
+        <table class="bbb-table bbb-table--stack">
+          <thead><tr><th scope="col">Action</th><th scope="col">Member</th><th scope="col">Admin</th></tr></thead>
+          <tbody>
+            {permissions.map((row) => (
+              <tr><td>{row.action}</td><td data-label="Member">{row.member}</td><td data-label="Admin">{row.admin}</td></tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="bbb-section" aria-labelledby="how-next">
+    <div class="bbb-container bbb-close">
+      <h2 id="how-next">Try the whole loop locally.</h2>
+      <div class="bbb-actions">
+        <a class="bbb-btn bbb-btn--primary" href="/bbb/install/">Install local mode</a>
+        <a class="bbb-btn bbb-btn--quiet" href="/bbb/receipts/">How receipts work</a>
+      </div>
+    </div>
+  </section>
+</BbbFrame>
