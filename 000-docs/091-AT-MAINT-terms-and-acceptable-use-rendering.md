@@ -70,3 +70,26 @@ H1, the final heading, the exact body digest, no GetTerms script or iframe, no h
 overflow, and 200% text reflow. A planted one-word change to the built terms page fails it
 with `('/terms/', 'published text changed')`. Build, indexability (now 31 unique titles) and
 site-map audits remain required.
+
+## Addendum: company name and dates (October 25, 2026)
+
+Closes the two observations above, on the owner's instruction to decide them.
+
+- **Name.** All three policies now use the canonical presentation `intentsolutions.io LLC`
+  (first mention in the terms: "intentsolutions.io LLC (...), a Delaware limited liability
+  company") and `intentsolutions.io` where the text said "intent solutions io". The company
+  record states that this presentation does not change a document's substantive terms. The
+  "trading as" clause was dropped because the trading name is now the same string.
+- **Date.** Only the privacy policy carried the July 6, 2025 effective date; the terms and
+  acceptable use policy carry only a last-updated or last-reviewed date. A policy cannot have
+  been in effect for the LLC before its formation on September 11, 2025, so the privacy
+  policy is now effective as of this revision, October 25, 2026. All three documents and their
+  page descriptions are dated October 25, 2026.
+
+No other wording changed. New body digests: privacy
+`5636f7547429619aaeaed7db4e3d2cebeb28e43c44de776a9f57c80313ec9065` (2,769 words), terms
+`f15df6bd6008172777a3efba59f2d6a1e5e361e581f5c381f5ee064bb1d36069` (3,525 words, 11 fewer:
+the name and clause change), acceptable use
+`5fba5b61efb99d92f68a7dbf3c5e1ad986a58903f08bc4a9c15dbc4f1d020514` (1,174 words, 12 fewer:
+six three-word names became one word). The GetTerms account still holds the old text; it no
+longer feeds the site. This remains a presentation correction, not a legal review.

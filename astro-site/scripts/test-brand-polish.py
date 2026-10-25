@@ -135,11 +135,11 @@ with sync_playwright() as p:
     assert page.evaluate('document.documentElement.scrollWidth <= innerWidth'), 'contact 200% text reflow'
     # Each policy must survive disabled JavaScript and an unavailable policy CDN.
     # Digests are the whitespace-normalized bodies of the published GetTerms documents
-    # (provenance: 000-docs/090 for privacy, 000-docs/091 for terms and acceptable use).
+    # (provenance: 000-docs/090 and 091; company name and dates revised per 000-docs/091 addendum).
     policies = [
-        ('/privacy/', 'Privacy Policy', 'Contact Us', '7129d3d98dc26a17c3018837be7d8e1b504ddb07d67fcd0a53f4ecaea0d7da08'),
-        ('/terms/', 'Terms of Service', 'Contact Information', 'ef4ac4d3fac83a81da68fef86b6a235699a0401afaa241d74d05295d4609b3ed'),
-        ('/acceptable-use/', 'Acceptable Use Policy', 'About This Policy', '98e66e44d5c9f0a9cb1fa8b162de924df2ba7a78b728df750b0cf0d5c533ab44'),
+        ('/privacy/', 'Privacy Policy', 'Contact Us', '5636f7547429619aaeaed7db4e3d2cebeb28e43c44de776a9f57c80313ec9065'),
+        ('/terms/', 'Terms of Service', 'Contact Information', 'f15df6bd6008172777a3efba59f2d6a1e5e361e581f5c381f5ee064bb1d36069'),
+        ('/acceptable-use/', 'Acceptable Use Policy', 'About This Policy', '5fba5b61efb99d92f68a7dbf3c5e1ad986a58903f08bc4a9c15dbc4f1d020514'),
     ]
     for route, title, last_heading, policy_digest in policies:
         for enabled in (False, True):
