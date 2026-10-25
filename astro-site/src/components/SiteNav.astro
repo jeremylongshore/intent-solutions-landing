@@ -2,7 +2,7 @@
 const primary = [
   { href: '/#method', label: 'How we work' },
   { href: '/#proof', label: 'Proof' },
-  { href: '/projects/', label: 'Projects' },
+  { href: '/projects/', label: 'Explore' },
   { href: '/estate/', label: 'The estate' },
   { href: '/field-notes/', label: 'Field notes' },
   { href: '/about/', label: 'About' },
@@ -54,12 +54,12 @@ const primary = [
     position: sticky;
     top: 0;
     z-index: 50;
-    background: rgba(9, 9, 11, 0.88);
-    border-bottom: 1px solid rgba(63, 63, 70, 0.5);
-    backdrop-filter: blur(18px);
+    background: var(--intent-ink);
+    border-bottom: 1px solid var(--intent-line-soft);
   }
 
   .nav-inner {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -73,15 +73,15 @@ const primary = [
     align-items: center;
     gap: 0.6rem;
     min-height: 44px;
-    color: #fafafa;
-    font-family: 'Syne', system-ui, sans-serif;
+    color: var(--intent-text);
+    font-family: var(--font-display);
     font-size: 1rem;
     font-weight: 700;
     text-decoration: none;
   }
 
   .brand img { display: block; flex: 0 0 auto; }
-  .brand strong { color: #ff7a1a; }
+  .brand strong { color: var(--intent-brand); }
 
   .desktop-links {
     display: flex;
@@ -94,17 +94,21 @@ const primary = [
     display: inline-flex;
     align-items: center;
     min-height: 44px;
-    color: #a1a1aa;
+    color: var(--intent-muted);
     font-size: 0.84rem;
-    font-weight: 500;
+    font-weight: 400;
     text-decoration: none;
+    white-space: nowrap;
     transition: color 160ms ease;
   }
 
   .desktop-links > a:hover,
   .desktop-links > a:focus-visible,
   .mobile-panel > a:hover,
-  .mobile-panel > a:focus-visible { color: #fafafa; }
+  .mobile-panel > a:focus-visible { color: var(--intent-text); }
+
+  .desktop-links > a:not(.nav-cta):active,
+  .mobile-panel > a:not(.nav-cta):active { color: var(--intent-accent-hi); }
 
   .nav-cta {
     display: inline-flex;
@@ -112,25 +116,27 @@ const primary = [
     justify-content: center;
     min-height: 44px;
     padding: 0.62rem 0.95rem;
-    background: #f97316;
+    background: var(--intent-accent);
     border-radius: 0.45rem;
-    color: #09090b;
+    color: var(--intent-ink);
     font-size: 0.8rem;
     font-weight: 800;
     text-decoration: none;
+    white-space: nowrap;
     transition: background 160ms ease, transform 160ms ease;
   }
 
   .nav-cta:hover,
-  .nav-cta:focus-visible { background: #fb923c; transform: translateY(-1px); }
+  .nav-cta:focus-visible { background: var(--intent-accent-hi); transform: translateY(-1px); }
+  .nav-cta:active { background: var(--intent-accent-lo); transform: translateY(0); }
 
-  .mobile-menu { display: none; position: relative; }
+  .mobile-menu { display: none; }
 
   .mobile-menu summary {
     min-width: 44px;
     min-height: 44px;
     padding: 0.8rem 0;
-    color: #d4d4d8;
+    color: var(--intent-text-2);
     cursor: pointer;
     font-size: 0.82rem;
     font-weight: 700;
@@ -142,22 +148,25 @@ const primary = [
 
   .mobile-panel {
     position: absolute;
-    top: 3.2rem;
+    top: calc(100% - 0.2rem);
     right: 0;
+    left: 0;
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    width: min(18rem, calc(100vw - 2rem));
+    max-width: 18rem;
+    margin-left: auto;
     padding: 1.2rem;
-    background: #101012;
-    border: 1px solid #3f3f46;
+    background: var(--intent-surface);
+    color: var(--intent-text);
+    border: 1px solid var(--intent-line);
     border-radius: 0.75rem;
   }
 
   .mobile-panel .nav-cta { margin-top: 0.25rem; text-align: center; }
 
   a:focus-visible,
-  summary:focus-visible { outline: 2px solid #fb923c; outline-offset: 3px; }
+  summary:focus-visible { outline: 2px solid var(--intent-accent-hi); outline-offset: 3px; }
 
   @media (max-width: 850px) {
     .desktop-links { display: none; }
@@ -170,6 +179,7 @@ const primary = [
 
   @media (prefers-reduced-motion: reduce) {
     .desktop-links a,
-    .mobile-panel a { transition: none; }
+    .mobile-panel a,
+    .nav-cta { transition: none; }
   }
 </style>

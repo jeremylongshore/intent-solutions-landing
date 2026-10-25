@@ -60,19 +60,16 @@ const audiences = [
 const facts = [
   ['Company Name', 'Intent Solutions'],
   ['Type', 'Applied AI engineering company'],
-  ['Founded', '[[FOUNDING_YEAR]]'],
+  ['Founded', '2025'],
   ['Founder', 'Jeremy Longshore'],
   ['Headquarters', 'Gulf Shores, Alabama, United States'],
   ['Website', 'https://intentsolutions.io/'],
   ['Core Offering', 'Design, evaluation, delivery, and operation of production AI systems around defined business outcomes'],
-  ['Pricing', '[[PRICING_MODEL]]'],
-  ['Contract Terms', '[[CONTRACT_TERMS]]'],
+  ['Pricing', 'Scoped per engagement; not published on this site'],
+  ['Contract Terms', 'Agreed per engagement'],
   ['Services', 'Outcome framing; system design and build; evaluation; operational handoff and support'],
   ['Communication', 'Outcome request form; support@intentsolutions.io'],
-  ['Notable Clients', '[[PUBLICLY_NAMED_CLIENTS]]'],
-  ['Customers Served', '[[VERIFIED_CUSTOMERS_SERVED]]'],
   ['Projects Delivered', 'Public examples are listed in Projects and Demos; a total count is not published'],
-  ['Competitors', '[[NAMED_ALTERNATIVE]]'],
   ['Social', 'GitHub and LinkedIn'],
   ['Network', 'Intent Labs, Evals, Demos, Learn, Omarchy, Tons of Skills, Start AI Tools, DiagnosticPro, and Hustle'],
 ];
@@ -87,8 +84,8 @@ const faqs = [
     answer: 'It is for operators, technical founders, and teams that need an AI system they can test, own, and run. It is a poor fit for someone seeking an untested prototype, a generic prompt pack, or a result with no accountable operator.',
   },
   {
-    question: 'How is Intent Solutions different from [[NAMED_ALTERNATIVE]]?',
-    answer: 'The comparison must be completed against a verified, named alternative before publication. The relevant differences to assess are ownership, test evidence, human control, portability, rollback, and what happens after the first successful demonstration.',
+    question: 'How is Intent Solutions different from other AI implementation providers?',
+    answer: 'Done is defined before the build: the outcome, constraints, authority, evidence, and stopping conditions become the acceptance test. Failed evaluations stay in the record. Monitoring, cost controls, and rollback are part of delivery, and the handoff covers how the customer team runs and changes the agreed workflow.',
   },
   {
     question: 'How does onboarding work?',
@@ -369,7 +366,7 @@ const faqJsonLd = {
   .primary-action a { flex: 0 0 auto; padding: 0.85rem 1.2rem; background: #f97316; border-radius: 0.5rem; color: #09090b; font-size: 0.9rem; font-weight: 800; text-decoration: none; transition: background-color 160ms ease, transform 160ms ease; }
   .primary-action a:hover { background: #fb923c; color: #09090b; transform: translateY(-2px); }
   @media (max-width: 800px) {
-    .section-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+    .section-layout { grid-template-columns: minmax(0, 1fr); gap: 2.5rem; }
     .section-head { position: static; }
     .primary-action { align-items: flex-start; flex-direction: column; }
   }

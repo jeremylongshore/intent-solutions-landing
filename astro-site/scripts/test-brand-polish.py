@@ -5,6 +5,9 @@ Run after build against a local preview:
 Dependency: pip install playwright && playwright install chromium
 """
 import sys
+import os
+import hashlib
+import re
 from playwright.sync_api import sync_playwright, expect
 
 base = sys.argv[1] if len(sys.argv) > 1 else 'http://127.0.0.1:4896'
@@ -32,7 +35,7 @@ def assert_contact_bounds(page, width):
     assert not clipped, (width, clipped)
 
 with sync_playwright() as p:
-    browser = p.chromium.launch(headless=True)
+    browser = p.chromium.launch(headless=True, **({"executable_path": os.environ["PLAYWRIGHT_CHROMIUM_EXECUTABLE"]} if os.environ.get("PLAYWRIGHT_CHROMIUM_EXECUTABLE") else {}))
     for width in (320, 390, 768, 1440):
         page = browser.new_page(viewport={'width': width, 'height': 1000}, reduced_motion='reduce')
         page.goto(base, wait_until='networkidle')
@@ -130,5 +133,32 @@ with sync_playwright() as p:
     page.add_style_tag(content='html {font-size:200% !important;}')
     assert_contact_bounds(page, 768)
     assert page.evaluate('document.documentElement.scrollWidth <= innerWidth'), 'contact 200% text reflow'
+    # Each policy must survive disabled JavaScript and an unavailable policy CDN.
+    # Digests are the whitespace-normalized bodies of the published GetTerms documents
+    # (provenance: 000-docs/090 and 091; company name and dates revised per 000-docs/091 addendum).
+    policies = [
+        ('/privacy/', 'Privacy Policy', 'Contact Us', '5636f7547429619aaeaed7db4e3d2cebeb28e43c44de776a9f57c80313ec9065'),
+        ('/terms/', 'Terms of Service', 'Contact Information', 'f15df6bd6008172777a3efba59f2d6a1e5e361e581f5c381f5ee064bb1d36069'),
+        ('/acceptable-use/', 'Acceptable Use Policy', 'About This Policy', '5fba5b61efb99d92f68a7dbf3c5e1ad986a58903f08bc4a9c15dbc4f1d020514'),
+    ]
+    for route, title, last_heading, policy_digest in policies:
+        for enabled in (False, True):
+            for width in (320, 390, 1440):
+                page = browser.new_page(viewport={'width': width, 'height': 900}, java_script_enabled=enabled)
+                page.route('**/*getterms*', lambda route: route.abort())
+                response = page.goto(base + route, wait_until='networkidle')
+                assert response.status == 200
+                expect(page.get_by_role('heading', level=1)).to_have_text(title)
+                assert page.locator('h1').count() == 1, (route, 'one h1')
+                policy = page.get_by_role('article', name=title)
+                expect(policy.get_by_role('heading', name=last_heading, exact=True)).to_be_visible()
+                normalized = re.sub(r'\s+', ' ', policy.inner_text()).strip()
+                assert hashlib.sha256(normalized.encode()).hexdigest() == policy_digest, (route, 'published text changed')
+                assert page.evaluate('document.documentElement.scrollWidth <= innerWidth'), (route, width, enabled)
+                assert not page.locator('script[src*="getterms"], iframe[src*="getterms"]').count()
+                if enabled and width == 390:
+                    page.add_style_tag(content='html {font-size:200% !important;}')
+                    assert page.evaluate('document.documentElement.scrollWidth <= innerWidth'), (route, '200% text reflow')
+                page.close()
     browser.close()
-print('PASS: 4 viewport sizes, 8 routes, hero glyph bounds, menu keyboard/anchor dismissal, touch targets, contact descendant bounds, compact mobile footer keyboard disclosure, form validation/failure/retry/persistent success, support address, no-JS fallback, 200% text reflow. No real submissions sent.')
+print('PASS: 4 viewport sizes, 8 routes, hero glyph bounds, menu keyboard/anchor dismissal, touch targets, contact descendant bounds, compact mobile footer keyboard disclosure, form validation/failure/retry/persistent success, support address, no-JS fallback, 200% text reflow, three static policies (digest, no-JS, CDN blocked). No real submissions sent.')

@@ -1,5 +1,11 @@
 # Document Inventory - intent-solutions-landing
 
+## October 2026 rendering and indexing repairs
+
+- [090: Privacy policy rendering repair](090-AT-MAINT-privacy-policy-rendering.md)
+- [091: Terms and acceptable use rendering repair](091-AT-MAINT-terms-and-acceptable-use-rendering.md)
+- [085: Site map](085-AT-ARCH-site-map.md) amended 2026-10-24 with the standalone public pages table
+
 ## October 2026 estate teaching release
 
 - [089: Financial atlas design, sources, release and private delivery status](089-AT-DSGN-financial-atlas.md)
@@ -210,4 +216,4 @@ is linked above; inspect the directory for subsequent dated records.
 
 ---
 
-**Last Updated:** October 12, 2026
+**Last Updated:** October 24, 2026

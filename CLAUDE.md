@@ -79,13 +79,13 @@ npx playwright test tests/<spec-file>.spec.ts  # Single test
 Pages are static Astro files; interactive sections use React islands with `client:load` (immediate) or `client:visible` (lazy) hydration:
 
 ```astro
-<Hero client:load />                 <!-- Hydrates immediately (above fold) -->
-<ClaudeCodeTiers client:visible />   <!-- Hydrates when scrolled into view -->
+<Contact client:load />   <!-- the request form: hydrates immediately -->
+<Footer client:load />    <!-- footer disclosures -->
 ```
 
 - **Pages**: `src/pages/*.astro` — File-based routing, static content
 - **Layout**: `src/layouts/Layout.astro` — SEO (astro-seo), Organization + WebSite JSON-LD, Umami analytics, `noindex` prop for utility pages
-- **React Islands**: `src/components/*.tsx` — Interactive sections with Framer Motion + GSAP
+- **React Islands**: `src/components/*.tsx` — the contact form and footer; no animation libraries (removed with the unreachable components on 2026-10-24)
 - **Styles**: `src/styles/global.css` — Tailwind 4 + charcoal slate theme
 
 ### SEO posture (pinned 2026-05-25, see `000-docs/079-OD-AUDT`)
@@ -129,7 +129,7 @@ The legacy `astro-site/functions/` Cloud Functions directory was removed on 2026
 - Pre-deploy gate runs `npm ci` + `npm run build` + `npm run audit:indexability` + line-length cap check.
 - Deploy job uses the reusable `jeremylongshore/.github` `vps-deploy.yml` — Tailscale OIDC → force-command SSH on the VPS → `/usr/local/sbin/deploy-intentsolutions` does `git fetch + npm ci + astro build + atomic rsync` to `/srv/intentsolutions/dist`. Health check at `https://intentsolutions.io/healthz`.
 - Smoke validation: `.ok == true` on the healthz response.
-- **Known issue**: when the Tailscale OIDC trust credential at `login.tailscale.com/admin/settings/trust-credentials` is broken, automated deploy fails at the "Connect Tailscale" step (HTTP 403). Manual fallback: `ssh intentsolutions; sudo /usr/local/sbin/deploy-intentsolutions`. Tracked as bead `OPS-b78`.
+- **Known issue**: when the Tailscale OIDC trust credential at `login.tailscale.com/admin/settings/trust-credentials` is broken, automated deploy fails at the "Connect Tailscale" step (HTTP 403). Manual fallback: `ssh intentsolutions '/usr/local/sbin/deploy-intentsolutions'`, run as the `intentsolutions` user exactly as the CI force-command does. **Never with sudo**: a root run leaves root-owned files in `/srv/intentsolutions/` that the next unprivileged CI deploy cannot overwrite (cleaned up 2026-10-17). The same rule applies to every `/usr/local/sbin/deploy-*` script. Tracked as bead `OPS-b78`; the Tailscale trial expiry that blocks CI deploys is intent-os bead "Tailscale trial expired".
 
 **Release** (`.github/workflows/release.yml`):
 - Auto-detects version bump from commit messages (BREAKING→major, feat→minor, else patch).
@@ -137,16 +137,17 @@ The legacy `astro-site/functions/` Cloud Functions directory was removed on 2026
 
 ## Design System
 
-Theme in `src/styles/global.css` (Charcoal Slate / Theme 7):
+Theme in `src/styles/global.css` (Charcoal Slate / Theme 7). Every colour and font goes through a token in its `:root` block (`--intent-*`, `--font-body`, `--font-display`); do not write literal hex/rgb or `font-family` values in pages or components. Its first lines are the Hallmark check stamp (waivers, rewordings and dismissals on the record); keep them current when the homepage changes and re-run `node ~/.claude/skills/hallmark/scripts/sloplint.mjs` with `--render` where the skill is installed.
+
 
 | Class | Purpose |
 |-------|---------|
-| `card-slate` | Semi-transparent cards with backdrop blur |
+| `card-slate` | Semi-transparent cards with backdrop blur (not used on the homepage) |
 | `btn-primary` | Established action styling; homepage uses scoped orange primary buttons |
 | `btn-secondary` | Transparent with zinc border |
 | `btn-sm` | Smaller button padding |
 | `text-hero` | 3.5rem/2.5rem mobile hero text |
-| `text-h1`, `text-h2` | Heading sizes with tight tracking |
+| `text-h1` | Heading size with tight tracking |
 | `transition-smooth` | Cubic-bezier transitions |
 
 Current brand: orange branching-arrow mark, charcoal/zinc surfaces, Syne display and Inter body text. Preserve this identity. The contact form is a React island; core company and directory content is static Astro. Legacy animation libraries and components are not visual authority for current pages.

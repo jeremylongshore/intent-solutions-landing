@@ -1,30 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import LegalDocument from '../components/LegalDocument.astro';
+import privacyPolicy from '../content/legal/privacy-policy.html?raw';
+// Existing published GetTerms policy, captured October 17, 2026.
+// See 000-docs/090-AT-MAINT-privacy-policy-rendering.md for provenance.
 ---
 
-<Layout title="Privacy Policy - intent solutions io">
-  <div class="min-h-screen bg-zinc-900 py-24">
-    <div class="container mx-auto px-8 max-w-4xl">
-      <h1 class="text-h1 font-bold text-zinc-50 mb-12">Privacy Policy</h1>
-
-      <div class="getterms-document-embed"
-           data-getterms="wH2cn"
-           data-getterms-document="privacy"
-           data-getterms-lang="en-us"
-           data-getterms-mode="direct"
-           data-getterms-env="https://gettermscdn.com">
-      </div>
-
-      <script type="text/javascript">
-        (function(d, s, id) {
-          var js, ref = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) return;
-          js = d.createElement(s);
-          js.id = id;
-          js.src = "https://gettermscdn.com/dist/js/embed.js";
-          ref.parentNode.insertBefore(js, ref);
-        })(document, "script", "getterms-embed-js");
-      </script>
-    </div>
-  </div>
+<Layout
+  title="Privacy Policy | Intent Solutions"
+  description="How Intent Solutions collects, uses and protects personal information across its websites. Last updated October 25, 2026."
+>
+  <LegalDocument id="privacy" title="Privacy Policy" html={privacyPolicy} />
 </Layout>

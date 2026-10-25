@@ -22,7 +22,10 @@
     "test:webkit": "playwright test --project=webkit",
     "test:mobile": "playwright test --project='Mobile Chrome' --project='Mobile Safari'",
     "test:all": "npm run test && npm run test:mobile",
-    "test:economics": "node scripts/test-economics.mjs"
+    "test:economics": "node scripts/test-economics.mjs",
+    "audit:discovery": "node scripts/audit-discovery.mjs",
+    "audit:discovery:live": "node scripts/audit-discovery.mjs --live",
+    "test:discovery": "python3 scripts/test-discovery.py"
   },
   "dependencies": {
     "@astrojs/react": "^4.4.0",
@@ -40,10 +43,7 @@
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
     "embla-carousel-react": "^8.6.0",
-    "framer-motion": "^12.23.22",
-    "gsap": "^3.13.0",
     "lenis": "^1.3.11",
-    "lucide-react": "^0.545.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-hook-form": "^7.64.0",

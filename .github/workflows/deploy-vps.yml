@@ -8,11 +8,11 @@ name: Deploy intentsolutions.io to VPS
 # Stage C and intent-solutions-io/intent-os/ops/deploy (D90).
 
 on:
+  # Every pull request runs the gate, including doc-only ones. safe-merge needs
+  # "pre-deploy gate" green on the PR head, and a path filter here leaves a
+  # doc-only PR with no check at all, so it could never merge cleanly.
   pull_request:
-    paths:
-      - 'astro-site/**'
-      - 'estate-bar/**'
-      - '.github/workflows/deploy-vps.yml'
+  # Deploys stay path-filtered: a merge that touches only docs doesn't redeploy.
   push:
     branches: [main]
     paths:
@@ -25,9 +25,12 @@ permissions:
   contents: read
   id-token: write   # required for Tailscale OIDC
 
+# Pull requests get their own group per PR, so a PR run can never queue in the
+# deploy group and displace a pending main deploy. A newer push to the same PR
+# cancels its older run; a deploy already running is never cancelled.
 concurrency:
-  group: deploy-vps-${{ github.repository }}
-  cancel-in-progress: false
+  group: ${{ github.event_name == 'pull_request' && format('deploy-vps-pr-{0}', github.event.pull_request.number) || format('deploy-vps-{0}', github.repository) }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   test:
@@ -62,6 +65,9 @@ jobs:
 
       - name: Verify build artifacts
         run: npm run audit:site-map
+
+      - name: Public experience registry and coverage
+        run: npm run audit:discovery
 
       - name: Estate bar matches the canonical strip on every page
         # The top network strip is shared by every Intent Solutions property and
@@ -100,14 +106,19 @@ jobs:
           trap 'kill "$INTENT_PREVIEW_PID" 2>/dev/null || true' EXIT
           curl --retry 20 --retry-connrefused --retry-delay 1 --fail --silent http://127.0.0.1:49731/ > /dev/null
           python scripts/test-brand-polish.py http://127.0.0.1:49731
+          python scripts/test-discovery.py http://127.0.0.1:49731
           export ECONOMICS_CHROME="$(python -c 'from playwright.sync_api import sync_playwright; p=sync_playwright().start(); print(p.chromium.executable_path); p.stop()')"
           node scripts/test-economics-browser.mjs http://127.0.0.1:49731
 
   deploy:
     if: github.event_name != 'pull_request'
     needs: test
-    uses: jeremylongshore/.github/.github/workflows/vps-deploy.yml@53d6be37d6c046818157b954acb33667ac095dd8
+    uses: jeremylongshore/.github/.github/workflows/vps-deploy.yml@829cd9717866025072a1ac2cad4a325fb14677ba
     with:
+      # The tailnet cannot mint keys for hosted runners (Tailscale 402 since 2026-10-14);
+      # deploy from the Buzz host, already on the tailnet (intent-os decision-log/071).
+      runs-on: '["self-hosted","linux","vps-deploy"]'
+      join-tailnet: false
       variant: static
       srv-path: /srv/intentsolutions
       health-check-url: https://intentsolutions.io/healthz

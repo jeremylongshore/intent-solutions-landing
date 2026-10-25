@@ -1,3 +1,140 @@
+# Release v4.12.1
+
+**Release Date**: 2026-10-25
+
+## Changes since v4.12.0
+
+- chore: release v4.12.1 [skip ci] (ca3292f)
+- fix(legal): use the canonical company name and date the policies to this revision (#91) (0dfcc0e)
+
+---
+
+# Release v4.12.0
+
+**Release Date**: 2026-10-24
+
+## Changes since v4.11.2
+
+- chore: release v4.12.0 [skip ci] (dcbbb42)
+- Merge pull request #90 from jeremylongshore/feat/homepage-hallmark-floor (da4d19d)
+- fix(legal): serve the published Terms and Acceptable Use text without the GetTerms script (030e3e0)
+- feat(site-map): index the eight operating atlas pages and audit every public HTML file (294b720)
+- style(home): remove the machine-made design tells from the homepage within the brand contract (f07b69a)
+- chore(site): delete 29 unreachable components and the three libraries only they used (e9c5097)
+
+---
+
+# Release v4.11.2
+
+**Release Date**: 2026-10-22
+
+## Changes since v4.11.1
+
+- chore: release v4.11.2 [skip ci] (c9a87b3)
+- content(field-notes): add docker-hardening-your-test-suite-cannot-see (65852be)
+
+---
+
+# Release v4.11.1
+
+**Release Date**: 2026-10-17
+
+## Changes since v4.11.0
+
+- chore: release v4.11.1 [skip ci] (c4ad3c1)
+- ci(deploy): deploy from the Buzz vps-deploy runner instead of joining the tailnet (#88) (7e53ebe)
+
+---
+
+# Release v4.11.0
+
+**Release Date**: 2026-10-17
+
+## Changes since v4.10.1
+
+- chore: release v4.11.0 [skip ci] (a1f63e8)
+- feat(discovery): reconcile public routes and verify visitor return paths (#87) (6e2ba06)
+
+---
+
+# Release v4.10.1
+
+**Release Date**: 2026-10-17
+
+## Changes since v4.10.0
+
+- chore: release v4.10.1 [skip ci] (5762e0b)
+- fix: deliver discovery events before leaving the page (#86) (0b32e65)
+
+---
+
+# Release v4.10.0
+
+**Release Date**: 2026-10-17
+
+## Changes since v4.9.4
+
+- chore: release v4.10.0 [skip ci] (10e7a0e)
+- feat: measure public discovery with bounded aggregate events (#85) (5b3eaf1)
+- fix(privacy): make published policy readable without JavaScript (#84) (6b7118f)
+
+---
+
+# Release v4.9.4
+
+**Release Date**: 2026-10-17
+
+## Changes since v4.9.3
+
+- chore: release v4.9.4 [skip ci] (0403628)
+- docs(claude): run the manual deploy fallback as the deploy user, never with sudo (#82) (02753b3)
+
+---
+
+# Release v4.9.3
+
+**Release Date**: 2026-10-17
+
+## Changes since v4.9.2
+
+- chore: release v4.9.3 [skip ci] (fe9f9e4)
+- ci(deploy-vps): run the pre-deploy gate on every pull request (#83) (7ed606d)
+
+---
+
+# Release v4.9.2
+
+**Release Date**: 2026-10-17
+
+## Changes since v4.9.1
+
+- chore: release v4.9.2 [skip ci] (4d43860)
+- fix(about): resolve unfilled placeholders on the About page (#81) (52b7982)
+
+---
+
+# Release v4.9.1
+
+**Release Date**: 2026-10-16
+
+## Changes since v4.9.0
+
+- chore: release v4.9.1 [skip ci] (961157c)
+- fix(home): lead the proof section with Tons of Skills, not a failed eval (#79) (abf2998)
+
+---
+
+# Release v4.9.0
+
+**Release Date**: 2026-10-16
+
+## Changes since v4.8.3
+
+- chore: release v4.9.0 [skip ci] (873ba78)
+- feat: make the public estate discoverable through Explore (#80) (0d0b780)
+
+---
+
 # Release v4.8.3
 
 **Release Date**: 2026-10-15

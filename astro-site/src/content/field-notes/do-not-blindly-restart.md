@@ -128,7 +128,7 @@ Outside the watchdog incident, three smaller things landed the same day.
 
 ## Related posts
 
-- [Exit 0 Is Not Success](/posts/exit-0-is-not-success/)
-- [A Green Recovery Drill Can Still Be Lying](/posts/a-green-recovery-drill-can-still-be-lying/)
-- [Liveness Without Health Is Theater](/posts/liveness-without-health-is-theater/)
+- [Exit 0 Is Not Success](https://startaitools.com/posts/exit-0-is-not-success/)
+- [A Green Recovery Drill Can Still Be Lying](https://startaitools.com/posts/a-green-recovery-drill-can-still-be-lying/)
+- [Liveness Without Health Is Theater](https://startaitools.com/posts/liveness-without-health-is-theater/)
 
