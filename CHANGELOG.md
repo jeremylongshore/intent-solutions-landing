@@ -1,3 +1,18 @@
+# Release v4.12.2
+
+**Release Date**: 2026-10-25
+
+## Changes since v4.12.1
+
+- chore: release v4.12.2 [skip ci] (bdd3ccb)
+- Merge pull request #78 from jeremylongshore/audit/public-discovery-2026-10-16 (e23084d)
+- docs(audit): renumber the discovery audit to 092 and mark it a point-in-time record (ed8d026)
+- Merge origin/main into audit/public-discovery-2026-10-16 (272df8f)
+- docs: normalize audit CSV line endings (67610b5)
+- docs: audit public estate discovery and nested routes (0a5fcfc)
+
+---
+
 # Release v4.12.1
 
 **Release Date**: 2026-10-25
