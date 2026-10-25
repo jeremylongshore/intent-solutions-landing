@@ -1,3 +1,14 @@
+# Release v4.13.1
+
+**Release Date**: 2026-10-25
+
+## Changes since v4.13.0
+
+- chore: release v4.13.1 [skip ci] (7c7099f)
+- fix(routes): classify the old demos /bbb/ URLs as reviewed aliases of the product site (#94) (2f06ca4)
+
+---
+
 # Release v4.13.0
 
 **Release Date**: 2026-10-25
