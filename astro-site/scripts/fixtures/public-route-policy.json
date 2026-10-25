@@ -1,5 +1,5 @@
 {
-  "reviewedAt": "2026-10-17",
+  "reviewedAt": "2026-10-25",
   "scope": "Six core public carriers; registry destinations; company source contract; reviewed Demos HTML manifest. Not DNS enumeration, private routes, all article archives, or proof of product capability.",
   "coreHosts": [
     "intentsolutions.io",
@@ -28,8 +28,6 @@
       "paths": [
         "/about/",
         "/acceptable-use.html",
-        "/bbb/",
-        "/bbb/system-map.html",
         "/built-with-claude-code/",
         "/cad-ai-agent/",
         "/claude-for-slack-rent-vs-own.html",
@@ -213,7 +211,9 @@
   },
   "aliases": {
     "https://demos.intentsolutions.io/batchdata/": "https://demos.intentsolutions.io/intentoutreach/",
-    "https://demos.intentsolutions.io/scott-porter-automation/": "https://demos.intentsolutions.io/prospect-prep-automation/"
+    "https://demos.intentsolutions.io/scott-porter-automation/": "https://demos.intentsolutions.io/prospect-prep-automation/",
+    "https://demos.intentsolutions.io/bbb/": "https://intentsolutions.io/bbb/",
+    "https://demos.intentsolutions.io/bbb/system-map.html": "https://intentsolutions.io/bbb/how-it-works/"
   },
   "exclusions": {
     "https://learn.intentsolutions.io/home": "Duplicate legacy Learn home; not advertised as a separate offering.",
