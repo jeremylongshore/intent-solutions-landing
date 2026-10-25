@@ -1,3 +1,14 @@
+# Release v4.12.1
+
+**Release Date**: 2026-10-25
+
+## Changes since v4.12.0
+
+- chore: release v4.12.1 [skip ci] (ca3292f)
+- fix(legal): use the canonical company name and date the policies to this revision (#91) (0dfcc0e)
+
+---
+
 # Release v4.12.0
 
 **Release Date**: 2026-10-24
