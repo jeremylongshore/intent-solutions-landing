@@ -1,3 +1,14 @@
+# Release v4.13.0
+
+**Release Date**: 2026-10-25
+
+## Changes since v4.12.3
+
+- chore: release v4.13.0 [skip ci] (b88d4b2)
+- feat(bbb): publish the Bob's Big Brain product site at /bbb/ in the master brand (#93) (9b28729)
+
+---
+
 # Release v4.12.3
 
 **Release Date**: 2026-10-25
