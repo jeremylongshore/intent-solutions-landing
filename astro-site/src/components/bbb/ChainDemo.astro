@@ -1,0 +1,135 @@
+---
+// Illustrative receipt chain, hashed with SHA-256 in the browser. It mirrors two real checks:
+// each receipt's hash covers its body and the previous hash (link integrity), and a committed
+// anchor of the chain head catches a writer who edits a receipt and re-hashes forward.
+const records = [
+  { seq: 1, action: 'promoted', text: 'Backups pass a restore test.' },
+  { seq: 2, action: 'promoted', text: 'Deploys go to Cloud Run.' },
+  { seq: 3, action: 'promoted', text: 'Deploys ship from main.' },
+  { seq: 4, action: 'superseded', text: 'Cloud Run retired.' },
+  { seq: 5, action: 'promoted', text: 'Deploys go to the VPS.' },
+];
+---
+
+<div class="bbb-chain" data-chain>
+  <p class="bbb-chain__nojs">
+    With JavaScript on, this panel hashes five illustrative receipts in your browser. Each receipt’s
+    hash covers its text and the hash before it, so editing one breaks verification at that receipt.
+    Re-hashing everything after it makes the chain verify again, but its head then differs from the
+    anchor committed earlier, and that mismatch is the evidence.
+  </p>
+  <div class="bbb-chain__live">
+    <ol class="bbb-chain__list">
+      {records.map((r) => (
+        <li class="bbb-receipt" data-receipt data-seq={r.seq} data-action={r.action} data-state="ok">
+          <span class="bbb-receipt__seq">{r.seq}</span>
+          <span class="bbb-receipt__action">{r.action}</span>
+          <label class="bbb-receipt__field">
+            <span class="visually-hidden">Receipt {r.seq} text</span>
+            <textarea rows="1" data-text autocomplete="off" spellcheck="false">{r.text}</textarea>
+          </label>
+          <span class="bbb-receipt__hash" data-hash aria-label={`Receipt ${r.seq} hash`}>computing</span>
+          <span class="bbb-receipt__status" data-status>intact</span>
+        </li>
+      ))}
+    </ol>
+    <div class="bbb-chain__controls">
+      <button type="button" class="bbb-btn bbb-btn--primary" data-verify>Verify the chain</button>
+      <button type="button" class="bbb-btn bbb-btn--quiet" data-rehash>Re-hash forward</button>
+      <button type="button" class="bbb-btn bbb-btn--quiet" data-anchor>Check the anchor</button>
+      <button type="button" class="bbb-btn bbb-btn--quiet" data-reset>Reset</button>
+    </div>
+    <p class="bbb-chain__result" role="status" aria-live="polite" data-result>Chain loaded. Edit any receipt, then verify.</p>
+  </div>
+</div>
+
+<script>
+  type Receipt = { seq: number; action: string; text: string; prev: string; hash: string };
+
+  const hex = (buffer: ArrayBuffer) => [...new Uint8Array(buffer)].map((b) => b.toString(16).padStart(2, '0')).join('');
+  const digest = async (r: Pick<Receipt, 'seq' | 'action' | 'text' | 'prev'>) =>
+    hex(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(JSON.stringify([r.seq, r.action, r.text, r.prev]))));
+
+  document.querySelectorAll<HTMLElement>('[data-chain]').forEach(async (root) => {
+    if (!window.crypto?.subtle) return;
+    const rows = [...root.querySelectorAll<HTMLElement>('[data-receipt]')];
+    const result = root.querySelector<HTMLElement>('[data-result]')!;
+    const originals = rows.map((row) => row.querySelector<HTMLTextAreaElement>('[data-text]')!.value);
+    let chain: Receipt[] = [];
+    let anchor = '';
+
+    const paint = (states: string[] = []) => {
+      rows.forEach((row, i) => {
+        const state = states[i] ?? row.dataset.state ?? 'ok';
+        row.dataset.state = state;
+        row.querySelector<HTMLElement>('[data-hash]')!.textContent = chain[i].hash.slice(0, 12);
+        row.querySelector<HTMLElement>('[data-status]')!.textContent =
+          state === 'broken' ? 'broken' : state === 'edited' ? 'edited' : 'intact';
+      });
+    };
+    const say = (text: string, tone: 'ok' | 'bad' | 'info') => { result.textContent = text; result.dataset.tone = tone; };
+
+    const build = async () => {
+      chain = [];
+      let prev = 'genesis';
+      for (const [i, row] of rows.entries()) {
+        const body = { seq: Number(row.dataset.seq), action: row.dataset.action ?? '', text: originals[i], prev };
+        const hash = await digest(body);
+        chain.push({ ...body, hash });
+        prev = hash;
+      }
+      anchor = chain[chain.length - 1].hash;
+      rows.forEach((row, i) => { row.querySelector<HTMLTextAreaElement>('[data-text]')!.value = originals[i]; });
+      paint(rows.map(() => 'ok'));
+    };
+
+    const verify = async () => {
+      const states = rows.map(() => 'ok');
+      let firstBreak = -1;
+      for (const [i, r] of chain.entries()) {
+        const expectedPrev = i === 0 ? 'genesis' : chain[i - 1].hash;
+        const recomputed = await digest(r);
+        if (r.prev !== expectedPrev || recomputed !== r.hash) {
+          states[i] = 'broken';
+          if (firstBreak < 0) firstBreak = i;
+        }
+      }
+      paint(states);
+      if (firstBreak < 0) say(`Verified: all ${chain.length} receipts hash correctly and link to the one before.`, 'ok');
+      else {
+        say(`Verification failed at receipt ${firstBreak + 1}: its stored hash no longer matches its contents.`, 'bad');
+        rows[firstBreak].classList.remove('is-caught'); void rows[firstBreak].offsetWidth; rows[firstBreak].classList.add('is-caught');
+      }
+    };
+
+    rows.forEach((row, i) => {
+      const input = row.querySelector<HTMLTextAreaElement>('[data-text]')!;
+      input.addEventListener('input', () => {
+        chain[i].text = input.value;
+        row.dataset.state = input.value === originals[i] ? 'ok' : 'edited';
+        paint();
+        say(`Receipt ${i + 1} edited. Its stored hash has not changed. Verify the chain.`, 'info');
+      });
+    });
+
+    root.querySelector('[data-verify]')!.addEventListener('click', verify);
+    root.querySelector('[data-rehash]')!.addEventListener('click', async () => {
+      let prev = 'genesis';
+      for (const r of chain) { r.prev = prev; r.hash = await digest(r); prev = r.hash; }
+      paint(rows.map(() => 'ok'));
+      say('Re-hashed every receipt forward, the way a writer covering their tracks would. Verify passes again; now check the anchor.', 'info');
+    });
+    root.querySelector('[data-anchor]')!.addEventListener('click', () => {
+      const head = chain[chain.length - 1].hash;
+      if (head === anchor) say(`Head ${head.slice(0, 12)} matches the committed anchor. Nothing was rewritten.`, 'ok');
+      else { result.classList.remove('is-caught'); void result.offsetWidth; result.classList.add('is-caught'); }
+      if (head !== anchor) say(`Caught: the head is now ${head.slice(0, 12)}, but the anchor committed at receipt 5 says ${anchor.slice(0, 12)}. The history was rewritten.`, 'bad');
+    });
+    root.querySelector('[data-reset]')!.addEventListener('click', async () => {
+      await build();
+      say('Chain reset to the anchored history.', 'info');
+    });
+
+    await build();
+  });
+</script>
