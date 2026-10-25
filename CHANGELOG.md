@@ -1,3 +1,14 @@
+# Release v4.12.3
+
+**Release Date**: 2026-10-25
+
+## Changes since v4.12.2
+
+- chore: release v4.12.3 [skip ci] (47616bc)
+- fix(ci): track PDFs in LFS for the Hugging Face mirror push (#92) (fb24292)
+
+---
+
 # Release v4.12.2
 
 **Release Date**: 2026-10-25
