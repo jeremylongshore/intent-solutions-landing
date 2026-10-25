@@ -370,12 +370,7 @@ export const experiences = [
       "citations",
       "agents"
     ],
-    "links": [
-      {
-        "label": "Earlier architecture demo",
-        "href": "https://demos.intentsolutions.io/bbb/"
-      }
-    ],
+    "links": [],
     "verifiedAt": "2026-10-25",
     "source": "bobs-big-brain-umbrella 000-docs/029-035; product site checked against code 2026-10-25",
     "parent": "demos"
