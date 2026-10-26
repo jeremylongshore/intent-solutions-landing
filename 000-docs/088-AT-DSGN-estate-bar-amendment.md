@@ -33,3 +33,13 @@ Each property keeps its own header, palette, type and layout, as 084 requires. J
 ## Unfinished at the time of writing
 
 This record lands with the canonical files only. Each property adopts the strip in its own change: Demos, this site, Omarchy, Labs and Evals, then Learn (manual deploy on the VPS).
+
+## Addendum: the strip keeps its mono capitals (October 26, 2026)
+
+Decided by the CTO on the owner's delegation (tracker `bd_000-projects-dxtq.22.6`, issue #89). The
+strip keeps JetBrains Mono, uppercase and its 0.09em tracking. Hallmark treats tracked capitals as a
+floor tell (gate 67), and pages that carry the strip record a waiver citing this addendum.
+
+Why: the face was an explicit owner decision on 2026-09-19, the strip is a network directory rather
+than page content, and changing it means a version bump and a re-sync across every carrier for a
+cosmetic gain. Revisit only alongside a functional change to the strip.
