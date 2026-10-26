@@ -1,0 +1,25 @@
+# Delivery audit — 30 September 2026
+
+**Verdict: no material licensing, credential, or claim-consistency blocker found in the audited source.** The working source is `/home/jeremy/000-projects/intent-motion`; the publication destination is `/home/jeremy/000-projects/intent-motion-publish/campaigns/intent-connected-film`. The destination was still awaiting its planned refresh during this audit. This report does not approve an earlier destination snapshot as the final delivery and makes no judgment about the visuals or music taste.
+
+## Ranked findings
+
+1. **Resolved during audit — rebuild requirements and public verification.** `README.md:16` now states the locked Puppeteer minimum, Node 22.12, and the validated Node/FFmpeg versions. `requirements.txt` pins NumPy 2.3.2, SciPy 1.16.1 and Pillow 11.3.0, with a virtual-environment installation recipe. `scripts/package-source.py` now includes these requirements, `scripts/verify-delivery.py` and the packager itself. It excludes `assets/audio/check_audio_revision.py`, whose comparisons require intentionally private archived recordings. `scripts/render-full.py` creates its output/log directories. These corrections remove the main practical handoff gaps found in the initial source.
+
+2. **Resolved during audit — copy-editing instructions.** `README.md` now correctly describes `FACTS.json` as an approved-copy allowlist and instructs editors to update the explicit strings in `film/scenes/*.js` and `film/main.js`, plus `film/facts.js`. Merely changing the allowlist would not change the picture. Current `FACTS.json` and its browser export are identical. The brief, upload description and license records consistently identify the film as an illustration, with no customer-result, guaranteed-outcome or product-execution claim found.
+
+3. **Optional, medium — component-render helper assumes private directories.** `scripts/render-components.py:7` opens `qa/components/render-…log` before creating `qa/components/`; a fresh package omits that directory. Add directory creation if this helper is intended for public reuse. It also prints a failed subprocess return code without propagating failure. Neither defect affects the documented full-film render commands or supplied masters.
+
+4. **Optional, low — packaging merges into existing destinations.** `scripts/package-source.py` uses `dirs_exist_ok=True` and does not remove obsolete files. Its current allowlist is safe, but removing a file from that allowlist will not remove a previously copied destination file. Package into a clean staging directory or inspect the final destination inventory before publishing. No raw recording or isolated audio stem was found in the inspected destination or fresh-package inventories.
+
+## Evidence
+
+- Ran the packager in a temporary directory. The refreshed recipe includes the requirements and both delivery/packaging scripts; it excludes the archive-dependent revision checker and all standalone audio files.
+- Rebuilt audio in an isolated temporary package using the three manifest-identified source recordings, with the installed versions matching the new Python pins. `build_audio.py` and `check_audio.py` both completed successfully. SHA-256 hashes of the primary mix, primary music-only, alternate mix and alternate music-only WAVs exactly matched the current working masters. The temporary recordings and stems were removed with the temporary directory.
+- All three visual-asset hashes and all three source-audio hashes match their manifests. The motion-video-kit checkout matches the recorded commit `255562b04b1e5ecaa4ba98e5c9aa191d5ba7f6fa`; its MIT notice, the font OFL files and GSAP's original license header are retained. `npm run check:syntax` and Python AST parsing passed.
+- Official [Mixkit music terms](https://mixkit.co/license/modal/musicFree/) support the documented web/social synchronization scope; the [sound-effect terms](https://mixkit.co/license/modal/sfxFree/) explicitly exclude isolated/source-file redistribution. The package keeps those recordings private and provides official download URLs and hashes. The `-music-only.mp4` variants retain the film picture; they are synchronized videos, distinct from the excluded WAV stems. The [GSAP license](https://gsap.com/community/standard-license/) and retained notices are consistent with this code-authored film.
+- No credential candidates were found by scanning source/package text for common API-token and private-key patterns or credential-file names. Render, audio and mux scripts require no API key. This was a bounded file scan, not a full Git-history secret audit.
+
+## Scope limits
+
+The full 60 fps renders were already in progress, so this audit did not run a duplicate full render or judge frames. Final master metadata, refreshed QA records (including the README-linked `qa/QUALITY.md`), and the final public destination inventory remain the delivery owner's planned finishing checks. No source file was changed by this reviewer; only this audit was written.

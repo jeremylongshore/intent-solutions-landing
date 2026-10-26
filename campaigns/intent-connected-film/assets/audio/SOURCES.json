@@ -1,0 +1,65 @@
+{
+  "retrieved_utc": "2026-09-29",
+  "sources": [
+    {
+      "@id": "Deep Urban",
+      "@type": "MusicRecording",
+      "name": "Deep Urban",
+      "genre": "House",
+      "byArtist": "Eugenio Mininni",
+      "duration": "PT4M49S",
+      "url": "https://assets.mixkit.co/music/623/623.mp3",
+      "waveformUrl": "https://assets.mixkit.co/music/623/623-waveform.json",
+      "copyrightNotice": "Mixkit Stock Music Free License",
+      "encodingFormat": "audio/mpeg",
+      "isAccessibleForFree": true,
+      "license": "https://mixkit.co/license/#musicFree",
+      "publisher": {
+        "@id": "https://mixkit.co/#organization"
+      },
+      "datePublished": "2020-01-28"
+    },
+    {
+      "@id": "Hazy After Hours",
+      "@type": "MusicRecording",
+      "name": "Hazy After Hours",
+      "genre": "Electronica",
+      "byArtist": "Alejandro Maga\u00f1a (A. M.)",
+      "duration": "PT2M7S",
+      "url": "https://assets.mixkit.co/music/132/132.mp3",
+      "waveformUrl": "https://assets.mixkit.co/music/132/132-waveform.json",
+      "copyrightNotice": "Mixkit Stock Music Free License",
+      "encodingFormat": "audio/mpeg",
+      "isAccessibleForFree": true,
+      "license": "https://mixkit.co/license/#musicFree",
+      "publisher": {
+        "@id": "https://mixkit.co/#organization"
+      },
+      "datePublished": "2020-01-28"
+    }
+  ],
+  "effect": {
+    "name": "Short wind swoosh",
+    "author": "Mixkit",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1461/1461.wav",
+    "catalog": "https://mixkit.co/free-sound-effects/swoosh/",
+    "license": "https://mixkit.co/license/#sfxFree"
+  },
+  "files": [
+    {
+      "file": "assets/audio/source/mixkit-132.mp3",
+      "bytes": 4071238,
+      "sha256": "5a30d042dc51f517dc64b5d409e1ac0b9dba2a80241f8955f41257585e77890f"
+    },
+    {
+      "file": "assets/audio/source/mixkit-623.mp3",
+      "bytes": 9240540,
+      "sha256": "ac7e28f0cdd6c607df199c759f34ca66cfebd881ea61c26473fb4cecebe64fa8"
+    },
+    {
+      "file": "assets/audio/source/mixkit-sfx-1461.wav",
+      "bytes": 245240,
+      "sha256": "f73778bcf9804e48772ef4d4a026433ebac414b4746cd2b84f99f8c813e44ba3"
+    }
+  ]
+}

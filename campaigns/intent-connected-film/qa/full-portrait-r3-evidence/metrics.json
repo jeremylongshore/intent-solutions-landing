@@ -1,0 +1,17 @@
+{
+  "versions": {
+    "alternate-music": {
+      "audio_summary": "Summary:\n\n  Integrated loudness:\n    I:         -16.0 LUFS\n    Threshold: -25.9 LUFS\n\n  Loudness range:\n    LRA:         2.5 LU\n    Threshold: -35.8 LUFS\n    LRA low:   -17.1 LUFS\n    LRA high:  -14.6 LUFS\n\n  True peak:\n    Peak:       -3.1 dBFS\n",
+      "video_sha256": "52ae51e2aba2b69d8ab61b2a414cb45742b32fe3246b4071910611a2420637b2"
+    },
+    "music-only": {
+      "audio_summary": "Summary:\n\n  Integrated loudness:\n    I:         -15.9 LUFS\n    Threshold: -26.0 LUFS\n\n  Loudness range:\n    LRA:         2.6 LU\n    Threshold: -35.8 LUFS\n    LRA low:   -17.2 LUFS\n    LRA high:  -14.6 LUFS\n\n  True peak:\n    Peak:       -3.8 dBFS\n",
+      "video_sha256": "52ae51e2aba2b69d8ab61b2a414cb45742b32fe3246b4071910611a2420637b2"
+    },
+    "primary": {
+      "audio_summary": "Summary:\n\n  Integrated loudness:\n    I:         -15.9 LUFS\n    Threshold: -26.0 LUFS\n\n  Loudness range:\n    LRA:         2.6 LU\n    Threshold: -35.8 LUFS\n    LRA low:   -17.2 LUFS\n    LRA high:  -14.6 LUFS\n\n  True peak:\n    Peak:       -3.9 dBFS\n",
+      "video_sha256": "52ae51e2aba2b69d8ab61b2a414cb45742b32fe3246b4071910611a2420637b2"
+    }
+  },
+  "freeze": "2.8 4.8 5.3 7.3 10.3 12.8 14.8 22.8 25.3 27.8 \nnear-frozen samples: 10 (\u22481.0s)\n"
+}

@@ -1,0 +1,20 @@
+{
+  "deliverables/intent-solutions-portrait-1080p60-alternate-music.mp4": {
+    "size": 11173206,
+    "mtime_ns": 1790749034156294530,
+    "sha256": "4557f06d03b006d42341f0ebb9ac95b224596f1adb9b5de4eacee3c11d5a4522",
+    "unchanged": true
+  },
+  "deliverables/intent-solutions-portrait-1080p60-music-only.mp4": {
+    "size": 11127161,
+    "mtime_ns": 1790749030778350915,
+    "sha256": "01235baa0a9b614ef28f8150f8fb43092e5fcb8f06c8bcd6e0f35a5534b31b22",
+    "unchanged": true
+  },
+  "deliverables/intent-solutions-portrait-1080p60.mp4": {
+    "size": 11128062,
+    "mtime_ns": 1790749027551404781,
+    "sha256": "9cab6a851633b2387c35bf53530697c4855584a3bdb3c59bd785def076bb16e3",
+    "unchanged": true
+  }
+}

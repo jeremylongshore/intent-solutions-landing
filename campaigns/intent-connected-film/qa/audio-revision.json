@@ -1,0 +1,618 @@
+{
+  "archive": "assets/audio/older-versions/2026-09-29-before-section-shaping",
+  "measurement_notes": "loudnorm input_* measures files; output_* is discarded. Independent ebur128 results use their own rounding and gating. Decoded PCM event guards are independently recomputed below.",
+  "listening_review_performed": false,
+  "source_recordings_unchanged": true,
+  "options": {
+    "primary": {
+      "files": {
+        "music": {
+          "path": "assets/audio/primary-music-only.wav",
+          "sha256": "e2e0dcb64b4a0453732e3420bd2a20ddadda73ce00a71a3bd63482c6ebd29482",
+          "before_loudnorm": {
+            "input_i": -17.0,
+            "input_tp": -5.25,
+            "input_lra": 0.8,
+            "input_thresh": -27.03
+          },
+          "after_loudnorm": {
+            "input_i": -16.03,
+            "input_tp": -3.77,
+            "input_lra": 2.4,
+            "input_thresh": -26.05
+          },
+          "before_ebur128": {
+            "integrated_lufs": -16.9,
+            "lra_lu": 0.9,
+            "true_peak_dbtp": -5.2
+          },
+          "after_ebur128": {
+            "integrated_lufs": -15.9,
+            "lra_lu": 2.6,
+            "true_peak_dbtp": -3.8
+          }
+        },
+        "mix": {
+          "path": "assets/audio/primary-final-mix.wav",
+          "sha256": "9c9020fbc123d3d522a8c3ec85d70cfa9ab758c8ecb55245ee6456b337350c20",
+          "before_loudnorm": {
+            "input_i": -17.0,
+            "input_tp": -5.25,
+            "input_lra": 0.8,
+            "input_thresh": -27.02
+          },
+          "after_loudnorm": {
+            "input_i": -16.03,
+            "input_tp": -3.77,
+            "input_lra": 2.4,
+            "input_thresh": -26.05
+          },
+          "before_ebur128": {
+            "integrated_lufs": -16.9,
+            "lra_lu": 0.9,
+            "true_peak_dbtp": -5.2
+          },
+          "after_ebur128": {
+            "integrated_lufs": -15.9,
+            "lra_lu": 2.6,
+            "true_peak_dbtp": -3.8
+          }
+        }
+      },
+      "section_gain": {
+        "interpolation": "shape-preserving cubic (PCHIP), continuous first derivative",
+        "points_time_s_gain_db": [
+          [
+            0.0,
+            -1.6
+          ],
+          [
+            2.5,
+            -1.6
+          ],
+          [
+            5.0,
+            -0.7
+          ],
+          [
+            7.5,
+            -0.5
+          ],
+          [
+            10.0,
+            -0.3
+          ],
+          [
+            12.5,
+            0.0
+          ],
+          [
+            15.0,
+            0.2
+          ],
+          [
+            17.5,
+            0.65
+          ],
+          [
+            20.0,
+            1.1
+          ],
+          [
+            22.5,
+            1.1
+          ],
+          [
+            25.0,
+            0.55
+          ],
+          [
+            27.5,
+            -0.3
+          ],
+          [
+            29.25,
+            -0.3
+          ],
+          [
+            30.0,
+            -0.3
+          ]
+        ],
+        "maximum_slew_db_per_second": 0.5096969696727275,
+        "final_fade_start_s": 29.25,
+        "final_fade_duration_s": 0.75
+      },
+      "decoded_event_checks": [
+        {
+          "transition_s": 2.5,
+          "effect_start_s": 2.335,
+          "effect_end_s": 2.755,
+          "effect_peak_dbfs": -22.534918993944828,
+          "local_music_peak_dbfs": -8.013222643253679,
+          "effect_minus_music_peak_db": -14.52169635069115,
+          "body_lift_150ms_db": 0.7420415558307367,
+          "sensitive_band_lift_150ms_db": -0.0018431153120576464
+        },
+        {
+          "transition_s": 5.0,
+          "effect_start_s": 4.835,
+          "effect_end_s": 5.255,
+          "effect_peak_dbfs": -22.534918993944828,
+          "local_music_peak_dbfs": -7.319951824504768,
+          "effect_minus_music_peak_db": -15.214967169440058,
+          "body_lift_150ms_db": 1.4195751313043656,
+          "sensitive_band_lift_150ms_db": 0.1751494013321671
+        },
+        {
+          "transition_s": 7.5,
+          "effect_start_s": 7.335,
+          "effect_end_s": 7.755,
+          "effect_peak_dbfs": -22.534918993944828,
+          "local_music_peak_dbfs": -5.01002418012166,
+          "effect_minus_music_peak_db": -17.524894813823163,
+          "body_lift_150ms_db": 0.8800069062123062,
+          "sensitive_band_lift_150ms_db": -0.007660541389196795
+        },
+        {
+          "transition_s": 10.0,
+          "effect_start_s": 9.835,
+          "effect_end_s": 10.255,
+          "effect_peak_dbfs": -22.534918993944828,
+          "local_music_peak_dbfs": -6.739208086270155,
+          "effect_minus_music_peak_db": -15.795710907674671,
+          "body_lift_150ms_db": 1.201075801327642,
+          "sensitive_band_lift_150ms_db": -0.019451293845637985
+        },
+        {
+          "transition_s": 12.5,
+          "effect_start_s": 12.335,
+          "effect_end_s": 12.755,
+          "effect_peak_dbfs": -22.534918993944828,
+          "local_music_peak_dbfs": -6.289457231701157,
+          "effect_minus_music_peak_db": -16.245461762243668,
+          "body_lift_150ms_db": 0.4961104580216302,
+          "sensitive_band_lift_150ms_db": -0.004187295348525874
+        },
+        {
+          "transition_s": 15.0,
+          "effect_start_s": 14.835,
+          "effect_end_s": 15.255,
+          "effect_peak_dbfs": -22.534918993944828,
+          "local_music_peak_dbfs": -5.5997653350323775,
+          "effect_minus_music_peak_db": -16.935153658912448,
+          "body_lift_150ms_db": 1.6932166540231417,
+          "sensitive_band_lift_150ms_db": 0.030605474325936424
+        },
+        {
+          "transition_s": 17.5,
+          "effect_start_s": 17.335,
+          "effect_end_s": 17.755,
+          "effect_peak_dbfs": -22.534918993944828,
+          "local_music_peak_dbfs": -5.359814076006176,
+          "effect_minus_music_peak_db": -17.17510491793865,
+          "body_lift_150ms_db": 0.4909747526886543,
+          "sensitive_band_lift_150ms_db": 0.00013771118901712714
+        },
+        {
+          "transition_s": 20.0,
+          "effect_start_s": 19.835,
+          "effect_end_s": 20.255,
+          "effect_peak_dbfs": -22.534918993944828,
+          "local_music_peak_dbfs": -5.901034112838543,
+          "effect_minus_music_peak_db": -16.633884881106283,
+          "body_lift_150ms_db": 0.8182507123111096,
+          "sensitive_band_lift_150ms_db": 0.04116002013417288
+        },
+        {
+          "transition_s": 22.5,
+          "effect_start_s": 22.335,
+          "effect_end_s": 22.755,
+          "effect_peak_dbfs": -22.534918993944828,
+          "local_music_peak_dbfs": -4.693192947280022,
+          "effect_minus_music_peak_db": -17.841726046664803,
+          "body_lift_150ms_db": 0.3551123633952513,
+          "sensitive_band_lift_150ms_db": -0.005929693721604084
+        },
+        {
+          "transition_s": 25.0,
+          "effect_start_s": 24.835,
+          "effect_end_s": 25.255,
+          "effect_peak_dbfs": -22.534918993944828,
+          "local_music_peak_dbfs": -5.656544136972757,
+          "effect_minus_music_peak_db": -16.87837485697207,
+          "body_lift_150ms_db": 1.0484395953446526,
+          "sensitive_band_lift_150ms_db": 0.07385295594513336
+        },
+        {
+          "transition_s": 27.5,
+          "effect_start_s": 27.335,
+          "effect_end_s": 27.755,
+          "effect_peak_dbfs": -22.534918993944828,
+          "local_music_peak_dbfs": -6.398771789953747,
+          "effect_minus_music_peak_db": -16.13614720399108,
+          "body_lift_150ms_db": 0.7368669240676301,
+          "sensitive_band_lift_150ms_db": 0.010625706783426649
+        }
+      ],
+      "maximum_effect_minus_music_peak_db": -14.52169635069115,
+      "maximum_body_lift_150ms_db": 1.6932166540231417,
+      "maximum_sensitive_band_lift_150ms_db": 0.1751494013321671,
+      "section_music_rms": [
+        {
+          "start_s": 0.0,
+          "end_s": 2.5,
+          "music_rms_dbfs": -18.600841350203538
+        },
+        {
+          "start_s": 2.5,
+          "end_s": 5.0,
+          "music_rms_dbfs": -17.675879334795674
+        },
+        {
+          "start_s": 5.0,
+          "end_s": 7.5,
+          "music_rms_dbfs": -16.56721474219998
+        },
+        {
+          "start_s": 7.5,
+          "end_s": 10.0,
+          "music_rms_dbfs": -17.509169359977243
+        },
+        {
+          "start_s": 10.0,
+          "end_s": 12.5,
+          "music_rms_dbfs": -17.02037939839038
+        },
+        {
+          "start_s": 12.5,
+          "end_s": 15.0,
+          "music_rms_dbfs": -16.689315299976368
+        },
+        {
+          "start_s": 15.0,
+          "end_s": 17.5,
+          "music_rms_dbfs": -15.507962568826672
+        },
+        {
+          "start_s": 17.5,
+          "end_s": 20.0,
+          "music_rms_dbfs": -15.771543249350646
+        },
+        {
+          "start_s": 20.0,
+          "end_s": 22.5,
+          "music_rms_dbfs": -15.618345576586247
+        },
+        {
+          "start_s": 22.5,
+          "end_s": 25.0,
+          "music_rms_dbfs": -15.233331789381673
+        },
+        {
+          "start_s": 25.0,
+          "end_s": 27.5,
+          "music_rms_dbfs": -16.199260042179105
+        },
+        {
+          "start_s": 27.5,
+          "end_s": 29.25,
+          "music_rms_dbfs": -17.065778538942627
+        }
+      ],
+      "cta_body_27_5_to_29_25_rms_dbfs": -17.065778538942627,
+      "final_0_1_second_rms_dbfs": -37.250586738397345,
+      "last_sample_peak_dbfs": -102.76720130521602,
+      "pre_fade_29_to_29_25_gain_vs_previous_db": 0.6499999764896426,
+      "decoded_mix_reconstruction_max_error": 2.384185791015625e-07,
+      "clip_sample_count": 0,
+      "all_guards_pass": true
+    },
+    "alternate": {
+      "files": {
+        "music": {
+          "path": "assets/audio/alternate-music-only.wav",
+          "sha256": "2f97271e5b2ed69a146632b70bfd0c54925979ca0153d495f919586d6c92ba45",
+          "before_loudnorm": {
+            "input_i": -17.01,
+            "input_tp": -4.23,
+            "input_lra": 1.0,
+            "input_thresh": -27.01
+          },
+          "after_loudnorm": {
+            "input_i": -16.02,
+            "input_tp": -2.95,
+            "input_lra": 2.4,
+            "input_thresh": -26.02
+          },
+          "before_ebur128": {
+            "integrated_lufs": -16.9,
+            "lra_lu": 0.8,
+            "true_peak_dbtp": -4.2
+          },
+          "after_ebur128": {
+            "integrated_lufs": -15.9,
+            "lra_lu": 2.5,
+            "true_peak_dbtp": -2.9
+          }
+        },
+        "mix": {
+          "path": "assets/audio/alternate-final-mix.wav",
+          "sha256": "d86fa696a2c7916733fb894d1c01bfc14fb4b57ff5b8c9dd9e106be79444e405",
+          "before_loudnorm": {
+            "input_i": -17.0,
+            "input_tp": -4.23,
+            "input_lra": 1.0,
+            "input_thresh": -27.0
+          },
+          "after_loudnorm": {
+            "input_i": -16.01,
+            "input_tp": -2.95,
+            "input_lra": 2.4,
+            "input_thresh": -26.01
+          },
+          "before_ebur128": {
+            "integrated_lufs": -16.9,
+            "lra_lu": 0.8,
+            "true_peak_dbtp": -4.2
+          },
+          "after_ebur128": {
+            "integrated_lufs": -15.9,
+            "lra_lu": 2.5,
+            "true_peak_dbtp": -2.9
+          }
+        }
+      },
+      "section_gain": {
+        "interpolation": "shape-preserving cubic (PCHIP), continuous first derivative",
+        "points_time_s_gain_db": [
+          [
+            0.0,
+            -1.6
+          ],
+          [
+            2.5,
+            -1.6
+          ],
+          [
+            5.0,
+            -0.7
+          ],
+          [
+            7.5,
+            -0.5
+          ],
+          [
+            10.0,
+            -0.3
+          ],
+          [
+            12.5,
+            0.0
+          ],
+          [
+            15.0,
+            0.2
+          ],
+          [
+            17.5,
+            0.65
+          ],
+          [
+            20.0,
+            1.1
+          ],
+          [
+            22.5,
+            1.1
+          ],
+          [
+            25.0,
+            0.55
+          ],
+          [
+            27.5,
+            -0.3
+          ],
+          [
+            29.25,
+            -0.3
+          ],
+          [
+            30.0,
+            -0.3
+          ]
+        ],
+        "maximum_slew_db_per_second": 0.5096969696727275,
+        "final_fade_start_s": 29.25,
+        "final_fade_duration_s": 0.75
+      },
+      "decoded_event_checks": [
+        {
+          "transition_s": 2.5,
+          "effect_start_s": 2.335,
+          "effect_end_s": 2.755,
+          "effect_peak_dbfs": -19.11263294273066,
+          "local_music_peak_dbfs": -7.235811555645916,
+          "effect_minus_music_peak_db": -11.876821387084746,
+          "body_lift_150ms_db": 3.8999998896414767,
+          "sensitive_band_lift_150ms_db": 0.24523151315912664
+        },
+        {
+          "transition_s": 5.0,
+          "effect_start_s": 4.835,
+          "effect_end_s": 5.255,
+          "effect_peak_dbfs": -19.11263294273066,
+          "local_music_peak_dbfs": -4.742556139543023,
+          "effect_minus_music_peak_db": -14.370076803187635,
+          "body_lift_150ms_db": 1.1214733573663047,
+          "sensitive_band_lift_150ms_db": 0.09652299459398604
+        },
+        {
+          "transition_s": 7.5,
+          "effect_start_s": 7.335,
+          "effect_end_s": 7.755,
+          "effect_peak_dbfs": -19.11263294273066,
+          "local_music_peak_dbfs": -5.147582027752689,
+          "effect_minus_music_peak_db": -13.96505091497797,
+          "body_lift_150ms_db": 1.0073239520755677,
+          "sensitive_band_lift_150ms_db": 0.23324361126701165
+        },
+        {
+          "transition_s": 10.0,
+          "effect_start_s": 9.835,
+          "effect_end_s": 10.255,
+          "effect_peak_dbfs": -19.11263294273066,
+          "local_music_peak_dbfs": -5.697763271421548,
+          "effect_minus_music_peak_db": -13.414869671309111,
+          "body_lift_150ms_db": 1.0555520224906219,
+          "sensitive_band_lift_150ms_db": 0.12562987939566608
+        },
+        {
+          "transition_s": 12.5,
+          "effect_start_s": 12.335,
+          "effect_end_s": 12.755,
+          "effect_peak_dbfs": -19.11263294273066,
+          "local_music_peak_dbfs": -5.467431855593686,
+          "effect_minus_music_peak_db": -13.645201087136973,
+          "body_lift_150ms_db": 2.472294741315926,
+          "sensitive_band_lift_150ms_db": 0.08724622934479698
+        },
+        {
+          "transition_s": 15.0,
+          "effect_start_s": 14.835,
+          "effect_end_s": 15.255,
+          "effect_peak_dbfs": -19.11263294273066,
+          "local_music_peak_dbfs": -4.87010021411202,
+          "effect_minus_music_peak_db": -14.24253272861864,
+          "body_lift_150ms_db": 0.5946487517245111,
+          "sensitive_band_lift_150ms_db": 0.019527052511397573
+        },
+        {
+          "transition_s": 17.5,
+          "effect_start_s": 17.335,
+          "effect_end_s": 17.755,
+          "effect_peak_dbfs": -19.11263294273066,
+          "local_music_peak_dbfs": -4.088423853383231,
+          "effect_minus_music_peak_db": -15.02420908934743,
+          "body_lift_150ms_db": 0.5825843897246362,
+          "sensitive_band_lift_150ms_db": 0.01927184041846404
+        },
+        {
+          "transition_s": 20.0,
+          "effect_start_s": 19.835,
+          "effect_end_s": 20.255,
+          "effect_peak_dbfs": -19.11263294273066,
+          "local_music_peak_dbfs": -3.2293960076153416,
+          "effect_minus_music_peak_db": -15.883236935115319,
+          "body_lift_150ms_db": 0.8221407366183354,
+          "sensitive_band_lift_150ms_db": 0.01570751839925886
+        },
+        {
+          "transition_s": 22.5,
+          "effect_start_s": 22.335,
+          "effect_end_s": 22.755,
+          "effect_peak_dbfs": -19.11263294273066,
+          "local_music_peak_dbfs": -4.23715252463868,
+          "effect_minus_music_peak_db": -14.87548041809198,
+          "body_lift_150ms_db": 1.7402345858619248,
+          "sensitive_band_lift_150ms_db": -0.04641074951185442
+        },
+        {
+          "transition_s": 25.0,
+          "effect_start_s": 24.835,
+          "effect_end_s": 25.255,
+          "effect_peak_dbfs": -19.11263294273066,
+          "local_music_peak_dbfs": -4.213146596541552,
+          "effect_minus_music_peak_db": -14.899486346189107,
+          "body_lift_150ms_db": 1.3963297876545309,
+          "sensitive_band_lift_150ms_db": 0.06991012631362216
+        },
+        {
+          "transition_s": 27.5,
+          "effect_start_s": 27.335,
+          "effect_end_s": 27.755,
+          "effect_peak_dbfs": -19.11263294273066,
+          "local_music_peak_dbfs": -4.768524763685431,
+          "effect_minus_music_peak_db": -14.344108179045229,
+          "body_lift_150ms_db": 0.29212928128404025,
+          "sensitive_band_lift_150ms_db": 0.004881013076426889
+        }
+      ],
+      "maximum_effect_minus_music_peak_db": -11.876821387084746,
+      "maximum_body_lift_150ms_db": 3.8999998896414767,
+      "maximum_sensitive_band_lift_150ms_db": 0.24523151315912664,
+      "section_music_rms": [
+        {
+          "start_s": 0.0,
+          "end_s": 2.5,
+          "music_rms_dbfs": -18.961593017770404
+        },
+        {
+          "start_s": 2.5,
+          "end_s": 5.0,
+          "music_rms_dbfs": -18.852796113864013
+        },
+        {
+          "start_s": 5.0,
+          "end_s": 7.5,
+          "music_rms_dbfs": -18.1580246637744
+        },
+        {
+          "start_s": 7.5,
+          "end_s": 10.0,
+          "music_rms_dbfs": -17.710890485205187
+        },
+        {
+          "start_s": 10.0,
+          "end_s": 12.5,
+          "music_rms_dbfs": -17.9497512175254
+        },
+        {
+          "start_s": 12.5,
+          "end_s": 15.0,
+          "music_rms_dbfs": -17.847931962607248
+        },
+        {
+          "start_s": 15.0,
+          "end_s": 17.5,
+          "music_rms_dbfs": -16.588067603221035
+        },
+        {
+          "start_s": 17.5,
+          "end_s": 20.0,
+          "music_rms_dbfs": -15.945515887756606
+        },
+        {
+          "start_s": 20.0,
+          "end_s": 22.5,
+          "music_rms_dbfs": -16.093416497446434
+        },
+        {
+          "start_s": 22.5,
+          "end_s": 25.0,
+          "music_rms_dbfs": -16.197739496151534
+        },
+        {
+          "start_s": 25.0,
+          "end_s": 27.5,
+          "music_rms_dbfs": -16.884458597925548
+        },
+        {
+          "start_s": 27.5,
+          "end_s": 29.25,
+          "music_rms_dbfs": -17.653219484032846
+        }
+      ],
+      "cta_body_27_5_to_29_25_rms_dbfs": -17.653219484032846,
+      "final_0_1_second_rms_dbfs": -38.044983933776564,
+      "last_sample_peak_dbfs": -107.84421966458625,
+      "pre_fade_29_to_29_25_gain_vs_previous_db": 0.6800000131597144,
+      "decoded_mix_reconstruction_max_error": 2.384185791015625e-07,
+      "clip_sample_count": 0,
+      "all_guards_pass": true
+    }
+  },
+  "source_manifest": "assets/audio/SOURCES.json",
+  "all_archive_hashes_pass": true
+}

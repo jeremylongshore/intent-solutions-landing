@@ -1,0 +1,11 @@
+{
+  "film/main.js": "7581e00e5d3bd8c5be45fbef4be3b0985c9b24b02f440101cf662b0369490f5f",
+  "film/shared.css": "bcef2cd5bb3bbcba4aa1cfae1304befceb2bb1ebfae80c53b0b313ba0d24841b",
+  "film/scenes/a.js": "123150cd24b5ca172cc9d6569081c5d0a17fc0d15d881ca7d42fbffe5cebc6af",
+  "film/scenes/b.js": "ba206377cccf769c63595d1811efb6cd0ce19c9f7ca28c0d8d5fdcd75ced19b1",
+  "film/facts.js": "c23a81316dd0e99ef13512c6575649abd89e4a19e3a36bc5cb92998639f264ca",
+  "film/landscape.html": "6b9a5e852ca8ab27a8e0f07fde01c0921bb22b750b19b3dc18889b9db342d32f",
+  "film/portrait.html": "f45b4375a80b192c47151802466199d7904f77e693068dcfd460286cf773fea4",
+  "FACTS.json": "aac13ca3aa41e055a7a4434955a5b08765bb5a8d104e7628d431709c9bb61c45",
+  "package-lock.json": "bc0027469409cfe01f1680562e3e52d3b386e058d87f19f5e7d627a366d69abe"
+}

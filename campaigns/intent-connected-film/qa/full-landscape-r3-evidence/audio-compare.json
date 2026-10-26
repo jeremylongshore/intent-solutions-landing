@@ -1,0 +1,14 @@
+{
+  "250-2000Hz": {
+    "max_lift_dB": 7.563608707619448,
+    "time_s": 7.5,
+    "windows_ge_10dB": 0
+  },
+  "2000-8000Hz": {
+    "max_lift_dB": 1.168837107159507,
+    "time_s": 9.950000000000001,
+    "windows_ge_10dB": 0
+  },
+  "last_second_music_rms_dBFS": -19.35194206237793,
+  "method": "50ms Hann-window FFT band energy final-versus-music lift, stereo. Comparative encoded measurement; not isolated SFX peak nor listening."
+}

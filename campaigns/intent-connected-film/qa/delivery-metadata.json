@@ -1,0 +1,110 @@
+{
+  "passed": true,
+  "facts_match": true,
+  "video_identical_across_audio_choices": true,
+  "audio_identical_across_formats": true,
+  "files": [
+    {
+      "file": "intent-solutions-landscape-1080p60-alternate-music.mp4",
+      "bytes": 12226898,
+      "sha256": "06f50f0940e97e15f639871d1d44955cc5e80ac50232135e7ae6dbefb67d5316",
+      "width": 1920,
+      "height": 1080,
+      "frames": 1800,
+      "fps": 60,
+      "duration_s": 30.0,
+      "video": "H.264/yuv420p",
+      "audio": "AAC stereo/48kHz",
+      "fast_start": true,
+      "stream_hashes": {
+        "v": "70680f54f816f16fe289d8fd438eb98b98a8393c0d2af7dddf2556a48f226b6c",
+        "a": "5c9c8cb81b08d5d791bbd63afee4dc5b7f6985cd7704a5230c4d3dde1a10b10d"
+      }
+    },
+    {
+      "file": "intent-solutions-landscape-1080p60-music-only.mp4",
+      "bytes": 12180853,
+      "sha256": "73132ee43d83fb61007ee21dd67d4fa19fbd599315626908f37461b50a2e5db0",
+      "width": 1920,
+      "height": 1080,
+      "frames": 1800,
+      "fps": 60,
+      "duration_s": 30.0,
+      "video": "H.264/yuv420p",
+      "audio": "AAC stereo/48kHz",
+      "fast_start": true,
+      "stream_hashes": {
+        "v": "70680f54f816f16fe289d8fd438eb98b98a8393c0d2af7dddf2556a48f226b6c",
+        "a": "c7fb0319ac5a7e7f8d677199b540b05cebb81a61895f5a2a93cc4d1dc4eceb1b"
+      }
+    },
+    {
+      "file": "intent-solutions-landscape-1080p60.mp4",
+      "bytes": 12181754,
+      "sha256": "5208b0f5b93491cdf1f5785bdaf89622831768e68c0cedfca4ce4d809a33cc1c",
+      "width": 1920,
+      "height": 1080,
+      "frames": 1800,
+      "fps": 60,
+      "duration_s": 30.0,
+      "video": "H.264/yuv420p",
+      "audio": "AAC stereo/48kHz",
+      "fast_start": true,
+      "stream_hashes": {
+        "v": "70680f54f816f16fe289d8fd438eb98b98a8393c0d2af7dddf2556a48f226b6c",
+        "a": "08d124355f0f36591b816e8929cb29996d807ca09ec6360fd0d7bfed94924256"
+      }
+    },
+    {
+      "file": "intent-solutions-portrait-1080p60-alternate-music.mp4",
+      "bytes": 11173206,
+      "sha256": "4557f06d03b006d42341f0ebb9ac95b224596f1adb9b5de4eacee3c11d5a4522",
+      "width": 1080,
+      "height": 1920,
+      "frames": 1800,
+      "fps": 60,
+      "duration_s": 30.0,
+      "video": "H.264/yuv420p",
+      "audio": "AAC stereo/48kHz",
+      "fast_start": true,
+      "stream_hashes": {
+        "v": "67c627412ea8186e671bcc2ad483bb94ee5e05936090f0b0f918ac0c17792186",
+        "a": "5c9c8cb81b08d5d791bbd63afee4dc5b7f6985cd7704a5230c4d3dde1a10b10d"
+      }
+    },
+    {
+      "file": "intent-solutions-portrait-1080p60-music-only.mp4",
+      "bytes": 11127161,
+      "sha256": "01235baa0a9b614ef28f8150f8fb43092e5fcb8f06c8bcd6e0f35a5534b31b22",
+      "width": 1080,
+      "height": 1920,
+      "frames": 1800,
+      "fps": 60,
+      "duration_s": 30.0,
+      "video": "H.264/yuv420p",
+      "audio": "AAC stereo/48kHz",
+      "fast_start": true,
+      "stream_hashes": {
+        "v": "67c627412ea8186e671bcc2ad483bb94ee5e05936090f0b0f918ac0c17792186",
+        "a": "c7fb0319ac5a7e7f8d677199b540b05cebb81a61895f5a2a93cc4d1dc4eceb1b"
+      }
+    },
+    {
+      "file": "intent-solutions-portrait-1080p60.mp4",
+      "bytes": 11128062,
+      "sha256": "9cab6a851633b2387c35bf53530697c4855584a3bdb3c59bd785def076bb16e3",
+      "width": 1080,
+      "height": 1920,
+      "frames": 1800,
+      "fps": 60,
+      "duration_s": 30.0,
+      "video": "H.264/yuv420p",
+      "audio": "AAC stereo/48kHz",
+      "fast_start": true,
+      "stream_hashes": {
+        "v": "67c627412ea8186e671bcc2ad483bb94ee5e05936090f0b0f918ac0c17792186",
+        "a": "08d124355f0f36591b816e8929cb29996d807ca09ec6360fd0d7bfed94924256"
+      }
+    }
+  ]
+}

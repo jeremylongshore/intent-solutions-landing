@@ -1,0 +1,22 @@
+{
+  "primary": {
+    "last_second_rms_dbfs": -19.35213279724121,
+    "last_100ms_rms_dbfs": -37.26673889160156
+  },
+  "music-only": {
+    "last_second_rms_dbfs": -19.35194206237793,
+    "last_100ms_rms_dbfs": -37.266700744628906
+  },
+  "alternate": {
+    "last_second_rms_dbfs": -20.7166748046875,
+    "last_100ms_rms_dbfs": -38.06651306152344
+  },
+  "250-2000Hz_max_final_over_music_50ms_fft_power_db": [
+    7.563608707619446,
+    7.5
+  ],
+  "2000-8000Hz_max_final_over_music_50ms_fft_power_db": [
+    1.1688371071595025,
+    9.95
+  ]
+}

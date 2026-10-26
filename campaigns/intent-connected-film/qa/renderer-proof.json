@@ -1,0 +1,10 @@
+{
+  "file": "renders/renderer-test.mp4",
+  "sha256": "031fa9429cf501ec7bdaf3620fa7130168121f6f45cec70a0073a0c6710c384f",
+  "width": 1920,
+  "height": 1080,
+  "fps": "60/1",
+  "frames": "300",
+  "duration_s": "5.000000",
+  "note": "Five-second proof completed before full production; original private production artifact retained locally."
+}

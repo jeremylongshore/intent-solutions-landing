@@ -1,0 +1,491 @@
+{
+  "primary": {
+    "source_mixkit_id": 132,
+    "source_bpm": 121.0,
+    "source_start_s": 15.973,
+    "atempo_ratio": 0.9917355371900827,
+    "target_bpm": 120,
+    "duration_s": 30,
+    "target_lufs": -16.0,
+    "section_gain": {
+      "interpolation": "shape-preserving cubic (PCHIP), continuous first derivative",
+      "points_time_s_gain_db": [
+        [
+          0.0,
+          -1.6
+        ],
+        [
+          2.5,
+          -1.6
+        ],
+        [
+          5.0,
+          -0.7
+        ],
+        [
+          7.5,
+          -0.5
+        ],
+        [
+          10.0,
+          -0.3
+        ],
+        [
+          12.5,
+          0.0
+        ],
+        [
+          15.0,
+          0.2
+        ],
+        [
+          17.5,
+          0.65
+        ],
+        [
+          20.0,
+          1.1
+        ],
+        [
+          22.5,
+          1.1
+        ],
+        [
+          25.0,
+          0.55
+        ],
+        [
+          27.5,
+          -0.3
+        ],
+        [
+          29.25,
+          -0.3
+        ],
+        [
+          30.0,
+          -0.3
+        ]
+      ],
+      "maximum_slew_db_per_second": 0.5096969696727275,
+      "final_fade_start_s": 29.25,
+      "final_fade_duration_s": 0.75
+    },
+    "files": {
+      "music": "primary-music-only.wav",
+      "mix": "primary-final-mix.wav",
+      "sfx": "primary-sfx-only.wav"
+    },
+    "metrics": {
+      "music": {
+        "input_i": -16.03,
+        "input_tp": -3.77,
+        "input_lra": 2.4,
+        "input_thresh": -26.05,
+        "output_i": -15.32,
+        "output_tp": -3.42,
+        "output_lra": 1.3,
+        "output_thresh": -25.35,
+        "normalization_type": "dynamic",
+        "target_offset": -0.68
+      },
+      "mix": {
+        "input_i": -16.03,
+        "input_tp": -3.77,
+        "input_lra": 2.4,
+        "input_thresh": -26.05,
+        "output_i": -15.32,
+        "output_tp": -3.42,
+        "output_lra": 1.3,
+        "output_thresh": -25.35,
+        "normalization_type": "dynamic",
+        "target_offset": -0.68
+      }
+    },
+    "event_count": 11,
+    "repeat_gain": 0.09302137242979792,
+    "event_metrics": [
+      {
+        "transition_s": 2.5,
+        "effect_start_s": 2.335,
+        "effect_end_s": 2.755,
+        "effect_peak_dbfs": -22.534906248609694,
+        "local_music_peak_dbfs": -8.013220836921937,
+        "effect_minus_music_peak_db": -14.521685411687757,
+        "band_body_lift_150ms_db": 0.74204146812764,
+        "sensitive_band_lift_150ms_db": -0.0018432320382351613,
+        "effect_rms_dbfs": -39.263324296504855,
+        "local_music_rms_dbfs": -17.450093791829456
+      },
+      {
+        "transition_s": 5.0,
+        "effect_start_s": 4.835,
+        "effect_end_s": 5.255,
+        "effect_peak_dbfs": -22.534906248609694,
+        "local_music_peak_dbfs": -7.319950955574547,
+        "effect_minus_music_peak_db": -15.214955293035148,
+        "band_body_lift_150ms_db": 1.4195752431613071,
+        "sensitive_band_lift_150ms_db": 0.17514804715724627,
+        "effect_rms_dbfs": -39.263324296504855,
+        "local_music_rms_dbfs": -16.13625264385524
+      },
+      {
+        "transition_s": 7.5,
+        "effect_start_s": 7.335,
+        "effect_end_s": 7.755,
+        "effect_peak_dbfs": -22.534906248609694,
+        "local_music_peak_dbfs": -5.010025546297562,
+        "effect_minus_music_peak_db": -17.52488070231213,
+        "band_body_lift_150ms_db": 0.8800069421144179,
+        "sensitive_band_lift_150ms_db": -0.007660437880605473,
+        "effect_rms_dbfs": -39.263324296504855,
+        "local_music_rms_dbfs": -15.90474088164907
+      },
+      {
+        "transition_s": 10.0,
+        "effect_start_s": 9.835,
+        "effect_end_s": 10.255,
+        "effect_peak_dbfs": -22.534906248609694,
+        "local_music_peak_dbfs": -6.7392082495429495,
+        "effect_minus_music_peak_db": -15.795697999066745,
+        "band_body_lift_150ms_db": 1.2010759442051182,
+        "sensitive_band_lift_150ms_db": -0.01945207158027627,
+        "effect_rms_dbfs": -39.263324296504855,
+        "local_music_rms_dbfs": -17.520491164067387
+      },
+      {
+        "transition_s": 12.5,
+        "effect_start_s": 12.335,
+        "effect_end_s": 12.755,
+        "effect_peak_dbfs": -22.534906248609694,
+        "local_music_peak_dbfs": -6.289455863561539,
+        "effect_minus_music_peak_db": -16.245450385048155,
+        "band_body_lift_150ms_db": 0.4961104673009643,
+        "sensitive_band_lift_150ms_db": -0.004187279518618317,
+        "effect_rms_dbfs": -39.263324296504855,
+        "local_music_rms_dbfs": -15.873579474032462
+      },
+      {
+        "transition_s": 15.0,
+        "effect_start_s": 14.835,
+        "effect_end_s": 15.255,
+        "effect_peak_dbfs": -22.534906248609694,
+        "local_music_peak_dbfs": -5.599765269877598,
+        "effect_minus_music_peak_db": -16.935140978732093,
+        "band_body_lift_150ms_db": 1.6932164602873998,
+        "sensitive_band_lift_150ms_db": 0.03060429779705607,
+        "effect_rms_dbfs": -39.263324296504855,
+        "local_music_rms_dbfs": -13.945124496918115
+      },
+      {
+        "transition_s": 17.5,
+        "effect_start_s": 17.335,
+        "effect_end_s": 17.755,
+        "effect_peak_dbfs": -22.534906248609694,
+        "local_music_peak_dbfs": -5.359815399601892,
+        "effect_minus_music_peak_db": -17.175090849007802,
+        "band_body_lift_150ms_db": 0.4909748671433978,
+        "sensitive_band_lift_150ms_db": 0.00013778747822952057,
+        "effect_rms_dbfs": -39.263324296504855,
+        "local_music_rms_dbfs": -16.750121645951502
+      },
+      {
+        "transition_s": 20.0,
+        "effect_start_s": 19.835,
+        "effect_end_s": 20.255,
+        "effect_peak_dbfs": -22.534906248609694,
+        "local_music_peak_dbfs": -5.901033513029491,
+        "effect_minus_music_peak_db": -16.633872735580205,
+        "band_body_lift_150ms_db": 0.8182507170254067,
+        "sensitive_band_lift_150ms_db": 0.04115954899677822,
+        "effect_rms_dbfs": -39.263324296504855,
+        "local_music_rms_dbfs": -15.996714291703583
+      },
+      {
+        "transition_s": 22.5,
+        "effect_start_s": 22.335,
+        "effect_end_s": 22.755,
+        "effect_peak_dbfs": -22.534906248609694,
+        "local_music_peak_dbfs": -4.693191717751768,
+        "effect_minus_music_peak_db": -17.841714530857928,
+        "band_body_lift_150ms_db": 0.3551124388481263,
+        "sensitive_band_lift_150ms_db": -0.005929517885006953,
+        "effect_rms_dbfs": -39.263324296504855,
+        "local_music_rms_dbfs": -14.71410974955067
+      },
+      {
+        "transition_s": 25.0,
+        "effect_start_s": 24.835,
+        "effect_end_s": 25.255,
+        "effect_peak_dbfs": -22.534906248609694,
+        "local_music_peak_dbfs": -5.656545552233368,
+        "effect_minus_music_peak_db": -16.878360696376326,
+        "band_body_lift_150ms_db": 1.0484397129265044,
+        "sensitive_band_lift_150ms_db": 0.07385305786945896,
+        "effect_rms_dbfs": -39.263324296504855,
+        "local_music_rms_dbfs": -14.705473456166256
+      },
+      {
+        "transition_s": 27.5,
+        "effect_start_s": 27.335,
+        "effect_end_s": 27.755,
+        "effect_peak_dbfs": -22.534906248609694,
+        "local_music_peak_dbfs": -6.39877297727045,
+        "effect_minus_music_peak_db": -16.136133271339247,
+        "band_body_lift_150ms_db": 0.736866978394156,
+        "sensitive_band_lift_150ms_db": 0.010625720515778316,
+        "effect_rms_dbfs": -39.263324296504855,
+        "local_music_rms_dbfs": -17.301978035352573
+      }
+    ]
+  },
+  "alternate": {
+    "source_mixkit_id": 623,
+    "source_bpm": 124.0,
+    "source_start_s": 15.556,
+    "atempo_ratio": 0.967741935483871,
+    "target_bpm": 120,
+    "duration_s": 30,
+    "target_lufs": -16.0,
+    "section_gain": {
+      "interpolation": "shape-preserving cubic (PCHIP), continuous first derivative",
+      "points_time_s_gain_db": [
+        [
+          0.0,
+          -1.6
+        ],
+        [
+          2.5,
+          -1.6
+        ],
+        [
+          5.0,
+          -0.7
+        ],
+        [
+          7.5,
+          -0.5
+        ],
+        [
+          10.0,
+          -0.3
+        ],
+        [
+          12.5,
+          0.0
+        ],
+        [
+          15.0,
+          0.2
+        ],
+        [
+          17.5,
+          0.65
+        ],
+        [
+          20.0,
+          1.1
+        ],
+        [
+          22.5,
+          1.1
+        ],
+        [
+          25.0,
+          0.55
+        ],
+        [
+          27.5,
+          -0.3
+        ],
+        [
+          29.25,
+          -0.3
+        ],
+        [
+          30.0,
+          -0.3
+        ]
+      ],
+      "maximum_slew_db_per_second": 0.5096969696727275,
+      "final_fade_start_s": 29.25,
+      "final_fade_duration_s": 0.75
+    },
+    "files": {
+      "music": "alternate-music-only.wav",
+      "mix": "alternate-final-mix.wav",
+      "sfx": "alternate-sfx-only.wav"
+    },
+    "metrics": {
+      "music": {
+        "input_i": -16.02,
+        "input_tp": -2.95,
+        "input_lra": 2.4,
+        "input_thresh": -26.02,
+        "output_i": -15.37,
+        "output_tp": -2.34,
+        "output_lra": 1.6,
+        "output_thresh": -25.39,
+        "normalization_type": "dynamic",
+        "target_offset": -0.63
+      },
+      "mix": {
+        "input_i": -16.01,
+        "input_tp": -2.95,
+        "input_lra": 2.4,
+        "input_thresh": -26.01,
+        "output_i": -15.37,
+        "output_tp": -2.35,
+        "output_lra": 1.6,
+        "output_thresh": -25.39,
+        "normalization_type": "dynamic",
+        "target_offset": -0.63
+      }
+    },
+    "event_count": 11,
+    "repeat_gain": 0.13794196138617743,
+    "event_metrics": [
+      {
+        "transition_s": 2.5,
+        "effect_start_s": 2.335,
+        "effect_end_s": 2.755,
+        "effect_peak_dbfs": -19.11263316604193,
+        "local_music_peak_dbfs": -7.235811938367539,
+        "effect_minus_music_peak_db": -11.876821227674395,
+        "band_body_lift_150ms_db": 3.9000000000000123,
+        "sensitive_band_lift_150ms_db": 0.2452319776893749,
+        "effect_rms_dbfs": -35.8410512139371,
+        "local_music_rms_dbfs": -19.278242483430258
+      },
+      {
+        "transition_s": 5.0,
+        "effect_start_s": 4.835,
+        "effect_end_s": 5.255,
+        "effect_peak_dbfs": -19.11263316604193,
+        "local_music_peak_dbfs": -4.742557231383447,
+        "effect_minus_music_peak_db": -14.370075934658484,
+        "band_body_lift_150ms_db": 1.12147334961266,
+        "sensitive_band_lift_150ms_db": 0.09652290934000105,
+        "effect_rms_dbfs": -35.8410512139371,
+        "local_music_rms_dbfs": -18.00185944962895
+      },
+      {
+        "transition_s": 7.5,
+        "effect_start_s": 7.335,
+        "effect_end_s": 7.755,
+        "effect_peak_dbfs": -19.11263316604193,
+        "local_music_peak_dbfs": -5.14758196859563,
+        "effect_minus_music_peak_db": -13.9650511974463,
+        "band_body_lift_150ms_db": 1.0073240687097742,
+        "sensitive_band_lift_150ms_db": 0.23324319368509128,
+        "effect_rms_dbfs": -35.8410512139371,
+        "local_music_rms_dbfs": -16.979492065905163
+      },
+      {
+        "transition_s": 10.0,
+        "effect_start_s": 9.835,
+        "effect_end_s": 10.255,
+        "effect_peak_dbfs": -19.11263316604193,
+        "local_music_peak_dbfs": -5.697761897739743,
+        "effect_minus_music_peak_db": -13.414871268302191,
+        "band_body_lift_150ms_db": 1.0555520261410296,
+        "sensitive_band_lift_150ms_db": 0.12563032171259234,
+        "effect_rms_dbfs": -35.8410512139371,
+        "local_music_rms_dbfs": -18.39863193643667
+      },
+      {
+        "transition_s": 12.5,
+        "effect_start_s": 12.335,
+        "effect_end_s": 12.755,
+        "effect_peak_dbfs": -19.11263316604193,
+        "local_music_peak_dbfs": -5.4674314871351655,
+        "effect_minus_music_peak_db": -13.645201678906766,
+        "band_body_lift_150ms_db": 2.472295000371015,
+        "sensitive_band_lift_150ms_db": 0.08724691276164169,
+        "effect_rms_dbfs": -35.8410512139371,
+        "local_music_rms_dbfs": -18.01926367907602
+      },
+      {
+        "transition_s": 15.0,
+        "effect_start_s": 14.835,
+        "effect_end_s": 15.255,
+        "effect_peak_dbfs": -19.11263316604193,
+        "local_music_peak_dbfs": -4.870099801284559,
+        "effect_minus_music_peak_db": -14.242533364757373,
+        "band_body_lift_150ms_db": 0.5946487445181928,
+        "sensitive_band_lift_150ms_db": 0.0195270254553935,
+        "effect_rms_dbfs": -35.8410512139371,
+        "local_music_rms_dbfs": -17.051459311168593
+      },
+      {
+        "transition_s": 17.5,
+        "effect_start_s": 17.335,
+        "effect_end_s": 17.755,
+        "effect_peak_dbfs": -19.11263316604193,
+        "local_music_peak_dbfs": -4.088422643692892,
+        "effect_minus_music_peak_db": -15.02421052234904,
+        "band_body_lift_150ms_db": 0.5825843595775038,
+        "sensitive_band_lift_150ms_db": 0.01927193815554023,
+        "effect_rms_dbfs": -35.8410512139371,
+        "local_music_rms_dbfs": -15.037603147478576
+      },
+      {
+        "transition_s": 20.0,
+        "effect_start_s": 19.835,
+        "effect_end_s": 20.255,
+        "effect_peak_dbfs": -19.11263316604193,
+        "local_music_peak_dbfs": -3.229395994364757,
+        "effect_minus_music_peak_db": -15.883237171677177,
+        "band_body_lift_150ms_db": 0.8221408095129462,
+        "sensitive_band_lift_150ms_db": 0.015706926043224392,
+        "effect_rms_dbfs": -35.8410512139371,
+        "local_music_rms_dbfs": -16.887202042112985
+      },
+      {
+        "transition_s": 22.5,
+        "effect_start_s": 22.335,
+        "effect_end_s": 22.755,
+        "effect_peak_dbfs": -19.11263316604193,
+        "local_music_peak_dbfs": -4.237152311348832,
+        "effect_minus_music_peak_db": -14.8754808546931,
+        "band_body_lift_150ms_db": 1.7402347306319224,
+        "sensitive_band_lift_150ms_db": -0.046410302747557926,
+        "effect_rms_dbfs": -35.8410512139371,
+        "local_music_rms_dbfs": -16.52667445105692
+      },
+      {
+        "transition_s": 25.0,
+        "effect_start_s": 24.835,
+        "effect_end_s": 25.255,
+        "effect_peak_dbfs": -19.11263316604193,
+        "local_music_peak_dbfs": -4.213147549891577,
+        "effect_minus_music_peak_db": -14.899485616150354,
+        "band_body_lift_150ms_db": 1.3963298255618692,
+        "sensitive_band_lift_150ms_db": 0.06991004983286236,
+        "effect_rms_dbfs": -35.8410512139371,
+        "local_music_rms_dbfs": -16.803015015040987
+      },
+      {
+        "transition_s": 27.5,
+        "effect_start_s": 27.335,
+        "effect_end_s": 27.755,
+        "effect_peak_dbfs": -19.11263316604193,
+        "local_music_peak_dbfs": -4.7685254312243845,
+        "effect_minus_music_peak_db": -14.344107734817548,
+        "band_body_lift_150ms_db": 0.2921292713685209,
+        "sensitive_band_lift_150ms_db": 0.004881727860954395,
+        "effect_rms_dbfs": -35.8410512139371,
+        "local_music_rms_dbfs": -16.074409067342664
+      }
+    ]
+  },
+  "effect_source": {
+    "mixkit_id": 1461,
+    "peak_offset_s": 0.165,
+    "duration_s": 0.42,
+    "energy_below_150hz_percent": 0.05339355693285953,
+    "energy_above_6000hz_percent": 5.7054952086931226e-05,
+    "highpass_hz": 220,
+    "lowpass_hz": 9500
+  }
+}

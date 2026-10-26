@@ -1,0 +1,20 @@
+{
+  "video": "deliverables/intent-solutions-landscape-1080p60.mp4",
+  "width": 1920,
+  "height": 1080,
+  "fps": 60.0,
+  "frames_measured": 1800,
+  "duration_s": 30.0,
+  "frozen_screen": {
+    "sample_fps": 10,
+    "width": 320,
+    "height": 180,
+    "threshold_luma_delta": 0.35,
+    "total_s": 1.3,
+    "longest_s": 0.1,
+    "passes": false
+  },
+  "all_frame_mean_luma": 18.02731069888889,
+  "all_frame_mean_edge": 4.132090848333333,
+  "method": "All frames decoded at native frame rate and spatially downsampled to 320px. Freeze follows kit 10fps threshold; not a native-resolution perceptual judgement."
+}
