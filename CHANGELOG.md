@@ -1,3 +1,14 @@
+# Release v4.13.3
+
+**Release Date**: 2026-10-26
+
+## Changes since v4.13.2
+
+- chore: release v4.13.3 [skip ci] (334fedd)
+- fix(field-notes): name the company Intent Solutions in titles, RSS and JSON-LD (#96) (f0587e8)
+
+---
+
 # Release v4.13.2
 
 **Release Date**: 2026-10-26
