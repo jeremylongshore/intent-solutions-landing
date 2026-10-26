@@ -1,3 +1,442 @@
+# Release v4.13.5
+
+**Release Date**: 2026-10-26
+
+## Changes since v4.13.4
+
+- chore: release v4.13.5 [skip ci] (bde2cce)
+- content(field-notes): add mysql-executable-comments-bypass-sql-safety-gate (e100fa3)
+
+---
+
+# Release v4.13.4
+
+**Release Date**: 2026-10-26
+
+## Changes since v4.13.3
+
+- chore: release v4.13.4 [skip ci] (f7b6b64)
+- test(discovery): wait for the explore_filter events before asserting on them (#97) (e1f207d)
+
+---
+
+# Release v4.13.3
+
+**Release Date**: 2026-10-26
+
+## Changes since v4.13.2
+
+- chore: release v4.13.3 [skip ci] (334fedd)
+- fix(field-notes): name the company Intent Solutions in titles, RSS and JSON-LD (#96) (f0587e8)
+
+---
+
+# Release v4.13.2
+
+**Release Date**: 2026-10-26
+
+## Changes since v4.13.1
+
+- chore: release v4.13.2 [skip ci] (05ce61f)
+- docs(brand): keep 084 as the master identity and the estate bar's mono capitals (#95) (9145141)
+
+---
+
+# Release v4.13.1
+
+**Release Date**: 2026-10-25
+
+## Changes since v4.13.0
+
+- chore: release v4.13.1 [skip ci] (7c7099f)
+- fix(routes): classify the old demos /bbb/ URLs as reviewed aliases of the product site (#94) (2f06ca4)
+
+---
+
+# Release v4.13.0
+
+**Release Date**: 2026-10-25
+
+## Changes since v4.12.3
+
+- chore: release v4.13.0 [skip ci] (b88d4b2)
+- feat(bbb): publish the Bob's Big Brain product site at /bbb/ in the master brand (#93) (9b28729)
+
+---
+
+# Release v4.12.3
+
+**Release Date**: 2026-10-25
+
+## Changes since v4.12.2
+
+- chore: release v4.12.3 [skip ci] (47616bc)
+- fix(ci): track PDFs in LFS for the Hugging Face mirror push (#92) (fb24292)
+
+---
+
+# Release v4.12.2
+
+**Release Date**: 2026-10-25
+
+## Changes since v4.12.1
+
+- chore: release v4.12.2 [skip ci] (bdd3ccb)
+- Merge pull request #78 from jeremylongshore/audit/public-discovery-2026-10-16 (e23084d)
+- docs(audit): renumber the discovery audit to 092 and mark it a point-in-time record (ed8d026)
+- Merge origin/main into audit/public-discovery-2026-10-16 (272df8f)
+- docs: normalize audit CSV line endings (67610b5)
+- docs: audit public estate discovery and nested routes (0a5fcfc)
+
+---
+
+# Release v4.12.1
+
+**Release Date**: 2026-10-25
+
+## Changes since v4.12.0
+
+- chore: release v4.12.1 [skip ci] (ca3292f)
+- fix(legal): use the canonical company name and date the policies to this revision (#91) (0dfcc0e)
+
+---
+
+# Release v4.12.0
+
+**Release Date**: 2026-10-24
+
+## Changes since v4.11.2
+
+- chore: release v4.12.0 [skip ci] (dcbbb42)
+- Merge pull request #90 from jeremylongshore/feat/homepage-hallmark-floor (da4d19d)
+- fix(legal): serve the published Terms and Acceptable Use text without the GetTerms script (030e3e0)
+- feat(site-map): index the eight operating atlas pages and audit every public HTML file (294b720)
+- style(home): remove the machine-made design tells from the homepage within the brand contract (f07b69a)
+- chore(site): delete 29 unreachable components and the three libraries only they used (e9c5097)
+
+---
+
+# Release v4.11.2
+
+**Release Date**: 2026-10-22
+
+## Changes since v4.11.1
+
+- chore: release v4.11.2 [skip ci] (c9a87b3)
+- content(field-notes): add docker-hardening-your-test-suite-cannot-see (65852be)
+
+---
+
+# Release v4.11.1
+
+**Release Date**: 2026-10-17
+
+## Changes since v4.11.0
+
+- chore: release v4.11.1 [skip ci] (c4ad3c1)
+- ci(deploy): deploy from the Buzz vps-deploy runner instead of joining the tailnet (#88) (7e53ebe)
+
+---
+
+# Release v4.11.0
+
+**Release Date**: 2026-10-17
+
+## Changes since v4.10.1
+
+- chore: release v4.11.0 [skip ci] (a1f63e8)
+- feat(discovery): reconcile public routes and verify visitor return paths (#87) (6e2ba06)
+
+---
+
+# Release v4.10.1
+
+**Release Date**: 2026-10-17
+
+## Changes since v4.10.0
+
+- chore: release v4.10.1 [skip ci] (5762e0b)
+- fix: deliver discovery events before leaving the page (#86) (0b32e65)
+
+---
+
+# Release v4.10.0
+
+**Release Date**: 2026-10-17
+
+## Changes since v4.9.4
+
+- chore: release v4.10.0 [skip ci] (10e7a0e)
+- feat: measure public discovery with bounded aggregate events (#85) (5b3eaf1)
+- fix(privacy): make published policy readable without JavaScript (#84) (6b7118f)
+
+---
+
+# Release v4.9.4
+
+**Release Date**: 2026-10-17
+
+## Changes since v4.9.3
+
+- chore: release v4.9.4 [skip ci] (0403628)
+- docs(claude): run the manual deploy fallback as the deploy user, never with sudo (#82) (02753b3)
+
+---
+
+# Release v4.9.3
+
+**Release Date**: 2026-10-17
+
+## Changes since v4.9.2
+
+- chore: release v4.9.3 [skip ci] (fe9f9e4)
+- ci(deploy-vps): run the pre-deploy gate on every pull request (#83) (7ed606d)
+
+---
+
+# Release v4.9.2
+
+**Release Date**: 2026-10-17
+
+## Changes since v4.9.1
+
+- chore: release v4.9.2 [skip ci] (4d43860)
+- fix(about): resolve unfilled placeholders on the About page (#81) (52b7982)
+
+---
+
+# Release v4.9.1
+
+**Release Date**: 2026-10-16
+
+## Changes since v4.9.0
+
+- chore: release v4.9.1 [skip ci] (961157c)
+- fix(home): lead the proof section with Tons of Skills, not a failed eval (#79) (abf2998)
+
+---
+
+# Release v4.9.0
+
+**Release Date**: 2026-10-16
+
+## Changes since v4.8.3
+
+- chore: release v4.9.0 [skip ci] (873ba78)
+- feat: make the public estate discoverable through Explore (#80) (0d0b780)
+
+---
+
+# Release v4.8.3
+
+**Release Date**: 2026-10-15
+
+## Changes since v4.8.2
+
+- chore: release v4.8.3 [skip ci] (8dc76db)
+- fix: remove additional withdrawn team profile and photos (#77) (1c27114)
+
+---
+
+# Unreleased
+
+- Remove an additional withdrawn team profile and both public photo copies; anonymize the corresponding field-note example.
+
+---
+
+# Release v4.8.2
+
+**Release Date**: 2026-10-15
+
+## Changes since v4.8.1
+
+- chore: release v4.8.2 [skip ci] (c79ad7c)
+- fix: remove withdrawn public team profile and photo assets (#76) (1831ecb)
+
+---
+
+# Unreleased
+
+- Remove the withdrawn team profile and its three public photo copies; anonymize associated personal references in published field notes.
+
+---
+
+# Release v4.8.1
+
+**Release Date**: 2026-10-14
+
+## Changes since v4.8.0
+
+- chore: release v4.8.1 [skip ci] (7a97e00)
+- docs: display official Intent Solutions Select partner badge (#75) (60b8110)
+
+---
+
+# Release v4.8.0
+
+**Release Date**: 2026-10-14
+
+## Changes since v4.7.3
+
+- chore: release v4.8.0 [skip ci] (45de1b3)
+- feat: feature Intent Outreach on the company homepage (#74) (45ba98d)
+
+---
+
+# Release v4.7.3
+
+**Release Date**: 2026-10-14
+
+## Changes since v4.7.2
+
+- chore: release v4.7.3 [skip ci] (32f6363)
+- fix: repair mobile contact layout and compact footer (#73) (6756d43)
+
+---
+
+# Release v4.7.2
+
+**Release Date**: 2026-10-14
+
+## Changes since v4.7.1
+
+- chore: release v4.7.2 [skip ci] (466b073)
+- fix: show official Select partner badge on homepage (#72) (a32c210)
+
+---
+
+# Release v4.7.1
+
+**Release Date**: 2026-10-13
+
+## Changes since v4.7.0
+
+- chore: release v4.7.1 [skip ci] (a71569e)
+- docs: reconcile estate atlas release and session recovery (#71) (7f025a3)
+
+---
+
+# Release v4.7.0
+
+**Release Date**: 2026-10-12
+
+## Changes since v4.6.0
+
+- chore: release v4.7.0 [skip ci] (4eba4fc)
+- feat: add financial teaching atlas for proposed network economy (#70) (64d4e01)
+
+---
+
+# Release v4.6.0
+
+**Release Date**: 2026-10-11
+
+## Changes since v4.5.2
+
+- chore: release v4.6.0 [skip ci] (4f3c920)
+- feat(estate): publish eight-view company operating atlas (#69) (a601fb5)
+
+---
+
+# Release v4.5.2
+
+**Release Date**: 2026-10-11
+
+## Changes since v4.5.1
+
+- chore: release v4.5.2 [skip ci] (6f5ab63)
+- fix: include canonical estate bar in standalone diagram (#68) (81f9c96)
+
+---
+
+# Release v4.5.1
+
+**Release Date**: 2026-10-11
+
+## Changes since v4.5.0
+
+- chore: release v4.5.1 [skip ci] (5ff4f67)
+- docs: publish source-linked estate diagram (#67) (a463f7a)
+
+---
+
+# Release v4.5.0
+
+**Release Date**: 2026-10-11
+
+## Changes since v4.4.8
+
+- chore: release v4.5.0 [skip ci] (8748fc6)
+- feat: show connected Intent Solutions estate (#66) (b14f528)
+
+---
+
+# Release v4.4.8
+
+**Release Date**: 2026-10-09
+
+## Changes since v4.4.7
+
+- chore: release v4.4.8 [skip ci] (d191286)
+- content(field-notes): add park-the-cutover-keep-the-work (5c67a76)
+
+---
+
+# Release v4.4.7
+
+**Release Date**: 2026-10-08
+
+## Changes since v4.4.6
+
+- chore: release v4.4.7 [skip ci] (a6029b9)
+- content(field-notes): add three-pass-settlement-recurring-ai-pipeline-contract (5bf484f)
+
+---
+
+# Release v4.4.6
+
+**Release Date**: 2026-10-06
+
+## Changes since v4.4.5
+
+- chore: release v4.4.6 [skip ci] (2f5c852)
+- content(field-notes): add the-sidecar-must-never-block-the-deliverable (4f09677)
+
+---
+
+# Release v4.4.5
+
+**Release Date**: 2026-10-05
+
+## Changes since v4.4.4
+
+- chore: release v4.4.5 [skip ci] (00e4ba4)
+- content(field-notes): add rank-current-truth-with-the-rerank-not-the-clock (7c45d98)
+
+---
+
+# Release v4.4.4
+
+**Release Date**: 2026-10-01
+
+## Changes since v4.4.3
+
+- chore: release v4.4.4 [skip ci] (fcdbfd8)
+- content: connect the company front door to production work and customer independence (#65) (4e50346)
+
+---
+
+# Release v4.4.3
+
+**Release Date**: 2026-09-30
+
+## Changes since v4.4.2
+
+- chore: release v4.4.3 [skip ci] (b618b0f)
+- fix(team): remove the bio sentence from Heather Johnson's profile (#64) (0531af2)
+
+---
+
 # Release v4.4.2
 
 **Release Date**: 2026-09-29

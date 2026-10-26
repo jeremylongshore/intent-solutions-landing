@@ -135,7 +135,7 @@ The hard part isn't the tooling — a state machine is a lookup table, a policy 
 
 ### Related Posts
 
-- [Zero to CI: Full-Stack Dashboard in One Session](/field-notes/zero-to-ci-full-stack-dashboard-one-session) — Another greenfield project from empty repo to working system in one day
+- [Zero to CI: Full-Stack Dashboard in One Session](/field-notes/zero-to-ci-full-stack-dashboard-one-session/) — Another greenfield project from empty repo to working system in one day
 - [From Tool to Platform: IntentCAD Ships Five EPICs in One Day](https://startaitools.com/posts/from-tool-to-platform-intentcad-five-epics-one-day/) — Multi-EPIC shipping day with architectural pivots
 - [Production Release Engineering: Shipping v4.5.0](https://startaitools.com/posts/production-release-engineering-v450/) — Automated release workflows and CI discipline at scale
 

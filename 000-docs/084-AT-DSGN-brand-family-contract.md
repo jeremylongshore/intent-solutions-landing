@@ -40,3 +40,11 @@ Preserve the four pre-existing local master-file changes until their intent and 
 Validate the rendered headline at 320/390/768/1440px and 200% text scaling, including element bounds inside overflow-hidden containers. Verify the menu closes after an anchor choice and Escape, keyboard focus remains usable, and any new proof specimen has an accurate destination. Recheck metadata and served icon bytes after release.
 
 Beads contains the implementation tasks and dependency gates; this file records the proposed contract rather than a parallel task list.
+
+## Contact and mobile footer correction — 2026-10-14
+
+Owner screenshots exposed content clipped inside the contact section despite a passing page-width assertion. The contact surface now uses one introduction, a form-first mobile layout, a compact ordered process, and the shared charcoal/orange tokens. It has no decorative video, fixed three-column process cards, repeated large heading, or standalone cards for email and location. Name/email and company/phone pair only where space permits; fields remain at least 16px and keyboard focus stays visible. Confirmation persists until the visitor chooses to start another request.
+
+The owner selected `support@intentsolutions.io` as the public company contact address, including form recovery, no-JavaScript instructions, About/Support, editorial contact links and the footer. This changes the public destination only; it does not reconfigure the mail service or form delivery. Mobile footer navigation uses native, collapsed Network/Company disclosures with 44px link targets; desktop navigation remains expanded.
+
+Verification must measure contact descendants and text against their containers, not only document width. Exercise footer disclosures with the keyboard, form failure/retry and persistent confirmation with intercepted requests, no-JavaScript email access, and 200% text scaling. Track the audit and deployment in `bd_000-projects-v62z`.

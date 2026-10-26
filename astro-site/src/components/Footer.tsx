@@ -6,7 +6,8 @@ const networkLinks = estateLinks.links
   .map(({ label, href }) => ({ label, href }));
 
 const companyLinks = [
-  { label: 'Projects', href: '/projects/' },
+  { label: 'Explore', href: '/projects/' },
+  { label: 'The estate', href: '/estate/' },
   { label: 'Field notes', href: '/field-notes/' },
   { label: 'About', href: '/about/' },
   { label: 'Our team', href: '/about/#team' },
@@ -31,18 +32,32 @@ export default function Footer() {
             <img src="/images/logo-mark.png" alt="" width="28" height="28" />
             <span>Intent <strong>Solutions</strong></span>
           </a>
-          <p>AI implementation with a defined outcome, evidence you can inspect, and a plan for operating the system.</p>
+          <p>Applied AI engineering with a defined outcome, inspectable evidence, and knowledge your team can carry forward.</p>
           <small>Gulf Shores, Alabama</small>
+          <a className="footer-email" href="mailto:support@intentsolutions.io">support@intentsolutions.io</a>
         </div>
 
-        <div>
+        <div className="footer-desktop-links">
           <h2>Network</h2>
           {networkLinks.map((link) => <a key={link.href} href={link.href}>{link.label}</a>)}
         </div>
 
-        <div>
+        <div className="footer-desktop-links">
           <h2>Company</h2>
           {companyLinks.map((link) => <a key={link.href} href={link.href}>{link.label}</a>)}
+        </div>
+        <div className="footer-mobile-links">
+          {[
+            { title: 'Network', links: networkLinks },
+            { title: 'Company', links: companyLinks },
+          ].map(({ title, links }) => (
+            <details key={title}>
+              <summary>{title}</summary>
+              <nav aria-label={`Footer ${title.toLowerCase()}`}>
+                {links.map((link) => <a key={link.href} href={link.href}>{link.label}</a>)}
+              </nav>
+            </details>
+          ))}
         </div>
       </div>
 
@@ -56,8 +71,8 @@ export default function Footer() {
       <style>{`
         .site-footer {
           padding: 4.5rem 1.25rem 2rem;
-          background: #070708;
-          border-top: 1px solid rgba(63, 63, 70, 0.55);
+          background: var(--intent-ink-deep);
+          border-top: 1px solid var(--intent-line-soft);
         }
         .footer-grid {
           display: grid;
@@ -66,38 +81,47 @@ export default function Footer() {
           max-width: 72rem;
           margin: 0 auto 3.5rem;
         }
-        .footer-brand > a {
+        .footer-brand > a:not(.footer-email) {
           display: inline-flex;
           align-items: center;
           gap: 0.6rem;
           margin-bottom: 1rem;
-          color: #fafafa;
-          font-family: 'Syne', system-ui, sans-serif;
+          color: var(--intent-text);
+          font-family: var(--font-display);
           font-weight: 700;
           text-decoration: none;
         }
-        .footer-brand strong { color: #ff7a1a; }
+        .footer-brand strong { color: var(--intent-brand); }
         .footer-brand p {
           max-width: 31rem;
           margin: 0 0 1.2rem;
-          color: #a1a1aa;
+          color: var(--intent-muted);
           font-size: 0.9rem;
           line-height: 1.7;
         }
         .footer-brand small {
+          display: block;
           color: var(--intent-muted);
-          font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-          font-size: 0.75rem;
-          letter-spacing: 0.08em;
-          text-transform: uppercase;
+          font-size: 0.82rem;
         }
+        .footer-brand .footer-email {
+          display: flex;
+          align-items: center;
+          min-height: 44px;
+          width: fit-content;
+          max-width: 100%;
+          overflow-wrap: anywhere;
+          color: var(--intent-muted);
+          font-size: 0.875rem;
+          text-underline-offset: 0.2em;
+        }
+        .footer-mobile-links { display: none; }
         .footer-grid h2 {
           margin: 0 0 1rem;
-          color: #fb923c;
-          font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-          font-size: 0.75rem;
-          letter-spacing: 0.14em;
-          text-transform: uppercase;
+          color: var(--intent-accent-hi);
+          font-family: var(--font-body);
+          font-size: 0.82rem;
+          font-weight: 700;
         }
         .footer-grid > div:not(.footer-brand) > a {
           display: flex;
@@ -107,14 +131,16 @@ export default function Footer() {
           max-width: 100%;
           overflow-wrap: anywhere;
           margin-bottom: 0.2rem;
-          color: #a1a1aa;
+          color: var(--intent-muted);
           font-size: 0.86rem;
           text-decoration: none;
         }
         .footer-grid a:hover,
         .footer-grid a:focus-visible,
         .footer-bottom a:hover,
-        .footer-bottom a:focus-visible { color: #fafafa; }
+        .footer-bottom a:focus-visible { color: var(--intent-text); }
+        .footer-grid a:active,
+        .footer-bottom a:active { color: var(--intent-accent-hi); }
         .footer-bottom {
           display: flex;
           align-items: center;
@@ -123,16 +149,31 @@ export default function Footer() {
           max-width: 72rem;
           margin: 0 auto;
           padding-top: 1.5rem;
-          border-top: 1px solid rgba(63, 63, 70, 0.45);
+          border-top: 1px solid var(--intent-line-soft);
         }
         .footer-bottom p { margin: 0; color: var(--intent-muted); font-size: 0.73rem; }
         .footer-bottom div { display: flex; flex-wrap: wrap; gap: 1.25rem; }
         .footer-bottom a { display: inline-flex; align-items: center; min-height: 44px; color: var(--intent-muted); font-size: 0.73rem; text-decoration: none; }
-        a:focus-visible { outline: 2px solid #fb923c; outline-offset: 3px; }
+        a:focus-visible { outline: 2px solid var(--intent-accent-hi); outline-offset: 3px; }
         @media (max-width: 960px) {
           .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
           .footer-brand { grid-column: 1 / -1; }
           .footer-bottom { align-items: flex-start; flex-direction: column; }
+        }
+        @media (max-width: 960px) {
+          .site-footer { padding: 1.75rem 1.25rem 1.25rem; }
+          .footer-grid { grid-template-columns: minmax(0, 1fr); gap: 1rem; margin-bottom: 1rem; }
+          .footer-brand > a:not(.footer-email) { margin-bottom: 0.5rem; }
+          .footer-brand p { margin-bottom: 0.5rem; font-size: 0.875rem; line-height: 1.5; }
+          .footer-desktop-links { display: none; }
+          .footer-mobile-links { display: block; min-width: 0; }
+          .footer-mobile-links details { border-top: 1px solid var(--intent-line-soft); }
+          .footer-mobile-links summary { cursor: pointer; min-height: 48px; padding-block: 0.75rem; color: var(--intent-text); font-size: 0.9375rem; }
+          .footer-mobile-links summary:focus-visible { outline: 2px solid var(--intent-accent-hi); outline-offset: 3px; }
+          .footer-mobile-links nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 1rem; padding-bottom: 0.75rem; }
+          .footer-mobile-links nav a { display: flex; align-items: center; min-height: 44px; color: var(--intent-muted); font-size: 0.875rem; overflow-wrap: anywhere; }
+          .footer-bottom { padding-top: 1rem; gap: 0.5rem; }
+          .footer-bottom div { column-gap: 1rem; row-gap: 0; }
         }
       `}</style>
     </footer>

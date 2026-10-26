@@ -4,17 +4,22 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Task Tracking (Beads / bd)
 
-Use `bd` for all tasks/issues (no markdown TODO lists). Root-level `AGENTS.md` defines the "landing the plane" session-end workflow — work is not complete until `git push` succeeds (pull --rebase → `bd sync` → push → verify "up to date with origin").
+Use `bd` for all tasks/issues (no markdown TODO lists). Root-level `AGENTS.md` defines the
+session-end workflow and tracker context. The landing-local database currently requires
+repair (`bd_000-projects-dxtq.9`); on the owner's workstation use the established umbrella
+tracker at `/home/jeremy/000-projects`. Do not initialize, import or migrate the local database
+to work around it. Code pushes and Beads data pushes are separate operations.
 
 ```bash
-bd ready                                    # Start of session
-bd create "Title" -p 1 --description "..."  # Create work
-bd update <id> --status in_progress         # Begin task
-bd close <id> --reason "Done"               # Complete task
-bd sync                                     # End of session
+bd -C /home/jeremy/000-projects prime          # Refresh context
+bd -C /home/jeremy/000-projects ready          # Start of session
+bd -C /home/jeremy/000-projects update <id> --claim
+bd -C /home/jeremy/000-projects close <id> --reason "Done"
+bd -C /home/jeremy/000-projects dolt push      # Sync issue data
 ```
 
-After upgrading `bd`: run `bd info --whats-new` and `bd hooks install` if warned.
+Elsewhere, establish the maintainer-designated tracker before making issue mutations.
+The passive `.beads/issues.jsonl` export is not the source of truth.
 
 ## Repository Overview
 
@@ -32,6 +37,19 @@ Current authority: `000-docs/084-AT-DSGN-brand-family-contract.md`, `000-docs/08
 - **Legacy**: `99-Archive/` contains old React/Vite SPA (not in production).
 
 ## Commands
+
+### Estate session recovery
+
+Read `000-docs/089-AT-DSGN-financial-atlas.md` for the published atlas, release evidence,
+source map and private presenter/AAR delivery status. The financial diagrams use Cathryn
+Lavery's `diagram-design` v2.6 with 44 diagram grammars, pinned in that record; they are not
+44 interchangeable themes. Preserve the fictional-example and proposed-model disclosures.
+No successful website deployment proves adopted partner terms or completed legal agreements.
+
+Presenter scripts were delivered privately; do not recreate them as a new unfinished task
+or publish the source notebooks, scripts or email receipts into this repository.
+
+### Development and verification
 
 All commands run from `astro-site/` directory:
 
@@ -61,13 +79,13 @@ npx playwright test tests/<spec-file>.spec.ts  # Single test
 Pages are static Astro files; interactive sections use React islands with `client:load` (immediate) or `client:visible` (lazy) hydration:
 
 ```astro
-<Hero client:load />                 <!-- Hydrates immediately (above fold) -->
-<ClaudeCodeTiers client:visible />   <!-- Hydrates when scrolled into view -->
+<Contact client:load />   <!-- the request form: hydrates immediately -->
+<Footer client:load />    <!-- footer disclosures -->
 ```
 
 - **Pages**: `src/pages/*.astro` — File-based routing, static content
 - **Layout**: `src/layouts/Layout.astro` — SEO (astro-seo), Organization + WebSite JSON-LD, Umami analytics, `noindex` prop for utility pages
-- **React Islands**: `src/components/*.tsx` — Interactive sections with Framer Motion + GSAP
+- **React Islands**: `src/components/*.tsx` — the contact form and footer; no animation libraries (removed with the unreachable components on 2026-10-24)
 - **Styles**: `src/styles/global.css` — Tailwind 4 + charcoal slate theme
 
 ### SEO posture (pinned 2026-05-25, see `000-docs/079-OD-AUDT`)
@@ -111,7 +129,7 @@ The legacy `astro-site/functions/` Cloud Functions directory was removed on 2026
 - Pre-deploy gate runs `npm ci` + `npm run build` + `npm run audit:indexability` + line-length cap check.
 - Deploy job uses the reusable `jeremylongshore/.github` `vps-deploy.yml` — Tailscale OIDC → force-command SSH on the VPS → `/usr/local/sbin/deploy-intentsolutions` does `git fetch + npm ci + astro build + atomic rsync` to `/srv/intentsolutions/dist`. Health check at `https://intentsolutions.io/healthz`.
 - Smoke validation: `.ok == true` on the healthz response.
-- **Known issue**: when the Tailscale OIDC trust credential at `login.tailscale.com/admin/settings/trust-credentials` is broken, automated deploy fails at the "Connect Tailscale" step (HTTP 403). Manual fallback: `ssh intentsolutions; sudo /usr/local/sbin/deploy-intentsolutions`. Tracked as bead `OPS-b78`.
+- **Known issue**: when the Tailscale OIDC trust credential at `login.tailscale.com/admin/settings/trust-credentials` is broken, automated deploy fails at the "Connect Tailscale" step (HTTP 403). Manual fallback: `ssh intentsolutions '/usr/local/sbin/deploy-intentsolutions'`, run as the `intentsolutions` user exactly as the CI force-command does. **Never with sudo**: a root run leaves root-owned files in `/srv/intentsolutions/` that the next unprivileged CI deploy cannot overwrite (cleaned up 2026-10-17). The same rule applies to every `/usr/local/sbin/deploy-*` script. Tracked as bead `OPS-b78`; the Tailscale trial expiry that blocks CI deploys is intent-os bead "Tailscale trial expired".
 
 **Release** (`.github/workflows/release.yml`):
 - Auto-detects version bump from commit messages (BREAKING→major, feat→minor, else patch).
@@ -119,16 +137,17 @@ The legacy `astro-site/functions/` Cloud Functions directory was removed on 2026
 
 ## Design System
 
-Theme in `src/styles/global.css` (Charcoal Slate / Theme 7):
+Theme in `src/styles/global.css` (Charcoal Slate / Theme 7). Every colour and font goes through a token in its `:root` block (`--intent-*`, `--font-body`, `--font-display`); do not write literal hex/rgb or `font-family` values in pages or components. Its first lines are the Hallmark check stamp (waivers, rewordings and dismissals on the record); keep them current when the homepage changes and re-run `node ~/.claude/skills/hallmark/scripts/sloplint.mjs` with `--render` where the skill is installed.
+
 
 | Class | Purpose |
 |-------|---------|
-| `card-slate` | Semi-transparent cards with backdrop blur |
+| `card-slate` | Semi-transparent cards with backdrop blur (not used on the homepage) |
 | `btn-primary` | Established action styling; homepage uses scoped orange primary buttons |
 | `btn-secondary` | Transparent with zinc border |
 | `btn-sm` | Smaller button padding |
 | `text-hero` | 3.5rem/2.5rem mobile hero text |
-| `text-h1`, `text-h2` | Heading sizes with tight tracking |
+| `text-h1` | Heading size with tight tracking |
 | `transition-smooth` | Cubic-bezier transitions |
 
 Current brand: orange branching-arrow mark, charcoal/zinc surfaces, Syne display and Inter body text. Preserve this identity. The contact form is a React island; core company and directory content is static Astro. Legacy animation libraries and components are not visual authority for current pages.
@@ -142,12 +161,16 @@ Current brand: orange branching-arrow mark, charcoal/zinc surfaces, Syne display
 | `/about/` | Team and operating responsibilities |
 | `/support/` | Existing agreements and repository support channels |
 | `/projects/` | Public work and evidence discovery, not a sales catalog |
+| `/estate/` | Connected company and operating atlas entry point |
+| `/estate-blueprint.html` | Generated eight-view operating blueprint |
+| `/estate/economics/` | Financial teaching index and eleven chapter routes |
 | `/field-notes/` | Engineering blog index (posts cross-post to startaitools.com; canonical there) |
 | `/site-map/` | Human directory of current company pages and related properties |
 | `/terms/`, `/privacy/`, `/acceptable-use/` | Existing published policies |
 | Legacy service and `/learn/` routes | Individual noindex handoffs defined in `src/data/site-map.mjs` |
 
-All internal routes are slash-terminated; the audit guard rejects any sitemap URL whose canonical isn't self-referential.
+Astro page routes are slash-terminated; standalone generated diagrams intentionally use
+`.html` URLs. The audit guard rejects any sitemap URL whose canonical isn't self-referential.
 
 ## Content Guidelines
 
@@ -180,6 +203,7 @@ This repo participates in the **Intent Solutions Testing SOP** per `~/.claude/CL
 
 ## Reference docs
 
+- `000-docs/089-AT-DSGN-financial-atlas.md` — atlas sources, research limits, diagram authority, release and delivery status.
 - `000-docs/079-OD-AUDT-search-console-indexing-audit.md` — SEO posture, robots.txt rationale, subdomain noindex hardening (§ 4a), GSC actions.
 - `000-docs/078-OD-SOPS-audit-harness-baseline-2026-05-01.md` — testing harness baseline.
 - `000-docs/search-console-url-audit.csv` — per-URL audit data from the SEO regression cleanup.

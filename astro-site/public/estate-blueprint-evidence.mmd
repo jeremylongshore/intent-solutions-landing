@@ -1,0 +1,23 @@
+flowchart TB
+  method["Intent Eval Lab"]
+  contracts["Intent Eval Core"]
+  cases["Task cases & criteria"]
+  checks["Audit Harness"]
+  behavior["J-Rig"]
+  bundle["Evidence Bundle"]
+  policy["Rollout policy"]
+  gate["Intent Rollout Gate"]
+  record["Signed decision record"]
+  dashboard["Intent Eval Dashboard"]
+  method -->|"method"| cases
+  contracts -.->|"governance"| cases
+  cases -->|"criteria"| checks
+  cases -->|"cases"| behavior
+  checks -->|"checks"| bundle
+  behavior -->|"results"| bundle
+  contracts -.->|"schema / governance"| bundle
+  bundle -->|"evidence"| gate
+  policy -.->|"policy / governance"| gate
+  gate -->|"decision"| record
+  record -->|"signed result"| dashboard
+  gate -.->|"failed → revise / feedback"| cases

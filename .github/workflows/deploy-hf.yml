@@ -79,8 +79,23 @@ jobs:
           # contents: `git lfs track` touches every already-tracked file that matches,
           # and exits 2 ("chtimes: no such file") when a previously deployed binary
           # has been removed from the build (2026-09-06, run 34068001756).
+          # PDFs too: the Space's pre-receive hook rejected the plain-git
+          # intent-solutions-operating-atlas.pdf on every push since 2026-10-12.
           git lfs track "*.jpg" "*.jpeg" "*.png" "*.gif" "*.webp" "*.avif" "*.ico" \
-                        "*.mp4" "*.mov" "*.webm" "*.woff" "*.woff2" "*.ttf" "*.otf" >/dev/null
+                        "*.mp4" "*.mov" "*.webm" "*.woff" "*.woff2" "*.ttf" "*.otf" \
+                        "*.pdf" >/dev/null
+
+          # Fail here, naming the file, if the build ships a binary type the list misses.
+          untracked_binaries=$(cd ../astro-site/dist && find . -type f -print0 \
+            | xargs -0 file -N -F '|' --mime-encoding | awk -F'|' '$2 ~ /^ *binary$/{print $1}' \
+            | while read -r f; do
+                git -C "$OLDPWD" check-attr filter -- "${f#./}" | grep -q 'filter: lfs' || echo "$f"
+              done)
+          if [ -n "$untracked_binaries" ]; then
+            echo "::error::Binary files not tracked by LFS (add their extension above):"
+            echo "$untracked_binaries"
+            exit 1
+          fi
 
           # Replace the Space contents with the fresh build (keep .git and .gitattributes).
           find . -mindepth 1 -maxdepth 1 ! -name '.git' ! -name '.gitattributes' -exec rm -rf {} +

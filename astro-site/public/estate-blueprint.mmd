@@ -1,0 +1,18 @@
+flowchart TB
+  engineering["Client engineering"]
+  opensource["Open source & tooling"]
+  education["Education & community"]
+  mission["Close the deployment gap"]
+  practice["Intent Solutions"]
+  network["Engineering network (proposed)"]
+  products["Owned products"]
+  research["Research & evidence"]
+  media["Content & media"]
+  mission -.->|"sets direction / governance"| practice
+  practice -->|"deliver"| engineering
+  practice -->|"reuse"| opensource
+  practice -->|"teach"| education
+  practice -->|"productize"| products
+  practice -->|"test"| research
+  practice -->|"explain"| media
+  practice -.->|"coordinate / governance"| network

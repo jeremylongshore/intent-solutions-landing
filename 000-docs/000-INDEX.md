@@ -1,5 +1,17 @@
 # Document Inventory - intent-solutions-landing
 
+## October 2026 rendering and indexing repairs
+
+- [092: Public estate discovery and reachability audit](092-AA-AUDT-public-estate-discovery.md) (2026-10-16 record; its four repairs have shipped)
+- [090: Privacy policy rendering repair](090-AT-MAINT-privacy-policy-rendering.md)
+- [091: Terms and acceptable use rendering repair](091-AT-MAINT-terms-and-acceptable-use-rendering.md)
+- [085: Site map](085-AT-ARCH-site-map.md) amended 2026-10-24 with the standalone public pages table
+
+## October 2026 estate teaching release
+
+- [089: Financial atlas design, sources, release and private delivery status](089-AT-DSGN-financial-atlas.md)
+- [Live estate](https://intentsolutions.io/estate/), [operating blueprint](https://intentsolutions.io/estate-blueprint.html), and [financial teaching atlas](https://intentsolutions.io/estate/economics/)
+
 ## September 2026 brand audit
 
 - [087: Current estate visitor journeys and capture plan](087-PP-PLAN-estate-visitor-journeys.md) (supersedes 084's separate master theme)
@@ -10,15 +22,17 @@
 - [086: Messaging and release record](086-DC-DEVN-customer-first-release.md)
 - [088: Estate bar amendment to the brand family contract](088-AT-DSGN-estate-bar-amendment.md)
 
-**Generated:** $(date -u +"%Y-%m-%dT%H:%M:%SZ")
-**Standard:** Document Filing System v2.0
+**Maintained:** October 12, 2026 (estate recovery update)
+**Filing:** Document Filing System v4.4 for new artifacts; historical filenames retained
 **Structure:** Flat directory, chronological sequence
 
 ---
 
 ## Summary
 
-Total Documents: $(ls -1 000-docs/ | grep -E "^[0-9]{3}-" | wc -l)
+The category and chronological inventories below preserve the original 001–052 archive.
+They are historical subsets, not a complete count of current files. Current estate authority
+is linked above; inspect the directory for subsequent dated records.
 
 ---
 
@@ -203,4 +217,4 @@ Total Documents: $(ls -1 000-docs/ | grep -E "^[0-9]{3}-" | wc -l)
 
 ---
 
-**Last Updated:** $(date -u +"%Y-%m-%dT%H:%M:%SZ")
+**Last Updated:** October 24, 2026

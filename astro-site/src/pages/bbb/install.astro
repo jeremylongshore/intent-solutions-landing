@@ -1,0 +1,90 @@
+---
+import BbbFrame from '../../components/bbb/BbbFrame.astro';
+import CopyBlock from '../../components/bbb/CopyBlock.astro';
+import { requirements, localInstallPrompt, manualCommands, firstSave, firstSearch, standingOrder, marketplace } from '../../data/bbb.mjs';
+
+const installPreview = `claude plugin marketplace add ${marketplace.repo}\nclaude plugin install ${marketplace.plugin}`;
+
+const fixes = [
+  { problem: 'The save was rejected', fix: 'Notes under 25 characters are rejected. Write the whole fact.' },
+  { problem: 'Search finds nothing', fix: 'Use one to four keywords, not a question.' },
+  { problem: 'The tools never appear', fix: 'Check node and npm run, then fully restart Claude Code.' },
+  { problem: 'It connects to a team server', fix: 'A ~/.teamkb/team.json file switches to team mode. Rename it.' },
+];
+---
+
+<BbbFrame
+  title="Install Bob’s Big Brain in Claude Code | Intent Solutions"
+  description="Install Bob’s Big Brain local mode in Claude Code or Cowork: requirements, a copy-ready install prompt, your first save and search, and fixes. Beta."
+  current="install"
+>
+  <section class="bbb-pagehead" aria-labelledby="in-title">
+    <div class="bbb-container bbb-head">
+      <h1 id="in-title">Install it in one prompt</h1>
+      <p class="bbb-lead">One prompt and one restart. Your brain stays local.</p>
+    </div>
+  </section>
+
+  <section class="bbb-section" aria-labelledby="steps-title">
+    <div class="bbb-container">
+      <div class="bbb-head"><h2 id="steps-title">Four steps</h2></div>
+      <ol class="bbb-steps">
+        <li>
+          <div class="bbb-steps__body">
+            <h3>Check what you need</h3>
+            <dl class="bbb-dl">
+              {requirements.map((r) => (<><dt>{r.name}</dt><dd>{r.detail}</dd></>))}
+            </dl>
+          </div>
+        </li>
+        <li>
+          <div class="bbb-steps__body">
+            <h3>Paste this into Claude Code</h3>
+            <CopyBlock id="install-prompt" label="Install prompt, local mode: Copy takes the whole prompt" text={localInstallPrompt} preview={installPreview} collapsed />
+            <details class="bbb-details">
+              <summary>Prefer to type the commands yourself</summary>
+              <CopyBlock id="install-manual" label="Run inside Claude Code, one line at a time" text={manualCommands.join('\n')} />
+            </details>
+          </div>
+        </li>
+        <li>
+          <div class="bbb-steps__body">
+            <h3>Restart, save one fact, ask for it back</h3>
+            <p>Reopen Claude Code, save a fact of 25 characters or more, then search with keywords.</p>
+            <CopyBlock id="first-run" label="Your first save and search" text={`${firstSave}\n${firstSearch}`} />
+          </div>
+        </li>
+        <li>
+          <div class="bbb-steps__body">
+            <h3>Make Claude look it up first</h3>
+            <p>Optional: tell Claude to search your brain before guessing.</p>
+            <CopyBlock id="standing-order" label="Standing order, paste into Claude Code" text={standingOrder} collapsed />
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="bbb-section bbb-section--band" aria-labelledby="fix-title">
+    <div class="bbb-container">
+      <div class="bbb-head">
+        <h2 id="fix-title">If something is off</h2>
+      </div>
+      <ul class="bbb-rows bbb-rows--roomy">
+        {fixes.map((f) => (<li><h3>{f.problem}</h3><p>{f.fix}</p></li>))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="bbb-section" aria-labelledby="team-title">
+    <div class="bbb-container bbb-close">
+      <div class="bbb-head bbb-head--flush">
+        <h2 id="team-title">Want one brain for the team?</h2>
+        <p>Your server, per-user tokens; members propose, admins approve. Checked in code, not yet clean-room tested. We help set it up.</p>
+      </div>
+      <div class="bbb-actions">
+        <a class="bbb-btn bbb-btn--primary" href="/contact/?door=outcome">Request a team brain</a>
+      </div>
+    </div>
+  </section>
+</BbbFrame>

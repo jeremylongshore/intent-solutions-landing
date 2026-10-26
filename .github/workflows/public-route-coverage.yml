@@ -1,0 +1,86 @@
+name: Public route coverage
+
+on:
+  pull_request:
+    paths:
+      - 'astro-site/**'
+      - '.github/workflows/public-route-coverage.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'astro-site/**'
+      - '.github/workflows/public-route-coverage.yml'
+  schedule:
+    - cron: '17 9 * * 1,4'
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: public-route-coverage-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  contract:
+    name: Public discovery contract
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Registry and route reconciliation (offline)
+        working-directory: astro-site
+        run: |
+          node scripts/audit-discovery.mjs
+          python scripts/test-public-routes.py
+          python scripts/audit-public-routes.py --output /tmp/public-route-source.json
+      - name: Keep source evidence, including failures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: public-route-source
+          path: /tmp/public-route-source.json
+          retention-days: 14
+
+  live:
+    name: Public navigation and live coverage
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    needs: contract
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Reconcile public sources and bounded GET responses
+        id: coverage
+        working-directory: astro-site
+        run: python scripts/audit-public-routes.py --live --output /tmp/public-route-live.json
+      - name: Install browser runtime
+        if: success() || failure()
+        run: |
+          python -m pip install playwright==1.54.0
+          python -m playwright install --with-deps chromium
+      - name: Five read-only visitor tasks and client-rendered returns
+        if: success() || failure()
+        working-directory: astro-site
+        run: python scripts/test-public-journeys.py --output /tmp/public-journeys.json
+      - name: Keep live evidence, including failures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: public-discovery-live
+          path: |
+            /tmp/public-route-live.json
+            /tmp/public-journeys.json
+          retention-days: 14

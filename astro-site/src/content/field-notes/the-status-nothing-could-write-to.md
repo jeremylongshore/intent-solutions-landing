@@ -26,7 +26,7 @@ Health now asserts the latch state directly instead of trusting a counter that c
 
 ## blog-startaitools: 195 records nobody could write to
 
-Every syndication surface row (39 posts times 5 surfaces) read `status: "pending"`. Not one had ever been flipped. Ezekiel posts manually from an email packet. No path reports the result back. "Pending" never meant "he didn't post." It meant nobody had ever written to the field.
+Every syndication surface row (39 posts times 5 surfaces) read `status: "pending"`. Not one had ever been flipped. The social publishing operator posts manually from an email packet. No path reports the result back. "Pending" never meant "he didn't post." It meant nobody had ever written to the field.
 
 The weekly team rollup handed that file to the model as context on what was posted. The model counted 195 pendings and correctly reported a backlog to the whole team. The model did its job. The input lied.
 

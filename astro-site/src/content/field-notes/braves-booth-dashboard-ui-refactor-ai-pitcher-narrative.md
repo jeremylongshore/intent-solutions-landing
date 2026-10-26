@@ -117,7 +117,7 @@ The pattern is the same one that keeps showing up on this project: broadcast too
 
 ### Related Posts
 
-- [Building a Production Multi-Agent AI System](/field-notes/building-production-multi-agent-ai-brightstream-vertex-ai) — multi-agent architecture patterns relevant to the AI narrative pipeline
+- [Building a Production Multi-Agent AI System](/field-notes/building-production-multi-agent-ai-brightstream-vertex-ai/) — multi-agent architecture patterns relevant to the AI narrative pipeline
 - [Building an AI-Friendly Codebase](https://startaitools.com/posts/building-ai-friendly-codebase-documentation-real-time-claude-md-creation-journey/) — the CLAUDE.md-driven development approach used across this project
-- [Building Production-Grade Testing Infrastructure](/field-notes/building-production-grade-testing-infrastructure-playwright-case-study) — testing patterns that apply to dashboard components
+- [Building Production-Grade Testing Infrastructure](/field-notes/building-production-grade-testing-infrastructure-playwright-case-study/) — testing patterns that apply to dashboard components
 

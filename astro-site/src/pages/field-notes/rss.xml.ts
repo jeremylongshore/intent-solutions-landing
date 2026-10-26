@@ -7,7 +7,7 @@ export async function GET(context: APIContext) {
     .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
 
   return rss({
-    title: 'Field Notes | intent solutions io',
+    title: 'Field Notes | Intent Solutions',
     description: 'Architecture decisions, production systems, and technical leadership from shipping real AI infrastructure.',
     site: context.site!.toString(),
     items: posts.map(post => ({

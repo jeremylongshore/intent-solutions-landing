@@ -1,0 +1,67 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SiteNav from '../components/SiteNav.astro';
+import Footer from '../components/Footer';
+import { atlasPages, atlasPath, chapterNames } from '../data/operating-atlas.mjs';
+import { renderDiagram, interactionScript } from '../diagrams/atlas-render.mjs';
+import '../diagrams/operating-atlas.css';
+const questions = {
+  estate:'What is the whole company, and where does each part belong?',
+  compounding:'How can the same work create tools, evidence, knowledge, and opportunity?',
+  delivery:'What moves an agreed outcome into a system somebody can own?',
+  spine:'How do people, agents, durable context, and operating tools work together?',
+  evidence:'What turns a claim into inspectable evidence and a release decision?',
+  people:'What separates participation, capability, capacity, and delivery authority?',
+  network:'How could customers, originators, specialists, and Intent work together?',
+  principles:'What stays consistent as the company and its methods evolve?',
+};
+---
+<Layout title="The Intent Solutions Estate | Operating Atlas" description="Eight connected views of Intent Solutions: the company, compounding work, delivery, operating systems, evidence, people, and the emerging engineering network.">
+  <SiteNav />
+  <main class="estate-page">
+    <header class="estate-hero estate-wrap">
+      <p class="estate-eyebrow">INTENT SOLUTIONS / THE OPERATING ATLAS</p>
+      <h1>The compounding<br /><span>AI engineering estate.</span></h1>
+      <p class="estate-lead">One company that builds, tests, demonstrates, teaches, and distributes what it creates. Services, products, research, open source, education, and media connect through the same work.</p>
+      <p class="estate-context">Our mission is to close the gap between changing AI capability and reliable work inside real businesses. This atlas explains the whole system—from the company’s direction to the tools, decisions, and people that make it work.</p>
+      <div class="estate-actions"><a class="estate-primary" href="/estate-blueprint.html">Open the visual atlas <span aria-hidden="true">↗</span></a><a href="#atlas-chapters">Choose a view ↓</a><a href="/intent-solutions-operating-atlas.pdf">Download the workshop PDF</a></div>
+    </header>
+    <section class="estate-map-section" aria-labelledby="estate-map-title">
+      <div class="estate-wide">
+        <div class="estate-section-heading"><div><p class="estate-eyebrow">01 / THE COMPANY IN CONTEXT</p><h2 id="estate-map-title">Each part has a job.<br />The value travels between them.</h2></div><p>Six connected functions and an emerging seventh arm. This is an operating view of the business; teams and products can contribute to more than one function.</p></div>
+        <div class="operating-atlas">
+          <figure class="atlas-figure"><div class="atlas-toolbar"><span>THE CONNECTED COMPANY</span><div><button type="button" data-reset>Reset focus</button><button type="button" data-fullscreen>Expand view</button></div></div><Fragment set:html={renderDiagram(atlasPages[0])} /><figcaption>{atlasPages[0].takeaway}</figcaption></figure>
+        </div>
+        <p class="estate-map-note">Solid connections show roles within the practice. The dashed network boundary marks a proposed model. Select a node to follow its connections; scroll the drawing on smaller screens. <a href="/estate-blueprint.html">Open the full explanation →</a></p>
+      </div>
+    </section>
+    <section class="estate-chapters-section estate-wrap" id="atlas-chapters" aria-labelledby="chapters-title">
+      <div class="estate-section-heading"><div><p class="estate-eyebrow">MACRO → MICRO</p><h2 id="chapters-title">Eight views.<br />One operating picture.</h2></div><p>Read in order for a team walkthrough, or open the view that answers your question. Every chapter has a diagram, an explanation, and its source boundaries.</p></div>
+      <div class="estate-chapters">
+        {atlasPages.map(p=>(<a class="estate-chapter" href={atlasPath(p.id)}>
+          <div class="chapter-top"><span>{p.number} / 08</span><span aria-hidden="true">↗</span></div>
+          <svg class="chapter-preview" viewBox="0 0 1320 760" aria-hidden="true">
+            {p.diagram.regions.map(r=><rect x={r.x} y={r.y} width={r.w} height={r.h} fill="none" stroke="#4d5967" stroke-width="4" rx="10" />)}
+            {p.diagram.edges.map(e=><path d={e.path} fill="none" stroke={e.kind==='feedback'?'#d0ab82':'#788da5'} stroke-width="7" stroke-dasharray={e.kind==='feedback'?'20 14':undefined} />)}
+            {p.diagram.nodes.map(n=><rect x={n.x} y={n.y} width={n.w} height={n.h} rx="12" fill={n.status==='proposed'?'#4b412b':'#2c3b4d'} stroke={n.status==='proposed'?'#dcc484':'#9ab3d1'} stroke-width="4" />)}
+          </svg>
+          <h3>{chapterNames[p.id]}</h3><p>{questions[p.id]}</p>
+        </a>))}
+      </div>
+    </section>
+    <section class="estate-close estate-wrap"><h2>How can everyone earn?</h2><p>Explore the financial companion: customer value, relationships, roles, project fees, cash timing, recurring work and the economics of a proposed commercial network. All financial examples are fictional teaching models.</p><a class="estate-primary" href="/estate/economics/">Explore the financial atlas</a></section>
+    <section class="estate-reading estate-wrap" aria-labelledby="read-title">
+      <div><p class="estate-eyebrow">READ THE MATURITY CORRECTLY</p><h2 id="read-title">Capability, permission,<br />and commercial proof are distinct.</h2></div>
+      <div class="estate-reading-copy"><p>The public properties and repositories give you work to inspect. The delivery method describes how Intent intends work to be framed, proven, and operated. Each initiative has its own implementation and adoption status.</p><p>The international engineering and commercial network is under development. Participation, a credential, and technical ability do not automatically establish current capacity, project authority, or a repeatable commercial model.</p><p>Owned products have their own users and maturity. Explore DiagnosticPro, HustleStats, Scorecard Echo, and other work through the <a href="https://jeremylongshore.com/">product portfolio</a>; use the linked artifacts to inspect each one.</p></div>
+    </section>
+    <section class="estate-close estate-wrap"><p class="estate-eyebrow">FROM UNDERSTANDING TO A REAL OUTCOME</p><h2>What work needs to change?</h2><p>Bring the workflow, the constraints, and what a useful result would look like.</p><a class="estate-primary" href="/contact/?door=outcome">Request an outcome <span aria-hidden="true">↗</span></a></section>
+  </main>
+  <Footer client:load />
+</Layout>
+<script is:inline set:html={interactionScript} />
+<style>
+  .estate-page{background:#0f1117;color:#f0f3f7}.estate-wrap{max-width:1240px;margin:auto;padding-left:28px;padding-right:28px}.estate-wide{max-width:1496px;margin:auto;padding:0 28px}.estate-hero{padding-top:88px;padding-bottom:72px}.estate-eyebrow{color:#ffab70;font-size:11px;letter-spacing:.13em;font-weight:600;line-height:1.5;margin:0 0 22px}.estate-hero h1{font-family:Syne,Arial,sans-serif;font-size:clamp(44px,5.6vw,78px);font-weight:600;line-height:1.04;letter-spacing:-.045em;margin:0 0 30px}.estate-hero h1 span{color:#ffab70}.estate-lead{font-size:clamp(18px,1.7vw,23px);line-height:1.6;max-width:920px;color:#d9e2ed;margin:0 0 20px}.estate-context{max-width:820px;font-size:16px;line-height:1.8;color:#aebaca}.estate-actions{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-top:32px;font-size:13px}.estate-actions a:not(.estate-primary){color:#c0cbd9;text-decoration:underline;text-underline-offset:5px}.estate-primary{display:inline-flex;align-items:center;gap:25px;background:#ff9c51;color:#151515;padding:14px 19px;border-radius:5px;font-size:14px;font-weight:600;text-decoration:none}.estate-primary:hover{background:#ffb879}.estate-map-section{border-top:1px solid #303b49;border-bottom:1px solid #303b49;padding:56px 0;background:#121820}.estate-section-heading{display:grid;grid-template-columns:1.25fr 1fr;gap:64px;align-items:end;margin-bottom:32px}.estate-section-heading h2,.estate-reading h2,.estate-close h2{font-family:Syne,Arial,sans-serif;font-size:clamp(26px,2.5vw,38px);line-height:1.15;letter-spacing:-.025em;font-weight:600;margin:0}.estate-section-heading .estate-eyebrow{margin-bottom:16px}.estate-section-heading>p,.estate-map-note{color:#b4c0d0;font-size:14px;line-height:1.7;margin:0}.estate-map-note{margin-top:18px;font-size:12px;max-width:1000px}.estate-map-note a{color:#ffd0ad;text-decoration:underline;text-underline-offset:3px}.estate-chapters-section{padding-top:72px;padding-bottom:72px}.estate-chapters{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}.estate-chapter{display:block;border:1px solid #354150;border-radius:6px;padding:20px;background:#151c26;color:#eff3f8;text-decoration:none;transition:border-color .15s,background .15s}.estate-chapter:hover{border-color:#ffab70;background:#1b2633}.chapter-top{display:flex;justify-content:space-between;font-size:11px;letter-spacing:.08em;color:#ffab70}.chapter-preview{display:block;width:100%;height:135px;margin:20px 0}.estate-chapter h3{font-size:18px;line-height:1.25;letter-spacing:-.02em;margin:0 0 12px;font-weight:600}.estate-chapter p{font-size:13px;line-height:1.65;color:#b4c0d0;margin:0}.estate-reading{display:grid;grid-template-columns:1fr 1.2fr;gap:64px;padding-top:48px;padding-bottom:64px;border-top:1px solid #354150}.estate-reading-copy p{font-size:15px;color:#b4c0d0;line-height:1.8;margin:0 0 18px}.estate-reading-copy a{color:#f2c59f;text-decoration:underline}.estate-close{border-top:1px solid #354150;padding-top:64px;padding-bottom:80px}.estate-close p:not(.estate-eyebrow){font-size:16px;color:#b4c0d0;margin:20px 0 26px}.estate-page :focus-visible{outline:3px solid #ffab70;outline-offset:5px}
+  @media(max-width:1050px){.estate-chapters{grid-template-columns:repeat(2,minmax(0,1fr))}.estate-section-heading,.estate-reading{gap:32px}.estate-hero{padding-top:60px}}
+  @media(max-width:640px){.estate-wrap,.estate-wide{padding-left:20px;padding-right:20px}.estate-hero{padding-top:44px;padding-bottom:48px}.estate-section-heading,.estate-reading{grid-template-columns:1fr;gap:24px}.estate-chapters{grid-template-columns:1fr}.chapter-preview{height:155px}.estate-chapter{padding:22px}.estate-actions{gap:20px}.estate-page :global(.atlas-toolbar){flex-wrap:wrap}.estate-reading{padding-top:36px;padding-bottom:36px}}
+  @media(prefers-reduced-motion:reduce){.estate-chapter{transition:none}}
+</style>

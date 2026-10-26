@@ -1,0 +1,97 @@
+---
+import BbbFrame from '../../components/bbb/BbbFrame.astro';
+import CopyBlock from '../../components/bbb/CopyBlock.astro';
+import ChainDemo from '../../components/bbb/ChainDemo.astro';
+
+const receipt = `{
+  "seq": 4,
+  "action": "superseded",
+  "memory_id": "2bf9096f-030a-5d19-aec4-dab21a5ec7ab",
+  "actor": { "type": "system", "id": "curator" },
+  "reason": "Superseded by 982339dc-2e78-5113-8701-2f08bc26ab4d",
+  "timestamp": "2026-10-25T19:12:06.321Z",
+  "prev_entry_hash": "4b3e3c6c01c493c5…",
+  "entry_hash": "a0e677d68fecb60f…"
+}`;
+
+const verifyStandalone = `git clone https://github.com/jeremylongshore/bobs-big-brain-plugin
+node bobs-big-brain-plugin/scripts/verify-anchors.mjs --db ~/.teamkb/teamkb.db`;
+
+const chains = [
+  { name: 'Governance chain', where: 'Every save and retirement', check: 'brain_audit_verify in Claude (local mode)' },
+  { name: 'Anchor log', where: 'Chain-head snapshots, in git', check: 'verify-anchors.mjs' },
+  { name: 'Compile trace', where: 'Each optional compile step', check: 'ico audit verify' },
+];
+---
+
+<BbbFrame
+  title="What a Bob’s Big Brain receipt proves | Intent Solutions"
+  description="Receipts in Bob’s Big Brain are SHA-256 hash-chained governance records you can verify yourself. Here is what they prove and what they do not. Beta."
+  current="receipts"
+>
+  <section class="bbb-pagehead" aria-labelledby="rc-title">
+    <div class="bbb-container bbb-split">
+      <div class="bbb-head">
+        <h1 id="rc-title">What a receipt proves</h1>
+        <p class="bbb-lead">Each decision is hashed with the one before it.</p>
+      </div>
+      <figure class="bbb-figure bbb-copy">
+        <figcaption class="bbb-copy__label">A real receipt from our clean-room install, hashes shortened.</figcaption>
+        <pre>{receipt}</pre>
+      </figure>
+    </div>
+  </section>
+
+  <section class="bbb-section bbb-section--band" aria-labelledby="chains-title">
+    <div class="bbb-container">
+      <div class="bbb-head">
+        <h2 id="chains-title">Three records, three checks</h2>
+        <p>They are separate. Passing one says nothing about the others.</p>
+      </div>
+      <div class="bbb-table-wrap">
+        <table class="bbb-table bbb-table--stack">
+          <thead><tr><th scope="col">Record</th><th scope="col">What it covers</th><th scope="col">How to check it</th></tr></thead>
+          <tbody>
+            {chains.map((c) => (
+              <tr><td>{c.name}</td><td data-label="Covers">{c.where}</td><td data-label="Check"><code>{c.check}</code></td></tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="bbb-section" aria-labelledby="try-title">
+    <div class="bbb-container">
+      <div class="bbb-head">
+        <h2 id="try-title">Break one yourself</h2>
+        <p>Made-up receipts. Edit one, verify, then re-hash forward like someone hiding a change.</p>
+      </div>
+      <ChainDemo />
+    </div>
+  </section>
+
+  <section class="bbb-section bbb-section--band" aria-labelledby="verify-title">
+    <div class="bbb-container bbb-split">
+      <div class="bbb-head">
+        <h2 id="verify-title">Check it without trusting us</h2>
+        <p>One file, Node built-ins only. The database check needs <code>sqlite3</code>.</p>
+      </div>
+      <CopyBlock id="verify-cmd" label="Run on the machine that holds the brain" text={verifyStandalone} />
+    </div>
+  </section>
+
+  <section class="bbb-section" aria-labelledby="not-title">
+    <div class="bbb-container">
+      <div class="bbb-head">
+        <h2 id="not-title">What a receipt does not prove</h2>
+      </div>
+      <ul class="bbb-rows bbb-rows--roomy">
+        <li><h3>Prevention</h3><p>Tamper-evident: it detects edits, it does not prevent them.</p></li>
+        <li><h3>Deep rewrites</h3><p>A rewrite is caught only back to the last anchor.</p></li>
+        <li><h3>Outside witness</h3><p>A local commit is a local witness; push it for an outside one.</p></li>
+        <li><h3>Who and whether</h3><p>It does not show who changed it, or that a memory is true.</p></li>
+      </ul>
+    </div>
+  </section>
+</BbbFrame>

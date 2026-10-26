@@ -43,6 +43,22 @@ Primary customer journey: Home -> inspect in-page evidence or Projects -> About 
 | /learn/models/ | Visitors following an old link | Retired offer or superseded learning page. Explain the change and provide an explicit handoff. | https://learn.intentsolutions.io/ | false |
 | /learn/security/ | Visitors following an old link | Retired offer or superseded learning page. Explain the change and provide an explicit handoff. | https://learn.intentsolutions.io/ | false |
 
+## Standalone public pages
+
+Generated HTML in `astro-site/public/` is served as-is, outside Astro routing. The
+`staticPages` export in `site-map.mjs` classifies every file (amended 2026-10-24,
+tracker `bd_000-projects-dxtq.22.2`).
+
+| URL | Audience | Purpose | Next action | XML sitemap |
+|---|---|---|---|---|
+| /estate-blueprint.html and the seven `/estate-blueprint-<chapter>.html` pages | Customers and practitioners | Read one connected view of how the company practice, evidence, people and network fit together. | /estate/ | true (self-canonical; listed through `customPages`) |
+| /estate-blueprint.print.html | Readers printing the atlas | Print every atlas chapter; the chapters are the indexed pages. | /estate-blueprint.html | false (noindex) |
+| /financial-diagrams/*.html | Readers of a financial atlas chapter | Open one figure at full size; the chapter is the indexed page. | /estate/economics/ | false (noindex) |
+
+The chapter list comes from `src/data/operating-atlas.mjs`, the same source the
+atlas generator uses, so a new chapter enters the contract and the sitemap without
+a hand-maintained list.
+
 ## Related properties
 
 | Property | Destination | Visitor purpose |
@@ -162,4 +178,4 @@ The upstream content rebase also preserved `/field-notes/the-cost-of-one-feature
 
 ## Regression gates
 
-The route contract lives in astro-site/src/data/site-map.mjs. audit-site-map.mjs checks complete source coverage, unique mappings, one H1, intended indexing, and every local link/anchor on static route pages. audit-indexability.mjs separately checks emitted XML URLs, canonical agreement, unique titles, and utility artifacts. Public /site-map/ exposes current company and related-property destinations, not obsolete offers. API endpoints and healthz are infrastructure, not marketing pages.
+The route contract lives in astro-site/src/data/site-map.mjs. audit-site-map.mjs checks complete source coverage, unique mappings, one H1, intended indexing, and every local link/anchor on static route pages. It also requires every `public/**/*.html` file to match exactly one standalone entry, with indexable entries self-canonical and in the XML sitemap and the rest noindex and absent. audit-indexability.mjs separately checks emitted XML URLs, canonical agreement, unique titles, and utility artifacts. Public /site-map/ exposes current company and related-property destinations, not obsolete offers. API endpoints and healthz are infrastructure, not marketing pages.

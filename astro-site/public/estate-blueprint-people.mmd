@@ -1,0 +1,25 @@
+flowchart TB
+  request["Request access (existing)"]
+  review["Human review (existing)"]
+  agreements["Onboarding agreements (existing)"]
+  practice["Join the practice (existing)"]
+  review_alternative["Clarify, pause or decline"]
+  engineering_proof["Engineering evidence"]
+  commercial_proof["Commercial evidence"]
+  capability["Assess capability"]
+  capacity["Confirm engagement fit"]
+  authorization["Authorize specific work"]
+  reassessment["Develop and reassess"]
+  no_fit["No current fit"]
+  request -->|"review"| review
+  review -->|"approve"| agreements
+  agreements -->|"verified"| practice
+  review --> review_alternative
+  review_alternative -.->|"feedback"| review
+  engineering_proof --> capability
+  commercial_proof --> capability
+  capability -->|"supported"| capacity
+  capacity -->|"fit"| authorization
+  capability --> reassessment
+  reassessment -.->|"feedback"| capability
+  capacity --> no_fit

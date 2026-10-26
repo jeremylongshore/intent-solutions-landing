@@ -185,6 +185,6 @@ Mission Control operator kit built, proven, and wired.
 
 ## Related Posts
 
-- [A Green Recovery Drill Can Still Be Lying](/posts/a-green-recovery-drill-can-still-be-lying/)
-- [Let the Model Judge, Make the Code Decide](/posts/let-the-model-judge-make-the-code-decide/)
+- [A Green Recovery Drill Can Still Be Lying](https://startaitools.com/posts/a-green-recovery-drill-can-still-be-lying/)
+- [Let the Model Judge, Make the Code Decide](https://startaitools.com/posts/let-the-model-judge-make-the-code-decide/)
 

@@ -30,7 +30,7 @@ Hustle's auth system got a complete rework. Raw ID tokens replaced with proper F
 
 The blockchain protocol platform consolidated into a single monorepo. Two shared packages extracted (`@irsb/kms-signer` and `@irsb/types`), all packages renamed to the `@irsb/*` scope, Envio HyperIndex integration for real-time event indexing across 8 contracts, and CI split into 4 parallel pipelines — cutting build times from 45 to 15 minutes. Plus a README overhaul positioning IRSB as "On-Chain Guardrails for AI Agents."
 
-**Read more:** [IRSB Monorepo v1.0.0: Extracting Shared Packages and Unifying a Blockchain Platform](/field-notes/irsb-monorepo-v1-extracting-shared-packages)
+**Read more:** [IRSB Monorepo v1.0.0: Extracting Shared Packages and Unifying a Blockchain Platform](/field-notes/irsb-monorepo-v1-extracting-shared-packages/)
 
 ### git-with-intent — Two Releases in Two Days
 

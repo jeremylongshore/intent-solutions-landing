@@ -1,0 +1,608 @@
+{
+  "schemaVersion": 1,
+  "scope": "Fictional financial teaching models and proposed network governance; not agreed compensation or customer results",
+  "diagramAuthority": {
+    "repository": "https://github.com/cathrynlavery/diagram-design",
+    "version": "2.6",
+    "commit": "7a2e22170ee838e859d8142ba825d83f8b6375e6"
+  },
+  "count": 33,
+  "diagrams": [
+    {
+      "id": "proposed-network-economy",
+      "url": "/financial-diagrams/proposed-network-economy.html",
+      "title": "The proposed network economy",
+      "type": "architecture",
+      "caseId": null,
+      "downside": false,
+      "sha256": "4e999e43b6fe42ff01f0bb9c424633b1547a630b59d7798840bbcb35eb2ec6b1"
+    },
+    {
+      "id": "financial-atlas-entry",
+      "url": "/financial-diagrams/financial-atlas-entry.html",
+      "title": "The proposed network economy",
+      "type": "architecture",
+      "caseId": null,
+      "downside": false,
+      "sha256": "8ddc24a17c73763e1bc90815078493a865b9ad0ae58980665159b9d0056879b3"
+    },
+    {
+      "id": "opportunity-routes",
+      "url": "/financial-diagrams/opportunity-routes.html",
+      "title": "Relationships become qualified work",
+      "type": "architecture",
+      "caseId": null,
+      "downside": false,
+      "sha256": "9c836b28c4ec77fcc2ed5f76e19cb2f4b14f2d06ce7c31aec87c7a5128ccfc9f"
+    },
+    {
+      "id": "earning-authority",
+      "url": "/financial-diagrams/earning-authority.html",
+      "title": "Where earning rights are defined",
+      "type": "layers",
+      "caseId": null,
+      "downside": false,
+      "sha256": "a5dcfc0da0ee8ed0c9f21c75b335a230d4051e25bf4b3c2f06df8146c227abcd"
+    },
+    {
+      "id": "customer-value",
+      "url": "/financial-diagrams/customer-value.html",
+      "title": "Benefit is an assumption to test",
+      "type": "bar",
+      "caseId": null,
+      "downside": false,
+      "sha256": "131df612f9f40b8e8a7a07695e977fecb29af8322ac25fc2bc51dc7d6d619a3b"
+    },
+    {
+      "id": "pursuit-cost",
+      "url": "/financial-diagrams/pursuit-cost.html",
+      "title": "Unsuccessful pursuits still cost money",
+      "type": "bar",
+      "caseId": null,
+      "downside": false,
+      "sha256": "41d48c6f729f291e060d989ee7bcc56ccb8f92feb1814499a3a6f072247b81ab"
+    },
+    {
+      "id": "cash-comparison",
+      "url": "/financial-diagrams/cash-comparison.html",
+      "title": "Cash is a schedule, not a margin",
+      "type": "line",
+      "caseId": null,
+      "downside": false,
+      "sha256": "de4d5d9840fa78ff87e6fc897cf1b5ba8c7d1cf6c819eef3262984b8a33c66e2"
+    },
+    {
+      "id": "company-bridge",
+      "url": "/financial-diagrams/company-bridge.html",
+      "title": "What survives beyond the project?",
+      "type": "waterfall",
+      "caseId": null,
+      "downside": false,
+      "sha256": "e0071896420369bf9fc31535fa5eb9f2b7b19d0d7863194e88943ca47559f23c"
+    },
+    {
+      "id": "relationship-led-project-base-bridge",
+      "url": "/financial-diagrams/relationship-led-project-base-bridge.html",
+      "title": "A relationship becomes an accountable project — baseline",
+      "type": "waterfall",
+      "caseId": "relationship-led-project",
+      "downside": false,
+      "sha256": "8414972dc5527778e48bd0b140079b094b3cb7ccd7ac748ee6433519b5ba876e"
+    },
+    {
+      "id": "relationship-led-project-downside-bridge",
+      "url": "/financial-diagrams/relationship-led-project-downside-bridge.html",
+      "title": "A relationship becomes an accountable project — downside",
+      "type": "waterfall",
+      "caseId": "relationship-led-project",
+      "downside": true,
+      "sha256": "bc6d56c3b70dc3cf11a87099e0ec176f0621da78243de1006d7966ff4101bdc2"
+    },
+    {
+      "id": "independent-prime-base-bridge",
+      "url": "/financial-diagrams/independent-prime-base-bridge.html",
+      "title": "The independent firm keeps the customer contract — baseline",
+      "type": "waterfall",
+      "caseId": "independent-prime",
+      "downside": false,
+      "sha256": "7b4aa202e381c43c2d5bb47d4d63cf0cb0c620e01c3b3d2f0771a3a6c2ea90f5"
+    },
+    {
+      "id": "independent-prime-downside-bridge",
+      "url": "/financial-diagrams/independent-prime-downside-bridge.html",
+      "title": "The independent firm keeps the customer contract — downside",
+      "type": "waterfall",
+      "caseId": "independent-prime",
+      "downside": true,
+      "sha256": "fcd3eda613a7d44bd0115956d54bb1cb845557331a88bef3922c86f59cd23ac1"
+    },
+    {
+      "id": "integrator-prime-base-bridge",
+      "url": "/financial-diagrams/integrator-prime-base-bridge.html",
+      "title": "A provider or integrator buys a work package — baseline",
+      "type": "waterfall",
+      "caseId": "integrator-prime",
+      "downside": false,
+      "sha256": "e6350cfc6d9d882c4ddfd91f883363b750bde6b5cae02deccb05fb2684aed602"
+    },
+    {
+      "id": "integrator-prime-downside-bridge",
+      "url": "/financial-diagrams/integrator-prime-downside-bridge.html",
+      "title": "A provider or integrator buys a work package — downside",
+      "type": "waterfall",
+      "caseId": "integrator-prime",
+      "downside": true,
+      "sha256": "40fdeac482fb7ee821d2c7a19f65d81101737a217799c0928b547eed6caf3865"
+    },
+    {
+      "id": "paid-discovery-no-build-base-bridge",
+      "url": "/financial-diagrams/paid-discovery-no-build-base-bridge.html",
+      "title": "Paid discovery can correctly end with no build — baseline",
+      "type": "waterfall",
+      "caseId": "paid-discovery-no-build",
+      "downside": false,
+      "sha256": "d48b5b2fc46431d5763e4e2361a85b678d5c83e85802065221d95894a130e416"
+    },
+    {
+      "id": "paid-discovery-no-build-downside-bridge",
+      "url": "/financial-diagrams/paid-discovery-no-build-downside-bridge.html",
+      "title": "Paid discovery can correctly end with no build — downside",
+      "type": "waterfall",
+      "caseId": "paid-discovery-no-build",
+      "downside": true,
+      "sha256": "15417f9182d89b010020998ea21f5491b3d50194eb57fe87ba0495efc774fd13"
+    },
+    {
+      "id": "recurring-assurance-base-bridge",
+      "url": "/financial-diagrams/recurring-assurance-base-bridge.html",
+      "title": "Assurance earns by operating within a real capacity limit — baseline",
+      "type": "waterfall",
+      "caseId": "recurring-assurance",
+      "downside": false,
+      "sha256": "52385c32c75ba4d61872328ac9cc50a3a57cab367360ef7e6490a786b6b18546"
+    },
+    {
+      "id": "recurring-assurance-downside-bridge",
+      "url": "/financial-diagrams/recurring-assurance-downside-bridge.html",
+      "title": "Assurance earns by operating within a real capacity limit — downside",
+      "type": "waterfall",
+      "caseId": "recurring-assurance",
+      "downside": true,
+      "sha256": "770711226a36923c5bf113707fb8dd233e1da1daa196955dbdf62464fe5b9bef"
+    },
+    {
+      "id": "maintained-skills-base-bridge",
+      "url": "/financial-diagrams/maintained-skills-base-bridge.html",
+      "title": "Open skills; paid implementation and maintenance — baseline",
+      "type": "waterfall",
+      "caseId": "maintained-skills",
+      "downside": false,
+      "sha256": "234f40edf5e903c46b0d49291ebf9017a724eddbafffa8042764bd0dd3f07310"
+    },
+    {
+      "id": "maintained-skills-downside-bridge",
+      "url": "/financial-diagrams/maintained-skills-downside-bridge.html",
+      "title": "Open skills; paid implementation and maintenance — downside",
+      "type": "waterfall",
+      "caseId": "maintained-skills",
+      "downside": true,
+      "sha256": "97114bfa299969911eb559f6dfe4cb45fb33dd1fc32137f434815d2972893114"
+    },
+    {
+      "id": "software-subscription-base-bridge",
+      "url": "/financial-diagrams/software-subscription-base-bridge.html",
+      "title": "A subscription must also recover its first build — baseline",
+      "type": "waterfall",
+      "caseId": "software-subscription",
+      "downside": false,
+      "sha256": "959b81c83b5d107d6ac0d3767147ae094501b41e3110642ff3edf18e6a63915b"
+    },
+    {
+      "id": "software-subscription-downside-bridge",
+      "url": "/financial-diagrams/software-subscription-downside-bridge.html",
+      "title": "A subscription must also recover its first build — downside",
+      "type": "waterfall",
+      "caseId": "software-subscription",
+      "downside": true,
+      "sha256": "e475d7ade8887ad794a3c96d8a0fe275d34aaf008e6a166a64c070e65b6ebd4c"
+    },
+    {
+      "id": "employer-workshop-base-bridge",
+      "url": "/financial-diagrams/employer-workshop-base-bridge.html",
+      "title": "An employer buys applied learning and reviewed work — baseline",
+      "type": "waterfall",
+      "caseId": "employer-workshop",
+      "downside": false,
+      "sha256": "bdee8966d5ca28f85eac87f0dfbfafdd94cdf42da1e203767dd6aabed0b4cf00"
+    },
+    {
+      "id": "employer-workshop-downside-bridge",
+      "url": "/financial-diagrams/employer-workshop-downside-bridge.html",
+      "title": "An employer buys applied learning and reviewed work — downside",
+      "type": "waterfall",
+      "caseId": "employer-workshop",
+      "downside": true,
+      "sha256": "bace4e88c650db5d6f1573f393b6f19e52fcf0138b5e95404a8ee886e4c535e9"
+    },
+    {
+      "id": "shared-component-base-bridge",
+      "url": "/financial-diagrams/shared-component-base-bridge.html",
+      "title": "Two buyers help fund a reusable component — baseline",
+      "type": "waterfall",
+      "caseId": "shared-component",
+      "downside": false,
+      "sha256": "c8fc3be772652bd72939b5a7bca697a966d86507e56472d3d4f969d48f57c22d"
+    },
+    {
+      "id": "shared-component-downside-bridge",
+      "url": "/financial-diagrams/shared-component-downside-bridge.html",
+      "title": "Two buyers help fund a reusable component — downside",
+      "type": "waterfall",
+      "caseId": "shared-component",
+      "downside": true,
+      "sha256": "80288acb1f9ca0eecd5ea35679eff30c21524a0e762e04301062c0f18df9f4b1"
+    },
+    {
+      "id": "outcome-hybrid-base-bridge",
+      "url": "/financial-diagrams/outcome-hybrid-base-bridge.html",
+      "title": "A fixed scope plus a carefully bounded outcome fee — baseline",
+      "type": "waterfall",
+      "caseId": "outcome-hybrid",
+      "downside": false,
+      "sha256": "160a44b3640f81eaede75277f0961f2e30df3a84d1be286bf8dfd14d27be5801"
+    },
+    {
+      "id": "outcome-hybrid-downside-bridge",
+      "url": "/financial-diagrams/outcome-hybrid-downside-bridge.html",
+      "title": "A fixed scope plus a carefully bounded outcome fee — downside",
+      "type": "waterfall",
+      "caseId": "outcome-hybrid",
+      "downside": true,
+      "sha256": "d36186ae897d7decd68589e0f24efc95f99a1df26c6049fef0cde6e89154b3fb"
+    },
+    {
+      "id": "referral-only-base-bridge",
+      "url": "/financial-diagrams/referral-only-base-bridge.html",
+      "title": "A pure introduction has a small, separate ledger — baseline",
+      "type": "waterfall",
+      "caseId": "referral-only",
+      "downside": false,
+      "sha256": "b824cfe817f7dfd3d0941b1f79f31b264334995a73f768206bf4bef84cbe2d35"
+    },
+    {
+      "id": "referral-only-downside-bridge",
+      "url": "/financial-diagrams/referral-only-downside-bridge.html",
+      "title": "A pure introduction has a small, separate ledger — downside",
+      "type": "waterfall",
+      "caseId": "referral-only",
+      "downside": true,
+      "sha256": "26cbca82efa8b56a9ece348d8ff08129dd2c13e8e96aad7e64c048b7340bb642"
+    },
+    {
+      "id": "vendor-operating-costs-base-bridge",
+      "url": "/financial-diagrams/vendor-operating-costs-base-bridge.html",
+      "title": "A hosted workflow has suppliers even when it uses AI — baseline",
+      "type": "waterfall",
+      "caseId": "vendor-operating-costs",
+      "downside": false,
+      "sha256": "4dc9b6162c1067f2b6729008dd0bea7d9b5920837160a6b6aac4e360864a4b61"
+    },
+    {
+      "id": "vendor-operating-costs-downside-bridge",
+      "url": "/financial-diagrams/vendor-operating-costs-downside-bridge.html",
+      "title": "A hosted workflow has suppliers even when it uses AI — downside",
+      "type": "waterfall",
+      "caseId": "vendor-operating-costs",
+      "downside": true,
+      "sha256": "ea23abff8b19ad5020b94f65ad4a32883cb88e34696724e3993dc24021804ffb"
+    },
+    {
+      "id": "relationship-led-project-allocation",
+      "url": "/financial-diagrams/relationship-led-project-allocation.html",
+      "title": "Follow the $80,000 project fee",
+      "type": "sankey",
+      "caseId": "relationship-led-project",
+      "downside": false,
+      "sha256": "1cd3e24c1a79054b6e7c74d035680afa55bbfbd47c005baa38e290e01c6f166f"
+    }
+  ],
+  "byChartId": {
+    "proposed-network-economy": {
+      "id": "proposed-network-economy",
+      "url": "/financial-diagrams/proposed-network-economy.html",
+      "title": "The proposed network economy",
+      "type": "architecture",
+      "caseId": null,
+      "downside": false,
+      "sha256": "4e999e43b6fe42ff01f0bb9c424633b1547a630b59d7798840bbcb35eb2ec6b1"
+    },
+    "financial-atlas-entry": {
+      "id": "financial-atlas-entry",
+      "url": "/financial-diagrams/financial-atlas-entry.html",
+      "title": "The proposed network economy",
+      "type": "architecture",
+      "caseId": null,
+      "downside": false,
+      "sha256": "8ddc24a17c73763e1bc90815078493a865b9ad0ae58980665159b9d0056879b3"
+    },
+    "opportunity-routes": {
+      "id": "opportunity-routes",
+      "url": "/financial-diagrams/opportunity-routes.html",
+      "title": "Relationships become qualified work",
+      "type": "architecture",
+      "caseId": null,
+      "downside": false,
+      "sha256": "9c836b28c4ec77fcc2ed5f76e19cb2f4b14f2d06ce7c31aec87c7a5128ccfc9f"
+    },
+    "earning-authority": {
+      "id": "earning-authority",
+      "url": "/financial-diagrams/earning-authority.html",
+      "title": "Where earning rights are defined",
+      "type": "layers",
+      "caseId": null,
+      "downside": false,
+      "sha256": "a5dcfc0da0ee8ed0c9f21c75b335a230d4051e25bf4b3c2f06df8146c227abcd"
+    },
+    "customer-value": {
+      "id": "customer-value",
+      "url": "/financial-diagrams/customer-value.html",
+      "title": "Benefit is an assumption to test",
+      "type": "bar",
+      "caseId": null,
+      "downside": false,
+      "sha256": "131df612f9f40b8e8a7a07695e977fecb29af8322ac25fc2bc51dc7d6d619a3b"
+    },
+    "pursuit-cost": {
+      "id": "pursuit-cost",
+      "url": "/financial-diagrams/pursuit-cost.html",
+      "title": "Unsuccessful pursuits still cost money",
+      "type": "bar",
+      "caseId": null,
+      "downside": false,
+      "sha256": "41d48c6f729f291e060d989ee7bcc56ccb8f92feb1814499a3a6f072247b81ab"
+    },
+    "cash-comparison": {
+      "id": "cash-comparison",
+      "url": "/financial-diagrams/cash-comparison.html",
+      "title": "Cash is a schedule, not a margin",
+      "type": "line",
+      "caseId": null,
+      "downside": false,
+      "sha256": "de4d5d9840fa78ff87e6fc897cf1b5ba8c7d1cf6c819eef3262984b8a33c66e2"
+    },
+    "company-bridge": {
+      "id": "company-bridge",
+      "url": "/financial-diagrams/company-bridge.html",
+      "title": "What survives beyond the project?",
+      "type": "waterfall",
+      "caseId": null,
+      "downside": false,
+      "sha256": "e0071896420369bf9fc31535fa5eb9f2b7b19d0d7863194e88943ca47559f23c"
+    },
+    "relationship-led-project-base-bridge": {
+      "id": "relationship-led-project-base-bridge",
+      "url": "/financial-diagrams/relationship-led-project-base-bridge.html",
+      "title": "A relationship becomes an accountable project — baseline",
+      "type": "waterfall",
+      "caseId": "relationship-led-project",
+      "downside": false,
+      "sha256": "8414972dc5527778e48bd0b140079b094b3cb7ccd7ac748ee6433519b5ba876e"
+    },
+    "relationship-led-project-downside-bridge": {
+      "id": "relationship-led-project-downside-bridge",
+      "url": "/financial-diagrams/relationship-led-project-downside-bridge.html",
+      "title": "A relationship becomes an accountable project — downside",
+      "type": "waterfall",
+      "caseId": "relationship-led-project",
+      "downside": true,
+      "sha256": "bc6d56c3b70dc3cf11a87099e0ec176f0621da78243de1006d7966ff4101bdc2"
+    },
+    "independent-prime-base-bridge": {
+      "id": "independent-prime-base-bridge",
+      "url": "/financial-diagrams/independent-prime-base-bridge.html",
+      "title": "The independent firm keeps the customer contract — baseline",
+      "type": "waterfall",
+      "caseId": "independent-prime",
+      "downside": false,
+      "sha256": "7b4aa202e381c43c2d5bb47d4d63cf0cb0c620e01c3b3d2f0771a3a6c2ea90f5"
+    },
+    "independent-prime-downside-bridge": {
+      "id": "independent-prime-downside-bridge",
+      "url": "/financial-diagrams/independent-prime-downside-bridge.html",
+      "title": "The independent firm keeps the customer contract — downside",
+      "type": "waterfall",
+      "caseId": "independent-prime",
+      "downside": true,
+      "sha256": "fcd3eda613a7d44bd0115956d54bb1cb845557331a88bef3922c86f59cd23ac1"
+    },
+    "integrator-prime-base-bridge": {
+      "id": "integrator-prime-base-bridge",
+      "url": "/financial-diagrams/integrator-prime-base-bridge.html",
+      "title": "A provider or integrator buys a work package — baseline",
+      "type": "waterfall",
+      "caseId": "integrator-prime",
+      "downside": false,
+      "sha256": "e6350cfc6d9d882c4ddfd91f883363b750bde6b5cae02deccb05fb2684aed602"
+    },
+    "integrator-prime-downside-bridge": {
+      "id": "integrator-prime-downside-bridge",
+      "url": "/financial-diagrams/integrator-prime-downside-bridge.html",
+      "title": "A provider or integrator buys a work package — downside",
+      "type": "waterfall",
+      "caseId": "integrator-prime",
+      "downside": true,
+      "sha256": "40fdeac482fb7ee821d2c7a19f65d81101737a217799c0928b547eed6caf3865"
+    },
+    "paid-discovery-no-build-base-bridge": {
+      "id": "paid-discovery-no-build-base-bridge",
+      "url": "/financial-diagrams/paid-discovery-no-build-base-bridge.html",
+      "title": "Paid discovery can correctly end with no build — baseline",
+      "type": "waterfall",
+      "caseId": "paid-discovery-no-build",
+      "downside": false,
+      "sha256": "d48b5b2fc46431d5763e4e2361a85b678d5c83e85802065221d95894a130e416"
+    },
+    "paid-discovery-no-build-downside-bridge": {
+      "id": "paid-discovery-no-build-downside-bridge",
+      "url": "/financial-diagrams/paid-discovery-no-build-downside-bridge.html",
+      "title": "Paid discovery can correctly end with no build — downside",
+      "type": "waterfall",
+      "caseId": "paid-discovery-no-build",
+      "downside": true,
+      "sha256": "15417f9182d89b010020998ea21f5491b3d50194eb57fe87ba0495efc774fd13"
+    },
+    "recurring-assurance-base-bridge": {
+      "id": "recurring-assurance-base-bridge",
+      "url": "/financial-diagrams/recurring-assurance-base-bridge.html",
+      "title": "Assurance earns by operating within a real capacity limit — baseline",
+      "type": "waterfall",
+      "caseId": "recurring-assurance",
+      "downside": false,
+      "sha256": "52385c32c75ba4d61872328ac9cc50a3a57cab367360ef7e6490a786b6b18546"
+    },
+    "recurring-assurance-downside-bridge": {
+      "id": "recurring-assurance-downside-bridge",
+      "url": "/financial-diagrams/recurring-assurance-downside-bridge.html",
+      "title": "Assurance earns by operating within a real capacity limit — downside",
+      "type": "waterfall",
+      "caseId": "recurring-assurance",
+      "downside": true,
+      "sha256": "770711226a36923c5bf113707fb8dd233e1da1daa196955dbdf62464fe5b9bef"
+    },
+    "maintained-skills-base-bridge": {
+      "id": "maintained-skills-base-bridge",
+      "url": "/financial-diagrams/maintained-skills-base-bridge.html",
+      "title": "Open skills; paid implementation and maintenance — baseline",
+      "type": "waterfall",
+      "caseId": "maintained-skills",
+      "downside": false,
+      "sha256": "234f40edf5e903c46b0d49291ebf9017a724eddbafffa8042764bd0dd3f07310"
+    },
+    "maintained-skills-downside-bridge": {
+      "id": "maintained-skills-downside-bridge",
+      "url": "/financial-diagrams/maintained-skills-downside-bridge.html",
+      "title": "Open skills; paid implementation and maintenance — downside",
+      "type": "waterfall",
+      "caseId": "maintained-skills",
+      "downside": true,
+      "sha256": "97114bfa299969911eb559f6dfe4cb45fb33dd1fc32137f434815d2972893114"
+    },
+    "software-subscription-base-bridge": {
+      "id": "software-subscription-base-bridge",
+      "url": "/financial-diagrams/software-subscription-base-bridge.html",
+      "title": "A subscription must also recover its first build — baseline",
+      "type": "waterfall",
+      "caseId": "software-subscription",
+      "downside": false,
+      "sha256": "959b81c83b5d107d6ac0d3767147ae094501b41e3110642ff3edf18e6a63915b"
+    },
+    "software-subscription-downside-bridge": {
+      "id": "software-subscription-downside-bridge",
+      "url": "/financial-diagrams/software-subscription-downside-bridge.html",
+      "title": "A subscription must also recover its first build — downside",
+      "type": "waterfall",
+      "caseId": "software-subscription",
+      "downside": true,
+      "sha256": "e475d7ade8887ad794a3c96d8a0fe275d34aaf008e6a166a64c070e65b6ebd4c"
+    },
+    "employer-workshop-base-bridge": {
+      "id": "employer-workshop-base-bridge",
+      "url": "/financial-diagrams/employer-workshop-base-bridge.html",
+      "title": "An employer buys applied learning and reviewed work — baseline",
+      "type": "waterfall",
+      "caseId": "employer-workshop",
+      "downside": false,
+      "sha256": "bdee8966d5ca28f85eac87f0dfbfafdd94cdf42da1e203767dd6aabed0b4cf00"
+    },
+    "employer-workshop-downside-bridge": {
+      "id": "employer-workshop-downside-bridge",
+      "url": "/financial-diagrams/employer-workshop-downside-bridge.html",
+      "title": "An employer buys applied learning and reviewed work — downside",
+      "type": "waterfall",
+      "caseId": "employer-workshop",
+      "downside": true,
+      "sha256": "bace4e88c650db5d6f1573f393b6f19e52fcf0138b5e95404a8ee886e4c535e9"
+    },
+    "shared-component-base-bridge": {
+      "id": "shared-component-base-bridge",
+      "url": "/financial-diagrams/shared-component-base-bridge.html",
+      "title": "Two buyers help fund a reusable component — baseline",
+      "type": "waterfall",
+      "caseId": "shared-component",
+      "downside": false,
+      "sha256": "c8fc3be772652bd72939b5a7bca697a966d86507e56472d3d4f969d48f57c22d"
+    },
+    "shared-component-downside-bridge": {
+      "id": "shared-component-downside-bridge",
+      "url": "/financial-diagrams/shared-component-downside-bridge.html",
+      "title": "Two buyers help fund a reusable component — downside",
+      "type": "waterfall",
+      "caseId": "shared-component",
+      "downside": true,
+      "sha256": "80288acb1f9ca0eecd5ea35679eff30c21524a0e762e04301062c0f18df9f4b1"
+    },
+    "outcome-hybrid-base-bridge": {
+      "id": "outcome-hybrid-base-bridge",
+      "url": "/financial-diagrams/outcome-hybrid-base-bridge.html",
+      "title": "A fixed scope plus a carefully bounded outcome fee — baseline",
+      "type": "waterfall",
+      "caseId": "outcome-hybrid",
+      "downside": false,
+      "sha256": "160a44b3640f81eaede75277f0961f2e30df3a84d1be286bf8dfd14d27be5801"
+    },
+    "outcome-hybrid-downside-bridge": {
+      "id": "outcome-hybrid-downside-bridge",
+      "url": "/financial-diagrams/outcome-hybrid-downside-bridge.html",
+      "title": "A fixed scope plus a carefully bounded outcome fee — downside",
+      "type": "waterfall",
+      "caseId": "outcome-hybrid",
+      "downside": true,
+      "sha256": "d36186ae897d7decd68589e0f24efc95f99a1df26c6049fef0cde6e89154b3fb"
+    },
+    "referral-only-base-bridge": {
+      "id": "referral-only-base-bridge",
+      "url": "/financial-diagrams/referral-only-base-bridge.html",
+      "title": "A pure introduction has a small, separate ledger — baseline",
+      "type": "waterfall",
+      "caseId": "referral-only",
+      "downside": false,
+      "sha256": "b824cfe817f7dfd3d0941b1f79f31b264334995a73f768206bf4bef84cbe2d35"
+    },
+    "referral-only-downside-bridge": {
+      "id": "referral-only-downside-bridge",
+      "url": "/financial-diagrams/referral-only-downside-bridge.html",
+      "title": "A pure introduction has a small, separate ledger — downside",
+      "type": "waterfall",
+      "caseId": "referral-only",
+      "downside": true,
+      "sha256": "26cbca82efa8b56a9ece348d8ff08129dd2c13e8e96aad7e64c048b7340bb642"
+    },
+    "vendor-operating-costs-base-bridge": {
+      "id": "vendor-operating-costs-base-bridge",
+      "url": "/financial-diagrams/vendor-operating-costs-base-bridge.html",
+      "title": "A hosted workflow has suppliers even when it uses AI — baseline",
+      "type": "waterfall",
+      "caseId": "vendor-operating-costs",
+      "downside": false,
+      "sha256": "4dc9b6162c1067f2b6729008dd0bea7d9b5920837160a6b6aac4e360864a4b61"
+    },
+    "vendor-operating-costs-downside-bridge": {
+      "id": "vendor-operating-costs-downside-bridge",
+      "url": "/financial-diagrams/vendor-operating-costs-downside-bridge.html",
+      "title": "A hosted workflow has suppliers even when it uses AI — downside",
+      "type": "waterfall",
+      "caseId": "vendor-operating-costs",
+      "downside": true,
+      "sha256": "ea23abff8b19ad5020b94f65ad4a32883cb88e34696724e3993dc24021804ffb"
+    },
+    "relationship-led-project-allocation": {
+      "id": "relationship-led-project-allocation",
+      "url": "/financial-diagrams/relationship-led-project-allocation.html",
+      "title": "Follow the $80,000 project fee",
+      "type": "sankey",
+      "caseId": "relationship-led-project",
+      "downside": false,
+      "sha256": "1cd3e24c1a79054b6e7c74d035680afa55bbfbd47c005baa38e290e01c6f166f"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+---
+// Shared frame for every /bbb/ route: master shell, the product bar with the Beta tag, and the
+// stylesheet. Product facts live in src/data/bbb.mjs.
+import Layout from '../../layouts/Layout.astro';
+import SiteNav from '../SiteNav.astro';
+import Footer from '../Footer';
+import '../../styles/bbb.css';
+
+interface Props {
+  title: string;
+  description: string;
+  current: 'overview' | 'how' | 'receipts' | 'install' | 'status';
+}
+
+const { title, description, current } = Astro.props;
+
+const links = [
+  { id: 'overview', href: '/bbb/', label: 'Overview' },
+  { id: 'how', href: '/bbb/how-it-works/', label: 'How it works' },
+  { id: 'receipts', href: '/bbb/receipts/', label: 'Receipts' },
+  { id: 'install', href: '/bbb/install/', label: 'Install' },
+  { id: 'status', href: '/bbb/status/', label: 'Status' },
+];
+---
+
+<Layout title={title} description={description}>
+  <script is:inline>document.documentElement.classList.add('js');</script>
+  <SiteNav />
+  <div class="bbb">
+    <nav class="bbb-bar" aria-label="Bob’s Big Brain">
+      <div class="bbb-container bbb-bar__inner">
+        <a class="bbb-bar__name" href="/bbb/">Bob’s Big Brain</a>
+        <a class="bbb-beta" href="/bbb/status/" aria-label="Beta, under development: see what works today">Beta<span class="bbb-beta__more">, under development</span></a>
+        <div class="bbb-bar__links">
+          {links.map((link) => (
+            <a href={link.href} aria-current={link.id === current ? 'page' : undefined}>{link.label}</a>
+          ))}
+        </div>
+      </div>
+    </nav>
+    <main id="main">
+      <slot />
+    </main>
+  </div>
+  <Footer client:load />
+</Layout>

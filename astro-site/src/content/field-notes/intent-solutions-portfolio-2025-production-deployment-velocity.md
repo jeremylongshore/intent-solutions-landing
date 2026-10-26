@@ -722,7 +722,7 @@ The real achievement isn't five production platforms. It's the architecture patt
 - [Bob's Brain](https://github.com/jeremylongshore/bobs-brain)
 - [Local RAG Agent](https://github.com/jeremylongshore/local-rag-agent-intent-solutions)
 
-**Ready to deploy?** [jeremy@intentsolutions.io](mailto:jeremy@intentsolutions.io)
+**Ready to deploy?** [support@intentsolutions.io](mailto:support@intentsolutions.io)
 
 
 **About Intent Solutions:** AI automation consultancy specializing in rapid deployment, cost optimization, and production-ready systems. Based in Gulf Shores, Alabama. Deployed five production platforms in 2025.

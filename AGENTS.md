@@ -1,153 +1,51 @@
 # Agent Instructions
 
-This project uses **bd** (beads) for issue tracking. Run `bd onboard` to get started.
+Read [CLAUDE.md](CLAUDE.md) for the active Astro site, source ownership and release checks.
+The [financial atlas record](000-docs/089-AT-DSGN-financial-atlas.md) is the recovery entry
+for the estate, published teaching diagrams and completed private presenter delivery.
 
-## Quick Reference
+## Beads tracker context
 
-```bash
-bd ready              # Find available work
-bd show <id>          # View issue details
-bd update <id> --status in_progress  # Claim work
-bd close <id>         # Complete work
-bd sync               # Sync with git
-```
+Use Beads for all durable task tracking and `bd remember` for persistent project memory.
+Do not create Markdown TODO lists or ad hoc memory files.
 
-## Landing the Plane (Session Completion)
-
-**When ending a work session**, you MUST complete ALL steps below. Work is NOT complete until `git push` succeeds.
-
-**MANDATORY WORKFLOW:**
-
-1. **File issues for remaining work** - Create issues for anything that needs follow-up
-2. **Run quality gates** (if code changed) - Tests, linters, builds
-3. **Update issue status** - Close finished work, update in-progress items
-4. **PUSH TO REMOTE** - This is MANDATORY:
-   ```bash
-   git pull --rebase
-   bd sync
-   git push
-   git status  # MUST show "up to date with origin"
-   ```
-5. **Clean up** - Clear stashes, prune remote branches
-6. **Verify** - All changes committed AND pushed
-7. **Hand off** - Provide context for next session
-
-**CRITICAL RULES:**
-- Work is NOT complete until `git push` succeeds
-- NEVER stop before pushing - that leaves work stranded locally
-- NEVER say "ready to push when you are" - YOU must push
-- If push fails, resolve and retry until it succeeds
-
-
-<!-- BEGIN BEADS INTEGRATION -->
-## Issue Tracking with bd (beads)
-
-**IMPORTANT**: This project uses **bd (beads)** for ALL issue tracking. Do NOT use markdown TODOs, task lists, or other tracking methods.
-
-### Why bd?
-
-- Dependency-aware: Track blockers and relationships between issues
-- Git-friendly: Dolt-powered version control with native sync
-- Agent-optimized: JSON output, ready work detection, discovered-from links
-- Prevents duplicate tracking systems and confusion
-
-### Quick Start
-
-**Check for ready work:**
+As verified October 12, 2026, the landing-local database needs repair, tracked by
+`bd_000-projects-dxtq.9`. On the owner's workstation, use the existing umbrella database:
 
 ```bash
-bd ready --json
+bd -C /home/jeremy/000-projects prime
+bd -C /home/jeremy/000-projects ready --json
+bd -C /home/jeremy/000-projects show <id> --json
+bd -C /home/jeremy/000-projects update <id> --claim --json
+bd -C /home/jeremy/000-projects create "Title" --description "Context and acceptance" -t task -p 2 --json
+bd -C /home/jeremy/000-projects close <id> --reason "Verified outcome" --json
+bd -C /home/jeremy/000-projects dolt push
 ```
 
-**Create new issues:**
+Do not run repository-local initialization, JSONL import or schema migration as a workaround.
+On other machines, establish the maintainer-designated tracker before issue mutations.
+Return to a repaired local tracker only after the repair task identifies its verified authority.
+Use the installed `beads` skill for context recovery and health diagnosis.
 
-```bash
-bd create "Issue title" --description="Detailed context" -t bug|feature|task -p 0-4 --json
-bd create "Issue title" --description="What this issue is about" -p 1 --deps discovered-from:bd-123 --json
-```
+Issues live in Dolt; `bd dolt push/pull` synchronizes issue data through `refs/dolt/data`.
+Git branch pushes synchronize code separately. `.beads/issues.jsonl` is a passive export,
+not the wire protocol or a substitute for the database. Link newly discovered work with
+`discovered-from:<parent-id>` rather than duplicating an existing task.
 
-**Claim and update:**
+## Session completion
 
-```bash
-bd update <id> --claim --json
-bd update bd-42 --priority 1 --json
-```
+1. Record remaining work in Beads and update completed issue states.
+2. Run checks appropriate to the diff and all required release gates. Preserve unrelated work.
+3. Commit only the intended files, integrate upstream changes on the working branch and push it.
+4. Push Beads data from the designated tracker and verify the remote code state.
+5. Follow repository branch protection, review and required-check policy for pull requests.
+6. Hand off the verified result, source locations and unresolved limitations.
 
-**Complete work:**
+Work is not complete while authorized changes remain only local. Resolve ordinary push
+failures and verify that the branch is up to date with its remote. Use the estate merge guard
+when this repository is enrolled; do not invent enrollment or bypass a refused gate.
 
-```bash
-bd close bd-42 --reason "Completed" --json
-```
-
-### Issue Types
-
-- `bug` - Something broken
-- `feature` - New functionality
-- `task` - Work item (tests, docs, refactoring)
-- `epic` - Large feature with subtasks
-- `chore` - Maintenance (dependencies, tooling)
-
-### Priorities
-
-- `0` - Critical (security, data loss, broken builds)
-- `1` - High (major features, important bugs)
-- `2` - Medium (default, nice-to-have)
-- `3` - Low (polish, optimization)
-- `4` - Backlog (future ideas)
-
-### Workflow for AI Agents
-
-1. **Check ready work**: `bd ready` shows unblocked issues
-2. **Claim your task atomically**: `bd update <id> --claim`
-3. **Work on it**: Implement, test, document
-4. **Discover new work?** Create linked issue:
-   - `bd create "Found bug" --description="Details about what was found" -p 1 --deps discovered-from:<parent-id>`
-5. **Complete**: `bd close <id> --reason "Done"`
-
-### Auto-Sync
-
-bd automatically syncs via Dolt:
-
-- Each write auto-commits to Dolt history
-- Use `bd dolt push`/`bd dolt pull` for remote sync
-- No manual export/import needed!
-
-### Important Rules
-
-- ✅ Use bd for ALL task tracking
-- ✅ Always use `--json` flag for programmatic use
-- ✅ Link discovered work with `discovered-from` dependencies
-- ✅ Check `bd ready` before asking "what should I work on?"
-- ❌ Do NOT create markdown TODO lists
-- ❌ Do NOT use external issue trackers
-- ❌ Do NOT duplicate tracking systems
-
-For more details, see README.md and docs/QUICKSTART.md.
-
-## Landing the Plane (Session Completion)
-
-**When ending a work session**, you MUST complete ALL steps below. Work is NOT complete until `git push` succeeds.
-
-**MANDATORY WORKFLOW:**
-
-1. **File issues for remaining work** - Create issues for anything that needs follow-up
-2. **Run quality gates** (if code changed) - Tests, linters, builds
-3. **Update issue status** - Close finished work, update in-progress items
-4. **PUSH TO REMOTE** - This is MANDATORY:
-   ```bash
-   git pull --rebase
-   bd sync
-   git push
-   git status  # MUST show "up to date with origin"
-   ```
-5. **Clean up** - Clear stashes, prune remote branches
-6. **Verify** - All changes committed AND pushed
-7. **Hand off** - Provide context for next session
-
-**CRITICAL RULES:**
-- Work is NOT complete until `git push` succeeds
-- NEVER stop before pushing - that leaves work stranded locally
-- NEVER say "ready to push when you are" - YOU must push
-- If push fails, resolve and retry until it succeeds
-
-<!-- END BEADS INTEGRATION -->
+Do not delete branches, tags or unrelated stashes, rewrite history, force-push or bypass
+protection without explicit authorization. Preserve historical research and already-delivered
+private artifacts. Root documentation updates do not prove a website deployment, legal
+execution, recorded video or adopted commercial model.

@@ -1,0 +1,153 @@
+---
+import BbbFrame from '../../components/bbb/BbbFrame.astro';
+import ChainDemo from '../../components/bbb/ChainDemo.astro';
+import { heroIndex, sampleAnswer, limits, repos } from '../../data/bbb.mjs';
+
+const indexHref = { govern: '/bbb/how-it-works/#govern', retrieve: '/bbb/how-it-works/#retrieve', verify: '/bbb/receipts/', package: '/bbb/install/' };
+
+const topLimits = [limits[0], limits[4], limits[3]];
+---
+
+<BbbFrame
+  title="Bob’s Big Brain: memory your agent can cite | Intent Solutions"
+  description="A governed memory for Claude Code and Cowork. Code decides what it keeps, answers cite the exact memory, and each save leaves a verifiable receipt. Beta."
+  current="overview"
+>
+  <section class="bbb-hero" aria-labelledby="bbb-hero-title">
+    <div class="bbb-container bbb-hero__grid">
+      <div class="bbb-hero__text">
+        <h1 id="bbb-hero-title">Memory your agent can cite.</h1>
+        <p class="bbb-lead">An open-source Claude Code plugin that lives on your machine.</p>
+        <div class="bbb-actions">
+          <a class="bbb-btn bbb-btn--primary" href="/bbb/install/">Install local mode</a>
+          <a class="bbb-btn bbb-btn--quiet" href="/contact/?door=outcome">Request a team brain</a>
+        </div>
+      </div>
+      <div class="bbb-hero__index">
+        <ol class="bbb-layers" aria-label="How Bob’s Big Brain works, with proof">
+          {heroIndex.map((row) => (
+            <li>
+              <a href={indexHref[row.id]}>
+                <span class="bbb-layers__name">{row.name}</span>
+                <span class="bbb-layers__line">{row.line}</span>
+                <code class:list={['bbb-layers__proof', { 'bbb-layers__proof--cite': row.id === 'retrieve' }]}>{row.proof}</code>
+              </a>
+            </li>
+          ))}
+        </ol>
+        <p class="bbb-caption">Real output, 2026-10-25.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bbb-section bbb-section--band" aria-labelledby="bbb-answer-title">
+    <div class="bbb-container bbb-split">
+      <div class="bbb-head">
+        <h2 id="bbb-answer-title">It shows its work.</h2>
+        <p>A real answer from our own brain. Every hit points at the exact memory it came from.</p>
+      </div>
+      <figure class="bbb-panel bbb-answer">
+        <p class="bbb-answer__query"><span>/brain</span> {sampleAnswer.query}</p>
+        {sampleAnswer.hits.map((hit) => (
+          <div class="bbb-hit">
+            <p class="bbb-hit__text">{hit.excerpt}</p>
+            <p class="bbb-hit__cite">{hit.citation}</p>
+            <p class="bbb-hit__meta">Score {hit.score}</p>
+          </div>
+        ))}
+        <figcaption class="bbb-caption">Captured from Intent Solutions’ own brain on {sampleAnswer.capturedAt}, trimmed to public text. Not a customer result.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="bbb-section" aria-labelledby="bbb-chain-title">
+    <div class="bbb-container">
+      <div class="bbb-head">
+        <h2 id="bbb-chain-title">Edit a receipt. Get caught.</h2>
+        <p>Five made-up receipts, hashed with SHA-256 in your browser. Change one.</p>
+      </div>
+      <ChainDemo />
+      <p class="bbb-caption"><code>brain_audit_verify</code> runs these checks on your real chain. <a href="/bbb/receipts/">How receipts work</a></p>
+    </div>
+  </section>
+
+  <section class="bbb-section bbb-section--band" aria-labelledby="bbb-modes-title">
+    <div class="bbb-container">
+      <div class="bbb-head">
+        <h2 id="bbb-modes-title">Start alone. Bring the team later.</h2>
+      </div>
+      <div class="bbb-two">
+        <div>
+          <h3>Local mode</h3>
+          <p class="bbb-lead">Runs inside Claude Code on your machine, offline after setup.</p>
+          <dl class="bbb-dl">
+            <dt>Data</dt><dd>In <code>~/.teamkb</code> on your disk</dd>
+            <dt>Verify</dt><dd><code>brain_audit_verify</code>, any time</dd>
+          </dl>
+          <div class="bbb-actions"><a class="bbb-btn bbb-btn--primary" href="/bbb/install/">Install local mode</a></div>
+        </div>
+        <div>
+          <h3>Team mode</h3>
+          <p class="bbb-lead">One governed brain on a server you control.</p>
+          <dl class="bbb-dl">
+            <dt>Who saves</dt><dd>Members propose; admins approve (checked in code)</dd>
+            <dt>Setup</dt><dd>We help you stand it up</dd>
+          </dl>
+          <div class="bbb-actions"><a class="bbb-btn bbb-btn--quiet" href="/contact/?door=outcome">Request a team brain</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bbb-section" aria-labelledby="bbb-beta-title">
+    <div class="bbb-container">
+      <div class="bbb-head">
+        <h2 id="bbb-beta-title">Beta, and specific about it.</h2>
+        <p>Every claim here was checked against the code. This is what isn’t done.</p>
+      </div>
+      <ul class="bbb-rows">
+        {topLimits.map((limit) => (
+          <li>
+            <h3>{limit.title}</h3>
+            <p>{limit.short}</p>
+          </li>
+        ))}
+      </ul>
+      <p class="bbb-caption">Four more limits, what we tested and the commits we checked: <a href="/bbb/status/">see the status</a></p>
+    </div>
+  </section>
+
+  <section class="bbb-section bbb-section--band" aria-labelledby="bbb-source-title">
+    <div class="bbb-container">
+      <div class="bbb-head">
+        <h2 id="bbb-source-title">Read every line.</h2>
+        <p>Four public repositories and one upstream search engine.</p>
+      </div>
+      <div class="bbb-table-wrap">
+        <table class="bbb-table bbb-table--stack">
+          <thead><tr><th scope="col">Repository</th><th scope="col">Layer</th><th scope="col">What it does</th><th scope="col">Licence</th></tr></thead>
+          <tbody>
+            {repos.map((repo) => (
+              <tr>
+                <td><a href={repo.href}>{repo.name}</a></td>
+                <td data-label="Layer">{repo.layer}</td>
+                <td data-label="What it does">{repo.job}</td>
+                <td data-label="Licence">{repo.license}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="bbb-section" aria-labelledby="bbb-close-title">
+    <div class="bbb-container bbb-close">
+      <h2 id="bbb-close-title">Start with your own brain.</h2>
+      <div class="bbb-actions">
+        <a class="bbb-btn bbb-btn--primary" href="/bbb/install/">Install local mode</a>
+        <a class="bbb-btn bbb-btn--quiet" href="/contact/?door=outcome">Request a team brain</a>
+      </div>
+    </div>
+  </section>
+</BbbFrame>
