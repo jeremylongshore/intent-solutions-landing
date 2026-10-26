@@ -1,3 +1,14 @@
+# Release v4.13.2
+
+**Release Date**: 2026-10-26
+
+## Changes since v4.13.1
+
+- chore: release v4.13.2 [skip ci] (05ce61f)
+- docs(brand): keep 084 as the master identity and the estate bar's mono capitals (#95) (9145141)
+
+---
+
 # Release v4.13.1
 
 **Release Date**: 2026-10-25
