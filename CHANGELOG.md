@@ -1,3 +1,14 @@
+# Release v4.15.0
+
+**Release Date**: 2026-10-26
+
+## Changes since v4.14.0
+
+- chore: release v4.15.0 [skip ci] (81008ef)
+- feat(about): play the company film on the About page (#99) (707f1f3)
+
+---
+
 # Release v4.14.0
 
 **Release Date**: 2026-10-26
