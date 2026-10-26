@@ -1,3 +1,14 @@
+# Release v4.14.0
+
+**Release Date**: 2026-10-26
+
+## Changes since v4.13.5
+
+- chore: release v4.14.0 [skip ci] (dc18a1e)
+- feat(film): add the Intent Solutions connected-company film; masters on a release (#63) (86442ba)
+
+---
+
 # Release v4.13.5
 
 **Release Date**: 2026-10-26
