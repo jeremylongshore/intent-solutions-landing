@@ -18,7 +18,7 @@ const verifyStandalone = `git clone https://github.com/jeremylongshore/bobs-big-
 node bobs-big-brain-plugin/scripts/verify-anchors.mjs --db ~/.teamkb/teamkb.db`;
 
 const chains = [
-  { name: 'Governance chain', where: 'Every save and retirement', check: 'brain_audit_verify in Claude (local mode)' },
+  { name: 'Governance chain', where: 'Durable promotions, rejections and retirements', check: 'brain_audit_verify in Claude (local mode)' },
   { name: 'Anchor log', where: 'Chain-head snapshots, in git', check: 'verify-anchors.mjs' },
   { name: 'Compile trace', where: 'Each optional compile step', check: 'ico audit verify' },
 ];
@@ -33,10 +33,10 @@ const chains = [
     <div class="bbb-container bbb-split">
       <div class="bbb-head">
         <h1 id="rc-title">What a receipt proves</h1>
-        <p class="bbb-lead">Each decision is hashed with the one before it.</p>
+        <p class="bbb-lead">Each recorded governance settlement links to the previous receipt.</p>
       </div>
       <figure class="bbb-figure bbb-copy">
-        <figcaption class="bbb-copy__label">A real receipt from our clean-room install, hashes shortened.</figcaption>
+        <figcaption class="bbb-copy__label">A real receipt from the October 25, 2026 clean-room install, hashes shortened.</figcaption>
         <pre>{receipt}</pre>
       </figure>
     </div>
@@ -46,7 +46,7 @@ const chains = [
     <div class="bbb-container">
       <div class="bbb-head">
         <h2 id="chains-title">Three records, three checks</h2>
-        <p>They are separate. Passing one says nothing about the others.</p>
+        <p>They are separate. Passing one does not establish the others. Review-only flags and pre-intake refusals do not have a per-decision receipt guarantee; searches are not receipted.</p>
       </div>
       <div class="bbb-table-wrap">
         <table class="bbb-table bbb-table--stack">
@@ -88,9 +88,9 @@ const chains = [
       </div>
       <ul class="bbb-rows bbb-rows--roomy">
         <li><h3>Prevention</h3><p>Tamper-evident: it detects edits, it does not prevent them.</p></li>
-        <li><h3>Deep rewrites</h3><p>A rewrite is caught only back to the last anchor.</p></li>
-        <li><h3>Outside witness</h3><p>A local commit is a local witness; push it for an outside one.</p></li>
-        <li><h3>Who and whether</h3><p>It does not show who changed it, or that a memory is true.</p></li>
+        <li><h3>Deep rewrites</h3><p>A retained, independently trusted anchor can expose a rewrite of the history it covers. Replacing the store and all local witnesses can evade local checks.</p></li>
+        <li><h3>Outside witness</h3><p>A local commit remains local. The plugin attempts a bounded background push when origin is configured; neither configuration nor a successful local commit proves push success or an independent witness.</p></li>
+        <li><h3>Who and whether</h3><p>It does not show who changed it, or that a memory is true. Zero tamper signatures alone do not establish strict verification; chain classifications and anchor checks also matter.</p></li>
       </ul>
     </div>
   </section>
