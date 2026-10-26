@@ -1,3 +1,14 @@
+# Release v4.13.5
+
+**Release Date**: 2026-10-26
+
+## Changes since v4.13.4
+
+- chore: release v4.13.5 [skip ci] (bde2cce)
+- content(field-notes): add mysql-executable-comments-bypass-sql-safety-gate (e100fa3)
+
+---
+
 # Release v4.13.4
 
 **Release Date**: 2026-10-26
