@@ -7,7 +7,7 @@ import { getCollection } from 'astro:content';
 const posts = (await getCollection('field-notes'))
   .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
 
-const title = 'Field Notes | intent solutions io';
+const title = 'Field Notes | Intent Solutions';
 const description = 'Notes from the field — architecture decisions, production systems, and technical leadership from shipping real AI infrastructure.';
 
 const jsonLd = {
@@ -22,7 +22,7 @@ const jsonLd = {
   },
   publisher: {
     '@type': 'Organization',
-    name: 'intent solutions io',
+    name: 'Intent Solutions',
     url: 'https://intentsolutions.io',
   },
 };
