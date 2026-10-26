@@ -1,3 +1,14 @@
+# Release v4.13.4
+
+**Release Date**: 2026-10-26
+
+## Changes since v4.13.3
+
+- chore: release v4.13.4 [skip ci] (f7b6b64)
+- test(discovery): wait for the explore_filter events before asserting on them (#97) (e1f207d)
+
+---
+
 # Release v4.13.3
 
 **Release Date**: 2026-10-26
