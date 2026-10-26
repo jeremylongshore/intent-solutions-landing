@@ -51,6 +51,10 @@ with sync_playwright() as p:
         page.keyboard.press('Tab')
         expect(select).to_be_focused()
         # Searching never exports free text. Only fixed category values were sent.
+        # The stub records each event 50ms after the call, and the select loop can
+        # finish inside that window: wait for the first event, then let the rest land.
+        page.wait_for_function('window.measured.length > 0', timeout=5000)
+        page.wait_for_timeout(200)
         events = page.evaluate('window.measured')
         assert events and all(e['name'] == 'explore_filter' and set(e['data']) == {'category'} for e in events), events
         page.screenshot(path=f'/tmp/intent-explore-{width}.png', full_page=True)
