@@ -1,5 +1,16 @@
 # Upload notes
 
+## Download
+
+The six masters live on the GitHub release, not in Git. Check each download against `SHA256SUMS` in this directory (`sha256sum -c SHA256SUMS`).
+
+- [intent-solutions-landscape-1080p60.mp4](https://github.com/jeremylongshore/intent-solutions-landing/releases/download/film-intent-connected-2026-09-30/intent-solutions-landscape-1080p60.mp4)
+- [intent-solutions-portrait-1080p60.mp4](https://github.com/jeremylongshore/intent-solutions-landing/releases/download/film-intent-connected-2026-09-30/intent-solutions-portrait-1080p60.mp4)
+- [intent-solutions-landscape-1080p60-music-only.mp4](https://github.com/jeremylongshore/intent-solutions-landing/releases/download/film-intent-connected-2026-09-30/intent-solutions-landscape-1080p60-music-only.mp4)
+- [intent-solutions-portrait-1080p60-music-only.mp4](https://github.com/jeremylongshore/intent-solutions-landing/releases/download/film-intent-connected-2026-09-30/intent-solutions-portrait-1080p60-music-only.mp4)
+- [intent-solutions-landscape-1080p60-alternate-music.mp4](https://github.com/jeremylongshore/intent-solutions-landing/releases/download/film-intent-connected-2026-09-30/intent-solutions-landscape-1080p60-alternate-music.mp4)
+- [intent-solutions-portrait-1080p60-alternate-music.mp4](https://github.com/jeremylongshore/intent-solutions-landing/releases/download/film-intent-connected-2026-09-30/intent-solutions-portrait-1080p60-alternate-music.mp4)
+
 Suggested title: **Intent Solutions — One Connected Company**
 
 Suggested description:

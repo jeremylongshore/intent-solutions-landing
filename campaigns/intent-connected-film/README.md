@@ -4,7 +4,7 @@ A 30-second company film, authored as deterministic GSAP compositions in the Int
 
 ## Files
 
-- `deliverables/`: upload-ready video versions, posters and contact sheets.
+- `deliverables/`: posters, contact sheets, upload notes and `SHA256SUMS`. The six MP4 masters are not committed; download them from the [`film-intent-connected-2026-09-30` release](https://github.com/jeremylongshore/intent-solutions-landing/releases/tag/film-intent-connected-2026-09-30) and verify them against `deliverables/SHA256SUMS`.
 - `film/`: scene source, pinned fonts and GSAP, shared timeline, per-scene labs.
 - `FACTS.json`: permitted on-screen language and supporting sources.
 - `BRIEF.md`, `STORYBOARD.md`: scope and shot logic.
@@ -37,6 +37,6 @@ Only synchronized videos may be distributed. Raw library recordings and isolated
 
 Serve the project root with a local static HTTP server and open `film/landscape.html` or `film/portrait.html`. The page is intentionally paused for deterministic capture. Seek using `window.__film.timeline.seek(seconds)` in the browser console. The lab pages isolate each scene; `make-pages.py` regenerates them from the shared runtime.
 
-`FACTS.json` is the approved copy allowlist, checked against every visible text node by `node scripts/qa-dom.cjs`. Scene text is authored explicitly in `film/scenes/*.js` and `film/main.js`; it is not generated from the allowlist. After an approved copy change, update those scene strings and both `FACTS.json` and its browser export `film/facts.js`, render both formats, and repeat the independent review. Run `python scripts/verify-delivery.py` after muxing all six exports. No publication to YouTube or a production website is performed by these scripts.
+`FACTS.json` is the approved copy allowlist, checked against every visible text node by `node scripts/qa-dom.cjs`. Scene text is authored explicitly in `film/scenes/*.js` and `film/main.js`; it is not generated from the allowlist. After an approved copy change, update those scene strings and both `FACTS.json` and its browser export `film/facts.js`, render both formats, and repeat the independent review. Run `python scripts/verify-delivery.py` after muxing all six exports. A re-export is published as a new release, never by committing the MP4s. No publication to YouTube or a production website is performed by these scripts.
 
 For webpage playback, use the final MP4 with `controls`, `playsinline`, `preload="metadata"` and its matching poster. The H.264/AAC files include fast-start metadata. `deliverables/UPLOAD-NOTES.md` includes suggested YouTube copy and the final human watch/listen check.

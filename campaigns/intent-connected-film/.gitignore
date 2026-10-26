@@ -11,3 +11,4 @@ assets/audio/*.mp3
 assets/audio/*.html
 __pycache__/
 *.log
+deliverables/*.mp4
