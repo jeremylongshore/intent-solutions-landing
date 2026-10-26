@@ -85,3 +85,17 @@ Before capture rollout, locate deployed endpoint ownership and source SHA; inspe
 Before website release, verify mobile/desktop/keyboard journeys, contrast, truthful form states, source links, metadata, legal links, absence of negative featured-result sales copy, and correspondence between the 085 route inventory and built output. Validate source/date/units for published metrics; no misleading zero fallback. Check analytics events without PII and report actual ingestion evidence separately from script presence.
 
 Success means each visitor understands what the destination provides and can take a working next step. Qualified inquiries, confirmed subscriptions, suitable applications and useful product engagement matter more than raw pageviews. No conversion uplift has been measured or promised.
+
+## Addendum: visual identity not adopted (October 26, 2026)
+
+Decided by the CTO on the owner's delegation (tracker `bd_000-projects-dxtq.22.6`, issue #89). The
+visual clause in "Authority and boundaries" (supersede 084's master identity and align the master
+site to the Oma/Learn family) is **not adopted**. 084, as amended by 088, stays the master site's
+design authority: orange arrow mark, Syne display, Inter body, charcoal surfaces. The rest of this
+plan (audiences, journeys, messaging, capture and verification) is unaffected.
+
+Why: the clause was approved as a direction but never executed, and its own precondition (compare
+live Oma/Learn tokens and screenshots, then rewrite the design authority) never ran. Since then the
+master site has shipped two Hallmark passes on the 084 identity (v4.12.x), and the shared estate bar
+(088) already carries family recognition across every property. A full re-theme would buy no
+customer-facing capability. Reopen only with a new owner decision that names a reason.
