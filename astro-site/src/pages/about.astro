@@ -105,6 +105,34 @@ const faqs = [
   },
 ];
 
+// The company film (campaigns/intent-connected-film, PR #63). The MP4 is the approved
+// landscape master, byte for byte; the other five masters live on the GitHub release.
+const filmLines = [
+  'Intent Solutions. Applied AI engineering.',
+  'Build useful technology.',
+  'Define done.',
+  'Test the claim, in Labs and Evals: outcome, constraints, evidence.',
+  'Show the work, in Demos.',
+  'Share the method, in Learn.',
+  'Build in public, with OMA desktop tools.',
+  'Make it reusable, through Tons of Skills agent skills and plugins.',
+  'Services. Products. Open source.',
+  'One connected company.',
+  'Built. Tested. Shared.',
+  'Request an outcome at intentsolutions.io.',
+];
+
+const filmJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'VideoObject',
+  name: 'Intent Solutions: one connected company',
+  description: 'A 30-second film showing how Intent Solutions connects services, products, open source, evaluation, demos, and learning around the same applied AI engineering work.',
+  thumbnailUrl: 'https://intentsolutions.io/media/intent-solutions-film-poster.png',
+  contentUrl: 'https://intentsolutions.io/media/intent-solutions-film.mp4',
+  uploadDate: '2026-10-26',
+  duration: 'PT30S',
+};
+
 const faqJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -121,6 +149,7 @@ const faqJsonLd = {
   description="Intent Solutions connects applied AI engineering, evaluation, demos, education, open source, and products around measurable production work and customer independence."
 >
   <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+  <script type="application/ld+json" set:html={JSON.stringify(filmJsonLd)} />
   <SiteNav />
 
   <main class="about">
@@ -135,6 +164,38 @@ const faqJsonLd = {
           We connect engineering, evaluations, demos, teaching, open-source tools, and products around
           the same work. Customer operating knowledge and independence are part of the delivery.
         </p>
+      </div>
+    </section>
+
+    <section class="section film-section surface" aria-labelledby="film-title">
+      <div class="wrap">
+        <div class="section-head wide-head">
+          <h2 id="film-title">The company in 30 seconds</h2>
+          <p>How the engineering, evaluation, demos, teaching, and open-source work connect. No narration; the film is on-screen text and music.</p>
+        </div>
+        <figure class="film">
+          <video
+            controls
+            playsinline
+            preload="none"
+            poster="/media/intent-solutions-film-poster.png"
+            width="1920"
+            height="1080"
+            aria-describedby="film-text"
+          >
+            <source src="/media/intent-solutions-film.mp4" type="video/mp4" />
+            <a href="/media/intent-solutions-film.mp4">Download the film (MP4, 30 seconds)</a>
+          </video>
+          <figcaption>
+            <details id="film-text">
+              <summary>Read the film’s on-screen text</summary>
+              <ol>
+                {filmLines.map((line) => <li>{line}</li>)}
+              </ol>
+              <p>The visuals illustrate connected work. They are not customer results or recordings of a product running. Music: “Hazy After Hours” by Alejandro Magaña (A. M.), via Mixkit.</p>
+            </details>
+          </figcaption>
+        </figure>
       </div>
     </section>
 
@@ -335,6 +396,15 @@ const faqJsonLd = {
   a:focus-visible { outline: 2px solid #fb923c; outline-offset: 4px; border-radius: 0.18rem; }
   .lede { max-width: 52rem; margin: 0; color: #f4f4f5; font-size: clamp(1.15rem, 2vw, 1.45rem); line-height: 1.65; }
   .hero-support { max-width: 46rem; margin: 1.4rem 0 0; color: #b8b8c1; font-size: 1rem; line-height: 1.75; }
+  .film { margin: 0; }
+  .film video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #000; border: 1px solid #3f3f46; border-radius: 0.8rem; }
+  .film video:focus-visible { outline: 2px solid #fb923c; outline-offset: 4px; }
+  .film figcaption { margin-top: 1.1rem; color: #b8b8c1; font-size: 0.92rem; line-height: 1.7; }
+  .film summary { width: fit-content; color: #fdba74; cursor: pointer; }
+  .film summary:hover { color: #fed7aa; }
+  .film summary:focus-visible { outline: 2px solid #fb923c; outline-offset: 4px; border-radius: 0.18rem; }
+  .film ol { margin: 0.9rem 0 0; padding-left: 1.4rem; }
+  .film details p { max-width: 72ch; margin: 0.9rem 0 0; }
   .section-layout { display: grid; grid-template-columns: minmax(17rem, 0.75fr) minmax(0, 1.25fr); gap: clamp(3rem, 8vw, 7rem); align-items: start; }
   .section-head { position: sticky; top: 7rem; }
   .section-head p { max-width: 34rem; margin: 0; color: #b8b8c1; line-height: 1.75; }
