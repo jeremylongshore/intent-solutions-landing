@@ -20,6 +20,7 @@ export const pages = [
   { path: '/bbb/status/', label: 'Bob’s Big Brain: beta status', audience: 'Builders, team leads and evaluators', purpose: 'See what works today, what is not done, and the commits each claim was checked against.', next: '/bbb/install/', index: true },
   { path: '/terms/', label: 'Terms', audience: 'Visitors and customers', purpose: 'Read the published terms.', next: '/contact/', index: true },
   { path: '/privacy/', label: 'Privacy', audience: 'Visitors and customers', purpose: 'Read data handling information.', next: '/contact/', index: true },
+  { path: '/privacy/discord/', label: 'Discord application privacy', audience: 'Community members and application users', purpose: 'Understand Discord application data practices, current scope and privacy requests.', next: '/privacy/', index: true },
   { path: '/acceptable-use/', label: 'Acceptable use', audience: 'Visitors and customers', purpose: 'Read usage boundaries.', next: '/contact/', index: true },
   { path: '/site-map/', label: 'Site map', audience: 'All visitors', purpose: 'Choose a page or related property by its job.', next: '/', index: true },
   { path: '/404/', label: 'Not found', audience: 'Visitors with an invalid URL', purpose: 'Recover to an existing page.', next: '/site-map/', index: false },
