@@ -1,3 +1,14 @@
+# Release v4.15.1
+
+**Release Date**: 2026-10-27
+
+## Changes since v4.15.0
+
+- chore: release v4.15.1 [skip ci] (c548fda)
+- Add supplemental Discord application privacy notice (#100) (605c28b)
+
+---
+
 # Release v4.15.0
 
 **Release Date**: 2026-10-26
