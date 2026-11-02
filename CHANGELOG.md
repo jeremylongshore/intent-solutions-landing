@@ -1,3 +1,14 @@
+# Release v4.15.3
+
+**Release Date**: 2026-11-02
+
+## Changes since v4.15.2
+
+- chore: release v4.15.3 [skip ci] (e1431f6)
+- content(field-notes): add database-restore-does-not-undo-outward-effects (8bce379)
+
+---
+
 # Release v4.15.2
 
 **Release Date**: 2026-11-02
