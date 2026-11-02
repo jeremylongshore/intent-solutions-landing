@@ -1,3 +1,14 @@
+# Release v4.15.2
+
+**Release Date**: 2026-11-02
+
+## Changes since v4.15.1
+
+- chore: release v4.15.2 [skip ci] (4d0e481)
+- content(field-notes): add ssrf-egress-proxy-deny-your-own-production-hosts (8de49b5)
+
+---
+
 # Release v4.15.1
 
 **Release Date**: 2026-10-27
