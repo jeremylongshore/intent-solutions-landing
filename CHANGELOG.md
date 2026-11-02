@@ -1,3 +1,14 @@
+# Release v4.15.4
+
+**Release Date**: 2026-11-02
+
+## Changes since v4.15.3
+
+- chore: release v4.15.4 [skip ci] (156bd88)
+- content(field-notes): add ai-provider-cleanup-from-possible-disclosure (7b8d073)
+
+---
+
 # Release v4.15.3
 
 **Release Date**: 2026-11-02
