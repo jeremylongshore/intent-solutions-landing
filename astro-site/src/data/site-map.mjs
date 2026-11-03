@@ -19,6 +19,7 @@ export const pages = [
   { path: '/bbb/install/', label: 'Bob’s Big Brain: install', audience: 'Claude Code builders', purpose: 'Install local mode, make a first save and search, and fix common problems.', next: '/contact/?door=outcome', index: true },
   { path: '/bbb/status/', label: 'Bob’s Big Brain: beta status', audience: 'Builders, team leads and evaluators', purpose: 'See what works today, what is not done, and the commits each claim was checked against.', next: '/bbb/install/', index: true },
   { path: '/terms/', label: 'Terms', audience: 'Visitors and customers', purpose: 'Read the published terms.', next: '/contact/', index: true },
+  { path: '/data-retention/', label: 'Data retention', audience: 'Applicants, participants and customers', purpose: 'Read retention periods, deletion procedures and preservation exceptions.', next: '/privacy/', index: true },
   { path: '/privacy/', label: 'Privacy', audience: 'Visitors and customers', purpose: 'Read data handling information.', next: '/contact/', index: true },
   { path: '/privacy/discord/', label: 'Discord application privacy', audience: 'Community members and application users', purpose: 'Understand Discord application data practices, current scope and privacy requests.', next: '/privacy/', index: true },
   { path: '/acceptable-use/', label: 'Acceptable use', audience: 'Visitors and customers', purpose: 'Read usage boundaries.', next: '/contact/', index: true },
