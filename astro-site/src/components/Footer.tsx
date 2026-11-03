@@ -20,6 +20,7 @@ const companyLinks = [
 const legalLinks = [
   { label: 'Terms', href: '/terms/' },
   { label: 'Privacy', href: '/privacy/' },
+  { label: 'Data retention', href: '/data-retention/' },
   { label: 'Acceptable use', href: '/acceptable-use/' },
 ];
 
