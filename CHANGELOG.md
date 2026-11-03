@@ -1,3 +1,14 @@
+# Release v4.15.5
+
+**Release Date**: 2026-11-03
+
+## Changes since v4.15.4
+
+- chore: release v4.15.5 [skip ci] (3e0519b)
+- Publish separate Data Retention Policy (#101) (dfa38cc)
+
+---
+
 # Release v4.15.4
 
 **Release Date**: 2026-11-02
