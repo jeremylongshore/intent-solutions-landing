@@ -35,7 +35,8 @@ concurrency:
 jobs:
   test:
     name: pre-deploy gate
-    runs-on: ubuntu-latest
+    # Playwright 1.54's browser dependencies support 24.04, not 26.04.
+    runs-on: ubuntu-24.04
     defaults:
       run:
         working-directory: astro-site
