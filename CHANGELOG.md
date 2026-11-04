@@ -1,3 +1,14 @@
+# Release v4.15.6
+
+**Release Date**: 2026-11-04
+
+## Changes since v4.15.5
+
+- chore: release v4.15.6 [skip ci] (1435787)
+- content(field-notes): add rate-limit-signup-form-without-refusing-anyone (db31745)
+
+---
+
 # Release v4.15.5
 
 **Release Date**: 2026-11-03
