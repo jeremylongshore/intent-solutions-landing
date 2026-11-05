@@ -1,6 +1,6 @@
 ---
 import BbbFrame from '../../components/bbb/BbbFrame.astro';
-import { verifiedAt, proven, limits, repos, tracker } from '../../data/bbb.mjs';
+import { verifiedAt, sourceVerifiedAt, sourceRefs, deliveryStatus, proven, limits, repos, tracker } from '../../data/bbb.mjs';
 
 const formatted = new Date(`${verifiedAt}T12:00:00Z`).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
 ---
@@ -12,8 +12,8 @@ const formatted = new Date(`${verifiedAt}T12:00:00Z`).toLocaleDateString('en-US'
 >
   <section class="bbb-pagehead" aria-labelledby="st-title">
     <div class="bbb-container bbb-head">
-      <h1 id="st-title">What works today</h1>
-      <p class="bbb-lead">Checked against the code on <time datetime={verifiedAt}>{formatted}</time>.</p>
+      <h1 id="st-title">What we have verified</h1>
+      <p class="bbb-lead">Original local installation: <time datetime={verifiedAt}>{formatted}</time>. Source checked separately on <time datetime={sourceVerifiedAt}>{sourceVerifiedAt}</time>.</p>
     </div>
   </section>
 
@@ -31,14 +31,16 @@ const formatted = new Date(`${verifiedAt}T12:00:00Z`).toLocaleDateString('en-US'
   <section class="bbb-section" aria-labelledby="limits-title">
     <div class="bbb-container">
       <div class="bbb-head">
-        <h2 id="limits-title">What is not done</h2>
-        <p>Each limit is tracked in public. We would rather you read it here than find it.</p>
+        <h2 id="limits-title">Original findings and later source fixes</h2>
+        <p>The first three findings have later source corrections. Each entry keeps its observation date and remaining limits; source fixes do not prove a released installation.</p>
       </div>
       <ul class="bbb-rows bbb-rows--roomy">
         {limits.map((limit) => (
-          <li>
-            <h3>{limit.title}</h3>
-            <p>{limit.short}{limit.href && (<> <a href={limit.href} aria-label={`Tracking issue: ${limit.title}`}>Tracking issue</a></>)}</p>
+          <li id={limit.id.toLowerCase()}>
+            <h3>{limit.id}: {limit.title}</h3>
+            <p>{limit.short}</p>
+            <p>{limit.body}</p>
+            <p class="bbb-caption">Observed {limit.observedAt}. {limit.fixes.map((pr) => (<> <a href={`https://github.com/jeremylongshore/bobs-big-brain-plugin/pull/${pr}`}>Merged source #{pr}</a>.</>))}{limit.href && (<> <a href={limit.href} aria-label={`Tracking issue: ${limit.title}`}>Tracking issue</a></>)}</p>
           </li>
         ))}
       </ul>
@@ -48,8 +50,8 @@ const formatted = new Date(`${verifiedAt}T12:00:00Z`).toLocaleDateString('en-US'
   <section class="bbb-section bbb-section--band" aria-labelledby="ver-title">
     <div class="bbb-container">
       <div class="bbb-head">
-        <h2 id="ver-title">What we checked</h2>
-        <p>The default branch of each repository at these commits.</p>
+        <h2 id="ver-title">Original installation pins</h2>
+        <p>Repository versions and commits recorded for the original October 25 evidence. These are historical pins, not a claim about today’s default branches.</p>
       </div>
       <div class="bbb-table-wrap">
         <table class="bbb-table bbb-table--stack">
@@ -67,6 +69,18 @@ const formatted = new Date(`${verifiedAt}T12:00:00Z`).toLocaleDateString('en-US'
         </table>
       </div>
       <p class="bbb-caption">The full audit and the open work live in the <a href={tracker}>umbrella tracker</a>.</p>
+    </div>
+  </section>
+
+  <section class="bbb-section" aria-labelledby="source-title">
+    <div class="bbb-container bbb-head">
+      <h2 id="source-title">Merged source, release and live status</h2>
+      <p>{deliveryStatus}</p>
+      <p>Source check: <time datetime={sourceVerifiedAt}>{sourceVerifiedAt}</time>. The repository code licences do not cover separate model weights.</p>
+      <ul>
+        {sourceRefs.map((ref) => (<li>{ref.name}: <a href={`${ref.href}/commit/${ref.commit}`}><code>{ref.commit.slice(0, 7)}</code></a></li>))}
+      </ul>
+      <p>Semantic retrieval needs a configured embedder; model choice and weight permissions require separate review. No model acceptance follows from this page.</p>
     </div>
   </section>
 
