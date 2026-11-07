@@ -1,5 +1,5 @@
 /**
- * Public research context for fictional teaching examples.
+ * Public research context for illustrative teaching examples.
  * Findings describe the cited evidence. Applications are proposed design choices.
  * No source establishes Intent demand, provider status, participant terms or rates.
  */
@@ -18,7 +18,7 @@ export const researchLessons = [
     evidenceType: 'Official US occupational wage statistics; contextual benchmark only',
     finding: 'The US Bureau of Labor Statistics reports May 2025 median annual wages of $135,980 for software developers and $104,300 for software QA analysts and testers.',
     teachingApplication: 'Use wage data as a reasonableness check, then obtain actual supplier quotes. A contracting business must also fund nonbillable time, benefits, tools, overhead and risk. Specialist scope and local conditions can change the rate substantially.',
-    limits: 'US employee wages are not international contractor prices, an AI-specialist rate survey or validation of these fictional rates. The project sensitivity changes the supplier rate without claiming any value is a market median.',
+    limits: 'US employee wages are not international contractor prices, an AI-specialist rate survey or validation of these illustrative rates. The project sensitivity changes the supplier rate without claiming any value is a market median.',
     sources: [{title:'BLS Occupational Outlook Handbook — software developers and QA, May 2025 wages',url:'https://www.bls.gov/ooh/computer-and-information-technology/software-developers.htm'}],
     checkedAt:'2026-10-12',
   },

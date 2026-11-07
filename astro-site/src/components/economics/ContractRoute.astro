@@ -1,0 +1,12 @@
+---
+// The one public statement of who holds the customer contract (economics chapters 3, 5, 6).
+// Text lives in economics-teaching.mjs so the atlas and every chapter say the same thing.
+import {contractRoute,contractRouteStatus} from '../../data/economics-teaching.mjs';
+const {heading='Who holds the customer contract'} = Astro.props;
+---
+<section class="econ-rule-block" aria-labelledby="contract-route-title">
+ <h2 id="contract-route-title">{heading}</h2>
+ <p>{contractRoute}</p>
+ <p><strong>{contractRouteStatus}</strong> The worked examples on these pages show each route; none of them is an offer.</p>
+ <p>How a firm is paid on each route, and what happens to a customer it introduces, is answered in plain language on the <a href="/alliance/#how-paid">firm page, questions 3 and 4</a>.</p>
+</section>

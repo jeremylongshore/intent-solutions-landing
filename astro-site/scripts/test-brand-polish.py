@@ -62,7 +62,7 @@ with sync_playwright() as p:
             expect(menu).not_to_have_attribute('open', '')
         page.goto(base, wait_until='networkidle')
         page.screenshot(path=f'/tmp/intent-fixed-{width}.png', full_page=True)
-        for path in ('/projects/', '/about/', '/support/', '/site-map/', '/contact/?door=outcome', '/cloud/', '/learn/security/'):
+        for path in ('/projects/', '/about/', '/how-it-works/', '/alliance/', '/support/', '/site-map/', '/contact/?door=outcome', '/cloud/', '/learn/security/'):
             page.goto(base + path, wait_until='networkidle')
             assert page.evaluate('document.documentElement.scrollWidth <= innerWidth'), (width, path)
             expect(page.locator('main h1')).to_have_count(1)
@@ -135,10 +135,10 @@ with sync_playwright() as p:
     assert page.evaluate('document.documentElement.scrollWidth <= innerWidth'), 'contact 200% text reflow'
     # Each policy must survive disabled JavaScript and an unavailable policy CDN.
     # Digests are the whitespace-normalized bodies of the published GetTerms documents
-    # (provenance: 000-docs/090 and 091; company name and dates revised per 000-docs/091 addendum).
+    # (provenance: 000-docs/090 and 091; company name and dates revised per the 091 addenda).
     policies = [
-        ('/privacy/', 'Privacy Policy', 'Contact Us', '5636f7547429619aaeaed7db4e3d2cebeb28e43c44de776a9f57c80313ec9065'),
-        ('/terms/', 'Terms of Service', 'Contact Information', 'f15df6bd6008172777a3efba59f2d6a1e5e361e581f5c381f5ee064bb1d36069'),
+        ('/privacy/', 'Privacy Policy', 'Contact Us', 'a4038ac66678331ac52c5563271f808a7a1a39e99c59804cd1b7ab18a86c9044'),
+        ('/terms/', 'Terms of Service', 'Contact Information', '693aa279208e3ae87b761e546b50de44b218e5091d8e3311c48681e404fe07aa'),
         ('/acceptable-use/', 'Acceptable Use Policy', 'About This Policy', '5fba5b61efb99d92f68a7dbf3c5e1ad986a58903f08bc4a9c15dbc4f1d020514'),
     ]
     for route, title, last_heading, policy_digest in policies:
@@ -161,4 +161,4 @@ with sync_playwright() as p:
                     assert page.evaluate('document.documentElement.scrollWidth <= innerWidth'), (route, '200% text reflow')
                 page.close()
     browser.close()
-print('PASS: 4 viewport sizes, 8 routes, hero glyph bounds, menu keyboard/anchor dismissal, touch targets, contact descendant bounds, compact mobile footer keyboard disclosure, form validation/failure/retry/persistent success, support address, no-JS fallback, 200% text reflow, three static policies (digest, no-JS, CDN blocked). No real submissions sent.')
+print('PASS: 4 viewport sizes, 10 routes, hero glyph bounds, menu keyboard/anchor dismissal, touch targets, contact descendant bounds, compact mobile footer keyboard disclosure, form validation/failure/retry/persistent success, support address, no-JS fallback, 200% text reflow, three static policies (digest, no-JS, CDN blocked). No real submissions sent.')

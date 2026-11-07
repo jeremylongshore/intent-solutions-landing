@@ -1,0 +1,175 @@
+---
+// Firms door from the home page. Copy: CPN 054 v0.2 (2026-11-07), tracking the Alliance
+// Agreement draft under counsel review. The page stays labelled Proposed until that agreement
+// is final. No dollar figures, schedules or fee defaults belong here (054 publishing notes).
+import ExplainerLayout from '../layouts/ExplainerLayout.astro';
+
+const mailbox = 'partners@intentsolutions.io';
+
+const questions = [
+  {
+    id: 'what-we-get',
+    question: 'What do we get for joining?',
+    answer: ['A named alliance contact at Intent, coordination on opportunities we pursue together, accurate records of your firm’s capabilities and of the work you deliver, a quarterly operating review, and the specific support we list for your firm when you join (training and certification coordination, technical review, proposal support, delivery practices). Anything not listed for your firm is not a promised service. We do not promise a volume of leads, a customer award, a certification outcome or a vendor-program benefit.'],
+  },
+  {
+    id: 'cost',
+    question: 'What does it cost?',
+    answer: ['Nothing, unless your participation record states a fee and what it buys. No fee can be added later by changing a website, a portal or a handbook. There is no commission on your unrelated revenue, your existing customers or your people’s certifications.'],
+  },
+  {
+    id: 'how-paid',
+    question: 'How are we paid, and how much?',
+    answer: ['There is no universal percentage. Each opportunity gets its own written record stating who contracts with the customer, who delivers, and what each side is paid. On work where Intent holds the customer contract, the customer pays Intent and Intent pays your firm under a signed Statement of Work, within 30 days of an undisputed invoice. Payment is not conditioned on the customer having paid Intent, unless the Statement of Work says so. A referral fee exists only when the record states it, with its rate, base and trigger.'],
+  },
+  {
+    id: 'own-customer',
+    question: 'If we bring our own customer, do we lose them?',
+    answer: ['No. The record names your firm as the originator. For an originated customer, Intent will not go around your firm to that customer for the same kind of services for a protection period after the last work, and the Master Services Agreement’s client restriction does not apply to your firm for that customer. Your existing customers and unrelated business stay yours. An introduction does not give either side rights over all of that customer’s future business.'],
+  },
+  {
+    id: 'exclusive',
+    question: 'Is this exclusive?',
+    answer: ['No. You can work with other firms, other partner networks and directly with Anthropic, OpenAI or any vendor. The only limits are the ones you accept for a specific opportunity.'],
+  },
+  {
+    id: 'claude-partner',
+    question: 'Can we call ourselves a Claude partner or use the badge?',
+    answer: ['No. Intent Solutions is a Select Services Partner in the Claude Partner Network; that standing is Intent’s, and vendor marks need the vendor’s own permission. Your firm may use the approved description: “[Firm] is an independent firm participating in the Intent Solutions Alliance.” Case studies and customer references need the customer’s written approval.'],
+  },
+  {
+    id: 'partner-standing',
+    question: 'Does our delivery count toward Intent’s partner standing, and does that hurt our own partner application?',
+    answer: ['If you elect it, Intent can submit work your firm delivered under its partner standing, with your firm named as the delivery lead and the people identified accurately. A person’s work is counted once; nobody is counted twice because they hold several credentials. If your firm wants its own vendor-program standing, we agree in writing how overlapping registrations are handled before anything is submitted.'],
+  },
+  {
+    id: 'ip',
+    question: 'Who owns the intellectual property?',
+    answer: ['You keep your background IP, tools, prompts, templates and know-how. Joining assigns nothing. Shared resources are used under their stated license. Ownership of project work product is set in each Statement of Work.'],
+  },
+  {
+    id: 'engineers',
+    question: 'Our engineers get Intent email addresses and certify under Intent’s account. Who employs them, and what happens to their data?',
+    answer: ['You do. The affiliation is administrative: it exists so the vendor program records the person correctly. Each affiliated person signs Intent’s individual User Agreement for their account. Intent uses their information only to administer the alliance and make the program submissions you elected, keeps it for a stated period after your firm leaves, and deletes it on request after that.'],
+  },
+  {
+    id: 'leave',
+    question: 'How do we leave?',
+    answer: ['Either side can end membership on 30 days’ written notice, with no exit charge. Signed Statements of Work continue on their own terms. Earned fees, and the records needed to verify them, survive. Both sides remove alliance references within ten business days.'],
+  },
+  {
+    id: 'liability',
+    question: 'What are we liable for?',
+    answer: ['Delivery risk, warranties and project liability live in the Master Services Agreement and each Statement of Work. The alliance agreement itself carries a capped, mutual liability limit for claims about membership administration, records and program reporting.'],
+  },
+  {
+    id: 'hiring',
+    question: 'Will Intent hire our people?',
+    answer: ['Not through the alliance. Each side agrees not to actively recruit the other’s people it met through an engagement, for a short period after. General advertising is fine, and nothing restricts an individual’s own career choices.'],
+  },
+  {
+    id: 'msa',
+    question: 'Do we have to sign the Master Services Agreement now?',
+    answer: ['No. Joining takes a mutual NDA and the Alliance Agreement with its participation schedules. The MSA is signed before the first Statement of Work.'],
+  },
+  {
+    id: 'pipeline',
+    question: 'Who else is in the alliance, and will they see our pipeline?',
+    answer: ['Membership is bilateral between your firm and Intent. Your opportunity records, pricing and capacity are used only for the opportunity they describe and are not shared with other firms. If Intent knows of a conflict on an opportunity, it tells you before you commit.'],
+  },
+];
+
+const documents = [
+  ['Mutual NDA', 'between the two companies.'],
+  ['Alliance Agreement', 'with Schedule A (your firm, contacts, support, any fee) and Schedule B (vendor-program elections, approved wording).'],
+  ['Master Services Agreement', 'before the first paid engagement.'],
+  ['Opportunity record', '(Schedule C) for each pursuit: originator, contracting route, roles, economics.'],
+  ['Statement of Work', 'for each engagement.'],
+  ['Individual User Agreement', 'for each person who receives an Intent account.'],
+];
+---
+
+<ExplainerLayout
+  title="Working with Intent Solutions as a Firm | Intent Solutions"
+  description="Proposed: how independent engineering and consulting firms would work with Intent Solutions through the Intent Solutions Alliance. Plain-language answers on payment, customers, exclusivity, IP and leaving. Not an offer."
+  heading="Working with Intent Solutions as a firm"
+  standfirst="Independent engineering and consulting firms work with Intent Solutions through the Intent Solutions Alliance: a non-exclusive arrangement for referrals, subcontracting and joint delivery. This page answers the questions firms ask before they read the agreement. It describes a program in development; the agreement is in legal review and nothing here is an offer."
+  status="Proposed: the Alliance Agreement is in legal review"
+  proposed
+>
+  <section class="section" aria-labelledby="for-title">
+    <div class="wrap section-layout">
+      <div class="section-head">
+        <h2 id="for-title">Who this page is for</h2>
+      </div>
+      <ul class="ledger">
+        <li><p><strong>A firm</strong> (an LLC, corporation or equivalent, including a one-person company) that wants to deliver work with us or bring us into its own customer work. Read on.</p></li>
+        <li><p><strong>An individual engineer</strong> who wants to join the practitioner community and prepare for Claude Certified Architect (CCA): Foundations. Start at <a href="https://learn.intentsolutions.io/request-access">learn.intentsolutions.io/request-access</a> instead, or read <a href="/how-it-works/">how joining works</a>. Joining as an individual does not make your employer a member, and a company email address or a certification does not make a firm a member.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section surface" aria-labelledby="questions-title">
+    <div class="wrap section-layout">
+      <div class="section-head">
+        <h2 id="questions-title">The questions</h2>
+        <p>Every answer tracks the Alliance Agreement draft under legal review. The signed documents control.</p>
+      </div>
+      <div class="ledger">
+        {questions.map((item, i) => (
+          <article id={item.id}>
+            <h3>{i + 1}. {item.question}</h3>
+            {item.answer.map((paragraph) => <p>{paragraph}</p>)}
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="documents-title">
+    <div class="wrap section-layout">
+      <div class="section-head">
+        <h2 id="documents-title">How the documents fit together</h2>
+      </div>
+      <ol class="ledger steps">
+        {documents.map(([name, text], i) => (
+          <li>
+            <span class="step-number" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+            <p><strong>{name}</strong> {text}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section surface" aria-labelledby="not-title">
+    <div class="wrap section-layout">
+      <div class="section-head">
+        <h2 id="not-title">What this page is not</h2>
+      </div>
+      <div class="ledger">
+        <article>
+          <p>This page is a plain-language summary. The signed documents control; nothing on this website is part of the agreement. It is not an offer, a price list, a promise of work or a statement that any firm has been admitted. Intent Solutions does not sell partner-program membership, exam access or certification.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="next-title">
+    <div class="wrap">
+      <h2 id="next-title">Next step</h2>
+      <div class="doors-grid">
+        <div class="door">
+          <h3>Firms</h3>
+          <p>Write to <span class="mailbox">{mailbox}</span> with your legal entity name, services and the kind of work you have in mind. We reply with the current draft agreement and a short call.</p>
+          <a class="button primary" href={`mailto:${mailbox}?subject=Firm%20inquiry`}>Email {mailbox}</a>
+        </div>
+        <div class="door">
+          <h3>Individuals</h3>
+          <p>Engineers apply on the practitioner site, not here.</p>
+          <a class="button secondary" href="https://learn.intentsolutions.io/request-access">Request access</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</ExplainerLayout>

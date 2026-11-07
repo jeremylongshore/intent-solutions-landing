@@ -43,7 +43,8 @@ Current authority: `000-docs/084-AT-DSGN-brand-family-contract.md`, `000-docs/08
 Read `000-docs/089-AT-DSGN-financial-atlas.md` for the published atlas, release evidence,
 source map and private presenter/AAR delivery status. The financial diagrams use Cathryn
 Lavery's `diagram-design` v2.6 with 44 diagram grammars, pinned in that record; they are not
-44 interchangeable themes. Preserve the fictional-example and proposed-model disclosures.
+44 interchangeable themes. Preserve the illustrative-example disclosures (the word was "fictional"
+until 2026-11-07; use "illustrative" for worked figures) and the proposed-model disclosures.
 No successful website deployment proves adopted partner terms or completed legal agreements.
 
 Presenter scripts were delivered privately; do not recreate them as a new unfinished task
@@ -159,6 +160,8 @@ Current brand: orange branching-arrow mark, charcoal/zinc surfaces, Syne display
 | `/` | Customer outcome, inspectable work, method, accountable team, request |
 | `/contact/` | Request and inline success/error state |
 | `/about/` | Team and operating responsibilities |
+| `/how-it-works/` | Engineers door: the joining process in order (CPN copy doc 056) |
+| `/alliance/` | Firms door: proposed alliance FAQ, labelled Proposed until the agreement is final (CPN copy doc 054) |
 | `/support/` | Existing agreements and repository support channels |
 | `/projects/` | Public work and evidence discovery, not a sales catalog |
 | `/estate/` | Connected company and operating atlas entry point |
@@ -179,7 +182,8 @@ Astro page routes are slash-terminated; standalone generated diagrams intentiona
 - Explain how the outcome is defined, tested, and operated.
 - Link the relevant evidence and state its limits and freshness.
 - Keep Request an outcome as the primary customer action.
-- Route practitioner access to Learn and existing customers to Support.
+- Route engineers to `/how-it-works/` (then Learn request-access), firms to `/alliance/`, and existing customers to Support.
+- Write partner standing exactly as "Select Services Partner in the Claude Partner Network".
 - Keep every source page in the route contract and test its links and indexing.
 
 **Don't**:

@@ -79,6 +79,10 @@ const method = [
             <a class="button primary" href="/contact/?door=outcome">Request an outcome</a>
             <a class="button secondary" href="/projects/">Explore everything</a>
           </div>
+          <nav class="doors" aria-label="Engineers and firms">
+            <a class="quiet-link" href="/how-it-works/">Engineers: how joining works</a>
+            <a class="quiet-link" href="/alliance/">Firms: work with us</a>
+          </nav>
           <div class="partner-credential">
             <img
               src="/images/credentials/claude-select-partner.svg"
@@ -88,10 +92,9 @@ const method = [
               loading="eager"
               decoding="async"
             />
-            <p>Claude Partner Network, Select tier.<br />Model-agnostic engineering, built around your work.</p>
+            <p>Select Services Partner in the Claude Partner Network.<br />Model-agnostic engineering, built around your work.</p>
           </div>
           <p class="hero-next">Start with the problem. You do not need a model or a technical specification picked out.</p>
-          <a class="quiet-link" href="https://learn.intentsolutions.io/">Here to build with us? Explore the practice</a>
         </div>
 
         <aside class="system-map" aria-label="What we define with you">
@@ -153,7 +156,7 @@ const method = [
           <div>
             <h3 id="outreach-demo-title">Intent Outreach, a real estate demo</h3>
             <p>Shape a workflow around your market, buy box or relationships. Explore example shortlists, client briefs and follow-up queues, then send us the version you want to build.</p>
-            <p class="demo-boundary">Interactive examples use fictional data. A separate property-data sandbox lets you inspect the connection.</p>
+            <p class="demo-boundary">Interactive examples use illustrative data. A separate property-data sandbox lets you inspect the connection.</p>
           </div>
           <div class="demo-actions">
             <a class="button primary" href="https://demos.intentsolutions.io/intentoutreach/">Try Intent Outreach</a>
@@ -347,6 +350,8 @@ const method = [
     text-underline-offset: 0.25em;
     transition: color 160ms ease;
   }
+  .doors { display: flex; flex-wrap: wrap; gap: 0 1.5rem; margin-top: 0.4rem; }
+  .doors .quiet-link { margin-top: 0; }
   .quiet-link:hover,
   .quiet-link:focus-visible { color: var(--intent-text); }
   .quiet-link:active { color: var(--intent-accent-hi); }

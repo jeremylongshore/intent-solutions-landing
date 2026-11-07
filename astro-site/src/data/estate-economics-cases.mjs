@@ -1,11 +1,11 @@
 /**
- * Public teaching data. Every person, price, volume and agreement below is fictional.
+ * Public teaching data. Every person, price, volume and agreement below is illustrative.
  * Sources establish possible mechanisms, never the scenario rates or Intent eligibility.
  * All financial totals are calculated from the ledgers; no parallel hand-maintained totals.
  */
 
 export const economicsDisclaimer =
-  'These are fictional worked examples, not Intent Solutions prices, compensation terms, ' +
+  'These are illustrative worked examples, not Intent Solutions prices, compensation terms, ' +
   'customer results, forecasts or offers. “Revenue” means illustrative contracted fees or ' +
   'billings within the stated scenario and horizon; it does not establish accounting ' +
   'recognition, an invoice already sent or cash collected. Conditional fees require their ' +
@@ -28,7 +28,7 @@ export const economicsSources = [
     url: 'https://www.anthropic.com/news/services-track-partner-hub',
     evidenceRole: 'Distinguishes practice standing from referral credit and deal protection.',
     claim: 'Anthropic describes practice standing and bringing new business as separate tracks.',
-    limits: 'Does not establish any scenario fee, Intent tier, inbound work or cash entitlement.',
+    limits: 'Does not establish any scenario fee, inbound work or cash entitlement. Intent’s own standing is a separate fact: Select Services Partner in the Claude Partner Network.',
     checkedAt: '2026-10-12',
   },
   {
@@ -150,10 +150,10 @@ export const economicsCases = [
   },
   {
     id: 'independent-prime',
-    title: 'The independent firm keeps the customer contract',
+    title: 'By agreement, the independent firm keeps the customer contract',
     category: 'Projects and relationships',
     horizon: 'One four-week specialist work package',
-    summary: 'An independent firm brings its existing customer and remains prime. It purchases a bounded architecture and implementation package from Intent.',
+    summary: 'An independent firm brings its existing customer and, by agreement, remains prime. It purchases a bounded architecture and implementation package from Intent.',
     buyer: 'An independent firm that needs specialist capacity',
     payer: 'The independent prime pays Intent',
     companyRole: 'Intent as a specialist subcontractor',
@@ -184,7 +184,7 @@ export const economicsCases = [
     title: 'A provider or integrator buys a work package',
     category: 'Provider and procurement routes',
     horizon: 'One six-week subcontract',
-    summary: 'A fictional approved integrator awards a defined work package. A provider relationship alone would not create this purchase order.',
+    summary: 'An illustrative approved integrator awards a defined work package. A provider relationship alone would not create this purchase order.',
     buyer: 'An integrator’s delivery and procurement team',
     payer: 'The integrator, under its own signed work order',
     companyRole: 'Intent as the integrator’s subcontractor',
@@ -311,7 +311,7 @@ export const economicsCases = [
     summary: 'A small workflow product sells subscriptions and onboarding. Its first-quarter ledger includes the initial build and customer acquisition, so a recurring fee does not hide startup losses.',
     buyer: 'Ten teams with the same narrow workflow need',
     payer: 'Each customer pays onboarding and monthly subscriptions',
-    companyRole: 'Intent as the fictional product operator',
+    companyRole: 'Intent as an illustrative product operator',
     contractingRoute: 'Validated repeat need → product build → customer onboarding → subscription operation → retention or cancellation.',
     customerBenefit: 'A maintained workflow with a documented scope and operating owner. Adoption is useful only if the actual workflow need is met.',
     participantBenefits: [
@@ -338,7 +338,7 @@ export const economicsCases = [
       explanation: 'The build, shared hosting and maintenance stay committed while customer-dependent receipts shrink. The smaller cohort still assumes the same acquisition cost per won customer.',
     },
     scaling: { customerCount: 10, downsideCustomerCount: 5, variableCostIds: ['acquisition', 'onboarding', 'support', 'compute', 'collection'], label: 'First-90-day break-even cohort', limitation: 'Assumes each customer contributes the same three-month receipts and variable cost from day one, with fixed build/hosting/maintenance unchanged. Capacity limits and step costs can invalidate scaling.' },
-    assumptions: ['All customer, price and cost inputs are fictional. No current Intent product revenue is represented.', 'The 3% processing allowance is a planning input, not a platform quote.', 'Break-even includes the initial build; it excludes central company overhead, taxes, financing and any extra capacity hired beyond the modeled scale.'],
+    assumptions: ['All customer, price and cost inputs are illustrative. No current Intent product revenue is represented.', 'The 3% processing allowance is a planning input, not a platform quote.', 'Break-even includes the initial build; it excludes central company overhead, taxes, financing and any extra capacity hired beyond the modeled scale.'],
     sourceIds: [],
   },
   {
@@ -429,7 +429,7 @@ export const economicsCases = [
     reserve: 1500,
     paymentTerms: ['The baseline view includes the explicitly conditional fee as a successful illustrative outcome, not an amount already owed.', 'No outcome fee is payable without the agreed evidence and acceptance event.'],
     downside: { label: 'No outcome fee and extra implementation effort', changes: [change('revenue', 'outcome', { quantity: 0 }), change('cost', 'engineering', { quantity: 120 })], extraCosts: [], explanation: 'A thin base fee can leave the supplier exposed when the bonus is absent and work overruns. Conditional upside must not be spent as certain cash.' },
-    assumptions: ['The fee is a fictional fixed amount, not a percentage of unverified customer savings.', 'External factors and the customer’s own actions need treatment in the real measurement agreement.'],
+    assumptions: ['The fee is an illustrative fixed amount, not a percentage of unverified customer savings.', 'External factors and the customer’s own actions need treatment in the real measurement agreement.'],
     sourceIds: [],
   },
   {
@@ -455,7 +455,7 @@ export const economicsCases = [
     reserve: 0,
     paymentTerms: ['The illustrative fee is due only on the explicitly agreed successful event.', 'Ongoing presales, selling or account service needs additional scope. New departments and renewals are not automatically inside the original introduction.'],
     downside: { label: 'The qualifying sale never occurs', changes: [change('revenue', 'introduction', { quantity: 0 })], extraCosts: [], explanation: 'The introducer earns no conditional fee and bears its own authorized pursuit cost.' },
-    assumptions: ['The fixed fee is a fictional teaching input, not a universal referral rate or an Intent policy.', 'Attribution disputes and overlapping pre-existing relationships must be resolved before promising a fee.'],
+    assumptions: ['The fixed fee is an illustrative teaching input, not a universal referral rate or an Intent policy.', 'Attribution disputes and overlapping pre-existing relationships must be resolved before promising a fee.'],
     sourceIds: ['microsoft-consent'],
   },
   {
@@ -466,7 +466,7 @@ export const economicsCases = [
     summary: 'The customer pays for an operated workflow. Model consumption, licensed data, infrastructure and human support remain real costs.',
     buyer: 'A business that needs the workflow operated',
     payer: 'The customer pays the operating supplier',
-    companyRole: 'Intent as the fictional workflow operator',
+    companyRole: 'Intent as an illustrative workflow operator',
     contractingRoute: 'Customer operating scope → human operations plus authorized vendors → usage review → resize or renew.',
     customerBenefit: 'A usable workflow with a clear operator, budget boundary and usage policy. Model output volume is not itself evidence of useful outcomes.',
     participantBenefits: [
@@ -486,7 +486,7 @@ export const economicsCases = [
     reserve: 200,
     paymentTerms: ['Vendor invoices can fall due before customer collection. A customer subscription is not an unlimited vendor budget.', 'Operating a service is different from reselling a vendor’s product; any resale or white-label rights need actual authorization.'],
     downside: { label: 'Retries and support overwhelm the included budget', changes: [change('cost', 'model', { quantity: 45000 }), change('cost', 'support', { quantity: 18 })], extraCosts: [], explanation: 'The customer fee stays fixed while resource use and human assistance rise, producing an operating loss.' },
-    assumptions: ['The request cost and 3% collection allowance are fictional blended planning inputs, not named-provider prices.', 'No free credit, subsidy or sponsorship is assumed. Credits would reduce an eligible vendor bill, not become cash available for every expense.'],
+    assumptions: ['The request cost and 3% collection allowance are illustrative blended planning inputs, not named-provider prices.', 'No free credit, subsidy or sponsorship is assumed. Credits would reduce an eligible vendor bill, not become cash available for every expense.'],
     sourceIds: ['aws-funding', 'aws-resale', 'aws-disbursements'],
   },
 ];
