@@ -670,7 +670,7 @@ export const experiences = [
   {
     "id": "financial-atlas",
     "name": "How the work can become income",
-    "description": "Explore illustrated questions about project economics, contributions and cash timing. Examples are fictional, not current commercial offers.",
+    "description": "Explore illustrated questions about project economics, contributions and cash timing. Examples are illustrative, not current commercial offers.",
     "audience": "Customers, independent firms and contributors",
     "category": "learn",
     "status": "Illustrated guide",

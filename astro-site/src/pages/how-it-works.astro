@@ -1,0 +1,148 @@
+---
+// Engineers door from the home page. Copy: CPN 056 v0.1 (2026-11-07), which records each
+// statement as true of the live onboarding on that date. Keep every disclaimer; when the
+// decline/hold note ships, step 2 changes to "You hear back either way" (056 publishing notes).
+import ExplainerLayout from '../layouts/ExplainerLayout.astro';
+
+const requestAccess = 'https://learn.intentsolutions.io/request-access';
+
+const steps = [
+  {
+    title: 'Request access',
+    paragraphs: [
+      'Fill in the short form at <a href="https://learn.intentsolutions.io/request-access">learn.intentsolutions.io/request-access</a>: who you are, what you have built, any credentials, and which track interests you. It is free. You get a receipt email within a few minutes from our agreements mailbox.',
+      'Only individuals apply here; a firm that wants to work with us starts at the <a href="/alliance/">firm page</a> instead.',
+    ],
+  },
+  {
+    title: 'Review',
+    paragraphs: [
+      'Every request is reviewed, with an automated first pass and the founder’s decision on anything that is not routine. We may send up to three short clarifying questions; if you do not reply, we send one reminder after five business days and keep the request on file after ten more.',
+      'If your request advances, the next email is the NDA. Requests we do not advance are kept for twelve months and then deleted.',
+    ],
+  },
+  {
+    title: 'Sign the mutual NDA',
+    paragraphs: [
+      'The NDA arrives by email as an e-signature link. Sign it online; our countersignature is automatic and usually lands within minutes. A reminder goes out after five business days if it is still unsigned. There is no deadline.',
+    ],
+  },
+  {
+    title: 'Sign the User Agreement',
+    paragraphs: [
+      'The User Agreement covers your company mailbox and your use of Anthropic’s Partner Academy under our standing. It asks for your legal name and address. Sign it the same way; countersignature is automatic.',
+    ],
+  },
+  {
+    title: 'Your mailbox and welcome',
+    paragraphs: [
+      'Once both documents are complete we create your company mailbox, the only account we issue, and send the welcome email: how to sign in, how to register for the exam, the invitation to the private Discord, and a link to book a conversation with the founder if you want one.',
+    ],
+  },
+];
+
+const boundaries = [
+  ['Selective.', 'Reviewed on the quality of your work, not on a payment.'],
+  ['Free to apply and free to join.', 'No fee at any step except the exam fee you pay to the testing provider.'],
+  ['Not a job and not a bench.', 'Project work, when it exists, is agreed in writing each time.'],
+  ['Not a certification sale.', 'Intent Solutions does not sell partner-program membership, exam access or guaranteed certification.'],
+  ['Your choice to stay.', 'Leave any time; your mailbox is closed and your data handled under our <a href="/data-retention/">data-retention notice</a>.'],
+];
+---
+
+<ExplainerLayout
+  title="How Joining Works | Intent Solutions"
+  description="How engineers join the Intent Solutions practitioner community: free to apply, reviewed, a mutual NDA and User Agreement, a company mailbox, and the Claude Certified Architect (CCA): Foundations exam path."
+  heading="How joining works"
+  standfirst="Intent Solutions runs a selective practitioner community for engineers who want to deliver dependable AI work and, if they choose, earn Claude Certified Architect (CCA): Foundations. Applying is free. This page is the whole process, in order, with what to expect at each step."
+  status="Current process as of November 7, 2026"
+>
+  <section class="section" aria-labelledby="short-title">
+    <div class="wrap section-layout">
+      <div class="section-head">
+        <h2 id="short-title">In one paragraph</h2>
+        <p>The same summary appears wherever we describe joining.</p>
+      </div>
+      <div class="summary">
+        <p>Applying is free. Requests are reviewed. Accepted members sign a mutual NDA and a User Agreement, receive a company mailbox, and use it to register for Claude Certified Architect (CCA): Foundations. The exam fee is paid by the member. Joining creates no employment relationship and guarantees no work, no certification and no partner-program standing.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section surface" aria-labelledby="steps-title">
+    <div class="wrap section-layout">
+      <div class="section-head">
+        <h2 id="steps-title">The five steps</h2>
+        <p>In order, with the reminders and waits that apply.</p>
+      </div>
+      <ol class="ledger steps">
+        {steps.map((step, i) => (
+          <li id={`step-${i + 1}`}>
+            <span class="step-number" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+            <div>
+              <h3>{i + 1}. {step.title}</h3>
+              {step.paragraphs.map((paragraph) => <p set:html={paragraph} />)}
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="after-title">
+    <div class="wrap section-layout">
+      <div class="section-head">
+        <h2 id="after-title">After that: certification, on your schedule</h2>
+      </div>
+      <div class="ledger">
+        <article>
+          <p>Register on Anthropic’s Partner Academy with your company mailbox (personal addresses are not accepted by the program), book the exam with Pearson VUE and pay the exam fee yourself, and claim the badge on Credly when you pass. Our <a href="https://learn.intentsolutions.io/start">start page</a> lists the official Anthropic links.</p>
+          <p>Nobody is pressed for progress or a date; reply and sit the exam whenever it suits you.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section surface" aria-labelledby="boundaries-title">
+    <div class="wrap section-layout">
+      <div class="section-head">
+        <h2 id="boundaries-title">What this is and is not</h2>
+      </div>
+      <ul class="ledger">
+        {boundaries.map(([label, text]) => <li><p><strong>{label}</strong> <span set:html={text} /></p></li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="standing-title">
+    <div class="wrap section-layout">
+      <div class="section-head">
+        <h2 id="standing-title">Where we stand</h2>
+      </div>
+      <div class="ledger">
+        <article>
+          <p>Intent Solutions is a Select Services Partner in the Claude Partner Network. That standing is ours; members use the Partner Academy under it and are described accurately, never as partners themselves.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section surface" aria-labelledby="next-title">
+    <div class="wrap">
+      <h2 id="next-title">Next step</h2>
+      <div class="doors-grid">
+        <div class="door">
+          <h3>Engineers</h3>
+          <p>Apply on the practitioner site. It is free.</p>
+          <a class="button primary" href={requestAccess}>Request access</a>
+        </div>
+        <div class="door">
+          <h3>Firms</h3>
+          <p>A company that wants to deliver work with us starts at the firm page.</p>
+          <a class="button secondary" href="/alliance/">Read the firm page</a>
+        </div>
+      </div>
+      <p class="related">How we handle application information: <a href="/privacy/">Privacy Policy</a> and <a href="/data-retention/">Data Retention Policy</a>.</p>
+    </div>
+  </section>
+</ExplainerLayout>

@@ -1,0 +1,87 @@
+---
+// Plain-language explainer pages (/how-it-works/, /alliance/). Same structure as /about/:
+// a hero, then sticky-head sections over ruled ledgers, on the charcoal and orange tokens.
+import Layout from './Layout.astro';
+import SiteNav from '../components/SiteNav.astro';
+import Footer from '../components/Footer';
+interface Props {
+  title: string;
+  description: string;
+  heading: string;
+  standfirst: string;
+  status: string;
+  proposed?: boolean;
+}
+const { title, description, heading, standfirst, status, proposed = false } = Astro.props;
+---
+<Layout title={title} description={description}>
+  <SiteNav />
+  <main class="explainer">
+    <section class="explainer-hero" aria-labelledby="explainer-title">
+      <div class="wrap narrow">
+        <p class:list={['explainer-status', { proposed }]}>{status}</p>
+        <h1 id="explainer-title">{heading}</h1>
+        <p class="lede">{standfirst}</p>
+      </div>
+    </section>
+    <slot />
+  </main>
+  <Footer />
+</Layout>
+
+<style is:global>
+  body { margin: 0; background: var(--intent-ink); }
+  .explainer { color: var(--intent-text); }
+  .explainer *, .explainer *::before { box-sizing: border-box; }
+  .explainer .wrap { width: min(72rem, calc(100% - 2.5rem)); margin: 0 auto; }
+  .explainer .narrow { max-width: 58rem; }
+  .explainer h1, .explainer h2, .explainer h3 { font-family: var(--font-display); text-wrap: balance; overflow-wrap: break-word; }
+  .explainer h1 { max-width: 54rem; margin: 0 0 1.5rem; font-size: clamp(2.6rem, 7vw, 5.4rem); line-height: 1; letter-spacing: -0.04em; }
+  .explainer h2 { margin: 0 0 1rem; font-size: clamp(1.9rem, 4vw, 3rem); line-height: 1.08; letter-spacing: -0.035em; }
+  .explainer h3 { margin: 0 0 0.6rem; font-size: clamp(1.05rem, 1.8vw, 1.3rem); line-height: 1.25; }
+  .explainer p, .explainer li { text-wrap: pretty; }
+  .explainer a { color: var(--intent-accent-hi); text-underline-offset: 0.2em; overflow-wrap: anywhere; }
+  .explainer a:hover { color: var(--intent-text); }
+  .explainer a:focus-visible { outline: 2px solid var(--intent-accent-hi); outline-offset: 4px; border-radius: 0.18rem; }
+  .explainer-hero { padding: clamp(5rem, 10vw, 8.5rem) 0 clamp(3.5rem, 7vw, 6rem); border-bottom: 1px solid var(--intent-line); }
+  .explainer-status { display: inline-block; margin: 0 0 1.5rem; padding: 0.4rem 0.8rem; border: 1px solid var(--intent-line-strong); border-radius: 0.4rem; color: var(--intent-text-2); font-size: 0.82rem; font-weight: 700; line-height: 1.5; }
+  .explainer-status.proposed { border-color: var(--intent-accent-soft); color: var(--intent-accent-hi); }
+  .explainer .lede { max-width: 52rem; margin: 0; color: var(--intent-text-100); font-size: clamp(1.1rem, 2vw, 1.4rem); line-height: 1.65; }
+  .explainer .section { padding: clamp(4rem, 7vw, 6.5rem) 0; }
+  .explainer .surface { background: var(--intent-surface); border-block: 1px solid var(--intent-line); }
+  .explainer .section-layout { display: grid; grid-template-columns: minmax(16rem, 0.75fr) minmax(0, 1.25fr); gap: clamp(2.5rem, 7vw, 6rem); align-items: start; }
+  .explainer .section-head { position: sticky; top: 7rem; }
+  .explainer .section-head p { max-width: 34rem; margin: 0; color: var(--intent-muted); line-height: 1.75; }
+  .explainer .ledger { margin: 0; padding: 0; border-top: 1px solid var(--intent-line-strong); list-style: none; }
+  .explainer .ledger > li, .explainer .ledger > article { padding: 1.6rem 0; border-bottom: 1px solid var(--intent-line); scroll-margin-top: 6rem; }
+  .explainer .ledger p, .explainer .ledger li li { max-width: 72ch; margin: 0; color: var(--intent-muted); line-height: 1.75; }
+  .explainer .ledger p + p { margin-top: 0.8rem; }
+  .explainer .ledger strong { color: var(--intent-text); }
+  .explainer .steps > li { display: grid; grid-template-columns: 3rem minmax(0, 1fr); gap: 1rem; }
+  .explainer .step-number { color: var(--intent-faint); font-size: 1.2rem; line-height: 1.5; font-variant-numeric: tabular-nums; }
+  .explainer .summary { margin: 0; padding: clamp(1.25rem, 3vw, 2rem); border: 1px solid var(--intent-line-strong); background: var(--intent-surface); }
+  .explainer .summary p { max-width: 70ch; margin: 0; color: var(--intent-text-2); font-size: 1.05rem; line-height: 1.75; }
+  .explainer .plain-list { margin: 0; padding-left: 1.2rem; }
+  .explainer .plain-list li + li { margin-top: 0.6rem; }
+  .explainer .doors-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+  .explainer .door { display: flex; flex-direction: column; align-items: flex-start; gap: 0.9rem; padding: clamp(1.25rem, 3vw, 1.75rem); border: 1px solid var(--intent-line); border-radius: 0.7rem; background: var(--intent-surface-2); }
+  .explainer .door h3 { margin: 0; }
+  .explainer .door p { margin: 0; color: var(--intent-muted); line-height: 1.7; }
+  .explainer .button { display: inline-flex; align-items: center; justify-content: center; min-height: 3rem; padding: 0.72rem 1.15rem; border: 1px solid transparent; border-radius: 0.48rem; font-size: 0.9rem; font-weight: 800; text-decoration: none; transition: background-color 160ms ease, border-color 160ms ease; }
+  .explainer .button.primary { background: var(--intent-accent); color: var(--intent-ink); }
+  .explainer .button.primary:hover, .explainer .button.primary:focus-visible { background: var(--intent-accent-hi); color: var(--intent-ink); }
+  .explainer .button.secondary { border-color: var(--intent-line-strong); color: var(--intent-text); }
+  .explainer .button.secondary:hover, .explainer .button.secondary:focus-visible { border-color: var(--intent-accent-hi); color: var(--intent-text); }
+  .explainer .mailbox { color: var(--intent-text); font-size: 1.15rem; font-weight: 700; user-select: all; overflow-wrap: anywhere; }
+  .explainer .related { margin: 2rem 0 0; color: var(--intent-muted); font-size: 0.9rem; line-height: 1.7; }
+  @media (max-width: 800px) {
+    .explainer .section-layout { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+    .explainer .section-head { position: static; }
+    .explainer .doors-grid { grid-template-columns: minmax(0, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .explainer .wrap { width: min(100% - 1.5rem, 72rem); }
+    .explainer .steps > li { grid-template-columns: 2.2rem minmax(0, 1fr); gap: 0.6rem; }
+  }
+  @media (prefers-reduced-motion: reduce) { .explainer .button { transition: none; } }
+</style>

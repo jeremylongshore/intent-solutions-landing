@@ -1,10 +1,14 @@
 ---
 import DirectoryLayout from '../layouts/DirectoryLayout.astro';
 import { pages, properties } from '../data/site-map.mjs';
+import { atlasPages, atlasPath, chapterNames } from '../data/operating-atlas.mjs';
 ---
 <DirectoryLayout title="Site map" description="Find the right place to request work, inspect the evidence, learn the method, or use our tools.">
   <h2>Company pages</h2>
   <ul class="directory-list">{pages.filter((page) => page.index === true && page.path !== '/site-map/').map((page) => <li><h3><a href={page.path}>{page.label}</a></h3><p>{page.purpose}</p></li>)}</ul>
+  <h2>The estate atlas</h2>
+  <p>Eight connected views of the company, from the whole estate down to the people and the proposed network. The <a href="/estate/economics/">financial atlas</a> is its companion on how the work could pay.</p>
+  <ul class="directory-list">{atlasPages.map((page) => <li><h3><a href={atlasPath(page.id)}>{page.number} / {chapterNames[page.id]}</a></h3></li>)}</ul>
   <h2>Related sites, each with a different job</h2>
   <p>These links open separate properties. Their own access requirements, product status, and policies apply.</p>
   <ul class="directory-list">{properties.map((property) => <li><h3><a href={property.href}>{property.label}</a></h3><p>{property.purpose}</p></li>)}</ul>

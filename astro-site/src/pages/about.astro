@@ -100,6 +100,20 @@ const faqs = [
     answer: 'The sites are connected parts of one applied AI engineering company. Engineering produces evidence, demos, and lessons; permitted reusable components reach GitHub, OMA, and Tons of Skills, while Learn and Start AI Tools transfer knowledge and repeated needs inform products.',
   },
   {
+    question: 'I’m an engineer, how do I join?',
+    answer: 'Applying is free. Requests are reviewed. Accepted members sign a mutual NDA and a User Agreement, receive a company mailbox, and use it to register for Claude Certified Architect (CCA): Foundations. The exam fee is paid by the member. Joining creates no employment relationship and guarantees no work, no certification and no partner-program standing.',
+    links: [{ label: 'How joining works, step by step', href: '/how-it-works/' }],
+  },
+  {
+    question: 'We’re a firm, how do we work with you?',
+    answer: 'Independent engineering and consulting firms work with Intent Solutions through the Intent Solutions Alliance, a non-exclusive arrangement for referrals, subcontracting and joint delivery. The program is proposed while its agreement is in legal review; the firm page answers the questions firms ask first and is not an offer.',
+    links: [{ label: 'Working with Intent Solutions as a firm', href: '/alliance/' }],
+  },
+  {
+    question: 'What is your partner standing?',
+    answer: 'Intent Solutions is a Select Services Partner in the Claude Partner Network. That standing is ours; members and allied firms are described as independent.',
+  },
+  {
     question: 'Where can I inspect the evidence, source, or demos?',
     answer: 'Start with Intent Labs for dated results, Demos for working systems, Projects for public work, and GitHub for source-linked artifacts. Those materials demonstrate the method and specific behavior; they do not promise that a different system will produce the same result.',
   },
@@ -340,13 +354,18 @@ const faqJsonLd = {
       <div class="wrap section-layout">
         <div class="section-head">
           <h2 id="faq-title">Frequently asked questions</h2>
-          <p>Answers about fit, onboarding, commercial terms, the public evidence, and the wider network.</p>
+          <p>Answers about fit, onboarding, commercial terms, joining as an engineer or a firm, partner standing, the public evidence, and the wider network.</p>
         </div>
         <div class="ledger faq-list">
           {faqs.map((faq) => (
             <article>
               <h3>{faq.question}</h3>
               <p>{faq.answer}</p>
+              {faq.links ? (
+                <nav class="faq-links" aria-label={`Read more: ${faq.question}`}>
+                  {faq.links.map((link) => <a href={link.href}>{link.label}</a>)}
+                </nav>
+              ) : null}
               {faq.question === 'How does this relate to the other Intent Solutions sites?' ? (
                 <nav class="faq-links" aria-label="Intent Solutions network properties">
                   <a href="https://labs.intentsolutions.io/">Labs</a>
