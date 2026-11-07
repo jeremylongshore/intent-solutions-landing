@@ -24,7 +24,8 @@ concurrency:
 jobs:
   contract:
     name: Public discovery contract
-    runs-on: ubuntu-latest
+    # Same escape hatch as the pre-deploy gate in deploy-vps.yml.
+    runs-on: ${{ fromJSON(vars.GATE_RUNS_ON || '"ubuntu-latest"') }}
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v6

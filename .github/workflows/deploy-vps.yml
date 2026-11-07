@@ -36,7 +36,11 @@ jobs:
   test:
     name: pre-deploy gate
     # Playwright 1.54's browser dependencies support 24.04, not 26.04.
-    runs-on: ubuntu-24.04
+    # Escape hatch: the repository variable GATE_RUNS_ON (a JSON string such as
+    # ["self-hosted","linux","devbox-ci"]) moves this gate to a self-hosted
+    # runner when GitHub-hosted runners are unavailable (first used 2026-11-07
+    # during an account billing lock). Unset, the hosted default applies.
+    runs-on: ${{ fromJSON(vars.GATE_RUNS_ON || '"ubuntu-24.04"') }}
     defaults:
       run:
         working-directory: astro-site
@@ -96,9 +100,15 @@ jobs:
           python-version: '3.12'
 
       - name: Install browser test runtime
+        # --with-deps needs apt and sudo, which only the hosted image has; a
+        # self-hosted runner must already carry Chromium's shared libraries.
         run: |
           python -m pip install playwright==1.54.0
-          python -m playwright install --with-deps chromium
+          if [ "${{ runner.environment }}" = "github-hosted" ]; then
+            python -m playwright install --with-deps chromium
+          else
+            python -m playwright install chromium
+          fi
 
       - name: Browser journey regression (no real submissions)
         run: |
