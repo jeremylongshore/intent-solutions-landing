@@ -93,3 +93,29 @@ the name and clause change), acceptable use
 `5fba5b61efb99d92f68a7dbf3c5e1ad986a58903f08bc4a9c15dbc4f1d020514` (1,174 words, 12 fewer:
 six three-word names became one word). The GetTerms account still holds the old text; it no
 longer feeds the site. This remains a presentation correction, not a legal review.
+
+## Addendum: placeholder tokens and role contact (November 7, 2026)
+
+The CPN web journey review (claude-partner-network 055, finding 11 and 12) found four garbled
+GetTerms placeholder tokens rendering on `/terms/` and a personal mailbox in the privacy, data
+retention and Discord notices. Owner instruction for this change:
+
+- **Terms.** Limitation of liability (b) is now `US$100`; governing law is "the State of
+  Delaware, United States" (the LLC is a Delaware limited liability company, as the opening
+  paragraph already states); the informal negotiation period is `30` days; the contact block is
+  `intentsolutions.io LLC`, `support@intentsolutions.io` and the company mailing address
+  (26050 Equity Dr, Ste E - 1062, Daphne, AL 36526, United States). The personal name and an
+  unrelated product mailbox in the old block were removed. Last updated: November 7, 2026.
+- **Privacy.** The Contact Us block names `intentsolutions.io LLC` and
+  `support@intentsolutions.io` instead of a person and a personal mailbox. Last updated:
+  November 7, 2026. No other wording changed.
+- **Data retention** (version 1.0.1) and **Discord notice**: every contact address is now
+  `support@intentsolutions.io`; dates updated. These two pages are not digest-checked.
+
+The US$100 cap and the 30-day period are standard defaults chosen to remove broken text, not a
+legal review; counsel is to confirm both. New body digests (method reproduced the unchanged
+acceptable use digest exactly): privacy
+`a4038ac66678331ac52c5563271f808a7a1a39e99c59804cd1b7ab18a86c9044` (2,769 words), terms
+`693aa279208e3ae87b761e546b50de44b218e5091d8e3311c48681e404fe07aa` (3,536 words), acceptable
+use unchanged `5fba5b61efb99d92f68a7dbf3c5e1ad986a58903f08bc4a9c15dbc4f1d020514`.
+
