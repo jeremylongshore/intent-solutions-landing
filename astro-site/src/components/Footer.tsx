@@ -1,9 +1,17 @@
 import estateLinks from '../generated/estate-bar/links.json';
 // Labels and hrefs come from the canonical estate bar (/estate-bar/links.json),
 // so the footer can never name a property differently from the top strip.
-const networkLinks = estateLinks.links
-  .filter((link) => link.site !== 'company')
-  .map(({ label, href }) => ({ label, href }));
+// The company's own ways in for engineers and firms, and the two atlases, follow the
+// properties so nobody needs to know their URLs.
+const networkLinks = [
+  ...estateLinks.links
+    .filter((link) => link.site !== 'company')
+    .map(({ label, href }) => ({ label, href })),
+  { label: 'How it works', href: '/how-it-works/' },
+  { label: 'Work with us', href: '/alliance/' },
+  { label: 'The estate atlas', href: '/estate-blueprint.html' },
+  { label: 'Financial atlas', href: '/estate/economics/' },
+];
 
 const companyLinks = [
   { label: 'Explore', href: '/projects/' },

@@ -1,11 +1,16 @@
-// Public teaching material: synthetic examples, not offers or compensation policy.
+// Public teaching material: illustrative examples, not offers or compensation policy.
 export const disclaimer = 'Illustrative examples only. These are possible commercial arrangements, not current offers, agreed pay, promised work, forecasts, or evidence of customer results. All amounts are USD, before tax.';
+// One statement of who holds the customer contract, reused by economics chapters 3, 5 and 6
+// and atlas chapter 07 so the public copy cannot drift. It tracks the alliance agreement draft,
+// which is in legal review; keep the proposed label beside it until that agreement is final.
+export const contractRoute = 'By default, Intent holds the customer contract and engages the firm under a services agreement. Where both agree, the firm holds the contract and Intent supports or refers. The firm that introduced a customer stays its originator.';
+export const contractRouteStatus = 'Proposed: the alliance agreement that sets this default is in legal review.';
 export const chapters = [
  {id:'network-economy',title:'The proposed network economy',question:'How can independent businesses create and earn together without giving up their independence?',summary:'See the institution: participation, delegated authority, shared assets, project teams, earning rights and exit.',cases:[]},
  {id:'customer-value',title:'Why a customer pays',question:'The customer needs a better outcome. Where does the value actually come from?',summary:'Separate measurable business benefit, freed capacity and the costs of adopting a system.',cases:[]},
  {id:'opportunities',title:'Where work starts',question:'Who brought the opportunity—and what did they actually contribute?',summary:'Follow existing, new and rekindled relationships, public work, independent firms and provider routes.',cases:[]},
  {id:'pursuit',title:'Who funds the pursuit',question:'What happens to everyone’s work before there is a signed project?',summary:'Price discovery, presales and the possibility that the right answer is not to build.',cases:['paid-discovery-no-build','referral-only']},
- {id:'contracts',title:'Who contracts and owes',question:'Which business owns the customer promise, the invoice and the risk?',summary:'Compare Intent as prime, an independent keeping the prime, and an integrator buying a scoped package.',cases:['relationship-led-project','independent-prime','integrator-prime']},
+ {id:'contracts',title:'Who contracts and owes',question:'Which business owns the customer promise, the invoice and the risk?',summary:'Compare the default with Intent as prime, an independent keeping the contract by agreement, and an integrator buying a scoped package.',cases:['relationship-led-project','independent-prime','integrator-prime']},
  {id:'roles',title:'How each role earns',question:'What exactly is this person being paid to do, and when is it earned?',summary:'Connect the master relationship to an opportunity, project, individual scope and any renewal.',cases:[]},
  {id:'project',title:'Inside one project fee',question:'An $80,000 project is signed. Where could that money go?',summary:'Follow commercial work, delivery and operating costs into contribution and a cash reserve.',cases:['relationship-led-project']},
  {id:'cash',title:'When the cash arrives',question:'Can a profitable project still run out of money?',summary:'Compare promised receipts with supplier payment dates and the funding gap between them.',cases:[]},
@@ -30,7 +35,7 @@ export function projectCash({delay=0,missFinal=false}={}) {
  return {points,ledger,minimum:Math.min(0,...points.map(p=>p.balance)),final:balance,costs:costs.reduce((s,x)=>s+x.amount,0),collected:receipts.reduce((s,x)=>s+x.amount,0)};
 }
 export const relationshipRoutes = [
- ['Existing customer','An independent already holds the relationship.','Keep the customer contract; ask Intent for a bounded specialist package.','The independent earns on its own engagement. Intent and specialists earn on the purchased scope.'],
+ ['Existing customer','An independent already holds the relationship.','The independent stays the originator. By default Intent holds the customer contract; where both agree, the independent keeps it and buys a bounded specialist package from Intent.','Under the default, Intent pays the independent for its agreed scope. Where the independent keeps the contract, it earns on its own engagement and Intent earns on the purchased scope.'],
  ['Rekindled contact','A previous contact has a new problem or sponsor.','Record who reopened access, developed the need and is doing current work.','Negotiate current contributions; a historical contact does not create a perpetual account fee.'],
  ['New relationship','Someone introduces a buyer or develops a new account.','Separate introduction, discovery, domain expertise, proposal and negotiation.','A fixed referral fee, funded presales or a bounded success term could each fit different work.'],
  ['Two overlapping relationships','Several people know the same customer.','Resolve consent, roles and attribution before proposing obligations.','Pay distinct approved contributions from one affordable budget; do not stack duplicate commissions.'],
@@ -49,7 +54,7 @@ export const roles = [
  ['Customer operator / adoption lead','Data access, adoption, oversight and day-to-day ownership','Customer-funded time or a contracted change-management scope','Count customer effort in the buyer’s economics; adoption is not free.'],
  ['Maintainer / support operator','Updates, incidents, reliability and runbooks','Recurring fee tied to service boundaries','Specify coverage, usage limits, escalation and additional work.'],
  ['Educator / creator / IP owner','Teaching, documentation or rights to reusable assets','Preparation and delivery fees, license, support or sponsorship','Permission, maintenance and distinct deliverables govern payment; avoid double-selling rights.'],
- ['Intent / accountable prime','Customer contract, orchestration, collection and delivery risk','The contribution left after approved project costs','That contribution must also fund company overhead, losses and reinvestment.'],
+ ['Intent / accountable prime','Customer contract by default, orchestration, collection and delivery risk','The contribution left after approved project costs','That contribution must also fund company overhead, losses and reinvestment.'],
  ['Platform / model / cloud vendor','Metered infrastructure, models or licensed capability','Usage charges or license fees from the actual account holder','Credits may offset eligible bills; they cannot be treated as cash for wages.'],
 ];
 export const authorityLayers = [

@@ -1,4 +1,6 @@
 /** Public-safe explanations of the operating vision, not contract terms or a capacity claim. */
+import { contractRoute, contractRouteStatus } from './economics-teaching.mjs';
+
 export const networkPages = [
   {
     id: 'people', number: '06', title: 'People, practice and permission to deliver',
@@ -52,6 +54,7 @@ export const networkPages = [
       { title: 'What is real today', body: 'Practice intake, human review and agreement-based onboarding exist. That operating capability is distinct from a fully calibrated international delivery network.', items: ['Current onboarding does not measure the entire community’s delivery capacity.', 'A membership count is not an available engineering roster.', 'Further assessment, commercial readiness and project authorization remain separate.'] },
       { title: 'What the stronger gate must establish', body: 'Before assigning customer responsibility, the proposed model needs evidence for the work, the capacity and the agreement. The acceptance standard follows the responsibility.', items: ['Comparable work reviewed against role-specific criteria.', 'A current commitment for a bounded engagement.', 'An accountable lead, signed scope and a defined escalation path.'] },
     ],
+    door: { kicker: 'FOR ENGINEERS', title: 'How joining works', body: 'The whole process in order, with what to expect at each step: request access, review, the mutual NDA, the User Agreement, your company mailbox and the exam path. Applying is free.', href: '/how-it-works/', label: 'Engineers: how joining works' },
     sources: [
       { label: 'Intent Learn: practice and access', href: 'https://learn.intentsolutions.io/' },
       { label: 'Current request-access surface', href: 'https://learn.intentsolutions.io/request-access' },
@@ -113,7 +116,9 @@ export const networkPages = [
       { title: 'What Intent has to contribute', body: 'The coordinating layer has to provide something the engagement needs. Its role can combine opportunity development, architecture, reusable engineering, contractual accountability, quality control and operations.', items: ['Identify the contribution before setting the arrangement.', 'Name the customer-facing accountable party for that engagement.', 'Avoid a universal claim that Intent owns every independent relationship.'] },
       { title: 'International by design, explicit in execution', body: 'Independent people and firms can operate across countries, but a shared vision does not settle the legal form of their relationship. Geography, entity type and the actual work shape the appropriate arrangement.', items: ['Confirm jurisdiction, entity status and authorized signers.', 'Resolve IP, confidentiality, security and liability for the scope.', 'Use legal review to support the chosen commercial model.'] },
       { title: 'What still needs validation', body: 'The network is a business model being developed. Repeatable customer acquisition, committed capacity, workable incentives and sustainable delivery economics must be established through actual engagements.', items: ['Choose a narrow initial offer and customer segment.', 'Prove one complete engagement and its operating responsibility.', 'Measure margin after delivery, coordination, support and risk costs.', 'Expand only from evidence about demand, delivery and contribution.'] },
+      { title: 'Who holds the customer contract', body: contractRoute, items: [contractRouteStatus, 'Each engagement still records who contracts, who delivers and who answers for the outcome.'] },
     ],
+    door: { kicker: 'FOR FIRMS · PROPOSED', title: 'Working with Intent Solutions as a firm', body: 'Payment, customers you introduce, exclusivity, intellectual property and how to leave, answered in plain language. The alliance agreement is in legal review; nothing on that page is an offer.', href: '/alliance/', label: 'Firms: work with us' },
     tables: [{
       title: 'Commercial hypotheses to test',
       description: 'These are possible arrangements, not published offers or agreed terms. A signed engagement must identify the payer, deliverer, responsibility, costs and acceptance conditions.',

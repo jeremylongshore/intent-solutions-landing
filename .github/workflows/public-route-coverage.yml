@@ -24,7 +24,8 @@ concurrency:
 jobs:
   contract:
     name: Public discovery contract
-    runs-on: ubuntu-latest
+    # Same escape hatch as the pre-deploy gate in deploy-vps.yml.
+    runs-on: ${{ fromJSON(vars.GATE_RUNS_ON || '"ubuntu-latest"') }}
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v6
@@ -42,6 +43,10 @@ jobs:
           python scripts/audit-public-routes.py --output /tmp/public-route-source.json
       - name: Keep source evidence, including failures
         if: always()
+        # Evidence retention, not the contract: the three scripts above are the
+        # check. An upload refused by GitHub's artifact storage quota (seen
+        # 2026-11-07 under an account billing lock) must not fail the gate.
+        continue-on-error: true
         uses: actions/upload-artifact@v4
         with:
           name: public-route-source

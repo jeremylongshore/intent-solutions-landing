@@ -5640,6 +5640,13 @@
           ]
         }
       ],
+      "door": {
+        "kicker": "FOR ENGINEERS",
+        "title": "How joining works",
+        "body": "The whole process in order, with what to expect at each step: request access, review, the mutual NDA, the User Agreement, your company mailbox and the exam path. Applying is free.",
+        "href": "/how-it-works/",
+        "label": "Engineers: how joining works"
+      },
       "sources": [
         {
           "label": "Intent Learn: practice and access",
@@ -5901,8 +5908,23 @@
             "Measure margin after delivery, coordination, support and risk costs.",
             "Expand only from evidence about demand, delivery and contribution."
           ]
+        },
+        {
+          "title": "Who holds the customer contract",
+          "body": "By default, Intent holds the customer contract and engages the firm under a services agreement. Where both agree, the firm holds the contract and Intent supports or refers. The firm that introduced a customer stays its originator.",
+          "items": [
+            "Proposed: the alliance agreement that sets this default is in legal review.",
+            "Each engagement still records who contracts, who delivers and who answers for the outcome."
+          ]
         }
       ],
+      "door": {
+        "kicker": "FOR FIRMS · PROPOSED",
+        "title": "Working with Intent Solutions as a firm",
+        "body": "Payment, customers you introduce, exclusivity, intellectual property and how to leave, answered in plain language. The alliance agreement is in legal review; nothing on that page is an offer.",
+        "href": "/alliance/",
+        "label": "Firms: work with us"
+      },
       "tables": [
         {
           "title": "Commercial hypotheses to test",

@@ -16,6 +16,8 @@ Primary customer journey: Home -> inspect in-page evidence or Projects -> About 
 | /projects/ | Customers and builders | Inspect public work and choose an example to explore. | https://demos.intentsolutions.io/ | true |
 | /about/ | People evaluating the company | Understand the team and its responsibilities. | /contact/?door=outcome | true |
 | /contact/ | Prospective customers | Describe the work and request a fit review. | Form confirmation on this page | true |
+| /how-it-works/ | Individual engineers | Read the whole joining process, in order, with what to expect at each step, before you apply. | https://learn.intentsolutions.io/request-access | true |
+| /alliance/ | Independent engineering and consulting firms | Read the proposed alliance for firms in plain language: payment, customers you introduce, exclusivity and how to leave. | mailto:partners@intentsolutions.io | true |
 | /support/ | Existing customers and tool users | Find the correct support channel without assuming service entitlements. | /contact/ | true |
 | /field-notes/ | Technical evaluators and readers | Read the development record and lessons from the work. | /field-notes/[...slug]/ | true |
 | /field-notes/[...slug]/ | Readers | Understand one piece of work with its source attribution. | /field-notes/ | self-canonical only |
@@ -42,6 +44,19 @@ Primary customer journey: Home -> inspect in-page evidence or Projects -> About 
 | /learn/ | Visitors following an old link | Retired offer or superseded learning page. Explain the change and provide an explicit handoff. | https://learn.intentsolutions.io/ | false |
 | /learn/models/ | Visitors following an old link | Retired offer or superseded learning page. Explain the change and provide an explicit handoff. | https://learn.intentsolutions.io/ | false |
 | /learn/security/ | Visitors following an old link | Retired offer or superseded learning page. Explain the change and provide an explicit handoff. | https://learn.intentsolutions.io/ | false |
+
+## Engineer and firm doors (amended 2026-11-07)
+
+Source: the CPN web journey review (claude-partner-network `055`, copy docs `056` and `054`).
+The home page keeps Request an outcome as the primary action and adds two doors beneath it:
+"Engineers: how joining works" to `/how-it-works/` and "Firms: work with us" to `/alliance/`.
+The quiet "Explore the practice" link to the Learn root is retired. `/alliance/` stays labelled
+Proposed until the Alliance Agreement is final, carries no dollar figures, and routes firms to
+the `partners@intentsolutions.io` role mailbox. The footer Network group and `/site-map/` list
+both pages plus the estate atlas and the financial atlas. Atlas chapters 06 and 07 end with the
+matching door; economics chapters 3, 5 and 6 and atlas 07 share one customer-contract statement
+(`contractRoute` in `src/data/economics-teaching.mjs`). Worked figures are called
+"illustrative" everywhere; "fictional" survives only in preserved field-note articles.
 
 ## Standalone public pages
 
