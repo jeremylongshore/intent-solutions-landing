@@ -9,6 +9,7 @@
 /* Hallmark · dismissed F20 · the specimen note spans the full row on purpose, a caption under both columns, not a third card */
 /* Hallmark · dismissed 41 · --intent-ink and --intent-surface are two panel surfaces and never carry text on each other */
 /* Hallmark · answered F19 · weight 500 renders only in the eight shared estate bar links, owned by estate-bar/ and 000-docs/088; this repo's own text uses 400, 700 and 800 */
+/* Hallmark · reworded "Claude Partner Network, Select tier" to "Select Services Partner in the Claude Partner Network" and replaced the quiet practice link with two doors under the hero actions · CPN journey review 055; sloplint re-run 2026-11-07 gives the same 0 FAIL, 1 REFLEX (38iii, waived), 3 WARN as before the change */
 /* Hallmark · answered F15 · the column gaps belong to the kept layout of each homepage section; a polish prints them and a full redesign would settle them */
 @import "tailwindcss";
 
