@@ -1,3 +1,9 @@
+# Unreleased
+
+- Prevent the non-PR runner override from rerouting the two existing PR validation jobs.
+- Limit the pre-deploy validation job to read-only repository permission; deployment permissions,
+  job names, tests, action versions and non-PR routing remain unchanged.
+
 # Release v4.15.6
 
 **Release Date**: 2026-11-04
