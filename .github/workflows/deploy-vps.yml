@@ -36,11 +36,11 @@ jobs:
   test:
     name: pre-deploy gate
     # Playwright 1.54's browser dependencies support 24.04, not 26.04.
-    # Escape hatch: the repository variable GATE_RUNS_ON (a JSON string such as
-    # ["self-hosted","linux","devbox-ci"]) moves this gate to a self-hosted
-    # runner when GitHub-hosted runners are unavailable (first used 2026-11-07
-    # during an account billing lock). Unset, the hosted default applies.
-    runs-on: ${{ fromJSON(vars.GATE_RUNS_ON || '"ubuntu-24.04"') }}
+    # PR validation uses hosted isolation even when a non-PR runner override is set.
+    # A hosted outage must remain visible; it must not send PR code to an estate host.
+    runs-on: ${{ fromJSON(github.event_name == 'pull_request' && '"ubuntu-24.04"' || vars.GATE_RUNS_ON || '"ubuntu-24.04"') }}
+    permissions:
+      contents: read
     defaults:
       run:
         working-directory: astro-site
