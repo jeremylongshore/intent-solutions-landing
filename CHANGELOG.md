@@ -1,3 +1,14 @@
+# Release v4.16.0
+
+**Release Date**: 2026-11-11
+
+## Changes since v4.15.6
+
+- chore: release v4.16.0 [skip ci] (e16d04f)
+- feat(site): engineer and firm doors, How it works and alliance pages, copy reconciliation (#102) (4daab37)
+
+---
+
 # Release v4.15.6
 
 **Release Date**: 2026-11-04
