@@ -1,3 +1,14 @@
+# Release v4.16.4
+
+**Release Date**: 2026-11-13
+
+## Changes since v4.16.3
+
+- chore: release v4.16.4 [skip ci] (90e85b7)
+- content(field-notes): add test-gate-could-not-run-vs-failed (7363b33)
+
+---
+
 # Release v4.16.3
 
 **Release Date**: 2026-11-13
