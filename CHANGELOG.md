@@ -1,3 +1,14 @@
+# Release v4.16.5
+
+**Release Date**: 2026-11-13
+
+## Changes since v4.16.4
+
+- chore: release v4.16.5 [skip ci] (93744c6)
+- content(field-notes): add bind-metadata-sidecar-to-store-generation-marker (55a31aa)
+
+---
+
 # Release v4.16.4
 
 **Release Date**: 2026-11-13
