@@ -1,3 +1,14 @@
+# Release v4.16.1
+
+**Release Date**: 2026-11-13
+
+## Changes since v4.16.0
+
+- chore: release v4.16.1 [skip ci] (ed195e9)
+- content(field-notes): add secret-scanner-false-positives-whitespace-stripping (4dd3f53)
+
+---
+
 # Release v4.16.0
 
 **Release Date**: 2026-11-11
