@@ -1,3 +1,14 @@
+# Release v4.16.2
+
+**Release Date**: 2026-11-13
+
+## Changes since v4.16.1
+
+- chore: release v4.16.2 [skip ci] (042c858)
+- content(field-notes): add mcp-structuredcontent-claude-code-drops-text-content (9cc6fdb)
+
+---
+
 # Release v4.16.1
 
 **Release Date**: 2026-11-13
