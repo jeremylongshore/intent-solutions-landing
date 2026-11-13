@@ -1,3 +1,14 @@
+# Release v4.16.3
+
+**Release Date**: 2026-11-13
+
+## Changes since v4.16.2
+
+- chore: release v4.16.3 [skip ci] (ed080d8)
+- content(field-notes): add map-onboarding-journey-across-sites-as-graph (a9a316e)
+
+---
+
 # Release v4.16.2
 
 **Release Date**: 2026-11-13
