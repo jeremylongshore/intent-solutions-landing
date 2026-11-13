@@ -5,12 +5,12 @@ import { heroIndex, sampleAnswer, limits, repos } from '../../data/bbb.mjs';
 
 const indexHref = { govern: '/bbb/how-it-works/#govern', retrieve: '/bbb/how-it-works/#retrieve', verify: '/bbb/receipts/', package: '/bbb/install/' };
 
-const topLimits = [limits[0], limits[4], limits[3]];
+const topLimits = ['LIM-07', 'LIM-05', 'LIM-04'].map((id) => limits.find((limit) => limit.id === id));
 ---
 
 <BbbFrame
   title="Bob’s Big Brain: memory your agent can cite | Intent Solutions"
-  description="A governed memory for Claude Code and Cowork. Code decides what it keeps, answers cite the exact memory, and each save leaves a verifiable receipt. Beta."
+  description="A governed memory for Claude Code and Cowork. Code decides what it keeps, answers cite the exact memory, and durable promotions and retirements leave verifiable receipts. Beta."
   current="overview"
 >
   <section class="bbb-hero" aria-labelledby="bbb-hero-title">
@@ -103,7 +103,7 @@ const topLimits = [limits[0], limits[4], limits[3]];
     <div class="bbb-container">
       <div class="bbb-head">
         <h2 id="bbb-beta-title">Beta, and specific about it.</h2>
-        <p>Every claim here was checked against the code. This is what isn’t done.</p>
+        <p>Source fixes have merged; release and installation evidence is tracked separately. These limits remain.</p>
       </div>
       <ul class="bbb-rows">
         {topLimits.map((limit) => (
@@ -113,7 +113,7 @@ const topLimits = [limits[0], limits[4], limits[3]];
           </li>
         ))}
       </ul>
-      <p class="bbb-caption">Four more limits, what we tested and the commits we checked: <a href="/bbb/status/">see the status</a></p>
+      <p class="bbb-caption">The dated installation findings, later source fixes and checked commits: <a href="/bbb/status/">see the status</a></p>
     </div>
   </section>
 

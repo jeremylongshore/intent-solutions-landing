@@ -1,12 +1,12 @@
 ---
 import BbbFrame from '../../components/bbb/BbbFrame.astro';
-import { verifiedAt } from '../../data/bbb.mjs';
+import { sourceVerifiedAt } from '../../data/bbb.mjs';
 
 const egress = [
-  { step: 'Search and saves', local: 'Nothing', team: 'Your team server only' },
+  { step: 'Search and saves', local: 'Governance runs locally; a configured embedder is separate', team: 'Requests go to your team server; its operator controls integrations' },
   { step: 'First start', local: 'npm fetches three pinned modules, once', team: 'Nothing extra' },
   { step: 'Compile, optional', local: 'File text, to the model you choose', team: 'Run by the operator, not the plugin' },
-  { step: 'Anchor log', local: 'Only if you add a git remote', team: 'Stays on the server' },
+  { step: 'Anchor log', local: 'Background push attempted when origin is configured', team: 'Stays on the server' },
 ];
 
 const permissions = [
@@ -68,7 +68,7 @@ const permissions = [
           <path class="d-line" d="M630 245 H534" marker-end="url(#arr)" stroke-width="2" />
         </svg>
         </div>
-        <figcaption class="bbb-caption">Inventory: files and saves enter the spool directly or through optional compile; governance reads the spool and writes memories plus one receipt per decision; retrieval reads only governed memories; Claude cites what retrieval returns. Checked against code on {verifiedAt}.</figcaption>
+        <figcaption class="bbb-caption">Inventory: files and saves enter the spool directly or through optional compile; governance reads the spool and receipts durable promotions, rejections and retirements; review-only flags and pre-intake refusals have no per-decision receipt guarantee; retrieval searches governed entries in the requested scope; Claude cites what retrieval returns. Checked against code on {sourceVerifiedAt}.</figcaption>
       </figure>
     </div>
   </section>
@@ -77,11 +77,11 @@ const permissions = [
     <div class="bbb-container">
       <ul class="bbb-layer-list">
         <li id="compile"><h2>Compile</h2><p>Optional. Turns your files into summaries, concepts and gaps, and records each step in its own trace.</p></li>
-        <li id="govern"><h2>Govern</h2><p>Code runs dedupe, policy and promotion. Each save writes a receipt; a newer decision retires the old entry.</p></li>
-        <li id="retrieve"><h2>Retrieve</h2><p>Keyword search fused by rank, reranked for freshness; an optional semantic arm. No generative model. Every hit is a <code>qmd://</code> link.</p></li>
+        <li id="govern"><h2>Govern</h2><p>Code runs dedupe, policy and promotion. Durable promotions and retirements write receipts. Later source also settles rejected candidates with per-candidate evidence; review-only flags and pre-intake refusals are separate.</p></li>
+        <li id="retrieve"><h2>Retrieve</h2><p>Keyword search fused by rank, reranked for freshness; a semantic arm when its embedder is configured and available, with lexical fallback. No query-time generative model. Every hit is a <code>qmd://</code> link.</p></li>
         <li id="package"><h2>Package</h2><p>One plugin for Claude Code and Cowork. <code>/brain</code> asks and cites; <code>/brain-save</code> saves, only when you type it.</p></li>
       </ul>
-      <p class="bbb-caption">On a new local brain, two of the ten governance rules run today. <a href="/bbb/status/">See the status</a></p>
+      <p class="bbb-caption">Later source seeds ten enabled rules for fresh tenants; it does not rewrite existing policies. The original installation and release status are separate. <a href="/bbb/status/">See the status</a></p>
     </div>
   </section>
 
@@ -89,6 +89,7 @@ const permissions = [
     <div class="bbb-container">
       <div class="bbb-head">
         <h2 id="egress-title">What leaves your machine</h2>
+        <p>This covers the plugin and optional compiler. Your assistant host and any configured integrations have their own data flows.</p>
       </div>
       <div class="bbb-table-wrap">
         <table class="bbb-table bbb-table--stack">
