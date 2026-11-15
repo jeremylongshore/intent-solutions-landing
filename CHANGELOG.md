@@ -1,3 +1,14 @@
+# Release v4.16.6
+
+**Release Date**: 2026-11-15
+
+## Changes since v4.16.5
+
+- chore: release v4.16.6 [skip ci] (5633aec)
+- content(field-notes): add timeout-is-a-sequence-problem-not-a-context-problem (6193128)
+
+---
+
 # Release v4.16.5
 
 **Release Date**: 2026-11-13
