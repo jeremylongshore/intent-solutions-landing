@@ -23,7 +23,8 @@ checked against `manifest.sha256`. Authority: `000-docs/088-AT-DSGN-estate-bar-a
 
 ## Who carries it
 
-`company` (intentsolutions.io), `labs`, `evals`, `demos`, `learn`, `omarchy`.
+`company` (intentsolutions.io), `labs`, `evals`, `demos`, `learn`, `omarchy`, `stci`
+(inferencepriceindex.com).
 Tons of Skills is a destination in the bar but does not carry it; it has its own
 design constitution.
 
