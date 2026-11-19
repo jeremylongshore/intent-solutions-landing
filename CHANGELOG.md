@@ -1,3 +1,14 @@
+# Release v4.17.1
+
+**Release Date**: 2026-11-19
+
+## Changes since v4.17.0
+
+- chore: release v4.17.1 [skip ci] (c43f275)
+- content(field-notes): add publish-derived-data-from-an-allow-list (2e7ed9a)
+
+---
+
 # Release v4.17.0
 
 **Release Date**: 2026-11-19
