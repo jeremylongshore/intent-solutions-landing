@@ -1,3 +1,14 @@
+# Release v4.17.0
+
+**Release Date**: 2026-11-19
+
+## Changes since v4.16.6
+
+- chore: release v4.17.0 [skip ci] (e6b1322)
+- feat(estate-bar): add the STCI site as a bar carrier (#104) (15b8f92)
+
+---
+
 # Release v4.16.6
 
 **Release Date**: 2026-11-15
