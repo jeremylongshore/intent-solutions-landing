@@ -1,3 +1,14 @@
+# Release v4.17.2
+
+**Release Date**: 2026-11-19
+
+## Changes since v4.17.1
+
+- chore: release v4.17.2 [skip ci] (05e35fa)
+- content(field-notes): add promoted-is-not-findable (a6bc6a8)
+
+---
+
 # Release v4.17.1
 
 **Release Date**: 2026-11-19
