@@ -1,3 +1,14 @@
+# Release v4.17.3
+
+**Release Date**: 2026-11-21
+
+## Changes since v4.17.2
+
+- chore: release v4.17.3 [skip ci] (5d6a194)
+- content(field-notes): add store-facets-not-grades-rerun-safe-index (e8d1ef0)
+
+---
+
 # Release v4.17.2
 
 **Release Date**: 2026-11-19
