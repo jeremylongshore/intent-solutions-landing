@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import SiteNav from '../components/SiteNav.astro';
 import Footer from '../components/Footer';
+import team from '../data/team.json';
 
 const receipts = [
   {
@@ -216,6 +217,20 @@ const method = [
           </p>
           <a href="/estate/">See how the work connects</a>
         </div>
+      </div>
+      <div class="wrap">
+        <ul class="team-people" aria-label="Intent Solutions team">
+          {team.map((member) => (
+            <li class="team-person">
+              <img src={member.photo} alt={`${member.name}, ${member.title}`} width="58" height="58" loading="lazy" decoding="async" />
+              <div>
+                <p class="team-person-name">{member.name}</p>
+                <p class="team-person-role">{member.title}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+        <p class="team-people-link"><a href="/about/#team">Meet the Intent Solutions team</a></p>
       </div>
     </section>
 
@@ -464,6 +479,15 @@ const method = [
   .team a { display: inline-flex; align-items: center; min-height: 44px; color: var(--intent-accent-hi); font-size: 0.84rem; font-weight: 700; text-decoration: underline; text-decoration-color: var(--intent-accent-soft); text-underline-offset: 0.25em; }
   .team a:hover,
   .team a:focus-visible { color: var(--intent-text); }
+  .team-people { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1rem, 3vw, 2rem); margin: clamp(2.5rem, 5vw, 3.5rem) 0 0; padding: 0; list-style: none; }
+  .team-person { display: flex; align-items: center; gap: 1rem; min-width: 0; padding: 1.1rem 1.2rem; background: var(--intent-surface); border: 1px solid var(--intent-line); border-radius: 0.7rem; }
+  .team-person img { flex: 0 0 58px; width: 58px; height: 58px; border-radius: 50%; object-fit: cover; object-position: center 25%; filter: grayscale(1); }
+  .team-person > div { min-width: 0; }
+  .team-people .team-person-name { margin: 0 0 0.2rem; color: var(--intent-text); font-family: var(--font-display); font-size: 0.95rem; font-weight: 700; line-height: 1.25; }
+  .team-people .team-person-role { margin: 0; color: var(--intent-muted); font-size: 0.8rem; line-height: 1.4; }
+  .team-people-link { margin: 1.5rem 0 0; text-align: center; }
+  @media (max-width: 880px) { .team-people { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 560px) { .team-people { grid-template-columns: minmax(0, 1fr); } }
 
   .closing { position: relative; min-height: 37rem; display: grid; place-items: center; overflow: hidden; text-align: center; }
   .closing video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
