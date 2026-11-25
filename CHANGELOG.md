@@ -1,3 +1,14 @@
+# Release v4.18.0
+
+**Release Date**: 2026-11-25
+
+## Changes since v4.17.3
+
+- chore: release v4.18.0 [skip ci] (6a24639)
+- feat(home): show the team at the bottom of the homepage and retitle Max (#105) (092e673)
+
+---
+
 # Release v4.17.3
 
 **Release Date**: 2026-11-21
