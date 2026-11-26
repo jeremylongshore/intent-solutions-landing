@@ -1,3 +1,14 @@
+# Release v4.18.1
+
+**Release Date**: 2026-11-26
+
+## Changes since v4.18.0
+
+- chore: release v4.18.1 [skip ci] (09c0323)
+- content(field-notes): add retry-limit-should-ask-why-it-failed (54cf9e8)
+
+---
+
 # Release v4.18.0
 
 **Release Date**: 2026-11-25
