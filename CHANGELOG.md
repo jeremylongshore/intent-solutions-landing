@@ -1,3 +1,14 @@
+# Release v4.19.1
+
+**Release Date**: 2026-11-28
+
+## Changes since v4.19.0
+
+- chore: release v4.19.1 [skip ci] (86bf366)
+- content(field-notes): add claude-code-stop-hook-skill-compliance-gate (19cd5d0)
+
+---
+
 # Release v4.19.0
 
 **Release Date**: 2026-11-28
