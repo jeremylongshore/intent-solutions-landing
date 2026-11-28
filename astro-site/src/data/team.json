@@ -3,35 +3,35 @@
     "id": "jeremy-longshore",
     "name": "Jeremy Longshore",
     "title": "Founder & CEO",
-    "photo": "/images/team/jeremy-longshore-suit.jpeg",
+    "photo": "/images/team/stripe/jeremy-longshore.jpg",
     "bio": ""
   },
   {
     "id": "heather-johnson",
     "name": "Heather C. Johnson, JD",
     "title": "Legal Counsel",
-    "photo": "/images/team/heather-johnson.png",
+    "photo": "/images/team/stripe/heather-johnson.jpg",
     "bio": ""
   },
   {
     "id": "pablo-perez",
     "name": "Pablo Perez",
     "title": "Co-Founder & Project Manager",
-    "photo": "/images/team/pablo-perez.jpeg",
+    "photo": "/images/team/stripe/pablo-perez.jpg",
     "bio": ""
   },
   {
     "id": "max-sheahan",
     "name": "Max Sheahan",
     "title": "Director of Applied AI & Developer Relations",
-    "photo": "/images/team/max-sheahan-suit.jpeg",
+    "photo": "/images/team/stripe/max-sheahan.jpg",
     "bio": ""
   },
   {
     "id": "tim-neunzig",
     "name": "Tim Neunzig",
     "title": "Head of German Operations",
-    "photo": "/images/team/tim-neunzig.png",
+    "photo": "/images/team/stripe/tim-neunzig.jpg",
     "bio": ""
   }
 ]

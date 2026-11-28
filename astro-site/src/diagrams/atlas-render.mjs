@@ -2,7 +2,7 @@ import { atlasPages, atlasPath, atlasDate, chapterNames } from '../data/operatin
 
 export const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const statusLabels = {existing:'Existing capability',mixed:'Existing + developing',proposed:'Proposed model','in-progress':'In development','in-development':'In development',unproven:'Unvalidated outcome'};
-const palette = {orange:'#ffab70',cyan:'#73d6df',green:'#90d4ae',purple:'#c3a4ef',blue:'#8abcf5',amber:'#ecd080',slate:'#b2bfce'};
+const palette = {orange:'#ffd670',cyan:'#adaba5',green:'#90d4ae',purple:'#c3a4ef',blue:'#c3c1bc',amber:'#ecd080',slate:'#c3c2bd'};
 const color = key => palette[key] || palette.slate;
 const loc = n => `left:${n.x}px;top:${n.y}px;width:${n.w}px;height:${n.h}px;--tone:${color(n.color)}`;
 
@@ -39,7 +39,7 @@ export function renderPage(page, {stylesheet,estateBar,estateStyle,brandMark}) {
 <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(chapterNames[page.id])} | Intent Solutions Operating Atlas</title>
 <meta name="description" content="${esc(page.lead)}"><link rel="canonical" href="https://intentsolutions.io${atlasPath(page.id)}">
-<meta name="theme-color" content="#0f1117"><style>${estateStyle}\n${stylesheet}</style></head>
+<meta name="theme-color" content="#141312"><style>${estateStyle}\n${stylesheet}</style></head>
 <body class="operating-atlas"><a class="atlas-skip" href="#atlas-content">Skip to the diagram</a>
 ${estateBar}
 <div class="atlas-layout">

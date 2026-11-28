@@ -15,7 +15,7 @@
       "type": "architecture",
       "caseId": null,
       "downside": false,
-      "sha256": "ff4242f34b2df24e870cf01b34984458a868eaee3f9885b18d77862ef6863dfb"
+      "sha256": "7ba0904d3b24d45d10d9134ccfbbc6a425f30f8637387e51ba96e9077a8723a8"
     },
     {
       "id": "financial-atlas-entry",
@@ -24,7 +24,7 @@
       "type": "architecture",
       "caseId": null,
       "downside": false,
-      "sha256": "ac7020e8d53e707168678e5e92092472097a3824e8550005b8bfffec8e332f87"
+      "sha256": "2224df7251ffec44511f4b1838e5889895858338871d39037b6a99217abfa5b0"
     },
     {
       "id": "opportunity-routes",
@@ -33,7 +33,7 @@
       "type": "architecture",
       "caseId": null,
       "downside": false,
-      "sha256": "92972de7457286a04849ddee9591935f97d6cdffd2f2ca75c0b2c84a4878d205"
+      "sha256": "2380495499e1467ca68869d85beab77f0b1a95e20db96e198f6aa11ce549561e"
     },
     {
       "id": "earning-authority",
@@ -42,7 +42,7 @@
       "type": "layers",
       "caseId": null,
       "downside": false,
-      "sha256": "3d557ae38739ad2b1edb6fa4ab2ac296f523d08b1884cec84293747683fab195"
+      "sha256": "9ff7e51a39dd3cfb0942c54ffea344241aab9f33e672b921cf09047ac49a84a2"
     },
     {
       "id": "customer-value",
@@ -51,7 +51,7 @@
       "type": "bar",
       "caseId": null,
       "downside": false,
-      "sha256": "398abcc526f58e8eff2dc4cd11f0d416564e07ee11ad59037316b25df218ca50"
+      "sha256": "16ba82733d251bead9882a9a3647bd6bc17c6c64f2090b28c5068386b485369c"
     },
     {
       "id": "pursuit-cost",
@@ -60,7 +60,7 @@
       "type": "bar",
       "caseId": null,
       "downside": false,
-      "sha256": "35721d82c272341cf30d3cdcaaf1db391d73afe3fc7ed1308d83dab0d6f602a3"
+      "sha256": "59f31c4816872995139aab7c9188a717cd77299808084a37561fe4c99af6a04f"
     },
     {
       "id": "cash-comparison",
@@ -69,7 +69,7 @@
       "type": "line",
       "caseId": null,
       "downside": false,
-      "sha256": "44c692e3125ec7297c7adc84d94ad26e4e46d23472e005ad6a9404b52666506c"
+      "sha256": "57be89c5d01db5913f46bdac38d24fdd6551bb94037efcc5784a5c9cb354e53c"
     },
     {
       "id": "company-bridge",
@@ -78,7 +78,7 @@
       "type": "waterfall",
       "caseId": null,
       "downside": false,
-      "sha256": "9ef845b93d06c57458904d97f675da00cdee3a92d3db8d15bac9f17826e5dabe"
+      "sha256": "ad76b5b0a2862a928007bccab3ef8aaa8686568ecbf3ffe2f112872107bbd6da"
     },
     {
       "id": "relationship-led-project-base-bridge",
@@ -87,7 +87,7 @@
       "type": "waterfall",
       "caseId": "relationship-led-project",
       "downside": false,
-      "sha256": "a45528edc8a6ede5c991d6c0de43009b786d0a18b84c32adce81df85433422b8"
+      "sha256": "1f144ec4ec4e4dc28968c16f5d3d2169a0765ec0bec0970307f52caa7593431f"
     },
     {
       "id": "relationship-led-project-downside-bridge",
@@ -96,7 +96,7 @@
       "type": "waterfall",
       "caseId": "relationship-led-project",
       "downside": true,
-      "sha256": "8c8ea37ced27e1253886192488fbe6aeac866b38c46f8546e40b69f329a5c595"
+      "sha256": "6f6c0c0e108b5bcbaead537de118b8e9fa43fc181d3c098507234531ac422337"
     },
     {
       "id": "independent-prime-base-bridge",
@@ -105,7 +105,7 @@
       "type": "waterfall",
       "caseId": "independent-prime",
       "downside": false,
-      "sha256": "d355245ce5920626e079fdae2900060adaaf88abc8838f5c89bf3a8a759f8dab"
+      "sha256": "b12cfb4590dc8c037cd1f51048599afe333aad1570655e87b0e7c4a200bde7f7"
     },
     {
       "id": "independent-prime-downside-bridge",
@@ -114,7 +114,7 @@
       "type": "waterfall",
       "caseId": "independent-prime",
       "downside": true,
-      "sha256": "36abfe9187b0d9472beeb01a5659f2b0ece1b940b337f698d9b2ccdccfe941ec"
+      "sha256": "9376eaab9c0150605f5f658fba02de7688c34cb63d4dc2edf31b00bc128cd55d"
     },
     {
       "id": "integrator-prime-base-bridge",
@@ -123,7 +123,7 @@
       "type": "waterfall",
       "caseId": "integrator-prime",
       "downside": false,
-      "sha256": "40ddc013c277b5c7753ec9e767a936f696cb5a2ca1d23e7e24e3187fd3864ee2"
+      "sha256": "4aec43094e2b4e37c1ac48cdf889c3b2ac6a37579117580c4e05cfa2e28c4b90"
     },
     {
       "id": "integrator-prime-downside-bridge",
@@ -132,7 +132,7 @@
       "type": "waterfall",
       "caseId": "integrator-prime",
       "downside": true,
-      "sha256": "6f2e75fde230ae2e58e01a7c816780be6c81f41a6ecb3513d95effbc7c7e0ed8"
+      "sha256": "5e54152c78d9a07739b9232351a148c33d3ea9c342d731ab8d7a44473e2c519b"
     },
     {
       "id": "paid-discovery-no-build-base-bridge",
@@ -141,7 +141,7 @@
       "type": "waterfall",
       "caseId": "paid-discovery-no-build",
       "downside": false,
-      "sha256": "fd62ca37c56aaef204f33c837e2318a0bb416cb36db59c4f105e846b774f27d5"
+      "sha256": "0c6876dd575fd7d26df7a3925247b35752afc206613d95e6b3519024a2a8eb3f"
     },
     {
       "id": "paid-discovery-no-build-downside-bridge",
@@ -150,7 +150,7 @@
       "type": "waterfall",
       "caseId": "paid-discovery-no-build",
       "downside": true,
-      "sha256": "4c6b6ddd2995fe6a6e6d4985d3370c45c77d570cb51d090f1c01cedbdf357808"
+      "sha256": "8111e0b391bee27dd1c65441b8c2eb2764af66820f0655ab34b65811f3beb0b7"
     },
     {
       "id": "recurring-assurance-base-bridge",
@@ -159,7 +159,7 @@
       "type": "waterfall",
       "caseId": "recurring-assurance",
       "downside": false,
-      "sha256": "5913dd66419a4a809dd5d5f845ec84084979836db9cdb406ce1e080597360493"
+      "sha256": "e134b63a395bf35baf261a1b321199af8f0b4c47cf2713d9c26fd84d252b3eae"
     },
     {
       "id": "recurring-assurance-downside-bridge",
@@ -168,7 +168,7 @@
       "type": "waterfall",
       "caseId": "recurring-assurance",
       "downside": true,
-      "sha256": "8d0bbc96612cee0e923b747e9a2d98fb7663900bbb45b14316dba5d1fcd5029a"
+      "sha256": "c29237dc5f7984568eca4f11a4ccaca65240aa88e7cb4a6f3c0367063ff018fe"
     },
     {
       "id": "maintained-skills-base-bridge",
@@ -177,7 +177,7 @@
       "type": "waterfall",
       "caseId": "maintained-skills",
       "downside": false,
-      "sha256": "c887bfd2959da002c214f9ac2cfe208026799891895c73161db0cd986877e982"
+      "sha256": "af75a2f10e08ad3eb0c0912e850295cc077006ebf0f191eada0a4e3658c2f04c"
     },
     {
       "id": "maintained-skills-downside-bridge",
@@ -186,7 +186,7 @@
       "type": "waterfall",
       "caseId": "maintained-skills",
       "downside": true,
-      "sha256": "f1cdccbff6a0a5387ea95831482ef4c2f4a9e0acb99be1ca666bac71e15f4175"
+      "sha256": "1218a75bad18c54c7fedfd5ddd04f5d81b3799e220c9f1f39b9f92719b433c41"
     },
     {
       "id": "software-subscription-base-bridge",
@@ -195,7 +195,7 @@
       "type": "waterfall",
       "caseId": "software-subscription",
       "downside": false,
-      "sha256": "65ef3803053443b30ab2966fec5637c05829329311a877fd4916a786a3674408"
+      "sha256": "2170a4b0e3f4c7dc95b0652688e2e30b1d1357f389eeeef784ec04b5fd3737a1"
     },
     {
       "id": "software-subscription-downside-bridge",
@@ -204,7 +204,7 @@
       "type": "waterfall",
       "caseId": "software-subscription",
       "downside": true,
-      "sha256": "f13dbc90d15b2e282aaec02a540e2e353040b2f8414dad26dff4f7416a4c29b4"
+      "sha256": "6336cf7a3a069616d1c10a5cde471ce6b1123571e8005e18cb4b91663ac0d044"
     },
     {
       "id": "employer-workshop-base-bridge",
@@ -213,7 +213,7 @@
       "type": "waterfall",
       "caseId": "employer-workshop",
       "downside": false,
-      "sha256": "62d4315683f3eefd43e2bbf6ccbb3daff9eb06538ca121260e41b72b184e5ef4"
+      "sha256": "a24c6f6bc465d642d6117d20c167535ac3eaf0df223beee9be77377928656604"
     },
     {
       "id": "employer-workshop-downside-bridge",
@@ -222,7 +222,7 @@
       "type": "waterfall",
       "caseId": "employer-workshop",
       "downside": true,
-      "sha256": "337cada30663e3125cac94adad65c8849ed6188ce6ee6f624b00f1e35033b471"
+      "sha256": "12a784447462b0dd511c61d96cd607dc9ed8c219145bd1b641af474ce426815a"
     },
     {
       "id": "shared-component-base-bridge",
@@ -231,7 +231,7 @@
       "type": "waterfall",
       "caseId": "shared-component",
       "downside": false,
-      "sha256": "518cd82da8d8446205f25d663ad3ba1233fa709208687852f2365b848051579a"
+      "sha256": "1ff5003b5446a4265be133698566bf9e5b92eef38a2975276c069d5791a7e67c"
     },
     {
       "id": "shared-component-downside-bridge",
@@ -240,7 +240,7 @@
       "type": "waterfall",
       "caseId": "shared-component",
       "downside": true,
-      "sha256": "579bc46892f8601d9fd97d200083e1d5c8cf1485da287d50f309bfdce481d514"
+      "sha256": "ad9e15206f52bf5d826baf41bc2ce77a930df39f6118023f71d5d196866e027f"
     },
     {
       "id": "outcome-hybrid-base-bridge",
@@ -249,7 +249,7 @@
       "type": "waterfall",
       "caseId": "outcome-hybrid",
       "downside": false,
-      "sha256": "92984d4bdfedcaa80a5b0a423738e8f45e34a824c50de9dc574729d2fab272b4"
+      "sha256": "554a3ac75b6bfd0fbfdde22eccef5062c929f744f27468193c9deba3461e0cfd"
     },
     {
       "id": "outcome-hybrid-downside-bridge",
@@ -258,7 +258,7 @@
       "type": "waterfall",
       "caseId": "outcome-hybrid",
       "downside": true,
-      "sha256": "050724ed5e8c78c1d0ab40d991eae192535ef2730769a49880524daf2d78d01c"
+      "sha256": "4bd9efb8ef2e3a2e9fc56f96266c442111f1db12321830461945fb12bf95733f"
     },
     {
       "id": "referral-only-base-bridge",
@@ -267,7 +267,7 @@
       "type": "waterfall",
       "caseId": "referral-only",
       "downside": false,
-      "sha256": "f97a2f507545428bf739d2f48c7030e36dcc940093b4cf6c8c42de599a659aca"
+      "sha256": "9de117126a36473f774be17abc92c5f931b46440175f6f35164b37874399b066"
     },
     {
       "id": "referral-only-downside-bridge",
@@ -276,7 +276,7 @@
       "type": "waterfall",
       "caseId": "referral-only",
       "downside": true,
-      "sha256": "d49e948b5c18aa8f00be208f3557662adb0d534b37f898f0e913d193c64247eb"
+      "sha256": "f6da443338866c957234cc3cd290b2640237c08fef86cc3a7e737ac7590a959c"
     },
     {
       "id": "vendor-operating-costs-base-bridge",
@@ -285,7 +285,7 @@
       "type": "waterfall",
       "caseId": "vendor-operating-costs",
       "downside": false,
-      "sha256": "9b4829f80c9514b72582c725a7573a5fb279619d6437f5bd792815baf6839cba"
+      "sha256": "81f4e129c6906cdf29a0d6d4fa6e06a6f09d9be405c66648f8bafff8fb5feeaa"
     },
     {
       "id": "vendor-operating-costs-downside-bridge",
@@ -294,7 +294,7 @@
       "type": "waterfall",
       "caseId": "vendor-operating-costs",
       "downside": true,
-      "sha256": "765ce72a7f0f3837eb18ff3ed3117e3f347e852c3115e026a3e42572208942eb"
+      "sha256": "8e3524d9cccb5f02d6f73970c9f4a7ea29ba52946213d9612de3031b859eb4e8"
     },
     {
       "id": "relationship-led-project-allocation",
@@ -303,7 +303,7 @@
       "type": "sankey",
       "caseId": "relationship-led-project",
       "downside": false,
-      "sha256": "e86dbff077f38f081eb175d766906a4dd25478fb8068c8db5736c361b579e379"
+      "sha256": "9c45259c21ac026d1debca84c758b583e935b55d5119429ac98280a11e16da2a"
     }
   ],
   "byChartId": {
@@ -314,7 +314,7 @@
       "type": "architecture",
       "caseId": null,
       "downside": false,
-      "sha256": "ff4242f34b2df24e870cf01b34984458a868eaee3f9885b18d77862ef6863dfb"
+      "sha256": "7ba0904d3b24d45d10d9134ccfbbc6a425f30f8637387e51ba96e9077a8723a8"
     },
     "financial-atlas-entry": {
       "id": "financial-atlas-entry",
@@ -323,7 +323,7 @@
       "type": "architecture",
       "caseId": null,
       "downside": false,
-      "sha256": "ac7020e8d53e707168678e5e92092472097a3824e8550005b8bfffec8e332f87"
+      "sha256": "2224df7251ffec44511f4b1838e5889895858338871d39037b6a99217abfa5b0"
     },
     "opportunity-routes": {
       "id": "opportunity-routes",
@@ -332,7 +332,7 @@
       "type": "architecture",
       "caseId": null,
       "downside": false,
-      "sha256": "92972de7457286a04849ddee9591935f97d6cdffd2f2ca75c0b2c84a4878d205"
+      "sha256": "2380495499e1467ca68869d85beab77f0b1a95e20db96e198f6aa11ce549561e"
     },
     "earning-authority": {
       "id": "earning-authority",
@@ -341,7 +341,7 @@
       "type": "layers",
       "caseId": null,
       "downside": false,
-      "sha256": "3d557ae38739ad2b1edb6fa4ab2ac296f523d08b1884cec84293747683fab195"
+      "sha256": "9ff7e51a39dd3cfb0942c54ffea344241aab9f33e672b921cf09047ac49a84a2"
     },
     "customer-value": {
       "id": "customer-value",
@@ -350,7 +350,7 @@
       "type": "bar",
       "caseId": null,
       "downside": false,
-      "sha256": "398abcc526f58e8eff2dc4cd11f0d416564e07ee11ad59037316b25df218ca50"
+      "sha256": "16ba82733d251bead9882a9a3647bd6bc17c6c64f2090b28c5068386b485369c"
     },
     "pursuit-cost": {
       "id": "pursuit-cost",
@@ -359,7 +359,7 @@
       "type": "bar",
       "caseId": null,
       "downside": false,
-      "sha256": "35721d82c272341cf30d3cdcaaf1db391d73afe3fc7ed1308d83dab0d6f602a3"
+      "sha256": "59f31c4816872995139aab7c9188a717cd77299808084a37561fe4c99af6a04f"
     },
     "cash-comparison": {
       "id": "cash-comparison",
@@ -368,7 +368,7 @@
       "type": "line",
       "caseId": null,
       "downside": false,
-      "sha256": "44c692e3125ec7297c7adc84d94ad26e4e46d23472e005ad6a9404b52666506c"
+      "sha256": "57be89c5d01db5913f46bdac38d24fdd6551bb94037efcc5784a5c9cb354e53c"
     },
     "company-bridge": {
       "id": "company-bridge",
@@ -377,7 +377,7 @@
       "type": "waterfall",
       "caseId": null,
       "downside": false,
-      "sha256": "9ef845b93d06c57458904d97f675da00cdee3a92d3db8d15bac9f17826e5dabe"
+      "sha256": "ad76b5b0a2862a928007bccab3ef8aaa8686568ecbf3ffe2f112872107bbd6da"
     },
     "relationship-led-project-base-bridge": {
       "id": "relationship-led-project-base-bridge",
@@ -386,7 +386,7 @@
       "type": "waterfall",
       "caseId": "relationship-led-project",
       "downside": false,
-      "sha256": "a45528edc8a6ede5c991d6c0de43009b786d0a18b84c32adce81df85433422b8"
+      "sha256": "1f144ec4ec4e4dc28968c16f5d3d2169a0765ec0bec0970307f52caa7593431f"
     },
     "relationship-led-project-downside-bridge": {
       "id": "relationship-led-project-downside-bridge",
@@ -395,7 +395,7 @@
       "type": "waterfall",
       "caseId": "relationship-led-project",
       "downside": true,
-      "sha256": "8c8ea37ced27e1253886192488fbe6aeac866b38c46f8546e40b69f329a5c595"
+      "sha256": "6f6c0c0e108b5bcbaead537de118b8e9fa43fc181d3c098507234531ac422337"
     },
     "independent-prime-base-bridge": {
       "id": "independent-prime-base-bridge",
@@ -404,7 +404,7 @@
       "type": "waterfall",
       "caseId": "independent-prime",
       "downside": false,
-      "sha256": "d355245ce5920626e079fdae2900060adaaf88abc8838f5c89bf3a8a759f8dab"
+      "sha256": "b12cfb4590dc8c037cd1f51048599afe333aad1570655e87b0e7c4a200bde7f7"
     },
     "independent-prime-downside-bridge": {
       "id": "independent-prime-downside-bridge",
@@ -413,7 +413,7 @@
       "type": "waterfall",
       "caseId": "independent-prime",
       "downside": true,
-      "sha256": "36abfe9187b0d9472beeb01a5659f2b0ece1b940b337f698d9b2ccdccfe941ec"
+      "sha256": "9376eaab9c0150605f5f658fba02de7688c34cb63d4dc2edf31b00bc128cd55d"
     },
     "integrator-prime-base-bridge": {
       "id": "integrator-prime-base-bridge",
@@ -422,7 +422,7 @@
       "type": "waterfall",
       "caseId": "integrator-prime",
       "downside": false,
-      "sha256": "40ddc013c277b5c7753ec9e767a936f696cb5a2ca1d23e7e24e3187fd3864ee2"
+      "sha256": "4aec43094e2b4e37c1ac48cdf889c3b2ac6a37579117580c4e05cfa2e28c4b90"
     },
     "integrator-prime-downside-bridge": {
       "id": "integrator-prime-downside-bridge",
@@ -431,7 +431,7 @@
       "type": "waterfall",
       "caseId": "integrator-prime",
       "downside": true,
-      "sha256": "6f2e75fde230ae2e58e01a7c816780be6c81f41a6ecb3513d95effbc7c7e0ed8"
+      "sha256": "5e54152c78d9a07739b9232351a148c33d3ea9c342d731ab8d7a44473e2c519b"
     },
     "paid-discovery-no-build-base-bridge": {
       "id": "paid-discovery-no-build-base-bridge",
@@ -440,7 +440,7 @@
       "type": "waterfall",
       "caseId": "paid-discovery-no-build",
       "downside": false,
-      "sha256": "fd62ca37c56aaef204f33c837e2318a0bb416cb36db59c4f105e846b774f27d5"
+      "sha256": "0c6876dd575fd7d26df7a3925247b35752afc206613d95e6b3519024a2a8eb3f"
     },
     "paid-discovery-no-build-downside-bridge": {
       "id": "paid-discovery-no-build-downside-bridge",
@@ -449,7 +449,7 @@
       "type": "waterfall",
       "caseId": "paid-discovery-no-build",
       "downside": true,
-      "sha256": "4c6b6ddd2995fe6a6e6d4985d3370c45c77d570cb51d090f1c01cedbdf357808"
+      "sha256": "8111e0b391bee27dd1c65441b8c2eb2764af66820f0655ab34b65811f3beb0b7"
     },
     "recurring-assurance-base-bridge": {
       "id": "recurring-assurance-base-bridge",
@@ -458,7 +458,7 @@
       "type": "waterfall",
       "caseId": "recurring-assurance",
       "downside": false,
-      "sha256": "5913dd66419a4a809dd5d5f845ec84084979836db9cdb406ce1e080597360493"
+      "sha256": "e134b63a395bf35baf261a1b321199af8f0b4c47cf2713d9c26fd84d252b3eae"
     },
     "recurring-assurance-downside-bridge": {
       "id": "recurring-assurance-downside-bridge",
@@ -467,7 +467,7 @@
       "type": "waterfall",
       "caseId": "recurring-assurance",
       "downside": true,
-      "sha256": "8d0bbc96612cee0e923b747e9a2d98fb7663900bbb45b14316dba5d1fcd5029a"
+      "sha256": "c29237dc5f7984568eca4f11a4ccaca65240aa88e7cb4a6f3c0367063ff018fe"
     },
     "maintained-skills-base-bridge": {
       "id": "maintained-skills-base-bridge",
@@ -476,7 +476,7 @@
       "type": "waterfall",
       "caseId": "maintained-skills",
       "downside": false,
-      "sha256": "c887bfd2959da002c214f9ac2cfe208026799891895c73161db0cd986877e982"
+      "sha256": "af75a2f10e08ad3eb0c0912e850295cc077006ebf0f191eada0a4e3658c2f04c"
     },
     "maintained-skills-downside-bridge": {
       "id": "maintained-skills-downside-bridge",
@@ -485,7 +485,7 @@
       "type": "waterfall",
       "caseId": "maintained-skills",
       "downside": true,
-      "sha256": "f1cdccbff6a0a5387ea95831482ef4c2f4a9e0acb99be1ca666bac71e15f4175"
+      "sha256": "1218a75bad18c54c7fedfd5ddd04f5d81b3799e220c9f1f39b9f92719b433c41"
     },
     "software-subscription-base-bridge": {
       "id": "software-subscription-base-bridge",
@@ -494,7 +494,7 @@
       "type": "waterfall",
       "caseId": "software-subscription",
       "downside": false,
-      "sha256": "65ef3803053443b30ab2966fec5637c05829329311a877fd4916a786a3674408"
+      "sha256": "2170a4b0e3f4c7dc95b0652688e2e30b1d1357f389eeeef784ec04b5fd3737a1"
     },
     "software-subscription-downside-bridge": {
       "id": "software-subscription-downside-bridge",
@@ -503,7 +503,7 @@
       "type": "waterfall",
       "caseId": "software-subscription",
       "downside": true,
-      "sha256": "f13dbc90d15b2e282aaec02a540e2e353040b2f8414dad26dff4f7416a4c29b4"
+      "sha256": "6336cf7a3a069616d1c10a5cde471ce6b1123571e8005e18cb4b91663ac0d044"
     },
     "employer-workshop-base-bridge": {
       "id": "employer-workshop-base-bridge",
@@ -512,7 +512,7 @@
       "type": "waterfall",
       "caseId": "employer-workshop",
       "downside": false,
-      "sha256": "62d4315683f3eefd43e2bbf6ccbb3daff9eb06538ca121260e41b72b184e5ef4"
+      "sha256": "a24c6f6bc465d642d6117d20c167535ac3eaf0df223beee9be77377928656604"
     },
     "employer-workshop-downside-bridge": {
       "id": "employer-workshop-downside-bridge",
@@ -521,7 +521,7 @@
       "type": "waterfall",
       "caseId": "employer-workshop",
       "downside": true,
-      "sha256": "337cada30663e3125cac94adad65c8849ed6188ce6ee6f624b00f1e35033b471"
+      "sha256": "12a784447462b0dd511c61d96cd607dc9ed8c219145bd1b641af474ce426815a"
     },
     "shared-component-base-bridge": {
       "id": "shared-component-base-bridge",
@@ -530,7 +530,7 @@
       "type": "waterfall",
       "caseId": "shared-component",
       "downside": false,
-      "sha256": "518cd82da8d8446205f25d663ad3ba1233fa709208687852f2365b848051579a"
+      "sha256": "1ff5003b5446a4265be133698566bf9e5b92eef38a2975276c069d5791a7e67c"
     },
     "shared-component-downside-bridge": {
       "id": "shared-component-downside-bridge",
@@ -539,7 +539,7 @@
       "type": "waterfall",
       "caseId": "shared-component",
       "downside": true,
-      "sha256": "579bc46892f8601d9fd97d200083e1d5c8cf1485da287d50f309bfdce481d514"
+      "sha256": "ad9e15206f52bf5d826baf41bc2ce77a930df39f6118023f71d5d196866e027f"
     },
     "outcome-hybrid-base-bridge": {
       "id": "outcome-hybrid-base-bridge",
@@ -548,7 +548,7 @@
       "type": "waterfall",
       "caseId": "outcome-hybrid",
       "downside": false,
-      "sha256": "92984d4bdfedcaa80a5b0a423738e8f45e34a824c50de9dc574729d2fab272b4"
+      "sha256": "554a3ac75b6bfd0fbfdde22eccef5062c929f744f27468193c9deba3461e0cfd"
     },
     "outcome-hybrid-downside-bridge": {
       "id": "outcome-hybrid-downside-bridge",
@@ -557,7 +557,7 @@
       "type": "waterfall",
       "caseId": "outcome-hybrid",
       "downside": true,
-      "sha256": "050724ed5e8c78c1d0ab40d991eae192535ef2730769a49880524daf2d78d01c"
+      "sha256": "4bd9efb8ef2e3a2e9fc56f96266c442111f1db12321830461945fb12bf95733f"
     },
     "referral-only-base-bridge": {
       "id": "referral-only-base-bridge",
@@ -566,7 +566,7 @@
       "type": "waterfall",
       "caseId": "referral-only",
       "downside": false,
-      "sha256": "f97a2f507545428bf739d2f48c7030e36dcc940093b4cf6c8c42de599a659aca"
+      "sha256": "9de117126a36473f774be17abc92c5f931b46440175f6f35164b37874399b066"
     },
     "referral-only-downside-bridge": {
       "id": "referral-only-downside-bridge",
@@ -575,7 +575,7 @@
       "type": "waterfall",
       "caseId": "referral-only",
       "downside": true,
-      "sha256": "d49e948b5c18aa8f00be208f3557662adb0d534b37f898f0e913d193c64247eb"
+      "sha256": "f6da443338866c957234cc3cd290b2640237c08fef86cc3a7e737ac7590a959c"
     },
     "vendor-operating-costs-base-bridge": {
       "id": "vendor-operating-costs-base-bridge",
@@ -584,7 +584,7 @@
       "type": "waterfall",
       "caseId": "vendor-operating-costs",
       "downside": false,
-      "sha256": "9b4829f80c9514b72582c725a7573a5fb279619d6437f5bd792815baf6839cba"
+      "sha256": "81f4e129c6906cdf29a0d6d4fa6e06a6f09d9be405c66648f8bafff8fb5feeaa"
     },
     "vendor-operating-costs-downside-bridge": {
       "id": "vendor-operating-costs-downside-bridge",
@@ -593,7 +593,7 @@
       "type": "waterfall",
       "caseId": "vendor-operating-costs",
       "downside": true,
-      "sha256": "765ce72a7f0f3837eb18ff3ed3117e3f347e852c3115e026a3e42572208942eb"
+      "sha256": "8e3524d9cccb5f02d6f73970c9f4a7ea29ba52946213d9612de3031b859eb4e8"
     },
     "relationship-led-project-allocation": {
       "id": "relationship-led-project-allocation",
@@ -602,7 +602,7 @@
       "type": "sankey",
       "caseId": "relationship-led-project",
       "downside": false,
-      "sha256": "e86dbff077f38f081eb175d766906a4dd25478fb8068c8db5736c361b579e379"
+      "sha256": "9c45259c21ac026d1debca84c758b583e935b55d5119429ac98280a11e16da2a"
     }
   }
 }

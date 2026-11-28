@@ -15,16 +15,16 @@ const { title, description, noindex = false } = Astro.props;
   <Footer />
 </Layout>
 <style is:global>
-  .directory { width: min(66rem, calc(100% - 2.5rem)); margin: auto; padding: 3rem 0 5rem; color: #fafafa; }
-  .directory h1 { font: 700 clamp(2rem, 5vw, 4rem)/1.12 'Syne', sans-serif; letter-spacing: -0.03em; overflow-wrap: anywhere; margin: 1.5rem 0; }
-  .directory h2 { font: 700 clamp(1.5rem, 3vw, 2rem)/1.25 'Syne', sans-serif; margin: 3rem 0 1rem; }
-  .directory h3 { font: 600 1.15rem/1.4 'Syne', sans-serif; margin: 0; }
+  .directory { width: min(66rem, calc(100% - 2.5rem)); margin: auto; padding: 3rem 0 5rem; color: var(--intent-text); }
+  .directory h1 { font: 900 clamp(2rem, 5vw, 4rem)/1.12 var(--font-display); letter-spacing: -0.03em; overflow-wrap: anywhere; margin: 1.5rem 0; }
+  .directory h2 { font: 900 clamp(1.5rem, 3vw, 2rem)/1.25 var(--font-display); margin: 3rem 0 1rem; }
+  .directory h3 { font: 600 1.15rem/1.4 var(--font-display); margin: 0; }
   .directory p { color: var(--intent-muted); line-height: 1.75; max-width: 70ch; }
   .directory .intro { font-size: 1.1rem; }
-  .directory a { color: #fb923c; text-underline-offset: 0.25em; overflow-wrap: anywhere; }
-  .directory a:focus-visible { outline: 2px solid #fb923c; outline-offset: 4px; }
+  .directory a { color: var(--intent-text); text-decoration-color: var(--intent-stripe); text-decoration-thickness: 3px; text-underline-offset: 0.25em; overflow-wrap: anywhere; }
+  .directory a:focus-visible { outline: 3px solid var(--intent-sign); outline-offset: 4px; }
   .directory .directory-list { list-style: none; padding: 0; }
-  .directory-list > li { border-bottom: 1px solid #3f3f46; padding: 1.2rem 0; }
+  .directory-list > li { border-bottom: 1px solid var(--intent-line); padding: 1.2rem 0; }
   .directory-list a { display: inline-flex; align-items: center; min-height: 44px; }
   .directory .route-action { display: inline-flex; align-items: center; min-height: 44px; margin: 1rem 1.5rem 0 0; }
 </style>
