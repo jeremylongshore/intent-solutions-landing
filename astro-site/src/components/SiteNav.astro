@@ -12,7 +12,7 @@ const primary = [
 <nav class="site-nav" aria-label="Primary navigation">
   <div class="nav-inner">
     <a href="/" class="brand" aria-label="Intent Solutions home">
-      <img src="/images/logo-mark.png" alt="" width="28" height="28" aria-hidden="true" />
+      <img src="/images/logo-mark-black.png" alt="" width="30" height="30" aria-hidden="true" />
       <span>Intent <strong>Solutions</strong></span>
     </a>
 
@@ -54,8 +54,8 @@ const primary = [
     position: sticky;
     top: 0;
     z-index: 50;
-    background: var(--intent-ink);
-    border-bottom: 1px solid var(--intent-line-soft);
+    background: var(--intent-stripe);
+    border-bottom: 2px solid var(--intent-sign);
   }
 
   .nav-inner {
@@ -75,8 +75,9 @@ const primary = [
     min-height: 44px;
     color: var(--intent-text);
     font-family: var(--font-display);
-    font-size: 1rem;
-    font-weight: 700;
+    font-size: 1.08rem;
+    font-weight: 900;
+    letter-spacing: -0.01em;
     text-decoration: none;
   }
 
@@ -94,9 +95,9 @@ const primary = [
     display: inline-flex;
     align-items: center;
     min-height: 44px;
-    color: var(--intent-muted);
-    font-size: 0.84rem;
-    font-weight: 400;
+    color: var(--intent-sign);
+    font-size: 0.9rem;
+    font-weight: 600;
     text-decoration: none;
     white-space: nowrap;
     transition: color 160ms ease;
@@ -105,10 +106,10 @@ const primary = [
   .desktop-links > a:hover,
   .desktop-links > a:focus-visible,
   .mobile-panel > a:hover,
-  .mobile-panel > a:focus-visible { color: var(--intent-text); }
+  .mobile-panel > a:focus-visible { color: var(--intent-sign); text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 0.3em; }
 
   .desktop-links > a:not(.nav-cta):active,
-  .mobile-panel > a:not(.nav-cta):active { color: var(--intent-accent-hi); }
+  .mobile-panel > a:not(.nav-cta):active { color: var(--intent-accent-lo); }
 
   .nav-cta {
     display: inline-flex;
@@ -117,9 +118,9 @@ const primary = [
     min-height: 44px;
     padding: 0.62rem 0.95rem;
     background: var(--intent-accent);
-    border-radius: 0.45rem;
-    color: var(--intent-ink);
-    font-size: 0.8rem;
+    border-radius: 0.4rem;
+    color: var(--intent-stripe);
+    font-size: 0.86rem;
     font-weight: 800;
     text-decoration: none;
     white-space: nowrap;
@@ -136,10 +137,10 @@ const primary = [
     min-width: 44px;
     min-height: 44px;
     padding: 0.8rem 0;
-    color: var(--intent-text-2);
+    color: var(--intent-sign);
     cursor: pointer;
-    font-size: 0.82rem;
-    font-weight: 700;
+    font-size: 0.9rem;
+    font-weight: 800;
     list-style: none;
     text-align: right;
   }
@@ -157,16 +158,16 @@ const primary = [
     max-width: 18rem;
     margin-left: auto;
     padding: 1.2rem;
-    background: var(--intent-surface);
+    background: var(--intent-ink);
     color: var(--intent-text);
-    border: 1px solid var(--intent-line);
-    border-radius: 0.75rem;
+    border: 2px solid var(--intent-sign);
+    border-radius: 0.6rem;
   }
 
   .mobile-panel .nav-cta { margin-top: 0.25rem; text-align: center; }
 
   a:focus-visible,
-  summary:focus-visible { outline: 2px solid var(--intent-accent-hi); outline-offset: 3px; }
+  summary:focus-visible { outline: 3px solid var(--intent-sign); outline-offset: 3px; }
 
   @media (max-width: 850px) {
     .desktop-links { display: none; }

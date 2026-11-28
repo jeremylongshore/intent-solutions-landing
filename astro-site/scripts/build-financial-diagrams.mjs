@@ -26,17 +26,17 @@ const money = value => new Intl.NumberFormat('en-US', {
   style:'currency', currency:'USD', maximumFractionDigits:2,
 }).format(value);
 const css = `
-*{box-sizing:border-box}body{margin:0;background:#0f1117;color:#eef3f8;font:16px/1.6 Inter,system-ui,Arial,sans-serif}
-main{max-width:1440px;margin:auto;padding:32px 32px 64px;min-width:0}a{color:#ffad70;text-underline-offset:3px}
-a:focus-visible,summary:focus-visible,.diagram-container:focus-visible{outline:3px solid #ffad70;outline-offset:5px}
+*{box-sizing:border-box}body{margin:0;background:#141312;color:#f4f3f2;font:16px/1.6 Inter,system-ui,Arial,sans-serif}
+main{max-width:1440px;margin:auto;padding:32px 32px 64px;min-width:0}a{color:#ffd670;text-underline-offset:3px}
+a:focus-visible,summary:focus-visible,.diagram-container:focus-visible{outline:3px solid #ffd670;outline-offset:5px}
 h1{font:600 clamp(28px,3vw,40px)/1.2 Syne,Inter,system-ui,sans-serif;margin:12px 0 20px;max-width:1120px}
-h2{font-size:24px;line-height:1.3;margin:32px 0 16px}p{max-width:1120px;color:#b0bdcb}.kicker{font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+h2{font-size:24px;line-height:1.3;margin:32px 0 16px}p{max-width:1120px;color:#c1bfba}.kicker{font-size:12px;letter-spacing:.12em;text-transform:uppercase}
 nav.artifact-links{display:flex;gap:24px;flex-wrap:wrap}figure{margin:32px 0}.diagram-container{width:100%;max-width:100%;min-width:0;overflow-x:auto;overscroll-behavior-x:contain}
-.economics-chart{width:100%;min-width:1280px;display:block}figcaption{margin-top:16px;color:#b0bdcb;max-width:1120px}
-.scope{border-left:3px solid #ffad70;padding-left:20px}.table-scroll{overflow-x:auto;max-width:100%}table{border-collapse:collapse;min-width:720px;width:100%;text-align:left;font-size:16px}
-caption{text-align:left;margin:16px 0;color:#b0bdcb}th,td{padding:16px 12px;border-bottom:1px solid #343e49;vertical-align:top}th{font-weight:600}td{color:#b0bdcb}
-thead th{color:#ffad70}footer{margin-top:40px;border-top:1px solid #343e49;padding-top:20px;color:#b0bdcb}.figure-note{font-size:14px}
-@media print{body{background:#0f1117;print-color-adjust:exact;-webkit-print-color-adjust:exact}main{padding:0;max-width:none}.is-estate-bar,.artifact-links{display:none!important}.diagram-container,.table-scroll{overflow:visible}.economics-chart{min-width:0;width:100%}figure{break-inside:avoid}table{min-width:0}h1{font-size:26px}h2{break-after:avoid}a{color:inherit}thead{display:table-header-group}tr{break-inside:avoid}@page{size:A4 landscape;margin:12mm}}
+.economics-chart{width:100%;min-width:1280px;display:block}figcaption{margin-top:16px;color:#c1bfba;max-width:1120px}
+.scope{border-left:3px solid #ffd670;padding-left:20px}.table-scroll{overflow-x:auto;max-width:100%}table{border-collapse:collapse;min-width:720px;width:100%;text-align:left;font-size:16px}
+caption{text-align:left;margin:16px 0;color:#c1bfba}th,td{padding:16px 12px;border-bottom:1px solid #42403b;vertical-align:top}th{font-weight:600}td{color:#c1bfba}
+thead th{color:#ffd670}footer{margin-top:40px;border-top:1px solid #42403b;padding-top:20px;color:#c1bfba}.figure-note{font-size:14px}
+@media print{body{background:#141312;print-color-adjust:exact;-webkit-print-color-adjust:exact}main{padding:0;max-width:none}.is-estate-bar,.artifact-links{display:none!important}.diagram-container,.table-scroll{overflow:visible}.economics-chart{min-width:0;width:100%}figure{break-inside:avoid}table{min-width:0}h1{font-size:26px}h2{break-after:avoid}a{color:inherit}thead{display:table-header-group}tr{break-inside:avoid}@page{size:A4 landscape;margin:12mm}}
 `;
 const records=[];
 function table(headers, rows, caption) {
@@ -47,7 +47,7 @@ function save({id,title,type,svg,caption,chapter='network-economy',detail='',cas
   if(!svg.includes(`data-chart-id="${id}"`)) throw new Error(`Chart id does not match artifact id: ${id}`);
   const url=`/financial-diagrams/${id}.html`;
   const html=`<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,follow"><meta name="theme-color" content="#0f1117"><title>${esc(title)} | Intent Solutions Financial Teaching</title><style>${estateStyle}\n${css}</style></head>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,follow"><meta name="theme-color" content="#141312"><title>${esc(title)} | Intent Solutions Financial Teaching</title><style>${estateStyle}\n${css}</style></head>
 <body>${estateBar}
 <main><header><p class="kicker">Intent Solutions · Financial Teaching · V1</p><h1>${esc(title)}</h1><nav class="artifact-links" aria-label="Return to the financial atlas"><a href="https://intentsolutions.io/estate/economics/${esc(chapter)}/">Read this chapter</a><a href="https://intentsolutions.io/estate/economics/">Explore the financial atlas</a></nav></header>
 <figure><div class="diagram-container" tabindex="0" role="region" aria-label="${esc(title)}. Scroll horizontally for the full diagram.">${svg}</div><figcaption>${esc(caption)}</figcaption></figure>

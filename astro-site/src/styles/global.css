@@ -3,8 +3,8 @@
  * finish review (fresh context, 2026-10-24): fix, 5 findings, all 5 acted on; proof blocks now separated by rule, surface step and space
  * structural: printed, not rebuilt (42 nav shape, 58 screen budget, F15 column gaps)
  * built: the project · redesign: polish · v2.0.0 */
-/* Hallmark · waive 38iii · the orange line sits once on the page, in the hero h1 · brand contract 084 keeps the orange signature line of the master homepage */
-/* Hallmark · waive 1 · Inter, Syne and a mono face are declared · brand contract 084 sets Inter as the master site body face and every homepage head sets Syne through --font-display */
+/* Road-stripe identity (owner 2026-11-28, brand contract 000-docs/084 amendment): stripe yellow on sign black,
+ * white page, Overpass (Highway Gothic lineage) for display and body. The logo shape is fixed; only its colour changes. */
 /* Hallmark · reworded "Intent Outreach" to "Intent Outreach, a real estate demo" · 54 named the eyebrow "Featured demo · Real estate" */
 /* Hallmark · dismissed F20 · the specimen note spans the full row on purpose, a caption under both columns, not a third card */
 /* Hallmark · dismissed 41 · --intent-ink and --intent-surface are two panel surfaces and never carry text on each other */
@@ -13,79 +13,86 @@
 /* Hallmark · answered F15 · the column gaps belong to the kept layout of each homepage section; a polish prints them and a full redesign would settle them */
 @import "tailwindcss";
 
-/* Intent Solutions IO - Charcoal Slate Theme (Theme 7).
+/* Intent Solutions IO - Road-stripe theme.
    Every colour and font on the master site goes through a token below
-   (brand contract 000-docs/084: Syne display, Inter body, charcoal, orange). */
+   (brand contract 000-docs/084, 2026-11-28 amendment: Overpass, white page,
+   sign black type, stripe yellow signage). Token names are historical: "ink"
+   is the page ground and "text" the type, whatever their values. */
 :root {
-  /* Surfaces, darkest first */
-  --intent-ink-deep: #070708;
-  --intent-ink: #09090b;          /* zinc-950, page base */
-  --intent-surface: #101012;      /* raised panel */
-  --intent-surface-2: #18181b;    /* zinc-900 */
-  --intent-surface-3: #27272a;    /* zinc-800 */
-  --intent-ink-98: rgb(9 9 11 / 0.98);
-  --intent-ink-94: rgb(9 9 11 / 0.94);
-  --intent-ink-88: rgb(9 9 11 / 0.88);
-  --intent-ink-62: rgb(9 9 11 / 0.62);
-  --intent-ink-56: rgb(9 9 11 / 0.56);
+  /* Signage */
+  --intent-stripe: #FFC21A;       /* road-stripe yellow: header, hero, closing block, highlights */
+  --intent-stripe-hi: #FFD24D;
+  --intent-sign: #151513;         /* sign black */
+
+  /* Surfaces, page ground first */
+  --intent-ink-deep: #F6F4EE;
+  --intent-ink: #FFFFFF;          /* page ground */
+  --intent-surface: #F6F4EE;      /* concrete panel */
+  --intent-surface-2: #EFECE4;
+  --intent-surface-3: #E4E0D5;
+  --intent-ink-98: rgb(255 255 255 / 0.98);
+  --intent-ink-94: rgb(255 255 255 / 0.94);
+  --intent-ink-88: rgb(255 255 255 / 0.88);
+  --intent-ink-62: rgb(255 255 255 / 0.62);
+  --intent-ink-56: rgb(255 255 255 / 0.56);
 
   /* Lines */
-  --intent-line: #3f3f46;         /* zinc-700 */
-  --intent-line-strong: #52525b;  /* zinc-600 */
-  --intent-line-soft: rgb(63 63 70 / 0.5);
-  --intent-line-faint: rgb(39 39 42 / 0.2);
-  --intent-shadow: rgb(0 0 0 / 0.1);
+  --intent-line: #D3CEC2;         /* quiet divider */
+  --intent-line-strong: #151513;  /* sign rule */
+  --intent-line-soft: rgb(21 21 19 / 0.16);
+  --intent-line-faint: rgb(21 21 19 / 0.08);
+  --intent-shadow: rgb(21 21 19 / 0.08);
 
   /* Text */
-  --intent-text: #fafafa;         /* zinc-50 */
-  --intent-text-100: #f4f4f5;
-  --intent-text-200: #e4e4e7;
-  --intent-text-2: #d4d4d8;       /* zinc-300 */
-  --intent-muted: #a1a1aa;        /* zinc-400 */
-  --intent-faint: #71717a;        /* zinc-500 */
+  --intent-text: #151513;
+  --intent-text-100: #1C1C1A;
+  --intent-text-200: #262624;
+  --intent-text-2: #302F2B;
+  --intent-muted: #4F4D46;        /* 8.5:1 on white, 5.2:1 on stripe yellow */
+  --intent-faint: #6B685F;        /* 5.6:1 on white */
 
-  /* Brand orange */
-  --intent-brand: #ff7a1a;        /* wordmark and the hero signature line */
-  --intent-accent: #f97316;       /* orange-500, primary action */
-  --intent-accent-hi: #fb923c;    /* orange-400, hover, focus, links */
-  --intent-accent-lo: #ea580c;    /* orange-600, pressed */
-  --intent-accent-soft: rgb(249 115 22 / 0.55);
-  --intent-accent-ghost: rgb(249 115 22 / 0.16);
+  /* Action: sign black buttons with stripe-yellow labels */
+  --intent-brand: #151513;        /* wordmark */
+  --intent-accent: #151513;       /* primary action ground */
+  --intent-accent-hi: #000000;    /* hover, focus ring */
+  --intent-accent-lo: #33322E;    /* pressed */
+  --intent-accent-soft: rgb(21 21 19 / 0.45);
+  --intent-accent-ghost: rgb(255 194 26 / 0.55);
 
-  --color-feedback-error: 248 113 113;
+  --color-feedback-error: 179 38 30;
 
   /* Faces */
-  --font-body: 'Inter', system-ui, sans-serif;
-  --font-display: 'Syne', system-ui, sans-serif;
+  --font-body: 'Overpass', system-ui, sans-serif;
+  --font-display: 'Overpass', system-ui, sans-serif;
 }
 
 input::placeholder, textarea::placeholder { color: var(--intent-muted); opacity: 1; }
 input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 2px solid var(--intent-accent-hi) !important; outline-offset: 3px; }
 input, select, textarea { caret-color: var(--intent-accent-hi); min-width: 0; }
 html { scroll-padding-top: 5rem; }
-::selection { background: var(--intent-accent-hi); color: var(--intent-ink); }
+::selection { background: var(--intent-stripe); color: var(--intent-sign); }
 
 @layer theme {
   :root {
-    /* Charcoal Slate channel tokens, for rgb(var(--x) / alpha) */
-    --color-bg-primary: 24 24 27; /* #18181B - zinc-900 */
-    --color-bg-secondary: 39 39 42; /* #27272A - zinc-800 */
-    --color-bg-tertiary: 9 9 11; /* #09090B - zinc-950 */
+    /* Channel tokens, for rgb(var(--x) / alpha) */
+    --color-bg-primary: 255 255 255;
+    --color-bg-secondary: 239 236 228;
+    --color-bg-tertiary: 246 244 238;
 
-    --color-text-primary: 250 250 250; /* #FAFAFA - zinc-50 */
-    --color-text-secondary: 161 161 170; /* #A1A1AA - zinc-400 */
-    --color-text-tertiary: 212 212 216; /* #D4D4D8 - zinc-300 */
+    --color-text-primary: 21 21 19;
+    --color-text-secondary: 79 77 70;
+    --color-text-tertiary: 48 47 43;
 
-    --color-accent-primary: 228 228 231; /* #E4E4E7 - zinc-200 */
-    --color-accent-hover: 250 250 250; /* #FAFAFA - zinc-50 */
+    --color-accent-primary: 21 21 19;
+    --color-accent-hover: 0 0 0;
 
-    /* Ember orange accent — primary interactive color (brand poster palette) */
-    --color-orange: 249 115 22;       /* #F97316 - orange-500 */
-    --color-orange-hover: 251 146 60; /* #FB923C - orange-400 (brightens on dark) */
-    --color-orange-dim: 234 88 12;    /* #EA580C - orange-600 */
+    /* Historical names: these now carry the sign-black action colour */
+    --color-orange: 21 21 19;
+    --color-orange-hover: 0 0 0;
+    --color-orange-dim: 51 50 46;
 
-    --color-border: 39 39 42; /* #27272A - zinc-800 */
-    --color-border-subtle: 161 161 170 / 0.2; /* zinc-400 20% */
+    --color-border: 211 206 194;
+    --color-border-subtle: 21 21 19 / 0.16;
   }
 }
 
@@ -95,12 +102,14 @@ html { scroll-padding-top: 5rem; }
   }
 
   body {
-    @apply bg-zinc-900 text-zinc-50 antialiased;
+    background: var(--intent-ink);
+    color: var(--intent-text);
+    -webkit-font-smoothing: antialiased;
     font-family: var(--font-body);
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-body);
+    font-family: var(--font-display);
     text-wrap: balance;
   }
 
@@ -147,7 +156,7 @@ html { scroll-padding-top: 5rem; }
   /* Button styles */
   .btn-primary {
     background: rgb(var(--color-orange));
-    color: var(--intent-ink);
+    color: var(--intent-stripe);
     padding: 0.875rem 1.75rem;
     border-radius: 0.5rem;
     font-weight: 700;

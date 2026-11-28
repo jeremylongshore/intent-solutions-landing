@@ -48,3 +48,38 @@ Owner screenshots exposed content clipped inside the contact section despite a p
 The owner selected `support@intentsolutions.io` as the public company contact address, including form recovery, no-JavaScript instructions, About/Support, editorial contact links and the footer. This changes the public destination only; it does not reconfigure the mail service or form delivery. Mobile footer navigation uses native, collapsed Network/Company disclosures with 44px link targets; desktop navigation remains expanded.
 
 Verification must measure contact descendants and text against their containers, not only document width. Exercise footer disclosures with the keyboard, form failure/retry and persistent confirmation with intercepted requests, no-JavaScript email access, and 200% text scaling. Track the audit and deployment in `bd_000-projects-v62z`.
+
+## Road-stripe identity amendment — 2026-11-28
+
+The owner replaced the charcoal, orange, Syne and Inter presentation of the master site. The
+reason: the old palette was Tailwind's stock zinc-950 with orange-500, set in two of the most
+common AI-builder faces, so the company looked like every generated site. Decided in session:
+direction B ("Signage"), chosen from two mockups; "it doesn't need to stay black".
+
+What now holds for the master site (`intentsolutions.io`):
+
+| Element | Contract |
+|---|---|
+| Ground | White page (`#FFFFFF`); concrete panels (`#F6F4EE`) for quiet sections |
+| Signage | Stripe yellow (`#FFC21A`) for the header bar, homepage and About hero, closing block and highlights |
+| Type and rules | Sign black (`#151513`); 2 px black rules on cards and section breaks |
+| Primary action | Sign-black button with a stripe-yellow label (11.3:1) |
+| Faces | Overpass for display and body (open-source, Highway Gothic lineage); one family, weights 400 to 900 |
+| Motif | The lane line: a black band with stripe-yellow dashes under the hero and over the closing block |
+| Footer | The one black sign on the page, with the yellow mark; its tokens are re-pointed locally |
+| Never | Yellow text on white (1.6:1); gradients, glows, cosmic or video backdrops |
+
+**The logo is the logo.** The arrow-and-nodes mark keeps its exact shape; only its colour changes:
+black on yellow (`/images/logo-mark-black.png`), yellow on black (`/images/logo-mark-yellow.png`,
+favicon). Never redraw, replace or reshape it.
+
+**The site is about the team.** Team photos share one treatment: subject cut out, stripe-yellow
+ground, the same square head-and-shoulders crop (`/images/team/stripe/`). Source cutouts are kept
+outside the repository so a new ground can be rendered without re-cutting.
+
+Supersedes, for the master site only: the "Preserve" line's orange, Syne, Inter and charcoal. The
+owned mark, direct operating language, shared responsibilities table and review boundaries stand.
+JeremyLongshore.com keeps its own founder expression. The operating and financial atlas diagrams
+stay dark figure panels, recoloured from navy and peach to warm neutrals and stripe yellow at their
+sources (`src/diagrams/`, `scripts/build-financial-diagrams.mjs`); the generated atlas pages follow.
+The shared estate bar (000-docs/088) keeps its own palette until it is rolled estate-wide.

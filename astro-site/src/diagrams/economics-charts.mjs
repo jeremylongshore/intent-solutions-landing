@@ -5,7 +5,7 @@
  * Values are caller-supplied educational assumptions, never prices or private arrangements.
  * All dollar arithmetic is performed in integer cents; chart geometry uses a shared scale.
  */
-const C = Object.freeze({ paper:'#0f1117', surface:'#161b22', ink:'#eef3f8', muted:'#b0bdcb', soft:'#a7b4c2', rule:'#343e49', accent:'#ffad70' });
+const C = Object.freeze({ paper:'#141312', surface:'#1d1d1b', ink:'#f4f3f2', muted:'#c1bfba', soft:'#b8b6b1', rule:'#42403b', accent:'#ffd670' });
 const SANS = 'Inter,system-ui,Arial,sans-serif';
 const MONO = '"Geist Mono",ui-monospace,monospace';
 const DISPLAY = 'Syne,Inter,system-ui,sans-serif';
@@ -246,5 +246,5 @@ export function networkEconomy({id,title='Independent capability. Accountable de
   body+=label(864,332,'SCOPED FEES',112)+label(416,524,'PERMITTED IP',120)+label(640,612,'REINVEST',96);
   body+=rect(204,376,112,20,{fill:C.paper})+text(212,390,'NEW CAPABILITY',12,C.muted,'start',{'font-family':MONO});
   for(const n of nodes){const focal=n.id==='operating';body+=rect(n.x,n.y,n.w,n.h,{fill:C.surface,stroke:focal?C.accent:C.muted,'stroke-width':focal?2:1,rx:6,'data-node-id':n.id});body+=text(n.x+20,n.y+30,n.title,16,focal?C.accent:C.ink,'start',{'font-weight':600});n.lines.forEach((s,i)=>{body+=text(n.x+20,n.y+62+i*24,s,16,C.muted);});}
-  return shell(id,title,'A proposed network brings autonomous relationships, capability and assets into customer-specific delivery agreements, pays distinct agreed contributions, and reinvests permitted evidence and intellectual property into future capability without automatic shares or ownership of unrelated business.',body,{eyebrow:'PROPOSED NETWORK ECONOMY',subtitle:'Independent participants coordinate around real work. Agreements make responsibility and earnings specific.',footnote:'Orange = contracted money obligations. Dashed = potential reuse or agreed reinvestment, not a universal levy.'});
+  return shell(id,title,'A proposed network brings autonomous relationships, capability and assets into customer-specific delivery agreements, pays distinct agreed contributions, and reinvests permitted evidence and intellectual property into future capability without automatic shares or ownership of unrelated business.',body,{eyebrow:'PROPOSED NETWORK ECONOMY',subtitle:'Independent participants coordinate around real work. Agreements make responsibility and earnings specific.',footnote:'Yellow = contracted money obligations. Dashed = potential reuse or agreed reinvestment, not a universal levy.'});
 }

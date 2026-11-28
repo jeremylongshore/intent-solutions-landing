@@ -67,7 +67,6 @@ const method = [
 
   <main>
     <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-wash" aria-hidden="true"></div>
       <div class="wrap hero-grid">
         <div class="hero-copy">
           <h1 id="hero-title">Bring us the work <span>you need AI to do.</span></h1>
@@ -124,6 +123,7 @@ const method = [
         </aside>
       </div>
     </section>
+    <div class="lane-line" aria-hidden="true"><span></span></div>
 
     <section id="proof" class="proof section" aria-labelledby="proof-title">
       <div class="wrap">
@@ -222,7 +222,7 @@ const method = [
         <ul class="team-people" aria-label="Intent Solutions team">
           {team.map((member) => (
             <li class="team-person">
-              <img src={member.photo} alt={`${member.name}, ${member.title}`} width="58" height="58" loading="lazy" decoding="async" />
+              <img src={member.photo} alt={`${member.name}, ${member.title}`} width="72" height="72" loading="lazy" decoding="async" />
               <div>
                 <p class="team-person-name">{member.name}</p>
                 <p class="team-person-role">{member.title}</p>
@@ -235,10 +235,7 @@ const method = [
     </section>
 
     <section class="closing" aria-labelledby="closing-title">
-      <video autoplay muted loop playsinline poster="/images/hero-fallback.jpg" aria-hidden="true">
-        <source src="/astronaut.mp4" type="video/mp4" />
-      </video>
-      <div class="closing-overlay" aria-hidden="true"></div>
+      <div class="lane-line" aria-hidden="true"><span></span></div>
       <div class="wrap closing-copy">
         <h2 id="closing-title">What work needs to change?</h2>
         <p>Tell us what your team does today and what a useful result would look like. We review the fit before proposing the work.</p>
@@ -272,24 +269,19 @@ const method = [
   }
   .partner-credential img { display: block; width: min(100%, 17rem); height: auto; flex-shrink: 0; }
   .partner-credential p { flex: 1 1 12rem; margin: 0; color: var(--intent-muted); font-size: 0.82rem; line-height: 1.65; }
-  .map-title { margin: 0 0 1.4rem; font-family: var(--font-display); font-size: 1.4rem; color: var(--intent-text); line-height: 1.25; }
+  .map-title { margin: 0 0 1.4rem; font-family: var(--font-display); font-size: 1.5rem; font-weight: 900; color: var(--intent-text); line-height: 1.2; }
   .section { padding: clamp(3.5rem, 6vw, 5.5rem) 0; }
 
   .hero {
     position: relative;
     padding: clamp(3rem, 5vw, 5rem) 0;
     overflow: hidden;
-    background: var(--intent-ink) url('/images/cosmic-bg-dark.jpg') center / cover no-repeat;
-    border-bottom: 1px solid var(--intent-line-soft);
+    background: var(--intent-stripe);
   }
 
-  .hero-wash {
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(90deg, var(--intent-ink-98) 0%, var(--intent-ink-88) 43%, var(--intent-ink-56) 100%),
-      linear-gradient(0deg, var(--intent-ink) 0%, transparent 26%);
-  }
+  /* The road centre line: a black band with stripe-yellow dashes, under the hero and over the close. */
+  .lane-line { display: flex; align-items: center; height: 1.6rem; background: var(--intent-sign); overflow: hidden; }
+  .lane-line span { flex: 1; height: 0.35rem; background: repeating-linear-gradient(90deg, var(--intent-stripe) 0 4rem, transparent 4rem 7rem); }
 
   .hero-grid {
     position: relative;
@@ -306,15 +298,15 @@ const method = [
     margin: 1rem 0 1.5rem;
     color: var(--intent-text);
     font-family: var(--font-display);
-    font-size: clamp(2.5rem, 4.5vw, 4rem);
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    line-height: 1.08;
+    font-size: clamp(2.6rem, 5.4vw, 5rem);
+    font-weight: 900;
+    letter-spacing: -0.035em;
+    line-height: 0.98;
     overflow-wrap: break-word;
     text-wrap: balance;
   }
 
-  .hero-copy h1 span { color: var(--intent-brand); }
+  .hero-copy h1 span { color: inherit; }
 
   .hero-lede {
     max-width: 42rem;
@@ -344,14 +336,14 @@ const method = [
   .button:hover,
   .button:focus-visible { transform: translateY(-1px); }
   .button:active { transform: translateY(0); }
-  .button.primary { background: var(--intent-accent); color: var(--intent-ink); }
+  .button.primary { background: var(--intent-accent); color: var(--intent-stripe); }
   .button.primary:hover,
   .button.primary:focus-visible { background: var(--intent-accent-hi); }
   .button.primary:active { background: var(--intent-accent-lo); }
-  .button.secondary { background: transparent; border-color: var(--intent-line-strong); color: var(--intent-text); }
+  .button.secondary { background: transparent; border: 2px solid var(--intent-sign); color: var(--intent-text); }
   .button.secondary:hover,
-  .button.secondary:focus-visible { border-color: var(--intent-accent-hi); }
-  .button.secondary:active { background: var(--intent-surface-2); }
+  .button.secondary:focus-visible { background: var(--intent-sign); color: var(--intent-stripe); }
+  .button.secondary:active { background: var(--intent-accent-lo); color: var(--intent-stripe); }
 
   .quiet-link {
     min-height: 44px;
@@ -376,9 +368,9 @@ const method = [
   .map-node {
     display: block;
     padding: 1rem;
-    background: var(--intent-surface-2);
-    border: 1px solid var(--intent-line);
-    border-radius: 0.7rem;
+    background: var(--intent-ink);
+    border: 2px solid var(--intent-sign);
+    border-radius: 0.6rem;
     color: inherit;
     text-decoration: none;
     transition: border-color 160ms ease, transform 160ms ease;
@@ -387,14 +379,14 @@ const method = [
   a.map-node:hover,
   a.map-node:focus-visible { border-color: var(--intent-accent-hi); transform: translateY(-2px); }
   a.map-node:active { transform: translateY(0); }
-  .map-parent { border-color: var(--intent-accent-soft); }
-  .map-node strong { display: block; color: var(--intent-text); font-family: var(--font-display); font-size: 1rem; }
-  .map-node p { margin: 0.3rem 0 0; color: var(--intent-muted); font-size: 0.78rem; line-height: 1.5; }
+  .map-parent { box-shadow: 0.35rem 0.35rem 0 var(--intent-sign); }
+  .map-node strong { display: block; color: var(--intent-text); font-family: var(--font-display); font-size: 1.05rem; font-weight: 900; }
+  .map-node p { margin: 0.3rem 0 0; color: var(--intent-muted); font-size: 0.84rem; line-height: 1.5; }
 
   .map-connector { display: flex; justify-content: center; height: 1.5rem; }
-  .map-connector span { width: 1px; background: var(--intent-line-strong); }
+  .map-connector span { width: 2px; background: var(--intent-sign); }
   .map-pair { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0.75rem; }
-  .map-separate { margin-top: 1.3rem; padding-top: 1.1rem; border-top: 1px dashed var(--intent-line-strong); }
+  .map-separate { margin-top: 1.3rem; padding-top: 1.1rem; border-top: 2px dashed var(--intent-sign); }
 
   .section-head { max-width: 47rem; margin: 0 auto 3rem; text-align: center; }
   .section-head.left { margin-left: 0; text-align: left; }
@@ -406,16 +398,16 @@ const method = [
     margin: 0.8rem 0 1rem;
     color: var(--intent-text);
     font-family: var(--font-display);
-    font-size: clamp(2rem, 4.5vw, 3.5rem);
-    font-weight: 800;
+    font-size: clamp(2.1rem, 4.6vw, 3.6rem);
+    font-weight: 900;
     letter-spacing: -0.035em;
-    line-height: 1.08;
+    line-height: 1;
   }
   .section-head > p:last-child { color: var(--intent-muted); font-size: 1rem; line-height: 1.7; }
 
   .proof { background: var(--intent-ink); }
-  .proof-specimen { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2rem; padding: clamp(1.25rem, 3vw, 2.5rem); margin-bottom: 2.5rem; border: 1px solid var(--intent-line-strong); background: var(--intent-surface); }
-  .proof-specimen h3 { margin: 0 0 1rem; font-family: var(--font-display); color: var(--intent-text); font-size: clamp(1.3rem, 2.2vw, 1.8rem); line-height: 1.25; }
+  .proof-specimen { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2rem; padding: clamp(1.25rem, 3vw, 2.5rem); margin-bottom: 2.5rem; border: 2px solid var(--intent-sign); border-radius: 0.6rem; background: var(--intent-ink); }
+  .proof-specimen h3 { margin: 0 0 1rem; font-family: var(--font-display); color: var(--intent-text); font-size: clamp(1.4rem, 2.4vw, 2rem); font-weight: 900; letter-spacing: -0.02em; line-height: 1.1; }
   .proof-specimen p { color: var(--intent-muted); line-height: 1.7; text-wrap: pretty; }
   .proof-specimen dl { margin: 0; min-width: 0; }
   .proof-specimen dl > div { padding: 0.8rem 0; border-bottom: 1px solid var(--intent-line); }
@@ -429,8 +421,8 @@ const method = [
   .proof-intro { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr); align-items: end; gap: 4rem; margin-bottom: 3rem; }
   .proof-intro .section-head { margin-bottom: 0; }
   .proof-intro > p { margin: 0 0 0.35rem; color: var(--intent-muted); line-height: 1.75; }
-  .featured-demo { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 2rem; padding: clamp(1.25rem, 3vw, 2rem); margin: 3.5rem 0; background: var(--intent-surface-2); border-radius: 0.7rem; }
-  .featured-demo h3 { margin: 0 0 0.5rem; color: var(--intent-text); font-family: var(--font-display); font-size: 1.6rem; }
+  .featured-demo { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 2rem; padding: clamp(1.25rem, 3vw, 2rem); margin: 3.5rem 0; background: var(--intent-surface); border: 2px solid var(--intent-sign); border-radius: 0.6rem; }
+  .featured-demo h3 { margin: 0 0 0.5rem; color: var(--intent-text); font-family: var(--font-display); font-size: 1.7rem; font-weight: 900; letter-spacing: -0.02em; }
   .featured-demo p { color: var(--intent-text-2); line-height: 1.7; max-width: 65ch; }
   .featured-demo .demo-boundary { color: var(--intent-muted); font-size: 0.85rem; }
   .demo-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 1rem; }
@@ -452,36 +444,36 @@ const method = [
   .receipt:active { background: var(--intent-surface-3); }
   .receipt:nth-child(odd) { border-right: 1px solid var(--intent-line); }
   .receipt:nth-child(-n + 2) { border-bottom: 1px solid var(--intent-line); }
-  .receipt h3 { max-width: 28rem; margin: 0 0 0.7rem; color: var(--intent-text); font-family: var(--font-display); font-size: 1.25rem; }
+  .receipt h3 { max-width: 28rem; margin: 0 0 0.7rem; color: var(--intent-text); font-family: var(--font-display); font-size: 1.35rem; font-weight: 800; }
   .receipt p { max-width: 30rem; margin: 0 0 1.4rem; color: var(--intent-muted); font-size: 0.88rem; line-height: 1.65; }
-  .receipt strong { color: var(--intent-accent-hi); font-size: 0.8rem; }
+  .receipt strong { color: var(--intent-text); font-size: 0.86rem; text-decoration: underline; text-decoration-color: var(--intent-stripe); text-decoration-thickness: 3px; text-underline-offset: 0.3em; }
   .field-note-link { margin: 1.5rem 0 0; color: var(--intent-muted); font-size: 0.82rem; text-align: right; }
   .field-note-link a { color: var(--intent-text-2); text-decoration: underline; text-decoration-color: var(--intent-line-strong); text-underline-offset: 0.25em; }
   .field-note-link a:hover,
   .field-note-link a:focus-visible { color: var(--intent-accent-hi); }
 
-  .method { background: var(--intent-surface); border-top: 1px solid var(--intent-line-soft); border-bottom: 1px solid var(--intent-line-soft); }
+  .method { background: var(--intent-surface); border-top: 2px solid var(--intent-sign); border-bottom: 2px solid var(--intent-sign); }
   .method-grid { display: grid; grid-template-columns: minmax(17rem, 0.8fr) minmax(0, 1.2fr); gap: clamp(3rem, 8vw, 8rem); }
   .method-head { position: sticky; top: 8rem; align-self: start; }
   .method-head h2 { font-size: clamp(2rem, 3.4vw, 2.8rem); }
   .method-list { margin: 0; padding: 0; list-style: none; }
-  .method-list li { display: grid; grid-template-columns: 3rem minmax(0, 1fr); gap: 1.2rem; padding: 1.6rem 0; border-top: 1px solid var(--intent-line); }
-  .method-list li:last-child { border-bottom: 1px solid var(--intent-line); }
-  .method-list > li > span { color: var(--intent-faint); font-size: 1.2rem; line-height: 1.5; font-variant-numeric: tabular-nums; }
-  .method-list h3 { margin: 0 0 0.45rem; color: var(--intent-text); font-family: var(--font-display); font-size: 1.2rem; }
+  .method-list li { display: grid; grid-template-columns: 3rem minmax(0, 1fr); gap: 1.2rem; padding: 1.6rem 0; border-top: 2px solid var(--intent-sign); }
+  .method-list li:last-child { border-bottom: 2px solid var(--intent-sign); }
+  .method-list > li > span { color: var(--intent-text); font-size: 1.3rem; font-weight: 900; line-height: 1.4; font-variant-numeric: tabular-nums; }
+  .method-list h3 { margin: 0 0 0.45rem; color: var(--intent-text); font-family: var(--font-display); font-size: 1.5rem; font-weight: 900; }
   .method-list p { margin: 0; color: var(--intent-muted); font-size: 0.9rem; line-height: 1.7; }
 
   .team { background: var(--intent-ink); }
   .team-grid { display: grid; grid-template-columns: 10rem minmax(0, 45rem); align-items: start; justify-content: center; gap: clamp(2rem, 6vw, 5rem); }
-  .team-mark { margin: 0; color: var(--intent-accent-ghost); font-family: var(--font-display); font-size: clamp(5rem, 12vw, 9rem); font-weight: 800; letter-spacing: -0.08em; line-height: 0.8; }
+  .team .team-grid > .team-mark { margin: 0; color: var(--intent-stripe); -webkit-text-stroke: 2px var(--intent-sign); font-family: var(--font-display); font-size: clamp(5rem, 12vw, 9rem); font-weight: 900; letter-spacing: -0.08em; line-height: 0.8; }
   .team h2 { font-size: clamp(1.8rem, 3.4vw, 2.8rem); }
   .team div > p { color: var(--intent-muted); line-height: 1.75; }
-  .team a { display: inline-flex; align-items: center; min-height: 44px; color: var(--intent-accent-hi); font-size: 0.84rem; font-weight: 700; text-decoration: underline; text-decoration-color: var(--intent-accent-soft); text-underline-offset: 0.25em; }
+  .team a { display: inline-flex; align-items: center; min-height: 44px; color: var(--intent-text); font-size: 0.92rem; font-weight: 800; text-decoration: underline; text-decoration-color: var(--intent-stripe); text-decoration-thickness: 3px; text-underline-offset: 0.3em; }
   .team a:hover,
-  .team a:focus-visible { color: var(--intent-text); }
+  .team a:focus-visible { text-decoration-color: var(--intent-sign); }
   .team-people { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1rem, 3vw, 2rem); margin: clamp(2.5rem, 5vw, 3.5rem) 0 0; padding: 0; list-style: none; }
-  .team-person { display: flex; align-items: center; gap: 1rem; min-width: 0; padding: 1.1rem 1.2rem; background: var(--intent-surface); border: 1px solid var(--intent-line); border-radius: 0.7rem; }
-  .team-person img { flex: 0 0 58px; width: 58px; height: 58px; border-radius: 50%; object-fit: cover; object-position: center 25%; filter: grayscale(1); }
+  .team-person { display: flex; align-items: center; gap: 1rem; min-width: 0; padding: 1rem 1.1rem; background: var(--intent-ink); border: 2px solid var(--intent-sign); border-radius: 0.6rem; }
+  .team-person img { flex: 0 0 72px; width: 72px; height: 72px; border-radius: 0.45rem; border: 2px solid var(--intent-sign); object-fit: cover; }
   .team-person > div { min-width: 0; }
   .team-people .team-person-name { margin: 0 0 0.2rem; color: var(--intent-text); font-family: var(--font-display); font-size: 0.95rem; font-weight: 700; line-height: 1.25; }
   .team-people .team-person-role { margin: 0; color: var(--intent-muted); font-size: 0.8rem; line-height: 1.4; }
@@ -489,14 +481,13 @@ const method = [
   @media (max-width: 880px) { .team-people { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   @media (max-width: 560px) { .team-people { grid-template-columns: minmax(0, 1fr); } }
 
-  .closing { position: relative; min-height: 37rem; display: grid; place-items: center; overflow: hidden; text-align: center; }
-  .closing video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-  .closing-overlay { position: absolute; inset: 0; background: var(--intent-ink-62); }
-  .closing-copy { position: relative; max-width: 52rem; z-index: 1; }
+  .closing { background: var(--intent-stripe); border-bottom: 2px solid var(--intent-sign); text-align: center; }
+  .closing-copy { max-width: 52rem; padding: clamp(3.5rem, 7vw, 6rem) 0; }
+  .closing h2 { font-size: clamp(2.4rem, 5.4vw, 4.4rem); }
   .closing-copy > p { max-width: 38rem; margin: 0 auto 2rem; color: var(--intent-text-2); line-height: 1.7; }
   .closing .actions { justify-content: center; }
 
-  a:focus-visible { outline: 2px solid var(--intent-accent-hi); outline-offset: 4px; }
+  a:focus-visible { outline: 3px solid var(--intent-sign); outline-offset: 4px; }
 
   @media (max-width: 880px) {
     .hero-grid,
@@ -530,8 +521,8 @@ const method = [
       left: 0;
       display: block;
       padding: 0.65rem 0.75rem max(0.65rem, env(safe-area-inset-bottom));
-      border-top: 1px solid var(--intent-line);
-      background: var(--intent-ink);
+      border-top: 2px solid var(--intent-sign);
+      background: var(--intent-stripe);
     }
     .mobile-outcome-action .button { width: 100%; }
   }
@@ -542,7 +533,5 @@ const method = [
     .map-node,
     .quiet-link,
     .receipt { transition: none; }
-    .closing video { display: none; }
-    .closing { background: var(--intent-surface-2) url('/images/hero-fallback.jpg') center / cover no-repeat; }
   }
 </style>

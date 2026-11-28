@@ -38,7 +38,7 @@ export default function Footer() {
       <div className="footer-grid">
         <div className="footer-brand">
           <a href="/" aria-label="Intent Solutions home">
-            <img src="/images/logo-mark.png" alt="" width="28" height="28" />
+            <img src="/images/logo-mark-yellow.png" alt="" width="30" height="30" />
             <span>Intent <strong>Solutions</strong></span>
           </a>
           <p>Applied AI engineering with a defined outcome, inspectable evidence, and knowledge your team can carry forward.</p>
@@ -79,9 +79,16 @@ export default function Footer() {
 
       <style>{`
         .site-footer {
+          /* The footer is the one black sign on the page: its tokens are re-pointed here only. */
+          --intent-text: #FFFFFF;
+          --intent-muted: #C9C6BC;
+          --intent-brand: #FFFFFF;
+          --intent-accent-hi: var(--intent-stripe);
+          --intent-line-soft: rgb(255 255 255 / 0.16);
           padding: 4.5rem 1.25rem 2rem;
-          background: var(--intent-ink-deep);
-          border-top: 1px solid var(--intent-line-soft);
+          background: var(--intent-sign);
+          color: var(--intent-text);
+          border-top: 2px solid var(--intent-sign);
         }
         .footer-grid {
           display: grid;
@@ -97,7 +104,7 @@ export default function Footer() {
           margin-bottom: 1rem;
           color: var(--intent-text);
           font-family: var(--font-display);
-          font-weight: 700;
+          font-weight: 900;
           text-decoration: none;
         }
         .footer-brand strong { color: var(--intent-brand); }
