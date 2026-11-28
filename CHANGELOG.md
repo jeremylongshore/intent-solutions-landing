@@ -1,3 +1,14 @@
+# Release v4.19.0
+
+**Release Date**: 2026-11-28
+
+## Changes since v4.18.1
+
+- chore: release v4.19.0 [skip ci] (497a5a0)
+- feat(brand): roll out the road-stripe identity across intentsolutions.io (#106) (6aa32ea)
+
+---
+
 # Release v4.18.1
 
 **Release Date**: 2026-11-26
